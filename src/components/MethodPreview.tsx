@@ -5,6 +5,12 @@ import { ArrowRight, History, Clock, Target } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import methodBanner from "@/assets/method-banner.jpg";
 
+// Credential logos
+import logoPul from "@/assets/logo-pul.png";
+import logoIcf from "@/assets/logo-icf.webp";
+import logoPenn from "@/assets/logo-penn.webp";
+import logoMinistero from "@/assets/logo-ministero.webp";
+
 const dimensions = [
   {
     icon: History,
@@ -22,8 +28,24 @@ const dimensions = [
     icon: Target,
     number: "3D",
     title: "Attrai il Futuro Desiderato",
-    description: "Senza la fuffa della legge d'attrazione, con strumenti scientificamente provati"
+    description: "Senza la fuffa della legge d'attrazione… ma con strumenti scientificamente provati"
   }
+];
+
+const credentials = [
+  { logo: logoPul, name: "Pontificia Università Lateranense" },
+  { logo: logoIcf, name: "International Coaching Federation" },
+  { logo: logoPenn, name: "University of Pennsylvania" },
+  { logo: logoMinistero, name: "Ministero della Salute" }
+];
+
+const credentialsList = [
+  "Laurea Magistrale in Scienze Religiose (PUL)",
+  "Master Universitario di 1° livello in Coaching Umanistico e PNL",
+  "Master internazionale in Life Coaching (ICF)",
+  "Specializzazione in Psicologia Positiva (Penn)",
+  "Facilitatore in Mindfulness (50 crediti ECM) Ministero della Salute",
+  "Master in Ipnosi"
 ];
 
 const MethodPreview = () => {
@@ -94,29 +116,47 @@ const MethodPreview = () => {
           ))}
         </div>
 
-        {/* Credentials */}
+        {/* Formazione Section */}
         <AnimatedSection delay={0.4}>
-          <div className="glass rounded-2xl p-6 md:p-8 mb-12">
-            <p className="text-center font-serif text-muted-foreground mb-6">
-              Il distillato di 13 anni di ricerche, decine di migliaia di euro investiti e 526 libri letti
+          <div className="glass rounded-2xl p-6 md:p-10 mb-12">
+            <h3 className="font-display text-2xl md:text-3xl text-center mb-4">
+              Formazione
+            </h3>
+            <p className="text-center font-serif text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Il Viaggio che farai attraverso questo Per–Corso esclusivo è il distillato di <span className="text-cyan">13 anni di ricerche sul campo</span>, 
+              decine di migliaia di euro investiti in corsi di formazione e <span className="text-cyan">526 libri letti</span>…
             </p>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm text-muted-foreground">
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-cyan" />
-                Laurea Magistrale in Scienze Religiose
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-cyan" />
-                Master ICF in Life Coaching
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-cyan" />
-                Psicologia Positiva (Penn)
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-cyan" />
-                Mindfulness Certificata ECM
-              </span>
+            
+            <p className="text-center font-serif text-foreground mb-6">Ho anche conseguito:</p>
+            
+            {/* Credentials list */}
+            <div className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto mb-10">
+              {credentialsList.map((credential, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-cyan shrink-0" />
+                  <span className="font-serif text-sm text-muted-foreground">{credential}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Credential logos */}
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+              {credentials.map((cred, index) => (
+                <motion.div
+                  key={index}
+                  className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center bg-white/90 rounded-xl p-3"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <img 
+                    src={cred.logo} 
+                    alt={cred.name} 
+                    className="w-full h-full object-contain"
+                  />
+                </motion.div>
+              ))}
             </div>
           </div>
         </AnimatedSection>
@@ -125,7 +165,7 @@ const MethodPreview = () => {
         <AnimatedSection className="text-center" delay={0.5}>
           <Button variant="hero" size="lg" asChild>
             <Link to="/metodo-efo">
-              Scopri il Metodo EFO®
+              Scopri di più
               <ArrowRight className="h-5 w-5" />
             </Link>
           </Button>

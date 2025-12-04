@@ -70,12 +70,21 @@ const HeroSection = () => {
 
         {/* Subheadline */}
         <motion.p 
-          className="font-serif text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="font-serif text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           Supera l'inquietudine con un nuovo approccio integrato tra antica saggezza e neuroscienze moderne
+        </motion.p>
+
+        <motion.p 
+          className="font-serif text-base text-cyan mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+        >
+          Continua a leggere… 👇🏻
         </motion.p>
 
         {/* CTA buttons */}
@@ -93,7 +102,7 @@ const HeroSection = () => {
           </Button>
           <Button variant="heroOutline" size="xl" asChild>
             <a href="#problema">
-              Scopri di più
+              Riempi il Vuoto
               <ArrowDown className="h-5 w-5" />
             </a>
           </Button>
@@ -128,7 +137,7 @@ const HeroSection = () => {
               animate={{ boxShadow: ["0 0 10px hsl(197 65% 70% / 0.3)", "0 0 20px hsl(197 65% 70% / 0.6)", "0 0 10px hsl(197 65% 70% / 0.3)"] }}
               transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
             />
-            <span>Risultati misurabili</span>
+            <span>526 libri letti</span>
           </div>
         </motion.div>
       </div>

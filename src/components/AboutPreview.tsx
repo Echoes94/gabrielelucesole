@@ -50,8 +50,8 @@ const AboutPreview = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <p className="font-display text-lg text-cyan">13+ anni</p>
-                <p className="text-xs text-muted-foreground">di ricerca sul campo</p>
+                <p className="font-display text-lg text-cyan">13 Anni</p>
+                <p className="text-xs text-muted-foreground">di ricerche sul campo</p>
               </motion.div>
             </div>
           </AnimatedSection>
@@ -59,25 +59,26 @@ const AboutPreview = () => {
           {/* Content */}
           <AnimatedSection direction="right" className="order-1 lg:order-2">
             <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6">
-              Non sei solo
+              Non sei solo! Ti capisco, ci sono passato anch'io…
             </span>
 
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-6">
-              Ti capisco,<br />
-              <span className="text-gradient">ci sono passato anch'io</span>
+              Piacere,<br />
+              <span className="text-gradient">Gabriele Lucesole</span>
+              <span className="block text-xl md:text-2xl mt-2 text-muted-foreground font-serif">Coach Professionista</span>
             </h2>
 
             <div className="space-y-4 mb-8">
-              <p className="font-serif text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Piacere, Gabriele Lucesole – Coach Professionista.</strong>
-              </p>
               <p className="font-serif text-muted-foreground leading-relaxed">
                 Soffrivo per il male che vedevo nel mondo. Mi sentivo solo e senza punti di riferimento. 
                 Ho fatto terra bruciata intorno a me e sono andato all in per cercare il senso della vita.
               </p>
               <p className="font-serif text-muted-foreground leading-relaxed">
-                Dopo 13 anni di ricerche sul campo, tutti i pezzi del puzzle si sono uniti nel 
-                <span className="text-cyan font-medium"> Metodo EFO – Essere Felici Ora.</span>
+                Dopo <span className="text-cyan font-medium">13 Anni di ricerche sul campo</span>: l'epifania!
+              </p>
+              <p className="font-serif text-foreground leading-relaxed text-lg">
+                🧩 Tutti i pezzi del puzzle si sono uniti nel 
+                <span className="text-cyan font-medium"> Metodo EFO – Essere Felici Ora</span>
               </p>
             </div>
 
@@ -86,11 +87,6 @@ const AboutPreview = () => {
                 <Link to="/chi-sono">
                   Leggi la mia storia
                   <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="heroOutline" asChild>
-                <Link to="/metodo-efo">
-                  Scopri il Metodo
                 </Link>
               </Button>
             </div>
