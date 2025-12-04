@@ -34,6 +34,9 @@ const Footer = () => {
               <Link to="/metodo-efo" className="text-sm text-muted-foreground hover:text-cyan transition-colors">
                 Metodo EFO®
               </Link>
+              <Link to="/blog" className="text-sm text-muted-foreground hover:text-cyan transition-colors">
+                Blog
+              </Link>
             </nav>
           </div>
 
