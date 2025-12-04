@@ -1,20 +1,35 @@
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const CTASection = () => {
   return (
     <section className="section-padding bg-gradient-to-b from-background via-card to-primary relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan/5 rounded-full blur-3xl" />
+        <motion.div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan/5 rounded-full blur-3xl"
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
       <div className="container-narrow relative z-10">
-        <div className="text-center">
+        <AnimatedSection className="text-center">
           {/* Icon */}
-          <div className="w-20 h-20 mx-auto mb-8 rounded-2xl bg-cyan/10 border border-cyan/30 flex items-center justify-center pulse-glow">
+          <motion.div 
+            className="w-20 h-20 mx-auto mb-8 rounded-2xl bg-cyan/10 border border-cyan/30 flex items-center justify-center"
+            animate={{ 
+              boxShadow: ["0 0 20px hsl(197 65% 70% / 0.2)", "0 0 40px hsl(197 65% 70% / 0.4)", "0 0 20px hsl(197 65% 70% / 0.2)"]
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
             <Mail className="h-10 w-10 text-cyan" />
-          </div>
+          </motion.div>
 
           {/* Content */}
           <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6">
@@ -32,19 +47,24 @@ const CTASection = () => {
           <p className="text-sm text-muted-foreground/60 mb-10">— Marcel Proust</p>
 
           {/* CTA button */}
-          <Button variant="hero" size="xl" className="group" asChild>
-            <a href="mailto:gabriele.lucesole@gmail.com">
-              <Mail className="h-5 w-5" />
-              Inizia la Tua Trasformazione
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </a>
-          </Button>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Button variant="hero" size="xl" className="group" asChild>
+              <a href="mailto:gabriele.lucesole@gmail.com">
+                <Mail className="h-5 w-5" />
+                Inizia la Tua Trasformazione
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Button>
+          </motion.div>
 
           {/* Trust note */}
           <p className="text-xs text-muted-foreground mt-6">
             Senza impegno • 30+ minuti di conversazione autentica
           </p>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
