@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
 
 const AboutPreview = () => {
@@ -12,11 +14,23 @@ const AboutPreview = () => {
       <div className="container-wide relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image */}
-          <div className="relative order-2 lg:order-1">
+          <AnimatedSection direction="left" className="relative order-2 lg:order-1">
             <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0">
               {/* Decorative frame */}
-              <div className="absolute -inset-4 border border-cyan/20 rounded-3xl" />
-              <div className="absolute -inset-8 border border-cyan/10 rounded-3xl" />
+              <motion.div 
+                className="absolute -inset-4 border border-cyan/20 rounded-3xl"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              />
+              <motion.div 
+                className="absolute -inset-8 border border-cyan/10 rounded-3xl"
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              />
               
               {/* Main image */}
               <div className="relative h-full rounded-2xl overflow-hidden glow-cyan">
@@ -29,15 +43,21 @@ const AboutPreview = () => {
               </div>
 
               {/* Badge */}
-              <div className="absolute -bottom-4 -right-4 lg:right-auto lg:-left-4 glass rounded-xl px-4 py-3">
+              <motion.div 
+                className="absolute -bottom-4 -right-4 lg:right-auto lg:-left-4 glass rounded-xl px-4 py-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
                 <p className="font-display text-lg text-cyan">13+ anni</p>
                 <p className="text-xs text-muted-foreground">di ricerca sul campo</p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Content */}
-          <div className="order-1 lg:order-2">
+          <AnimatedSection direction="right" className="order-1 lg:order-2">
             <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6">
               Non sei solo
             </span>
@@ -74,7 +94,7 @@ const AboutPreview = () => {
                 </Link>
               </Button>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>

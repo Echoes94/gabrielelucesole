@@ -1,5 +1,6 @@
 import { Compass, Mountain, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AnimatedSection from "./AnimatedSection";
 
 const problems = [
   {
@@ -36,7 +37,7 @@ const ProblemSection = () => {
     <section id="problema" className="section-padding bg-gradient-to-b from-background to-card">
       <div className="container-wide">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6">
             Ti riconosci?
           </span>
@@ -46,43 +47,46 @@ const ProblemSection = () => {
           <p className="font-serif text-muted-foreground max-w-xl mx-auto">
             Se ti riconosci in una di queste situazioni, sappi che non sei solo. Ci sono passato anch'io.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Problem cards */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {problems.map((problem, index) => (
-            <div
+            <AnimatedSection
               key={index}
-              className="gradient-border rounded-2xl p-6 md:p-8 bg-gradient-card card-shadow hover:scale-[1.02] transition-transform duration-300"
+              delay={index * 0.15}
+              className="h-full"
             >
-              <div className="w-14 h-14 rounded-xl bg-cyan/10 flex items-center justify-center mb-6">
-                <problem.icon className="h-7 w-7 text-cyan" />
+              <div className="gradient-border rounded-2xl p-6 md:p-8 bg-gradient-card card-shadow hover:scale-[1.02] transition-transform duration-300 h-full">
+                <div className="w-14 h-14 rounded-xl bg-cyan/10 flex items-center justify-center mb-6">
+                  <problem.icon className="h-7 w-7 text-cyan" />
+                </div>
+                <h3 className="font-display text-xl md:text-2xl mb-4 text-foreground">
+                  {problem.title}
+                </h3>
+                <ul className="space-y-3">
+                  {problem.items.map((item, itemIndex) => (
+                    <li key={itemIndex} className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan mt-2 shrink-0" />
+                      <span className="font-serif text-sm text-muted-foreground leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="font-display text-xl md:text-2xl mb-4 text-foreground">
-                {problem.title}
-              </h3>
-              <ul className="space-y-3">
-                {problem.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan mt-2 shrink-0" />
-                    <span className="font-serif text-sm text-muted-foreground leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center">
+        <AnimatedSection className="text-center" delay={0.4}>
           <Button variant="hero" size="lg" asChild>
             <a href="mailto:gabriele.lucesole@gmail.com">
               Fissa una Sessione Gratuita
             </a>
           </Button>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

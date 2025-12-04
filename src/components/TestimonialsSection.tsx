@@ -1,5 +1,7 @@
 import { Quote } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import AnimatedSection from "./AnimatedSection";
 
 const testimonials = [
   {
@@ -35,7 +37,7 @@ const TestimonialsSection = () => {
 
       <div className="container-wide relative z-10">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6">
             Testimonianze
           </span>
@@ -45,58 +47,65 @@ const TestimonialsSection = () => {
           <p className="font-serif text-muted-foreground max-w-xl mx-auto">
             Le parole di chi ha già iniziato il viaggio verso l'autorealizzazione
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Testimonials grid */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
-            <div
+            <AnimatedSection
               key={index}
-              className="relative gradient-border rounded-2xl p-6 md:p-8 bg-gradient-card group hover:scale-[1.02] transition-transform duration-300"
+              delay={index * 0.15}
+              className="h-full"
             >
-              {/* Quote icon */}
-              <div className="absolute -top-4 left-6 w-8 h-8 rounded-full bg-cyan flex items-center justify-center">
-                <Quote className="h-4 w-4 text-background" />
-              </div>
+              <motion.div
+                className="relative gradient-border rounded-2xl p-6 md:p-8 bg-gradient-card group h-full"
+                whileHover={{ scale: 1.02, y: -5 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Quote icon */}
+                <div className="absolute -top-4 left-6 w-8 h-8 rounded-full bg-cyan flex items-center justify-center">
+                  <Quote className="h-4 w-4 text-background" />
+                </div>
 
-              {/* Content */}
-              <div className="pt-4">
-                <p className="font-serif text-sm text-muted-foreground leading-relaxed mb-6 italic">
-                  "{testimonial.text}"
-                </p>
-
-                {/* Highlight */}
-                <div className="px-3 py-2 rounded-lg bg-cyan/10 border border-cyan/20 mb-6">
-                  <p className="text-xs text-cyan font-medium">
-                    {testimonial.highlight}
+                {/* Content */}
+                <div className="pt-4">
+                  <p className="font-serif text-sm text-muted-foreground leading-relaxed mb-6 italic">
+                    "{testimonial.text}"
                   </p>
-                </div>
 
-                {/* Author */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan to-accent flex items-center justify-center">
-                    <span className="font-display text-sm text-background">
-                      {testimonial.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                  {/* Highlight */}
+                  <div className="px-3 py-2 rounded-lg bg-cyan/10 border border-cyan/20 mb-6">
+                    <p className="text-xs text-cyan font-medium">
+                      {testimonial.highlight}
+                    </p>
                   </div>
-                  <div>
-                    <p className="font-display text-foreground">{testimonial.name}</p>
-                    <p className="text-xs text-muted-foreground">Coachee</p>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan to-accent flex items-center justify-center">
+                      <span className="font-display text-sm text-background">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-display text-foreground">{testimonial.name}</p>
+                      <p className="text-xs text-muted-foreground">Coachee</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatedSection>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center">
+        <AnimatedSection className="text-center" delay={0.4}>
           <Button variant="hero" size="lg" asChild>
             <a href="mailto:gabriele.lucesole@gmail.com">
               Inizia la Tua Trasformazione
             </a>
           </Button>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
