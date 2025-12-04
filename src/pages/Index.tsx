@@ -1,13 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from "react-helmet-async";
+import Layout from "@/components/Layout";
+import HeroSection from "@/components/HeroSection";
+import ProblemSection from "@/components/ProblemSection";
+import AboutPreview from "@/components/AboutPreview";
+import MethodPreview from "@/components/MethodPreview";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import CTASection from "@/components/CTASection";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <Helmet>
+        <title>Gabriele Lucesole | Coach Professionista - Metodo EFO®</title>
+        <meta 
+          name="description" 
+          content="Dalla crisi esistenziale all'autorealizzazione. Professional coaching con il Metodo EFO®: antica saggezza e neuroscienze per trasformare la tua vita." 
+        />
+        <meta name="keywords" content="life coaching, professional coaching, metodo EFO, autorealizzazione, mindfulness, Gabriele Lucesole" />
+        <link rel="canonical" href="https://gabrielelucesole.com" />
+      </Helmet>
+      
+      <Layout>
+        <HeroSection />
+        <ProblemSection />
+        <AboutPreview />
+        <MethodPreview />
+        <TestimonialsSection />
+        <CTASection />
+      </Layout>
+    </>
   );
 };
 
