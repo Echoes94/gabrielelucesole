@@ -484,12 +484,12 @@ const MetodoEFO = () => {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection className="text-center mb-8">
-              <p className="text-muted-foreground text-sm">Perché "EFO"?</p>
-              <h3 className="font-display text-2xl text-cyan">Le 3 Dimensioni della Trasformazione</h3>
+            <AnimatedSection className="text-center mb-6 md:mb-8">
+              <p className="text-muted-foreground text-xs md:text-sm">Perché "EFO"?</p>
+              <h3 className="font-display text-xl md:text-2xl text-cyan">Le 3 Dimensioni della Trasformazione</h3>
             </AnimatedSection>
 
-            <div className="space-y-8">
+            <div className="space-y-4 md:space-y-8">
               {[{
               icon: History,
               num: "1️⃣",
@@ -514,33 +514,32 @@ const MetodoEFO = () => {
               intro: "Non \"legge di attrazione\" magica. Ma visione chiara + valori autentici + azioni coerenti.",
               benefits: ["Ridefinire le priorità oltre la carriera (affetti, spiritualità, mission)", "Allineamento tra chi sei e cosa fai (no dissonanza cognitiva)", "Piano d'azione per trasformare la vita che \"dovresti\" vivere nella vita che vuoi vivere"],
               result: "Non rincorri più obiettivi altrui. Crei il tuo destino."
-            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.15}>
-                  <div className="gradient-border rounded-2xl p-8 bg-gradient-card">
-                    <div className="grid lg:grid-cols-3 gap-8 items-start">
+            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.1}>
+                  <div className="gradient-border rounded-xl p-4 md:p-8 bg-gradient-card">
+                    <div className="grid lg:grid-cols-3 gap-4 md:gap-8 items-start">
                       <div>
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-16 h-16 rounded-xl bg-cyan/10 flex items-center justify-center">
-                            <dim.icon className="h-8 w-8 text-cyan" />
+                        <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-cyan/10 flex items-center justify-center">
+                            <dim.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan" />
                           </div>
-                          
                         </div>
-                        <h3 className="font-display text-2xl mb-2">{dim.title}</h3>
-                        <p className="text-cyan text-sm mb-4">{dim.sub}</p>
-                        <p className="text-muted-foreground text-sm italic">{dim.intro}</p>
+                        <h3 className="font-display text-lg md:text-2xl mb-1.5 md:mb-2">{dim.title}</h3>
+                        <p className="text-cyan text-xs md:text-sm mb-3 md:mb-4">{dim.sub}</p>
+                        <p className="text-muted-foreground text-xs md:text-sm italic">{dim.intro}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground mb-4 font-medium">🔑 Per te significa:</p>
-                        <ul className="space-y-3">
-                          {dim.benefits.map((b, i) => <li key={i} className="flex items-start gap-3">
-                              <Zap className="h-4 w-4 text-cyan mt-0.5 shrink-0" />
-                              <span className="text-sm text-muted-foreground">{b}</span>
+                        <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 font-medium">Per te significa:</p>
+                        <ul className="space-y-2 md:space-y-3">
+                          {dim.benefits.map((b, i) => <li key={i} className="flex items-start gap-2 md:gap-3">
+                              <Zap className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" />
+                              <span className="text-xs md:text-sm text-muted-foreground">{b}</span>
                             </li>)}
                         </ul>
                       </div>
                       <div className="flex items-center h-full">
-                        <div className="p-4 rounded-xl bg-cyan/10 border border-cyan/20 w-full">
-                          <p className="text-sm text-foreground font-medium mb-1">✅ Risultato:</p>
-                          <p className="text-sm text-cyan">{dim.result}</p>
+                        <div className="p-3 md:p-4 rounded-xl bg-cyan/10 border border-cyan/20 w-full">
+                          <p className="text-xs md:text-sm text-foreground font-medium mb-1">Risultato:</p>
+                          <p className="text-xs md:text-sm text-cyan">{dim.result}</p>
                         </div>
                       </div>
                     </div>
@@ -553,29 +552,29 @@ const MetodoEFO = () => {
         {/* Roadmap - Gamified Levels */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-12">
-              <p className="text-muted-foreground uppercase tracking-wider text-sm mb-4">COME FUNZIONA: LA ROADMAP COMPLETA</p>
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                🗺️ La Tua Mappa di <span className="text-gradient">Trasformazione</span>
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">COME FUNZIONA: LA ROADMAP COMPLETA</p>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                La Tua Mappa di <span className="text-gradient">Trasformazione</span>
               </h2>
-              <p className="font-serif text-muted-foreground">
+              <p className="font-serif text-sm md:text-base text-muted-foreground">
                 Ogni fase è un livello da completare. Ogni livello sblocca nuove abilità e bonus esclusivi.
               </p>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.1}>
-                  <div className={`rounded-2xl p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? 'bg-gradient-card border border-cyan/30' : 'bg-card/50 border border-border/30'}`}>
-                    {level.dimension && <div className="mb-4 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+              {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.08}>
+                  <div className={`rounded-xl p-4 md:p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? 'bg-gradient-card border border-cyan/30' : 'bg-card/50 border border-border/30'}`}>
+                    {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
                         <span className="text-xs text-cyan font-medium">{level.dimension}</span>
                       </div>}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center ${level.unlocked ? 'bg-cyan/20' : 'bg-muted/20'}`}>
-                          {level.unlocked ? <Unlock className={`h-5 w-5 ${level.unlocked ? 'text-cyan' : 'text-muted-foreground'}`} /> : <Lock className="h-5 w-5 text-muted-foreground" />}
+                    <div className="flex items-center justify-between mb-3 md:mb-4">
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center ${level.unlocked ? 'bg-cyan/20' : 'bg-muted/20'}`}>
+                          {level.unlocked ? <Unlock className={`h-4 w-4 md:h-5 md:w-5 ${level.unlocked ? 'text-cyan' : 'text-muted-foreground'}`} /> : <Lock className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />}
                         </div>
                         <div>
-                          <span className={`font-display text-2xl ${level.unlocked ? 'text-cyan' : 'text-muted-foreground'}`}>
+                          <span className={`font-display text-xl md:text-2xl ${level.unlocked ? 'text-cyan' : 'text-muted-foreground'}`}>
                             LV {level.level}
                           </span>
                         </div>
@@ -583,60 +582,60 @@ const MetodoEFO = () => {
                       <span className="text-xs text-muted-foreground">{level.week}</span>
                     </div>
 
-                    <h3 className="font-display text-xl mb-1">{level.title}</h3>
-                    <p className="text-sm text-cyan mb-4">📍 {level.subtitle}</p>
+                    <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
+                    <p className="text-xs md:text-sm text-cyan mb-3 md:mb-4">{level.subtitle}</p>
 
                     <p className="text-xs text-muted-foreground mb-2">Cosa succede/faremo:</p>
-                    <ul className="space-y-2 mb-4">
-                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                    <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
+                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
                           <span className="w-1 h-1 rounded-full bg-cyan mt-1.5 shrink-0" />
                           {item}
                         </li>)}
                     </ul>
 
-                    <div className="space-y-2 pt-4 border-t border-border/50">
-                      <div className="flex items-start gap-2">
-                        <Gift className="h-4 w-4 text-cyan shrink-0 mt-0.5" />
+                    <div className="space-y-1.5 md:space-y-2 pt-3 md:pt-4 border-t border-border/50">
+                      <div className="flex items-start gap-1.5 md:gap-2">
+                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-cyan shrink-0 mt-0.5" />
                         <span className="text-xs text-muted-foreground">{level.badge}</span>
                       </div>
-                      <div className="flex flex-col gap-1">
-                        <span className="text-xs text-cyan">⏱️ {level.time}</span>
-                        {level.skill && <span className="text-xs text-emerald-400">💪 Nuova Abilità: "{level.skill}"</span>}
-                        {level.achievement && <span className="text-xs text-amber-400 text-right">🏆 "{level.achievement}"</span>}
+                      <div className="flex flex-col gap-0.5 md:gap-1">
+                        <span className="text-xs text-cyan">{level.time}</span>
+                        {level.skill && <span className="text-xs text-emerald-400">Nuova Abilità: "{level.skill}"</span>}
+                        {level.achievement && <span className="text-xs text-amber-400">"{level.achievement}"</span>}
                       </div>
                     </div>
                   </div>
                 </AnimatedSection>)}
 
               {/* Maestria Levels */}
-              {maestriaLevels.map((level, index) => <AnimatedSection key={`maestria-${index}`} delay={(roadmapLevels.length + index) * 0.1}>
-                  <div className="rounded-2xl p-6 h-full bg-gradient-to-br from-amber-950/30 to-card border border-amber-500/30 transition-transform duration-300 hover:-translate-y-1">
-                    <div className="mb-4 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block">
+              {maestriaLevels.map((level, index) => <AnimatedSection key={`maestria-${index}`} delay={(roadmapLevels.length + index) * 0.08}>
+                  <div className="rounded-xl p-4 md:p-6 h-full bg-gradient-to-br from-amber-950/30 to-card border border-amber-500/30 transition-transform duration-300 hover:-translate-y-1">
+                    <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block">
                       <span className="text-xs text-amber-400 font-medium">{level.dimension}</span>
                     </div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-full flex items-center justify-center bg-amber-500/20">
-                        <Sparkles className="h-5 w-5 text-amber-400" />
+                    <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-amber-500/20">
+                        <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
                       </div>
-                      <span className="font-display text-2xl text-amber-400">
-                        LV ∞ 🔐
+                      <span className="font-display text-xl md:text-2xl text-amber-400">
+                        LV ∞
                       </span>
                     </div>
 
-                    <h3 className="font-display text-xl mb-1 text-amber-400">MAESTRIA</h3>
-                    <p className="text-sm text-foreground mb-1">{level.title}</p>
-                    <p className="text-xs text-muted-foreground italic mb-4">{level.subtitle}</p>
+                    <h3 className="font-display text-lg md:text-xl mb-1 text-amber-400">MAESTRIA</h3>
+                    <p className="text-xs md:text-sm text-foreground mb-1">{level.title}</p>
+                    <p className="text-xs text-muted-foreground italic mb-3 md:mb-4">{level.subtitle}</p>
 
-                    <ul className="space-y-2 mb-4">
-                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                    <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
+                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
                           <span className="w-1 h-1 rounded-full bg-amber-400 mt-1.5 shrink-0" />
                           {item}
                         </li>)}
                     </ul>
 
-                    <div className="pt-4 border-t border-amber-500/30">
-                      <div className="flex items-start gap-2">
-                        <Gift className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+                    <div className="pt-3 md:pt-4 border-t border-amber-500/30">
+                      <div className="flex items-start gap-1.5 md:gap-2">
+                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-amber-400 shrink-0 mt-0.5" />
                         <span className="text-xs text-muted-foreground">{level.badge}</span>
                       </div>
                     </div>
@@ -645,23 +644,23 @@ const MetodoEFO = () => {
             </div>
 
             {/* Progress bar */}
-            <AnimatedSection className="max-w-2xl mx-auto mb-8">
-              <div className="glass rounded-xl p-6 border border-cyan/20">
-                <p className="text-sm text-muted-foreground mb-3">📊 IL TUO PROGRESSO</p>
+            <AnimatedSection className="max-w-2xl mx-auto mb-6 md:mb-8">
+              <div className="glass rounded-xl p-4 md:p-6 border border-cyan/20">
+                <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">IL TUO PROGRESSO</p>
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="flex-1 h-4 bg-muted/30 rounded-full overflow-hidden">
+                  <div className="flex-1 h-3 md:h-4 bg-muted/30 rounded-full overflow-hidden">
                     <div className="h-full w-1/6 bg-gradient-to-r from-cyan to-accent rounded-full" />
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground">Livello 0 → Inizia il Viaggio</p>
-                <p className="text-xs text-muted-foreground mt-2">
+                <p className="text-xs text-muted-foreground mt-1.5 md:mt-2">
                   Ogni settimana che completi, sali di livello. Ogni pratica che esegui, accumuli esperienza. Ogni insight che integri, sblocchi nuove possibilità.
                 </p>
               </div>
             </AnimatedSection>
 
             <AnimatedSection className="text-center">
-              <p className="font-display text-lg text-foreground">
+              <p className="font-display text-base md:text-lg text-foreground">
                 Non è un corso. Non è un percorso qualsiasi. È una <span className="text-cyan">quest di trasformazione esistenziale.</span>
               </p>
             </AnimatedSection>
@@ -672,34 +671,34 @@ const MetodoEFO = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection className="text-center">
-              <div className="glass rounded-2xl p-8 border border-border/50">
-                <p className="text-3xl mb-4">⏸️</p>
-                <h2 className="font-display text-2xl mb-6">PAUSA. Respira.</h2>
-                <div className="space-y-4 font-serif text-muted-foreground text-left max-w-2xl mx-auto">
+              <div className="glass rounded-xl p-5 md:p-8 border border-border/50">
+                <p className="text-2xl md:text-3xl mb-3 md:mb-4">⏸️</p>
+                <h2 className="font-display text-xl md:text-2xl mb-4 md:mb-6">PAUSA. Respira.</h2>
+                <div className="space-y-3 md:space-y-4 font-serif text-sm md:text-base text-muted-foreground text-left max-w-2xl mx-auto">
                   <p>Se sei arrivato fin qui, probabilmente la tua testa sta girando.</p>
-                  <p className="italic">"Sembra troppo bello per essere vero." "Funzionerà davvero per me?" "E se fosse l'ennesima delusione?"</p>
+                  <p className="italic text-xs md:text-sm">"Sembra troppo bello per essere vero." "Funzionerà davvero per me?" "E se fosse l'ennesima delusione?"</p>
                   <p className="font-display text-foreground">Voglio essere onesto con te:</p>
-                  <p>Non diventerai "illuminato" in 13 settimane. Non risolverai tutti i problemi della tua vita. Non smetterai magicamente di avere giorni difficili.</p>
+                  <p className="text-xs md:text-sm">Non diventerai "illuminato" in 13 settimane. Non risolverai tutti i problemi della tua vita. Non smetterai magicamente di avere giorni difficili.</p>
                   <p className="font-display text-foreground">Ma ecco cosa succederà davvero:</p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5 md:space-y-2">
                     <li className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-cyan mt-1 shrink-0" />
-                      <span>Imparerai a stare con te stesso senza fuggire.</span>
+                      <Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-1 shrink-0" />
+                      <span className="text-xs md:text-sm">Imparerai a stare con te stesso senza fuggire.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-cyan mt-1 shrink-0" />
-                      <span>Svilupperai strumenti concreti per superare lo stress invece di subirlo.</span>
+                      <Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-1 shrink-0" />
+                      <span className="text-xs md:text-sm">Svilupperai strumenti concreti per superare lo stress invece di subirlo.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-cyan mt-1 shrink-0" />
-                      <span>Ritroverai pezzi di te che avevi sepolto sotto le macerie della frenesia quotidiana.</span>
+                      <Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-1 shrink-0" />
+                      <span className="text-xs md:text-sm">Ritroverai pezzi di te che avevi sepolto sotto le macerie della frenesia quotidiana.</span>
                     </li>
                   </ul>
-                  <p className="text-cyan font-display text-center pt-4">
+                  <p className="text-cyan font-display text-center pt-3 md:pt-4 text-sm md:text-base">
                     Non ti prometto la perfezione. Ti offro la trasformazione.
                   </p>
-                  <p className="text-center">E la trasformazione, a differenza della perfezione, è reale.</p>
-                  <p className="text-center text-foreground mt-4">Ancora con me? Bene. Continuiamo.</p>
+                  <p className="text-center text-xs md:text-sm">E la trasformazione, a differenza della perfezione, è reale.</p>
+                  <p className="text-center text-foreground mt-3 md:mt-4 text-xs md:text-sm">Ancora con me? Bene. Continuiamo.</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -709,23 +708,23 @@ const MetodoEFO = () => {
         {/* What's included */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                💎 Cosa È <span className="text-gradient">Incluso</span> Nel Percorso
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                Cosa È <span className="text-gradient">Incluso</span> Nel Percorso
               </h2>
-              <p className="text-muted-foreground">Percorso Completo Metodo EFO® (13+ settimane)</p>
+              <p className="text-sm md:text-base text-muted-foreground">Percorso Completo Metodo EFO® (13+ settimane)</p>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
               <AnimatedSection>
-                <div className="glass rounded-2xl p-8 border border-cyan/20 h-full">
-                  <h3 className="font-display text-xl mb-6 flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-cyan" />
+                <div className="glass rounded-xl p-5 md:p-8 border border-cyan/20 h-full">
+                  <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-cyan" />
                     Il Percorso Include:
                   </h3>
-                  <ul className="space-y-3">
-                    {inclusions.map((item, index) => <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground">
-                        <Check className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
+                  <ul className="space-y-2 md:space-y-3">
+                    {inclusions.map((item, index) => <li key={index} className="flex items-start gap-2 md:gap-3 text-xs md:text-sm text-muted-foreground">
+                        <Check className="h-3 w-3 md:h-4 md:w-4 text-emerald-400 mt-0.5 shrink-0" />
                         {item}
                       </li>)}
                   </ul>
@@ -733,22 +732,22 @@ const MetodoEFO = () => {
               </AnimatedSection>
 
               <AnimatedSection delay={0.1}>
-                <div className="glass rounded-2xl p-8 border border-amber-500/20 h-full">
-                  <h3 className="font-display text-xl mb-6 flex items-center gap-2">
-                    <Gift className="h-5 w-5 text-amber-400" />
+                <div className="glass rounded-xl p-5 md:p-8 border border-amber-500/20 h-full">
+                  <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 flex items-center gap-2">
+                    <Gift className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
                     Bonus Inclusi:
                   </h3>
-                  <ul className="space-y-3 mb-6">
-                    {bonuses.map((item, index) => <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground">
-                        <Check className="h-4 w-4 text-amber-400 mt-0.5 shrink-0" />
+                  <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6">
+                    {bonuses.map((item, index) => <li key={index} className="flex items-start gap-2 md:gap-3 text-xs md:text-sm text-muted-foreground">
+                        <Check className="h-3 w-3 md:h-4 md:w-4 text-amber-400 mt-0.5 shrink-0" />
                         {item}
                       </li>)}
                   </ul>
 
-                  <div className="border-t border-amber-500/20 pt-6">
-                    <p className="text-sm text-amber-400 font-medium mb-3">COMING SOON (GRATIS solo per chi inizia ora):</p>
-                    <ul className="space-y-2">
-                      {comingSoon.map((item, index) => <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <div className="border-t border-amber-500/20 pt-4 md:pt-6">
+                    <p className="text-xs md:text-sm text-amber-400 font-medium mb-2 md:mb-3">COMING SOON (GRATIS solo per chi inizia ora):</p>
+                    <ul className="space-y-1.5 md:space-y-2">
+                      {comingSoon.map((item, index) => <li key={index} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
                           <span className="text-amber-400">📚</span>
                           <span>{item.name} <span className="text-amber-400">(valore {item.value})</span></span>
                         </li>)}
@@ -763,20 +762,20 @@ const MetodoEFO = () => {
         {/* Pricing & Urgency */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                💰 <span className="text-gradient">Investimento</span>
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                <span className="text-gradient">Investimento</span>
               </h2>
             </AnimatedSection>
 
             {/* Value breakdown */}
-            <AnimatedSection className="mb-8">
-              <div className="glass rounded-2xl p-8 border border-border/50">
-                <h3 className="font-display text-xl mb-6 text-center">Il Valore Reale:</h3>
-                <ul className="space-y-3 mb-6 text-sm text-muted-foreground">
+            <AnimatedSection className="mb-6 md:mb-8">
+              <div className="glass rounded-xl p-5 md:p-8 border border-border/50">
+                <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">Il Valore Reale:</h3>
+                <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6 text-xs md:text-sm text-muted-foreground">
                   <li>• Libri letti: 526x15€ = <span className="text-foreground">7.890,00 €</span></li>
                   <li>• Decine di migliaia di euro investiti in corsi (universitari e non) tra cui:
-                    <ul className="ml-6 mt-2 space-y-1">
+                    <ul className="ml-4 md:ml-6 mt-1.5 md:mt-2 space-y-0.5 md:space-y-1">
                       <li>- 2 master universitari</li>
                       <li>- 1 master internazionale (ICF) che mi ha diplomato Coach Professionista</li>
                       <li>- Psicologia Positiva presso University of Pennsylvania (Ivy League)</li>
@@ -787,149 +786,149 @@ const MetodoEFO = () => {
                   </li>
                   <li>• 10+ anni di ricerca ed esperienza sul campo — <span className="text-cyan">Che prezzo daresti a più di 10 anni di tempo?!</span></li>
                 </ul>
-                <p className="text-center text-muted-foreground">
+                <p className="text-center text-xs md:text-sm text-muted-foreground">
                   Risparmia tentativi ed errori che ho fatto io, 10+ anni di ricerca sul campo e decine di migliaia di euro grazie al Metodo EFO!
                 </p>
               </div>
             </AnimatedSection>
 
             <AnimatedSection>
-              <div className="gradient-border rounded-2xl p-8 bg-gradient-card mb-8">
-                <div className="text-center mb-8">
-                  <p className="text-muted-foreground mb-2">Vendere Metodo EFO a +10k€? Perché no… e invece…</p>
-                  <p className="text-muted-foreground">5 cifre? No! 4 cifre?! Nemmeno!</p>
-                  <p className="text-muted-foreground mt-4 mb-2">Prezzo Early Bird</p>
-                  <p className="font-display text-5xl text-foreground mb-2">
-                    <span className="text-muted-foreground line-through text-3xl mr-3">987€</span>
+              <div className="gradient-border rounded-xl p-5 md:p-8 bg-gradient-card mb-6 md:mb-8">
+                <div className="text-center mb-6 md:mb-8">
+                  <p className="text-xs md:text-sm text-muted-foreground mb-2">Vendere Metodo EFO a +10k€? Perché no… e invece…</p>
+                  <p className="text-xs md:text-sm text-muted-foreground">5 cifre? No! 4 cifre?! Nemmeno!</p>
+                  <p className="text-xs md:text-sm text-muted-foreground mt-3 md:mt-4 mb-2">Prezzo Early Bird</p>
+                  <p className="font-display text-4xl md:text-5xl text-foreground mb-2">
+                    <span className="text-muted-foreground line-through text-2xl md:text-3xl mr-2 md:mr-3">987€</span>
                     789€
                   </p>
-                  <p className="text-cyan text-sm">Con sconto doppio riservato a te!</p>
+                  <p className="text-cyan text-xs md:text-sm">Con sconto doppio riservato a te!</p>
                   <p className="text-xs text-muted-foreground mt-2">BONUS assurdi inclusi nel prezzo!</p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
-                  <div className="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/30">
-                    <p className="text-emerald-400 text-sm font-medium mb-1">✅ Sconto 10%</p>
+                <div className="grid grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">
+                  <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-emerald-950/30 border border-emerald-500/30">
+                    <p className="text-emerald-400 text-xs md:text-sm font-medium mb-0.5 md:mb-1">✅ Sconto 10%</p>
                     <p className="text-xs text-muted-foreground">In cambio di testimonianza sincera</p>
                   </div>
-                  <div className="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/30">
-                    <p className="text-emerald-400 text-sm font-medium mb-1">✅ Sconto "Men in Black"</p>
+                  <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-emerald-950/30 border border-emerald-500/30">
+                    <p className="text-emerald-400 text-xs md:text-sm font-medium mb-0.5 md:mb-1">✅ Sconto "Men in Black"</p>
                     <p className="text-xs text-muted-foreground">Disponibile per chi inizia ora!</p>
                   </div>
                 </div>
 
-                <p className="text-center text-sm text-muted-foreground">
+                <p className="text-center text-xs md:text-sm text-muted-foreground">
                   Solo <span className="text-cyan font-medium">789€</span> grazie allo sconto doppio! = <span className="text-cyan">60€/settimana</span>. Meno di una cena fuori.
                 </p>
               </div>
             </AnimatedSection>
 
             {/* Urgency */}
-            <AnimatedSection delay={0.2}>
-              <div className="rounded-2xl p-8 bg-red-950/30 border border-red-500/30 mb-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <AlertTriangle className="h-6 w-6 text-red-400" />
-                  <h3 className="font-display text-xl text-red-400">DISPONIBILITÀ LIMITATA</h3>
+            <AnimatedSection delay={0.15}>
+              <div className="rounded-xl p-5 md:p-8 bg-red-950/30 border border-red-500/30 mb-6 md:mb-8">
+                <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+                  <AlertTriangle className="h-5 w-5 md:h-6 md:w-6 text-red-400" />
+                  <h3 className="font-display text-lg md:text-xl text-red-400">DISPONIBILITÀ LIMITATA</h3>
                 </div>
 
-                <p className="text-muted-foreground mb-4">
+                <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
                   Perché posso seguire solo <span className="text-red-400 font-medium">3 nuovi coachee a trimestre</span>:
                 </p>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                   Non è una strategia di marketing. È una scelta di integrità professionale. Ogni percorso Metodo EFO® richiede:
                 </p>
-                <ul className="space-y-2 text-sm text-muted-foreground mb-6">
+                <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">
                   <li>✅ Sessioni personalizzate 1-to-1 (non standardizzate)</li>
                   <li>✅ Supporto WhatsApp 24/7 con risposta personale (non assistenti o bot)</li>
                   <li>✅ Revisione settimanale dei tuoi progressi</li>
                   <li>✅ Adattamento continuo del percorso alle tue esigenze</li>
                 </ul>
-                <p className="text-sm text-muted-foreground mb-6">
+                <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">
                   Seguire più di 3 persone contemporaneamente comprometterebbe la qualità che voglio garantire.
                 </p>
 
-                <p className="text-sm text-muted-foreground mb-4">📍 STATO ATTUALE TRIMESTRE:</p>
-                <div className="grid md:grid-cols-3 gap-4 mb-6">
-                  <div className="p-4 rounded-xl bg-background/30 text-center">
-                    <p className="text-red-400 font-display text-lg">Posto 1</p>
-                    <p className="text-xs text-muted-foreground">✅ OCCUPATO (settembre)</p>
+                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">STATO ATTUALE TRIMESTRE:</p>
+                <div className="grid grid-cols-3 gap-2 md:gap-4 mb-4 md:mb-6">
+                  <div className="p-2 md:p-4 rounded-lg md:rounded-xl bg-background/30 text-center">
+                    <p className="text-red-400 font-display text-sm md:text-lg">Posto 1</p>
+                    <p className="text-xs text-muted-foreground">OCCUPATO</p>
                   </div>
-                  <div className="p-4 rounded-xl bg-background/30 text-center">
-                    <p className="text-red-400 font-display text-lg">Posto 2</p>
-                    <p className="text-xs text-muted-foreground">✅ OCCUPATO (ottobre)</p>
+                  <div className="p-2 md:p-4 rounded-lg md:rounded-xl bg-background/30 text-center">
+                    <p className="text-red-400 font-display text-sm md:text-lg">Posto 2</p>
+                    <p className="text-xs text-muted-foreground">OCCUPATO</p>
                   </div>
-                  <div className="p-4 rounded-xl bg-emerald-950/50 border border-emerald-500/30 text-center">
-                    <p className="text-emerald-400 font-display text-lg">Posto 3</p>
-                    <p className="text-xs text-emerald-400">🟢 DISPONIBILE ← Questo posto potrebbe essere tuo</p>
+                  <div className="p-2 md:p-4 rounded-lg md:rounded-xl bg-emerald-950/50 border border-emerald-500/30 text-center">
+                    <p className="text-emerald-400 font-display text-sm md:text-lg">Posto 3</p>
+                    <p className="text-xs text-emerald-400">DISPONIBILE</p>
                   </div>
                 </div>
 
-                <p className="text-sm text-muted-foreground text-center">
-                  ⏰ Prossima disponibilità se questo posto viene occupato: <span className="text-red-400 font-medium">Gennaio 2026</span>
+                <p className="text-xs md:text-sm text-muted-foreground text-center">
+                  Prossima disponibilità se questo posto viene occupato: <span className="text-red-400 font-medium">Gennaio 2026</span>
                 </p>
               </div>
             </AnimatedSection>
 
             {/* Price increase */}
-            <AnimatedSection delay={0.3}>
-              <div className="rounded-2xl p-6 bg-amber-950/30 border border-amber-500/30 mb-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <TrendingUp className="h-5 w-5 text-amber-400" />
-                  <h4 className="font-display text-lg text-amber-400">AUMENTO PREZZO IMMINENTE</h4>
+            <AnimatedSection delay={0.2}>
+              <div className="rounded-xl p-4 md:p-6 bg-amber-950/30 border border-amber-500/30 mb-6 md:mb-8">
+                <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                  <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
+                  <h4 className="font-display text-base md:text-lg text-amber-400">AUMENTO PREZZO IMMINENTE</h4>
                 </div>
-                <p className="text-sm text-muted-foreground mb-2">
+                <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">
                   Il prezzo attuale (789€ con sconto doppio) è valido fino al <span className="text-amber-400 font-medium">31 dicembre 2025</span>.
                 </p>
-                <p className="text-sm text-muted-foreground mb-2">
+                <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">
                   <span className="font-medium">Perché aumenterà:</span> Da dicembre introdurrò nuovi contenuti…
                 </p>
-                <p className="text-sm text-muted-foreground mb-2">
+                <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">
                   Chi inizia ORA riceverà tutti gli aggiornamenti GRATIS (valore totale 1.085€).
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs md:text-sm text-muted-foreground">
                   Chi inizierà dopo, pagherà il nuovo prezzo: <span className="text-amber-400 font-medium">2072€</span>
                 </p>
-                <p className="text-lg text-amber-400 font-display text-center mt-4">
+                <p className="text-base md:text-lg text-amber-400 font-display text-center mt-3 md:mt-4">
                   Risparmia 1283€ e agisci ora!
                 </p>
               </div>
             </AnimatedSection>
 
             {/* Urgency summary */}
-            <AnimatedSection delay={0.4}>
-              <div className="glass rounded-2xl p-6 border border-cyan/20 mb-8">
-                <h4 className="font-display text-lg mb-4 text-center">⚡ RIEPILOGO URGENZA:</h4>
-                <ul className="space-y-2 text-sm text-center">
-                  <li className="text-red-400">🔴 Solo 1 posto disponibile questo trimestre</li>
-                  <li className="text-red-400">🔴 Prezzo aumenta tra pochi giorni</li>
-                  <li className="text-emerald-400">🟢 Bonus futuri inclusi GRATIS solo per chi inizia ora</li>
+            <AnimatedSection delay={0.25}>
+              <div className="glass rounded-xl p-4 md:p-6 border border-cyan/20 mb-6 md:mb-8">
+                <h4 className="font-display text-base md:text-lg mb-3 md:mb-4 text-center">RIEPILOGO URGENZA:</h4>
+                <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-center">
+                  <li className="text-red-400">Solo 1 posto disponibile questo trimestre</li>
+                  <li className="text-red-400">Prezzo aumenta tra pochi giorni</li>
+                  <li className="text-emerald-400">Bonus futuri inclusi GRATIS solo per chi inizia ora</li>
                 </ul>
-                <p className="text-center text-muted-foreground mt-4">
+                <p className="text-center text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">
                   La domanda non è "se" trasformarti. È <span className="text-cyan">"quando"</span>.
                 </p>
-                <p className="text-center text-muted-foreground">
+                <p className="text-center text-xs md:text-sm text-muted-foreground">
                   E "quando" potrebbe essere adesso, oppure tra 3 mesi (se trovi ancora posto).
                 </p>
               </div>
             </AnimatedSection>
 
             {/* Guarantee */}
-            <AnimatedSection delay={0.5}>
-              <div className="gradient-border rounded-2xl p-8 bg-gradient-card text-center">
-                <Shield className="h-12 w-12 text-cyan mx-auto mb-4" />
-                <h3 className="font-display text-2xl mb-4">Sessione Professional Coaching Gratuita</h3>
-                <p className="text-muted-foreground mb-4">Prima di investire, parliamo. Gratuitamente.</p>
-                <ul className="space-y-2 text-sm text-muted-foreground mb-6 text-left max-w-md mx-auto">
+            <AnimatedSection delay={0.3}>
+              <div className="gradient-border rounded-xl p-5 md:p-8 bg-gradient-card text-center">
+                <Shield className="h-10 w-10 md:h-12 md:w-12 text-cyan mx-auto mb-3 md:mb-4" />
+                <h3 className="font-display text-xl md:text-2xl mb-3 md:mb-4">Sessione Professional Coaching Gratuita</h3>
+                <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">Prima di investire, parliamo. Gratuitamente.</p>
+                <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground mb-4 md:mb-6 text-left max-w-md mx-auto">
                   <li>✅ 30+ minuti per conoscerci davvero</li>
                   <li>✅ Analisi del tuo gap trasformativo</li>
                   <li>✅ Presentazione del Metodo EFO® se e solo se potrebbe fare al caso tuo</li>
                   <li>✅ Zero pressione. Zero vendita. Solo chiarezza.</li>
                 </ul>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">
                   Se dopo la call gratuita decidi di non procedere: Avrai comunque guadagnato insight utili.
                 </p>
                 <div>
-                  <Button variant="hero" size="xl" asChild>
+                  <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
                       Fissa Sessione Gratuita
@@ -944,41 +943,41 @@ const MetodoEFO = () => {
         {/* Comparison Tables */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                ⚖️ Perché Metodo EFO® <span className="text-gradient">(E Non Altro)</span>
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                Perché Metodo EFO® <span className="text-gradient">(E Non Altro)</span>
               </h2>
-              <p className="text-muted-foreground">Il Confronto</p>
+              <p className="text-sm md:text-base text-muted-foreground">Il Confronto</p>
             </AnimatedSection>
 
-            <div className="space-y-8">
+            <div className="space-y-4 md:space-y-8">
               {/* VS Psicoterapia */}
               <AnimatedSection>
-                <div className="glass rounded-2xl p-6 border border-border/50">
-                  <h3 className="font-display text-xl mb-6 text-center">VS Psicoterapia Tradizionale</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="p-4 rounded-xl bg-muted/20">
-                      <h4 className="font-display text-lg mb-4 text-muted-foreground">Psicoterapia</h4>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Focus sul problema</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Anni di sedute settimanali</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Analizza il passato</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Pratica clinica vs psicopatologia</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> "Perché sono così?"</li>
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
+                  <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">VS Psicoterapia Tradizionale</h3>
+                  <div className="grid md:grid-cols-2 gap-3 md:gap-6">
+                    <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-muted/20">
+                      <h4 className="font-display text-base md:text-lg mb-3 md:mb-4 text-muted-foreground">Psicoterapia</h4>
+                      <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground">
+                        <li className="flex items-start gap-2"><span>•</span> Focus sul problema</li>
+                        <li className="flex items-start gap-2"><span>•</span> Anni di sedute settimanali</li>
+                        <li className="flex items-start gap-2"><span>•</span> Analizza il passato</li>
+                        <li className="flex items-start gap-2"><span>•</span> Pratica clinica vs psicopatologia</li>
+                        <li className="flex items-start gap-2"><span>•</span> "Perché sono così?"</li>
                       </ul>
                     </div>
-                    <div className="p-4 rounded-xl bg-cyan/10 border border-cyan/20">
-                      <h4 className="font-display text-lg mb-4 text-cyan">Metodo EFO®</h4>
-                      <ul className="space-y-2 text-sm">
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Focus sulla trasformazione</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">3-4 mesi intensivi</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Integra passato-presente-futuro</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Professional Coaching ICF + Saggezza millenaria</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">"Chi voglio essere?"</span></li>
+                    <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-cyan/10 border border-cyan/20">
+                      <h4 className="font-display text-base md:text-lg mb-3 md:mb-4 text-cyan">Metodo EFO®</h4>
+                      <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm">
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Focus sulla trasformazione</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">3-4 mesi intensivi</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Integra passato-presente-futuro</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Professional Coaching ICF + Saggezza millenaria</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">"Chi voglio essere?"</span></li>
                       </ul>
                     </div>
                   </div>
-                  <p className="text-center text-sm text-muted-foreground mt-4 italic">
+                  <p className="text-center text-xs md:text-sm text-muted-foreground mt-3 md:mt-4 italic">
                     Non sostituisco la terapia. La integro e la accelero. Se hai bisogno di supporto clinico, ti indirizzo al professionista giusto.
                   </p>
                 </div>
@@ -986,27 +985,27 @@ const MetodoEFO = () => {
 
               {/* VS Altri Coach */}
               <AnimatedSection delay={0.1}>
-                <div className="glass rounded-2xl p-6 border border-border/50">
-                  <h3 className="font-display text-xl mb-6 text-center">VS Altri "Coach"</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="p-4 rounded-xl bg-muted/20">
-                      <h4 className="font-display text-lg mb-4 text-muted-foreground">Altri "Coach"</h4>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Motivazione con slogan</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Focus su obiettivi esterni</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Approccio standard (fuffa?)</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> "Diventa la migliore versione di te stesso"</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Spesso senza neanche certificazioni</li>
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
+                  <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">VS Altri "Coach"</h3>
+                  <div className="grid md:grid-cols-2 gap-3 md:gap-6">
+                    <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-muted/20">
+                      <h4 className="font-display text-base md:text-lg mb-3 md:mb-4 text-muted-foreground">Altri "Coach"</h4>
+                      <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground">
+                        <li className="flex items-start gap-2"><span>•</span> Motivazione con slogan</li>
+                        <li className="flex items-start gap-2"><span>•</span> Focus su obiettivi esterni</li>
+                        <li className="flex items-start gap-2"><span>•</span> Approccio standard (fuffa?)</li>
+                        <li className="flex items-start gap-2"><span>•</span> "Diventa la migliore versione di te stesso"</li>
+                        <li className="flex items-start gap-2"><span>•</span> Spesso senza neanche certificazioni</li>
                       </ul>
                     </div>
-                    <div className="p-4 rounded-xl bg-cyan/10 border border-cyan/20">
-                      <h4 className="font-display text-lg mb-4 text-cyan">Metodo EFO®</h4>
-                      <ul className="space-y-2 text-sm">
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Trasformazione con metodo</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Riconnessione al tuo centro interiore</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Approccio integrato (scienza + spirito)</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">"Diventa chi sei sempre stato"</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Professional Coaching ICF + Laurea + Psic. Positiva + Mindfulness + Ipnosi</span></li>
+                    <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-cyan/10 border border-cyan/20">
+                      <h4 className="font-display text-base md:text-lg mb-3 md:mb-4 text-cyan">Metodo EFO®</h4>
+                      <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm">
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Trasformazione con metodo</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Riconnessione al tuo centro interiore</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Approccio integrato (scienza + spirito)</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">"Diventa chi sei sempre stato"</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Professional Coaching ICF + Laurea + Psic. Positiva + Mindfulness + Ipnosi</span></li>
                       </ul>
                     </div>
                   </div>
@@ -1014,26 +1013,26 @@ const MetodoEFO = () => {
               </AnimatedSection>
 
               {/* VS App/Libri */}
-              <AnimatedSection delay={0.2}>
-                <div className="glass rounded-2xl p-6 border border-border/50">
-                  <h3 className="font-display text-xl mb-6 text-center">VS App di Meditazione & Libri Self-Help</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="p-4 rounded-xl bg-muted/20">
-                      <h4 className="font-display text-lg mb-4 text-muted-foreground">App/Libri</h4>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Contenuti generici</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Fai-da-te</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> 10 min/giorno isolati</li>
-                        <li className="flex items-start gap-2"><span className="text-muted-foreground">•</span> Abbandoni dopo 1 settimana</li>
+              <AnimatedSection delay={0.15}>
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
+                  <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">VS App di Meditazione & Libri Self-Help</h3>
+                  <div className="grid md:grid-cols-2 gap-3 md:gap-6">
+                    <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-muted/20">
+                      <h4 className="font-display text-base md:text-lg mb-3 md:mb-4 text-muted-foreground">App/Libri</h4>
+                      <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground">
+                        <li className="flex items-start gap-2"><span>•</span> Contenuti generici</li>
+                        <li className="flex items-start gap-2"><span>•</span> Fai-da-te</li>
+                        <li className="flex items-start gap-2"><span>•</span> 10 min/giorno isolati</li>
+                        <li className="flex items-start gap-2"><span>•</span> Abbandoni dopo 1 settimana</li>
                       </ul>
                     </div>
-                    <div className="p-4 rounded-xl bg-cyan/10 border border-cyan/20">
-                      <h4 className="font-display text-lg mb-4 text-cyan">Metodo EFO®</h4>
-                      <ul className="space-y-2 text-sm">
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Percorso personalizzato su di te</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Accompagnamento 1-to-1</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Sistema integrato + supporto continuo</span></li>
-                        <li className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Impegno strutturato con risultati misurabili</span></li>
+                    <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-cyan/10 border border-cyan/20">
+                      <h4 className="font-display text-base md:text-lg mb-3 md:mb-4 text-cyan">Metodo EFO®</h4>
+                      <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm">
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Percorso personalizzato su di te</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Accompagnamento 1-to-1</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Sistema integrato + supporto continuo</span></li>
+                        <li className="flex items-start gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" /> <span className="text-foreground">Impegno strutturato con risultati misurabili</span></li>
                       </ul>
                     </div>
                   </div>
@@ -1042,34 +1041,34 @@ const MetodoEFO = () => {
             </div>
 
             {/* What makes unique */}
-            <AnimatedSection delay={0.3} className="mt-12">
-              <div className="gradient-border rounded-2xl p-8 bg-gradient-card">
-                <h3 className="font-display text-xl mb-6 text-center">✨ Cosa Rende Unico il Metodo EFO®</h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatedSection delay={0.2} className="mt-8 md:mt-12">
+              <div className="gradient-border rounded-xl p-5 md:p-8 bg-gradient-card">
+                <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">Cosa Rende Unico il Metodo EFO®</h3>
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   <div className="text-center">
-                    <p className="text-2xl mb-2">🔬</p>
-                    <p className="font-display text-foreground mb-1">Evidence-based + soul-based</p>
-                    <p className="text-sm text-muted-foreground">Non scelgo tra scienza e spirito. Li integro.</p>
+                    <p className="text-xl md:text-2xl mb-1.5 md:mb-2">🔬</p>
+                    <p className="font-display text-sm md:text-base text-foreground mb-0.5 md:mb-1">Evidence-based + soul-based</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">Non scelgo tra scienza e spirito. Li integro.</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl mb-2">🎯</p>
-                    <p className="font-display text-foreground mb-1">Risultati in 13 settimane</p>
-                    <p className="text-sm text-muted-foreground">Non anni di analisi. Mesi di trasformazione.</p>
+                    <p className="text-xl md:text-2xl mb-1.5 md:mb-2">🎯</p>
+                    <p className="font-display text-sm md:text-base text-foreground mb-0.5 md:mb-1">Risultati in 13 settimane</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">Non anni di analisi. Mesi di trasformazione.</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl mb-2">🧠</p>
-                    <p className="font-display text-foreground mb-1">Non solo mindset, ma embodiment</p>
-                    <p className="text-sm text-muted-foreground">Non cambi solo come pensi. Cambi come senti e agisci.</p>
+                    <p className="text-xl md:text-2xl mb-1.5 md:mb-2">🧠</p>
+                    <p className="font-display text-sm md:text-base text-foreground mb-0.5 md:mb-1">Non solo mindset, ma embodiment</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">Non cambi solo come pensi. Cambi come senti e agisci.</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl mb-2">👤</p>
-                    <p className="font-display text-foreground mb-1">Personalizzazione</p>
-                    <p className="text-sm text-muted-foreground">Non sei un numero. Sei un universo da esplorare.</p>
+                    <p className="text-xl md:text-2xl mb-1.5 md:mb-2">👤</p>
+                    <p className="font-display text-sm md:text-base text-foreground mb-0.5 md:mb-1">Personalizzazione</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">Non sei un numero. Sei un universo da esplorare.</p>
                   </div>
-                  <div className="text-center">
-                    <p className="text-2xl mb-2">🧘</p>
-                    <p className="font-display text-foreground mb-1">Esperienza vissuta</p>
-                    <p className="text-sm text-muted-foreground">Non insegno teoria. Condivido ciò che ho attraversato.</p>
+                  <div className="text-center col-span-2 lg:col-span-1">
+                    <p className="text-xl md:text-2xl mb-1.5 md:mb-2">🧘</p>
+                    <p className="font-display text-sm md:text-base text-foreground mb-0.5 md:mb-1">Esperienza vissuta</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">Non insegno teoria. Condivido ciò che ho attraversato.</p>
                   </div>
                 </div>
               </div>
@@ -1080,49 +1079,49 @@ const MetodoEFO = () => {
         {/* Chi Sono Preview */}
         <section className="section-padding bg-card">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 CHI SONO
               </h2>
             </AnimatedSection>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
               <AnimatedSection direction="left">
-                <div className="relative aspect-square max-w-md mx-auto">
-                  <div className="absolute -inset-4 border border-cyan/20 rounded-3xl" />
-                  <div className="relative h-full rounded-2xl overflow-hidden">
-                    <img src={gabrielePhoto} alt="Gabriele Lucesole" className="w-full h-full object-cover" />
+                <div className="relative aspect-square max-w-sm md:max-w-md mx-auto">
+                  <div className="absolute -inset-3 border border-cyan/20 rounded-2xl md:rounded-3xl" />
+                  <div className="relative h-full rounded-xl md:rounded-2xl overflow-hidden">
+                    <img src={gabrielePhoto} alt="Gabriele Lucesole" className="w-full h-full object-cover" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection direction="right">
-                <h3 className="font-display text-2xl md:text-3xl mb-2">
-                  👤 <span className="text-gradient">Gabriele Lucesole</span>
+                <h3 className="font-display text-xl md:text-2xl lg:text-3xl mb-1.5 md:mb-2">
+                  <span className="text-gradient">Gabriele Lucesole</span>
                 </h3>
-                <p className="text-cyan mb-6">Coach Professionista</p>
+                <p className="text-cyan text-sm md:text-base mb-4 md:mb-6">Coach Professionista</p>
                 
-                <p className="font-display text-lg text-foreground mb-4">Ho attraversato la crisi che stai vivendo.</p>
+                <p className="font-display text-base md:text-lg text-foreground mb-3 md:mb-4">Ho attraversato la crisi che stai vivendo.</p>
                 
-                <div className="prose-custom mb-6">
-                  <p className="font-serif text-muted-foreground">
-                    📖 <span className="font-medium text-foreground">La mia storia:</span><br />
+                <div className="prose-custom mb-4 md:mb-6 space-y-2 md:space-y-3">
+                  <p className="font-serif text-xs md:text-sm text-muted-foreground">
+                    <span className="font-medium text-foreground">La mia storia:</span><br />
                     Da adolescente, soffrivo per il male che vedevo nel mondo. Cercai risposte ovunque: filosofia orientale, spiritualità new age, meditazione trascendentale.
                   </p>
-                  <p className="font-serif text-muted-foreground">
+                  <p className="font-serif text-xs md:text-sm text-muted-foreground">
                     Ma finii in un vicolo cieco: più cercavo fuori, più mi sentivo vuoto dentro.
                   </p>
-                  <p className="font-serif text-muted-foreground">
+                  <p className="font-serif text-xs md:text-sm text-muted-foreground">
                     <span className="text-cyan">Il punto di svolta:</span> Un'esperienza mistica durante una crisi esistenziale profonda. 9 mesi vissuti in monastero per tirare le somme. Un'epifania che unì tutti i pezzi del puzzle.
                   </p>
-                  <p className="font-serif text-foreground">
+                  <p className="font-serif text-xs md:text-sm text-foreground">
                     <span className="text-cyan">Risultato:</span> Il Metodo EFO® — la sintesi di 13 anni di ricerca, 526 libri letti, decine di migliaia di euro investiti in formazione.
                   </p>
-                  <p className="font-serif text-cyan font-medium">Non vendo teoria. Offro ciò che ha salvato me.</p>
+                  <p className="font-serif text-xs md:text-sm text-cyan font-medium">Non vendo teoria. Offro ciò che ha salvato me.</p>
                 </div>
 
-                <Button variant="heroOutline" asChild>
+                <Button variant="heroOutline" className="w-full sm:w-auto" asChild>
                   <Link to="/chi-sono">
                     Leggi la mia storia completa
                     <ArrowRight className="h-4 w-4" />
@@ -1132,30 +1131,30 @@ const MetodoEFO = () => {
             </div>
 
             {/* Credentials */}
-            <AnimatedSection className="mt-12">
-              <div className="glass rounded-2xl p-8 border border-cyan/20">
-                <h3 className="font-display text-xl mb-6 text-center flex items-center justify-center gap-2">
-                  <GraduationCap className="h-5 w-5 text-cyan" />
+            <AnimatedSection className="mt-8 md:mt-12">
+              <div className="glass rounded-xl p-5 md:p-8 border border-cyan/20">
+                <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center flex items-center justify-center gap-2">
+                  <GraduationCap className="h-4 w-4 md:h-5 md:w-5 text-cyan" />
                   Certificazioni
                 </h3>
-                <p className="text-center text-muted-foreground mb-6">
+                <p className="text-center text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">
                   13 anni di ricerca + Formazione accademica + Certificazioni internazionali
                 </p>
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
-                  {credentialsList.map((cred, index) => <div key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <div className="grid md:grid-cols-2 gap-2 md:gap-4 mb-6 md:mb-8">
+                  {credentialsList.map((cred, index) => <div key={index} className="flex items-start gap-1.5 md:gap-2 text-xs md:text-sm text-muted-foreground">
                       <span className="shrink-0">{cred.split(' ')[0]}</span>
                       <span>{cred.split(' ').slice(1).join(' ')}</span>
                     </div>)}
                 </div>
-                <div className="flex flex-wrap justify-center gap-6">
-                  {credentials.map((cred, i) => <div key={i} className="w-16 h-16 bg-white/90 rounded-lg p-2 flex items-center justify-center">
-                      <img src={cred.logo} alt={cred.name} className="w-full h-full object-contain" />
+                <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+                  {credentials.map((cred, i) => <div key={i} className="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-lg p-1.5 md:p-2 flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                      <img src={cred.logo} alt={cred.name} className="w-full h-full object-contain" loading="lazy" />
                     </div>)}
                 </div>
-                <p className="text-center text-sm text-muted-foreground mt-6 italic">
+                <p className="text-center text-xs md:text-sm text-muted-foreground mt-4 md:mt-6 italic">
                   Non sono un teorico da scrivania. Sono un praticante che ha trasformato il proprio dolore in un metodo unico nel suo genere – dopo essere emerso dal caos.
                 </p>
-                <p className="text-center text-cyan mt-2">Può succedere lo stesso anche a te…</p>
+                <p className="text-center text-cyan text-sm mt-1.5 md:mt-2">Può succedere lo stesso anche a te…</p>
               </div>
             </AnimatedSection>
           </div>
@@ -1164,44 +1163,44 @@ const MetodoEFO = () => {
         {/* Testimonials */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 Testimonianze di <span className="text-gradient">Trasformazione</span>
               </h2>
             </AnimatedSection>
 
-            <div className="grid lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => <AnimatedSection key={index} delay={index * 0.1}>
-                  <div className="gradient-border rounded-2xl p-6 bg-gradient-card h-full flex flex-col transition-transform duration-300 hover:-translate-y-1">
-                    <div className="mb-4">
-                      <h3 className="font-display text-lg text-cyan">{testimonial.name}</h3>
-                      <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+              {testimonials.map((testimonial, index) => <AnimatedSection key={index} delay={index * 0.08}>
+                  <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full flex flex-col transition-transform duration-300 hover:-translate-y-1">
+                    <div className="mb-3 md:mb-4">
+                      <h3 className="font-display text-base md:text-lg text-cyan">{testimonial.name}</h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">{testimonial.title}</p>
                     </div>
                     
-                    <div className="mb-4 flex-1">
-                      <Quote className="h-6 w-6 text-cyan/50 mb-2" />
-                      <p className="font-serif text-sm text-muted-foreground italic leading-relaxed">
+                    <div className="mb-3 md:mb-4 flex-1">
+                      <Quote className="h-4 w-4 md:h-6 md:w-6 text-cyan/50 mb-1.5 md:mb-2" />
+                      <p className="font-serif text-xs md:text-sm text-muted-foreground italic leading-relaxed">
                         "{testimonial.quote}"
                       </p>
                     </div>
 
-                    <div className="border-t border-border/50 pt-4">
-                      <p className="text-xs text-muted-foreground mb-2">Risultati misurabili:</p>
-                      <ul className="space-y-1">
-                        {testimonial.results.map((result, i) => <li key={i} className="flex items-start gap-2 text-xs text-emerald-400">
+                    <div className="border-t border-border/50 pt-3 md:pt-4">
+                      <p className="text-xs text-muted-foreground mb-1.5 md:mb-2">Risultati misurabili:</p>
+                      <ul className="space-y-0.5 md:space-y-1">
+                        {testimonial.results.map((result, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-emerald-400">
                             <Check className="h-3 w-3 mt-0.5 shrink-0" />
                             {result}
                           </li>)}
                       </ul>
                     </div>
 
-                    {testimonial.videoId && <div className="mt-4">
+                    {testimonial.videoId && <div className="mt-3 md:mt-4">
                         <div className="aspect-video rounded-lg overflow-hidden bg-muted/30">
-                          <iframe src={`https://drive.google.com/file/d/${testimonial.videoId}/preview`} className="w-full h-full" allow="autoplay" title={`Testimonianza di ${testimonial.name}`} />
+                          <iframe src={`https://drive.google.com/file/d/${testimonial.videoId}/preview`} className="w-full h-full" allow="autoplay" title={`Testimonianza di ${testimonial.name}`} loading="lazy" />
                         </div>
-                        <Button variant="ghost" size="sm" className="mt-2 text-cyan" asChild>
+                        <Button variant="ghost" size="sm" className="mt-1.5 md:mt-2 text-cyan text-xs" asChild>
                           <a href={`https://drive.google.com/file/d/${testimonial.videoId}/view`} target="_blank" rel="noopener noreferrer">
-                            <Play className="h-4 w-4" />
+                            <Play className="h-3 w-3 md:h-4 md:w-4" />
                             Guarda Video Testimonianza
                           </a>
                         </Button>
@@ -1215,19 +1214,19 @@ const MetodoEFO = () => {
         {/* FAQ Accordion */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                ❓ Domande <span className="text-gradient">Frequenti</span> (FAQ)
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                Domande <span className="text-gradient">Frequenti</span> (FAQ)
               </h2>
             </AnimatedSection>
 
             <AnimatedSection>
-              <Accordion type="single" collapsible className="space-y-4">
-                {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="gradient-border rounded-xl bg-gradient-card px-6 border-0">
-                    <AccordionTrigger className="text-left font-display text-lg hover:no-underline py-6">
+              <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
+                {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="gradient-border rounded-lg md:rounded-xl bg-gradient-card px-4 md:px-6 border-0">
+                    <AccordionTrigger className="text-left font-display text-sm md:text-lg hover:no-underline py-4 md:py-6">
                       {faq.q}
                     </AccordionTrigger>
-                    <AccordionContent className="font-serif text-muted-foreground pb-6 whitespace-pre-line">
+                    <AccordionContent className="font-serif text-xs md:text-sm text-muted-foreground pb-4 md:pb-6 whitespace-pre-line">
                       {faq.a}
                     </AccordionContent>
                   </AccordionItem>)}
@@ -1239,43 +1238,43 @@ const MetodoEFO = () => {
         {/* Final CTA */}
         <section className="section-padding bg-gradient-to-b from-background to-primary relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+            <div className="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
 
           <div className="container-narrow relative z-10">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                🛣️ Due Strade Davanti a Te 🛣️
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                Due Strade Davanti a Te
               </h2>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
               <AnimatedSection direction="left">
-                <div className="p-6 rounded-2xl bg-red-950/30 border border-red-500/30 h-full">
-                  <h3 className="font-display text-xl text-red-400 mb-4">STRADA 1: Continuare Così</h3>
-                  <p className="font-serif text-sm text-muted-foreground mb-4">
+                <div className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-red-950/30 border border-red-500/30 h-full">
+                  <h3 className="font-display text-lg md:text-xl text-red-400 mb-3 md:mb-4">STRADA 1: Continuare Così</h3>
+                  <p className="font-serif text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                     Tornare al lavoro, alle scadenze, allo stress. Sperare che qualcosa cambi da solo.
                   </p>
-                  <p className="font-serif text-sm text-muted-foreground mb-4">
+                  <p className="font-serif text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                     Cercare di zittire quella voce che ti dice che il cambiamento dipende solo da te.
                   </p>
-                  <p className="font-serif text-sm text-red-400">
+                  <p className="font-serif text-xs md:text-sm text-red-400">
                     Tra un anno sarai esattamente dove sei ora. O forse più indietro?
                   </p>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection direction="right">
-                <div className="p-6 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 h-full">
-                  <h3 className="font-display text-xl text-emerald-400 mb-4">STRADA 2: Decidere</h3>
-                  <p className="font-serif text-sm text-muted-foreground mb-4">
+                <div className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-emerald-950/30 border border-emerald-500/30 h-full">
+                  <h3 className="font-display text-lg md:text-xl text-emerald-400 mb-3 md:mb-4">STRADA 2: Decidere</h3>
+                  <p className="font-serif text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                     Trovare il coraggio di fermarti, guardarti dentro, trasformarti.
                   </p>
-                  <p className="font-serif text-sm text-muted-foreground mb-2">
+                  <p className="font-serif text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">
                     Tra 3-4 mesi sarai una persona diversa:
                   </p>
-                  <ul className="space-y-1 text-sm text-emerald-400">
+                  <ul className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-emerald-400">
                     <li>• Più centrata</li>
                     <li>• Più presente</li>
                     <li>• Più libera</li>
@@ -1286,48 +1285,48 @@ const MetodoEFO = () => {
             </div>
 
             <AnimatedSection>
-              <div className="glass rounded-2xl p-8 border border-cyan/20 text-center mb-8">
-                <h3 className="font-display text-2xl mb-6">🗣️ La Chiamata (Per Chi È Pronto)</h3>
-                <p className="font-serif text-muted-foreground mb-4">
+              <div className="glass rounded-xl md:rounded-2xl p-5 md:p-8 border border-cyan/20 text-center mb-6 md:mb-8">
+                <h3 className="font-display text-xl md:text-2xl mb-4 md:mb-6">La Chiamata (Per Chi È Pronto)</h3>
+                <p className="font-serif text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                   Se sei arrivato fino a qui, non è un caso.
                 </p>
-                <p className="font-serif text-muted-foreground mb-4">
+                <p className="font-serif text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                   Il Metodo EFO® non è per tutti. È per chi:
                 </p>
-                <div className="grid md:grid-cols-2 gap-2 text-sm text-left max-w-xl mx-auto mb-6">
-                  <div className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5" /> Non si accontenta di sopravvivere</div>
-                  <div className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5" /> Non crede alle soluzioni magiche</div>
-                  <div className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5" /> È pronto a guardarsi dentro</div>
-                  <div className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5" /> Cerca profondità, non superficialità</div>
-                  <div className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5" /> Vuole un compagno di viaggio</div>
-                  <div className="flex items-start gap-2"><Check className="h-4 w-4 text-cyan mt-0.5" /> Sente che manca ancora qualcosa</div>
+                <div className="grid grid-cols-2 gap-1.5 md:gap-2 text-xs md:text-sm text-left max-w-xl mx-auto mb-4 md:mb-6">
+                  <div className="flex items-start gap-1.5 md:gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5" /> Non si accontenta di sopravvivere</div>
+                  <div className="flex items-start gap-1.5 md:gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5" /> Non crede alle soluzioni magiche</div>
+                  <div className="flex items-start gap-1.5 md:gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5" /> È pronto a guardarsi dentro</div>
+                  <div className="flex items-start gap-1.5 md:gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5" /> Cerca profondità, non superficialità</div>
+                  <div className="flex items-start gap-1.5 md:gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5" /> Vuole un compagno di viaggio</div>
+                  <div className="flex items-start gap-1.5 md:gap-2"><Check className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5" /> Sente che manca ancora qualcosa</div>
                 </div>
-                <p className="text-cyan font-display text-lg">Se ti riconosci, rispondi alla chiamata.</p>
+                <p className="text-cyan font-display text-base md:text-lg">Se ti riconosci, rispondi alla chiamata.</p>
               </div>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.2}>
-              <div className="gradient-border rounded-2xl p-8 bg-gradient-card text-center">
-                <h3 className="font-display text-2xl mb-4">📞 Il Primo Passo È Semplice</h3>
-                <p className="text-muted-foreground mb-4">
+            <AnimatedSection delay={0.15}>
+              <div className="gradient-border rounded-xl md:rounded-2xl p-5 md:p-8 bg-gradient-card text-center">
+                <h3 className="font-display text-xl md:text-2xl mb-3 md:mb-4">Il Primo Passo È Semplice</h3>
+                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                   Prenota la tua sessione di Professional Coaching gratuita. Pochi minuti che possono cambiare tutto.
                 </p>
-                <div className="text-left max-w-md mx-auto mb-6">
-                  <p className="text-sm text-muted-foreground mb-2">Cosa succederà?</p>
-                  <ol className="space-y-1 text-sm text-muted-foreground list-decimal list-inside">
+                <div className="text-left max-w-md mx-auto mb-4 md:mb-6">
+                  <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">Cosa succederà?</p>
+                  <ol className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-muted-foreground list-decimal list-inside">
                     <li>Ci conosciamo (sì, sono una persona vera, non un bot)</li>
                     <li>Analizziamo insieme la tua situazione</li>
                     <li>Ti mostro il Metodo EFO® se può fare al caso tuo</li>
                     <li>Decidi di procedere</li>
                   </ol>
                 </div>
-                <p className="text-cyan mb-6">Senza impegno. Niente vendita. Solo chiarezza.</p>
-                <p className="font-display text-foreground mb-6">
+                <p className="text-cyan text-xs md:text-sm mb-4 md:mb-6">Senza impegno. Niente vendita. Solo chiarezza.</p>
+                <p className="font-display text-sm md:text-base text-foreground mb-4 md:mb-6">
                   Il viaggio più importante è quello dentro di te. E inizia con una conversazione.
                 </p>
 
-                <div className="mb-4">
-                  <Button variant="hero" size="xl" asChild>
+                <div className="mb-3 md:mb-4">
+                  <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
                       Fissa Sessione Professional Coaching Gratis
@@ -1335,31 +1334,31 @@ const MetodoEFO = () => {
                   </Button>
                 </div>
 
-                <div className="text-sm text-muted-foreground space-y-1">
-                  <p>📅 <span className="font-medium">Come Funziona:</span></p>
-                  <p>1️⃣ Clicca il pulsante → 2️⃣ Inviami la mail (con 3 tuoi orari pomeridiani disponibili) → 3️⃣ Ricevi conferma con link Meet → 4️⃣ Ci incontriamo</p>
+                <div className="text-xs text-muted-foreground space-y-0.5 md:space-y-1">
+                  <p><span className="font-medium">Come Funziona:</span></p>
+                  <p>1️⃣ Clicca il pulsante → 2️⃣ Inviami la mail → 3️⃣ Ricevi conferma → 4️⃣ Ci incontriamo</p>
                 </div>
               </div>
             </AnimatedSection>
 
             {/* Alternative contact */}
-            <AnimatedSection delay={0.3} className="mt-8 text-center">
-              <p className="text-muted-foreground mb-4">💬 Preferisci Scrivermi Prima?</p>
-              <div className="flex justify-center gap-4">
-                <Button variant="heroOutline" size="sm" asChild>
+            <AnimatedSection delay={0.2} className="mt-6 md:mt-8 text-center">
+              <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">Preferisci Scrivermi Prima?</p>
+              <div className="flex flex-col sm:flex-row justify-center gap-2 md:gap-4">
+                <Button variant="heroOutline" size="sm" className="w-full sm:w-auto" asChild>
                   <a href="https://www.instagram.com/gabrielelucesole/" target="_blank" rel="noopener noreferrer">
                     <Instagram className="h-4 w-4" />
                     @gabrielelucesole
                   </a>
                 </Button>
-                <Button variant="heroOutline" size="sm" asChild>
+                <Button variant="heroOutline" size="sm" className="w-full sm:w-auto" asChild>
                   <a href="https://www.linkedin.com/in/gabrielelucesole" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-4 w-4" />
                     LinkedIn
                   </a>
                 </Button>
               </div>
-              <p className="text-xs text-muted-foreground mt-2">Rispondo personalmente a ogni messaggio entro 24h.</p>
+              <p className="text-xs text-muted-foreground mt-1.5 md:mt-2">Rispondo personalmente a ogni messaggio entro 24h.</p>
             </AnimatedSection>
           </div>
         </section>
@@ -1369,54 +1368,54 @@ const MetodoEFO = () => {
           <div className="container-narrow">
             <AnimatedSection className="text-center">
               <div className="prose-custom max-w-2xl mx-auto">
-                <blockquote className="glass rounded-2xl p-8 border border-cyan/20 italic">
-                  <p className="font-serif text-foreground text-lg mb-4">
+                <blockquote className="glass rounded-xl md:rounded-2xl p-5 md:p-8 border border-cyan/20 italic">
+                  <p className="font-serif text-sm md:text-lg text-foreground mb-3 md:mb-4">
                     "Ho tutto quello che pensavo di volere, ma non riesco a sentirmi davvero realizzato."
                   </p>
-                  <p className="font-serif text-muted-foreground text-base">
+                  <p className="font-serif text-xs md:text-base text-muted-foreground">
                     Questa frase non è una condanna. È un invito.
                   </p>
                 </blockquote>
 
-                <div className="mt-8 space-y-4 text-muted-foreground">
+                <div className="mt-6 md:mt-8 space-y-3 md:space-y-4 text-xs md:text-sm text-muted-foreground">
                   <p>L'invito a smettere di rincorrere ciò che "dovresti" volere. E iniziare a costruire ciò che davvero desideri.</p>
                   <p>Non ti dico che sarà facile. Ti offro un metodo, una mappa e la mia presenza (che ha già attraversato il buio).</p>
                   <p className="text-foreground">Il resto lo farai tu. Ma non sarai solo.</p>
                 </div>
 
-                <div className="mt-8 p-6 rounded-xl bg-cyan/5 border border-cyan/20">
-                  <p className="text-muted-foreground mb-2">Non ti dico cosa pensare. <span className="text-cyan">Ti porto a incontrarti.</span></p>
-                  <p className="text-muted-foreground mb-2">Non ti offro risposte. <span className="text-cyan">Ti aiuto a farti le domande giuste.</span></p>
-                  <p className="text-muted-foreground">Non ti prometto magia. <span className="text-cyan">Ti offro un metodo.</span></p>
-                  <p className="text-foreground mt-4 font-medium">E il coraggio di attraversare le tue paure.</p>
+                <div className="mt-6 md:mt-8 p-4 md:p-6 rounded-lg md:rounded-xl bg-cyan/5 border border-cyan/20">
+                  <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">Non ti dico cosa pensare. <span className="text-cyan">Ti porto a incontrarti.</span></p>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">Non ti offro risposte. <span className="text-cyan">Ti aiuto a farti le domande giuste.</span></p>
+                  <p className="text-xs md:text-sm text-muted-foreground">Non ti prometto magia. <span className="text-cyan">Ti offro un metodo.</span></p>
+                  <p className="text-sm md:text-base text-foreground mt-3 md:mt-4 font-medium">E il coraggio di attraversare le tue paure.</p>
                 </div>
 
-                <p className="text-cyan font-display text-xl mt-8">Ricorda: la paura non dice mai la verità!</p>
-                <p className="text-foreground mt-2">Se il Metodo EFO® ha funzionato per me, può farlo anche per te!</p>
+                <p className="text-cyan font-display text-lg md:text-xl mt-6 md:mt-8">Ricorda: la paura non dice mai la verità!</p>
+                <p className="text-sm md:text-base text-foreground mt-1.5 md:mt-2">Se il Metodo EFO® ha funzionato per me, può farlo anche per te!</p>
                 
-                <p className="text-sm text-muted-foreground mt-6">
+                <p className="text-xs md:text-sm text-muted-foreground mt-4 md:mt-6">
                   Coach Professionista specializzato Psicologia Positiva | Facilitatore Mindfulness | Ipnotista
                 </p>
               </div>
             </AnimatedSection>
 
             {/* PS */}
-            <AnimatedSection delay={0.2} className="mt-12">
-              <div className="glass rounded-2xl p-6 border border-border/50">
-                <p className="font-display text-lg mb-4">🔮 P.S. Se sei abituato a decidere in fretta…</p>
-                <p className="text-muted-foreground text-sm mb-4">
+            <AnimatedSection delay={0.15} className="mt-8 md:mt-12">
+              <div className="glass rounded-xl md:rounded-2xl p-4 md:p-6 border border-border/50">
+                <p className="font-display text-base md:text-lg mb-3 md:mb-4">P.S. Se sei abituato a decidere in fretta…</p>
+                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                   A valutare ROI, costi-benefici, investimenti. Ecco i numeri:
                 </p>
-                <ul className="space-y-1 text-sm text-muted-foreground mb-4">
+                <ul className="space-y-0.5 md:space-y-1 text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                   <li>• <span className="text-foreground">Investimento:</span> 987€ (Early Bird) — con doppio sconto: <span className="text-cyan">789€</span></li>
                   <li>• <span className="text-foreground">Tempo:</span> 13 settimane (3h/settimana)</li>
                   <li>• <span className="text-foreground">ROI:</span> Chiarezza mentale, gestione stress, equilibrio vita-lavoro, presenza mentale, senso della vita…</li>
                 </ul>
-                <p className="text-cyan font-display">Ma il vero ROI? Ritrovare te stesso.</p>
-                <p className="text-foreground mt-2">E quello non ha prezzo.</p>
+                <p className="text-cyan font-display text-sm md:text-base">Ma il vero ROI? Ritrovare te stesso.</p>
+                <p className="text-xs md:text-sm text-foreground mt-1.5 md:mt-2">E quello non ha prezzo.</p>
 
-                <div className="mt-6 text-center">
-                  <Button variant="hero" size="lg" asChild>
+                <div className="mt-4 md:mt-6 text-center">
+                  <Button variant="hero" size="lg" className="w-full sm:w-auto" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
                       Fissa Sessione Gratuita
