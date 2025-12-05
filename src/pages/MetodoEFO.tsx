@@ -595,7 +595,7 @@ const MetodoEFO = () => {
                     <div className="space-y-2 pt-4 border-t border-border/50">
                       <div className="flex items-start gap-2">
                         <Gift className="h-4 w-4 text-cyan shrink-0 mt-0.5" />
-                        <span className="text-xs text-muted-foreground">🎁 {level.badge}</span>
+                        <span className="text-xs text-muted-foreground">{level.badge}</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-cyan">⏱️ {level.time}</span>
