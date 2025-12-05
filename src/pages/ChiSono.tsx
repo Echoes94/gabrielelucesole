@@ -18,201 +18,191 @@ import logoPul from "@/assets/logo-pul.png";
 import logoIcf from "@/assets/logo-icf.webp";
 import logoPenn from "@/assets/logo-penn.webp";
 import logoMinistero from "@/assets/logo-ministero.webp";
-const credentials = [{
-  logo: logoPul,
-  name: "Pontificia Università Lateranense"
-}, {
-  logo: logoIcf,
-  name: "International Coaching Federation"
-}, {
-  logo: logoPenn,
-  name: "University of Pennsylvania"
-}, {
-  logo: logoMinistero,
-  name: "Ministero della Salute"
-}];
-const credentialsList = ["Laurea in Scienze Religiose (PUL)", "Master Universitario di 1° livello in Coaching Umanistico e PNL", "Master internazionale in Professional Coaching (ICF)", "Specializzazione in Psicologia Positiva (Penn University)", "Facilitatore in Meditazione Mindfulness", "Master in Ipnosi"];
-const GlassQuote = ({
-  quote,
-  author
-}: {
-  quote: string;
-  author?: string;
-}) => <AnimatedSection className="my-16">
-    <motion.blockquote className="glass rounded-2xl p-8 md:p-10 relative overflow-hidden" whileHover={{
-    scale: 1.02
-  }} transition={{
-    duration: 0.3
-  }}>
+
+const credentials = [
+  { logo: logoPul, name: "Pontificia Università Lateranense" },
+  { logo: logoIcf, name: "International Coaching Federation" },
+  { logo: logoPenn, name: "University of Pennsylvania" },
+  { logo: logoMinistero, name: "Ministero della Salute" }
+];
+
+const credentialsList = [
+  "Laurea in Scienze Religiose (PUL)",
+  "Master Universitario di 1° livello in Coaching Umanistico e PNL",
+  "Master internazionale in Professional Coaching (ICF)",
+  "Specializzazione in Psicologia Positiva (Penn University)",
+  "Facilitatore in Meditazione Mindfulness",
+  "Master in Ipnosi"
+];
+
+const GlassQuote = ({ quote, author }: { quote: string; author?: string }) => (
+  <AnimatedSection className="my-16">
+    <motion.blockquote 
+      className="glass rounded-2xl p-8 md:p-10 relative overflow-hidden"
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.3 }}
+    >
       <Quote className="absolute top-4 left-4 h-8 w-8 text-cyan/20" />
       <p className="font-serif text-lg md:text-xl text-foreground italic leading-relaxed text-center relative z-10">
         "{quote}"
       </p>
-      {author && <cite className="block text-center mt-4 text-cyan font-sans text-sm uppercase tracking-wider not-italic">
+      {author && (
+        <cite className="block text-center mt-4 text-cyan font-sans text-sm uppercase tracking-wider not-italic">
           — {author}
-        </cite>}
+        </cite>
+      )}
     </motion.blockquote>
-  </AnimatedSection>;
-const ParallaxImage = ({
-  src,
-  alt
-}: {
-  src: string;
-  alt: string;
-}) => {
+  </AnimatedSection>
+);
+
+const ParallaxImage = ({ src, alt }: { src: string; alt: string }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const {
-    scrollYProgress
-  } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
   const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-  return <div ref={ref} className="relative h-[50vh] md:h-[60vh] overflow-hidden rounded-2xl my-12">
-      <motion.div className="absolute inset-0" style={{
-      y
-    }}>
-        <img src={src} alt={alt} className="w-full h-[140%] object-cover" />
+
+  return (
+    <div ref={ref} className="relative h-[50vh] md:h-[60vh] overflow-hidden rounded-2xl my-12">
+      <motion.div 
+        className="absolute inset-0"
+        style={{ y }}
+      >
+        <img 
+          src={src} 
+          alt={alt} 
+          className="w-full h-[140%] object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
       </motion.div>
-    </div>;
+    </div>
+  );
 };
+
 const ChiSono = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const {
-    scrollYProgress
-  } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
   });
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  return <>
+
+  return (
+    <>
       <Helmet>
         <title>Chi Sono | Gabriele Lucesole - Coach Professionista</title>
-        <meta name="description" content="La mia storia: da giovane inquieto alla scoperta del Metodo EFO. 13 anni di ricerca, 526 libri, formazione certificata per aiutarti a trovare il tuo senso." />
+        <meta 
+          name="description" 
+          content="La mia storia: da giovane inquieto alla scoperta del Metodo EFO. 13 anni di ricerca, 526 libri, formazione certificata per aiutarti a trovare il tuo senso." 
+        />
         <link rel="canonical" href="https://gabrielelucesole.com/chi-sono" />
       </Helmet>
 
       <Layout>
         {/* Hero */}
         <section ref={heroRef} className="min-h-screen flex items-center section-padding bg-gradient-hero relative overflow-hidden">
-          <motion.div className="absolute inset-0" style={{
-          y: heroY
-        }}>
+          <motion.div 
+            className="absolute inset-0"
+            style={{ y: heroY }}
+          >
             <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan/10 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
           </motion.div>
 
-          <motion.div className="container-wide relative z-10" style={{
-          opacity: heroOpacity
-        }}>
+          <motion.div 
+            className="container-wide relative z-10"
+            style={{ opacity: heroOpacity }}
+          >
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Content */}
               <AnimatedSection direction="left">
-                <motion.span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6" initial={{
-                opacity: 0,
-                y: 20
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                delay: 0.2
-              }}>
+                <motion.span 
+                  className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
                   Il viaggio più importante?
                 </motion.span>
 
-                <motion.h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6" initial={{
-                opacity: 0,
-                y: 30
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                delay: 0.3
-              }}>
+                <motion.h1 
+                  className="font-display text-4xl md:text-5xl lg:text-6xl mb-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
                   La mia <span className="text-gradient">storia</span>
                 </motion.h1>
 
-                <motion.p className="font-serif text-lg text-muted-foreground leading-relaxed mb-6" initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} transition={{
-                delay: 0.4
-              }}>
+                <motion.p 
+                  className="font-serif text-lg text-muted-foreground leading-relaxed mb-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
                   Nella vita, c'è un tempo in cui tutto ciò che hai costruito — titolo di studio, lavoro, aspettative realizzate — improvvisamente non basta più…
                 </motion.p>
                 
-                <motion.p className="font-serif text-muted-foreground leading-relaxed mb-4" initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} transition={{
-                delay: 0.5
-              }}>
+                <motion.p 
+                  className="font-serif text-muted-foreground leading-relaxed mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                >
                   Guardi il tuo percorso e ti chiedi: "È davvero tutto qui?"
                 </motion.p>
 
-                <motion.p className="font-serif text-muted-foreground leading-relaxed mb-4" initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} transition={{
-                delay: 0.55
-              }}>
+                <motion.p 
+                  className="font-serif text-muted-foreground leading-relaxed mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.55 }}
+                >
                   Una presenza assente, un vuoto interiore che nessun successo esterno sembra riuscire a colmare. Una sottile solitudine che continua a crescere, nonostante tu sia circondato da persone.
                 </motion.p>
 
-                <motion.p className="font-display text-xl text-cyan" initial={{
-                opacity: 0,
-                x: -20
-              }} animate={{
-                opacity: 1,
-                x: 0
-              }} transition={{
-                delay: 0.6
-              }}>
+                <motion.p 
+                  className="font-display text-xl text-cyan"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
                   Fu questo il punto di partenza del mio viaggio…
                 </motion.p>
               </AnimatedSection>
 
               {/* Image */}
               <AnimatedSection direction="right" className="relative">
-                <motion.div className="relative aspect-[4/5] max-w-md mx-auto" initial={{
-                opacity: 0,
-                scale: 0.9
-              }} animate={{
-                opacity: 1,
-                scale: 1
-              }} transition={{
-                delay: 0.4,
-                duration: 0.8
-              }}>
-                  <motion.div className="absolute -inset-4 border border-cyan/20 rounded-3xl" animate={{
-                  rotate: [0, 1, -1, 0]
-                }} transition={{
-                  duration: 8,
-                  repeat: Infinity
-                }} />
+                <motion.div 
+                  className="relative aspect-[4/5] max-w-md mx-auto"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                >
+                  <motion.div 
+                    className="absolute -inset-4 border border-cyan/20 rounded-3xl"
+                    animate={{ rotate: [0, 1, -1, 0] }}
+                    transition={{ duration: 8, repeat: Infinity }}
+                  />
                   <div className="relative h-full rounded-2xl overflow-hidden glow-cyan">
-                    <motion.img src={gabrielePhoto} alt="Gabriele Lucesole" className="w-full h-full object-cover" whileHover={{
-                    scale: 1.05
-                  }} transition={{
-                    duration: 0.5
-                  }} />
+                    <motion.img
+                      src={gabrielePhoto}
+                      alt="Gabriele Lucesole"
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.5 }}
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                   
-                  <motion.div className="absolute bottom-6 left-6 right-6" initial={{
-                  opacity: 0,
-                  y: 20
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  delay: 0.8
-                }}>
+                  <motion.div 
+                    className="absolute bottom-6 left-6 right-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                  >
                     <h2 className="font-display text-2xl text-foreground mb-1">Gabriele Lucesole</h2>
                     <p className="text-cyan text-sm">ICF Professional Coaching</p>
                   </motion.div>
@@ -290,7 +280,10 @@ const ChiSono = () => {
               </p>
             </AnimatedSection>
 
-            <GlassQuote quote="Da dove veniamo? Chi siamo? Dove andiamo?" author="Paul Gauguin" />
+            <GlassQuote 
+              quote="Da dove veniamo? Chi siamo? Dove andiamo?" 
+              author="Paul Gauguin"
+            />
 
             <AnimatedSection className="prose-custom">
               <p className="italic text-muted-foreground">
@@ -338,7 +331,10 @@ const ChiSono = () => {
               </p>
             </AnimatedSection>
 
-            <GlassQuote quote="Quindi, in generale, tu, la tua gente, dovresti mantenere le tue tradizioni" author="Dalai Lama, 1999" />
+            <GlassQuote 
+              quote="Quindi, in generale, tu, la tua gente, dovresti mantenere le tue tradizioni" 
+              author="Dalai Lama, 1999"
+            />
 
             <AnimatedSection className="prose-custom">
               <p className="italic text-muted-foreground">
@@ -349,7 +345,10 @@ const ChiSono = () => {
               </p>
             </AnimatedSection>
 
-            <GlassQuote quote="Qualcosa di misterioso in questo universo è complice di quelli che amano solo il bene" author="Simone Weil" />
+            <GlassQuote 
+              quote="Qualcosa di misterioso in questo universo è complice di quelli che amano solo il bene" 
+              author="Simone Weil"
+            />
 
             <AnimatedSection className="prose-custom">
               <p>
@@ -403,7 +402,10 @@ const ChiSono = () => {
               </p>
             </AnimatedSection>
 
-            <GlassQuote quote="Noi non vediamo le cose come sono; vediamo le cose come siamo." author="Talmud" />
+            <GlassQuote 
+              quote="Noi non vediamo le cose come sono; vediamo le cose come siamo." 
+              author="Talmud"
+            />
 
             <AnimatedSection className="prose-custom">
               <p>
@@ -461,38 +463,35 @@ const ChiSono = () => {
                 <h3 className="font-display text-2xl text-center mb-8">La mia Formazione</h3>
                 
                 <div className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto mb-10">
-                  {credentialsList.map((credential, index) => <motion.div key={index} className="flex items-center gap-3" initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? -20 : 20
-                }} whileInView={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.1 * index
-                }} viewport={{
-                  once: true
-                }}>
+                  {credentialsList.map((credential, index) => (
+                    <motion.div 
+                      key={index} 
+                      className="flex items-center gap-3"
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * index }}
+                      viewport={{ once: true }}
+                    >
                       <span className="w-2 h-2 rounded-full bg-cyan shrink-0" />
                       <span className="font-serif text-sm text-muted-foreground">{credential}</span>
-                    </motion.div>)}
+                    </motion.div>
+                  ))}
                 </div>
 
                 <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-                  {credentials.map((cred, index) => <motion.div key={index} className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-white/90 rounded-xl p-2" initial={{
-                  opacity: 0,
-                  scale: 0.8
-                }} whileInView={{
-                  opacity: 1,
-                  scale: 1
-                }} transition={{
-                  delay: 0.1 * index
-                }} viewport={{
-                  once: true
-                }} whileHover={{
-                  scale: 1.1
-                }}>
+                  {credentials.map((cred, index) => (
+                    <motion.div
+                      key={index}
+                      className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-white/90 rounded-xl p-2"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.1 * index }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.1 }}
+                    >
                       <img src={cred.logo} alt={cred.name} className="w-full h-full object-contain" />
-                    </motion.div>)}
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </AnimatedSection>
@@ -514,28 +513,22 @@ const ChiSono = () => {
 
             {/* 3 Dimensions */}
             <div className="grid md:grid-cols-3 gap-6 my-12">
-              {[{
-              icon: History,
-              title: "Trasforma il Tuo Passato",
-              desc: "Da scheletro nell'armadio a trampolino di lancio"
-            }, {
-              icon: Clock,
-              title: "Vivi Solo il Presente",
-              desc: "Grazie a uno stratagemma brevettato da me che ti riporta — \"ingannando\" il cervello — qui e ora, oltre il tempo, nel tuo spazio interiore"
-            }, {
-              icon: Target,
-              title: "Attrai il Futuro Desiderato",
-              desc: "Senza la fuffa della legge d'attrazione, ma con strumenti scientificamente provati"
-            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.15}>
-                  <motion.div className="gradient-border rounded-xl p-6 bg-gradient-card h-full text-center" whileHover={{
-                y: -5,
-                scale: 1.02
-              }}>
+              {[
+                { icon: History, title: "Trasforma il Tuo Passato", desc: "Da scheletro nell'armadio a trampolino di lancio" },
+                { icon: Clock, title: "Vivi Solo il Presente", desc: "Grazie a uno stratagemma brevettato da me che ti riporta — \"ingannando\" il cervello — qui e ora, oltre il tempo, nel tuo spazio interiore" },
+                { icon: Target, title: "Attrai il Futuro Desiderato", desc: "Senza la fuffa della legge d'attrazione, ma con strumenti scientificamente provati" }
+              ].map((dim, index) => (
+                <AnimatedSection key={index} delay={index * 0.15}>
+                  <motion.div 
+                    className="gradient-border rounded-xl p-6 bg-gradient-card h-full text-center"
+                    whileHover={{ y: -5, scale: 1.02 }}
+                  >
                     <dim.icon className="h-8 w-8 text-cyan mx-auto mb-4" />
                     <h4 className="font-display text-lg mb-2">{dim.title}</h4>
                     <p className="font-serif text-sm text-muted-foreground">{dim.desc}</p>
                   </motion.div>
-                </AnimatedSection>)}
+                </AnimatedSection>
+              ))}
             </div>
 
             <AnimatedSection className="prose-custom">
@@ -646,57 +639,48 @@ const ChiSono = () => {
         <section className="section-padding bg-background">
           <div className="container-wide">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[{
-              icon: BookOpen,
-              value: "526",
-              label: "Libri letti"
-            }, {
-              icon: Sparkles,
-              value: "13+",
-              label: "Anni di ricerca"
-            }, {
-              icon: Award,
-              value: "6",
-              label: "Certificazioni"
-            }, {
-              icon: Heart,
-              value: "∞",
-              label: "Passione"
-            }].map((stat, index) => <AnimatedSection key={index} delay={index * 0.1}>
-                  <motion.div className="gradient-border rounded-2xl p-6 bg-gradient-card text-center" whileHover={{
-                scale: 1.05,
-                y: -5
-              }}>
+              {[
+                { icon: BookOpen, value: "526", label: "Libri letti" },
+                { icon: Sparkles, value: "13+", label: "Anni di ricerca" },
+                { icon: Award, value: "6", label: "Certificazioni" },
+                { icon: Heart, value: "∞", label: "Passione" }
+              ].map((stat, index) => (
+                <AnimatedSection key={index} delay={index * 0.1}>
+                  <motion.div 
+                    className="gradient-border rounded-2xl p-6 bg-gradient-card text-center"
+                    whileHover={{ scale: 1.05, y: -5 }}
+                  >
                     <stat.icon className="h-8 w-8 text-cyan mx-auto mb-3" />
-                    <motion.p className="font-display text-3xl md:text-4xl text-foreground mb-1" initial={{
-                  opacity: 0,
-                  scale: 0.5
-                }} whileInView={{
-                  opacity: 1,
-                  scale: 1
-                }} transition={{
-                  delay: 0.2 + index * 0.1,
-                  type: "spring"
-                }} viewport={{
-                  once: true
-                }}>
+                    <motion.p 
+                      className="font-display text-3xl md:text-4xl text-foreground mb-1"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.2 + index * 0.1, type: "spring" }}
+                      viewport={{ once: true }}
+                    >
                       {stat.value}
                     </motion.p>
                     <p className="text-sm text-muted-foreground">{stat.label}</p>
                   </motion.div>
-                </AnimatedSection>)}
+                </AnimatedSection>
+              ))}
             </div>
           </div>
         </section>
 
         {/* CTA */}
         <section className="section-padding bg-gradient-to-b from-card to-primary relative overflow-hidden">
-          <motion.div className="absolute inset-0" animate={{
-          background: ["radial-gradient(circle at 20% 50%, hsl(197 65% 70% / 0.1) 0%, transparent 50%)", "radial-gradient(circle at 80% 50%, hsl(197 65% 70% / 0.1) 0%, transparent 50%)", "radial-gradient(circle at 20% 50%, hsl(197 65% 70% / 0.1) 0%, transparent 50%)"]
-        }} transition={{
-          duration: 10,
-          repeat: Infinity
-        }} />
+          <motion.div 
+            className="absolute inset-0"
+            animate={{ 
+              background: [
+                "radial-gradient(circle at 20% 50%, hsl(197 65% 70% / 0.1) 0%, transparent 50%)",
+                "radial-gradient(circle at 80% 50%, hsl(197 65% 70% / 0.1) 0%, transparent 50%)",
+                "radial-gradient(circle at 20% 50%, hsl(197 65% 70% / 0.1) 0%, transparent 50%)"
+              ]
+            }}
+            transition={{ duration: 10, repeat: Infinity }}
+          />
 
           <div className="container-narrow text-center relative z-10">
             <AnimatedSection>
@@ -708,23 +692,15 @@ const ChiSono = () => {
 
             <AnimatedSection delay={0.3}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.div whileHover={{
-                scale: 1.05
-              }} whileTap={{
-                scale: 0.98
-              }}>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                   <Button variant="hero" size="xl" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
-                      Fissa Sessione GRATIS
+                      Fissa Sessione Gratuita
                     </a>
                   </Button>
                 </motion.div>
-                <motion.div whileHover={{
-                scale: 1.05
-              }} whileTap={{
-                scale: 0.98
-              }}>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                   <Button variant="heroOutline" size="xl" asChild>
                     <Link to="/metodo-efo">
                       Scopri il Metodo EFO
@@ -737,6 +713,8 @@ const ChiSono = () => {
           </div>
         </section>
       </Layout>
-    </>;
+    </>
+  );
 };
+
 export default ChiSono;

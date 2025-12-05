@@ -237,7 +237,7 @@ const MetodoEFO = () => {
               <Button variant="hero" size="xl" className="transition-transform hover:scale-105" asChild>
                 <a href="mailto:gabriele.lucesole@gmail.com">
                   <Mail className="h-5 w-5" />
-                  Fissa Sessione Professional Coaching GRATIS
+                  Fissa Sessione Professional Coaching Gratis
                 </a>
               </Button>
 
@@ -254,7 +254,7 @@ const MetodoEFO = () => {
           <div className="container-wide">
             <AnimatedSection className="text-center mb-12">
               <h2 className="font-display text-3xl md:text-4xl mb-4">
-                🫵🏻 Questo percorso è <span className="text-cyan">per te</span> se...
+                👤 Questo percorso è <span className="text-cyan">per te</span> se...
               </h2>
             </AnimatedSection>
 
@@ -1394,7 +1394,9 @@ const MetodoEFO = () => {
                 <p className="text-cyan font-display text-xl mt-8">Ricorda: la paura non dice mai la verità!</p>
                 <p className="text-foreground mt-2">Se il Metodo EFO® ha funzionato per me, può farlo anche per te!</p>
                 
-                
+                <p className="text-sm text-muted-foreground mt-6">
+                  Coach Professionista specializzato Psicologia Positiva | Facilitatore Mindfulness | Ipnotista
+                </p>
               </div>
             </AnimatedSection>
 
