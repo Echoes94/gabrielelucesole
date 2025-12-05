@@ -333,7 +333,7 @@ const MetodoEFO = () => {
               <div className="glass rounded-2xl p-8 max-w-4xl mx-auto text-center border border-emerald-500/20">
                 <h3 className="font-display text-2xl mb-4 flex items-center justify-center gap-2">
                   <Heart className="h-6 w-6 text-emerald-400" />
-                  <span className="text-emerald-400">💚 Ma C'È Una Buona Notizia</span>
+                  <span className="text-emerald-400">🫵🏻 Questo percorso è per te se...</span>
                 </h3>
                 <p className="font-serif text-muted-foreground mb-4">
                   Se hai riconosciuto anche solo 2 di questi segnali, significa che la tua consapevolezza è già attiva.
