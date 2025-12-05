@@ -162,7 +162,7 @@ const Blog = () => {
               <Button variant="hero" size="xl" asChild>
                 <a href="mailto:gabriele.lucesole@gmail.com">
                   <Mail className="h-5 w-5" />
-                  Fissa Sessione Gratuita
+                  Fissa Sessione Professional Coaching GRATIS  
                 </a>
               </Button>
             </AnimatedSection>
