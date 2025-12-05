@@ -364,9 +364,7 @@ const MetodoEFO = () => {
             <AnimatedSection className="text-center">
               <div className="glass rounded-2xl p-8 border border-cyan/20">
                 <Briefcase className="h-12 w-12 text-cyan mx-auto mb-6" />
-                <h2 className="font-display text-2xl md:text-3xl mb-4">
-                  💼 Il Paradosso del Professionista e del Successo Esteriore
-                </h2>
+                <h2 className="font-display text-2xl md:text-3xl mb-4">Il Paradosso del Professionista e del Successo Esteriore</h2>
                 <p className="font-serif text-muted-foreground mb-4">
                   Forse sei un Professionista impegnato. Management o ruoli di responsabilità. Ma quando si tratta della tua vita interiore... non sai da dove iniziare.
                 </p>
