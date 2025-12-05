@@ -1394,9 +1394,7 @@ const MetodoEFO = () => {
                 <p className="text-cyan font-display text-xl mt-8">Ricorda: la paura non dice mai la verità!</p>
                 <p className="text-foreground mt-2">Se il Metodo EFO® ha funzionato per me, può farlo anche per te!</p>
                 
-                <p className="text-sm text-muted-foreground mt-6">
-                  Coach Professionista specializzato Psicologia Positiva | Facilitatore Mindfulness | Ipnotista
-                </p>
+                
               </div>
             </AnimatedSection>
 
