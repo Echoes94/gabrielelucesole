@@ -736,7 +736,7 @@ const MetodoEFO = () => {
                 <div className="glass rounded-2xl p-8 border border-amber-500/20 h-full">
                   <h3 className="font-display text-xl mb-6 flex items-center gap-2">
                     <Gift className="h-5 w-5 text-amber-400" />
-                    🎁 Bonus Inclusi:
+                    Bonus Inclusi:
                   </h3>
                   <ul className="space-y-3 mb-6">
                     {bonuses.map((item, index) => <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground">
