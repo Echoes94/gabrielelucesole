@@ -491,7 +491,7 @@ const MetodoEFO = () => {
               {[{
               icon: History,
               num: "1️⃣",
-              title: "TRASFORMA IL TUO PASSATO",
+              title: "1️⃣ TRASFORMA IL TUO PASSATO",
               sub: "Da peso a trampolino di lancio",
               intro: "Le tue ferite interiori, i condizionamenti ricevuti, le aspettative altrui interiorizzate... Possono smettere di governarti.",
               benefits: ["Liberarti da schemi inconsci che sabotano la tua felicità", "Riscrivere narrazioni limitanti (\"Non basta mai\", \"Devo apparire perfetto\", \"Devo dimostrare di essere qualcuno\")", "Riconnetterti con parti di te sacrificate sull'altare del lavoro fine a se stesso"],
