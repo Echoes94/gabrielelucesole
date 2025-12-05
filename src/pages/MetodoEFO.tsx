@@ -597,7 +597,7 @@ const MetodoEFO = () => {
                         <Gift className="h-4 w-4 text-cyan shrink-0 mt-0.5" />
                         <span className="text-xs text-muted-foreground">{level.badge}</span>
                       </div>
-                      <div className="flex items-center justify-between">
+                      <div className="flex flex-col gap-1">
                         <span className="text-xs text-cyan">⏱️ {level.time}</span>
                         {level.achievement && <span className="text-xs text-amber-400">🏆 "{level.achievement}"</span>}
                       </div>
