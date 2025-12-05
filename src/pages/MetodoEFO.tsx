@@ -180,7 +180,7 @@ const testimonials = [{
   title: "Da Insicuro a Libero Professionista Freelance",
   quote: "In poche sessioni, Gabriele mi ha dato un punto di vista che non avevo mai considerato. Ha migliorato drasticamente il mio focus — fondamentale per un freelance. Non solo è competente, ma sa ascoltare con empatia reale. È stato decisivo per la mia svolta professionale.",
   results: ["Superata sindrome dell'impostore", "Aperto partita IVA e ottenuto primi clienti", "Chiarezza sulla direzione professionale"],
-  videoId: "1F_C-c8j-gzq3rTfeMpL3TWRpZPNLjPMa"
+  videoId: "1c_-VgFLzRPyl5aJE2f456NaduPodUYNx"
 }, {
   name: "Luca G.",
   role: "Media Buyer",
