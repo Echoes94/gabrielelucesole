@@ -599,9 +599,9 @@ const MetodoEFO = () => {
                       </div>
                       <div className="flex flex-col gap-1">
                         <span className="text-xs text-cyan">⏱️ {level.time}</span>
+                        {level.skill && <span className="text-xs text-emerald-400">💪 Nuova Abilità: "{level.skill}"</span>}
                         {level.achievement && <span className="text-xs text-amber-400 text-right">🏆 "{level.achievement}"</span>}
                       </div>
-                      {level.skill && <span className="text-xs text-emerald-400">💪 Nuova Abilità: "{level.skill}"</span>}
                     </div>
                   </div>
                 </AnimatedSection>)}
