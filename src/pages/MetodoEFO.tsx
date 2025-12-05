@@ -1,18 +1,19 @@
 import { Helmet } from "react-helmet-async";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { 
-  Mail, ArrowRight, History, Clock, Target, Brain, 
-  BookOpen, MessageCircle, CheckCircle, Sparkles, 
-  Users, Zap, Shield, Star, XCircle, Lock, Unlock,
-  AlertTriangle, TrendingUp, ArrowDown, Gift, Award,
+  Mail, ArrowRight, CheckCircle, Sparkles, 
+  Users, Star, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History,
+  AlertTriangle, ArrowDown, Gift,
   Search, Heart, Compass, Flame, Play, Instagram, Linkedin,
-  Check, X, Briefcase, GraduationCap, Quote
+  Check, Briefcase, GraduationCap, Quote
 } from "lucide-react";
-import AnimatedSection from "@/components/AnimatedSection";
+import AnimatedSectionLite from "@/components/AnimatedSectionLite";
+// Alias for backward compatibility - using lite version for performance
+const AnimatedSection = AnimatedSectionLite;
+import LazySection from "@/components/LazySection";
 import { Link } from "react-router-dom";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
 
@@ -267,13 +268,6 @@ const testimonials = [
 ];
 
 const MetodoEFO = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-
   return (
     <>
       <Helmet>
@@ -286,15 +280,15 @@ const MetodoEFO = () => {
       </Helmet>
 
       <Layout>
-        {/* Hero */}
-        <section ref={heroRef} className="min-h-screen flex items-center section-padding bg-gradient-hero relative overflow-hidden">
-          <motion.div className="absolute inset-0" style={{ y: heroY }}>
+        {/* Hero - No lazy load, critical content */}
+        <section className="min-h-screen flex items-center section-padding bg-gradient-hero relative overflow-hidden">
+          <div className="absolute inset-0">
             <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan/10 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-          </motion.div>
+          </div>
 
           <div className="container-narrow relative z-10 text-center">
-            <AnimatedSection>
+            <AnimatedSectionLite>
               <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6">
                 ⚡ Metodo EFO®
               </span>
@@ -317,24 +311,18 @@ const MetodoEFO = () => {
                 Il Metodo EFO® non ti promette "work-life balance" con frasi fatte. Ti offre un <span className="text-cyan">sistema integrato per ritrovare te stesso</span> — senza sacrificare il successo.
               </p>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button variant="hero" size="xl" asChild>
-                  <a href="mailto:gabriele.lucesole@gmail.com">
-                    <Mail className="h-5 w-5" />
-                    Fissa Sessione Professional Coaching Gratis
-                  </a>
-                </Button>
-              </motion.div>
+              <Button variant="hero" size="xl" className="transition-transform hover:scale-105" asChild>
+                <a href="mailto:gabriele.lucesole@gmail.com">
+                  <Mail className="h-5 w-5" />
+                  Fissa Sessione Professional Coaching Gratis
+                </a>
+              </Button>
 
-              <motion.p 
-                className="text-cyan mt-8 flex items-center justify-center gap-2"
-                animate={{ y: [0, 5, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
+              <p className="text-cyan mt-8 flex items-center justify-center gap-2 animate-bounce">
                 <ArrowDown className="h-4 w-4" />
                 Scopri se è il momento giusto per te
-              </motion.p>
-            </AnimatedSection>
+              </p>
+            </AnimatedSectionLite>
           </div>
         </section>
 
@@ -350,9 +338,8 @@ const MetodoEFO = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
               {forYouIf.map((item, index) => (
                 <AnimatedSection key={index} delay={index * 0.1}>
-                  <motion.div 
-                    className="gradient-border rounded-2xl p-6 bg-gradient-card h-full"
-                    whileHover={{ y: -5, scale: 1.02 }}
+                  <div 
+                    className="gradient-border rounded-2xl p-6 bg-gradient-card h-full transition-transform duration-300 hover:-translate-y-1"
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
@@ -367,7 +354,7 @@ const MetodoEFO = () => {
                         </p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </AnimatedSection>
               ))}
             </div>
@@ -417,16 +404,15 @@ const MetodoEFO = () => {
             <div className="space-y-6 mb-12">
               {problems.map((problem, index) => (
                 <AnimatedSection key={index} delay={index * 0.1}>
-                  <motion.div 
-                    className="p-6 rounded-xl bg-card border border-border/50"
-                    whileHover={{ borderColor: "hsl(197 65% 70% / 0.5)" }}
+                  <div 
+                    className="p-6 rounded-xl bg-card border border-border/50 transition-colors duration-300 hover:border-cyan/50"
                   >
                     <div className="flex items-center gap-2 mb-4">
                       <CheckCircle className="h-5 w-5 text-cyan shrink-0" />
                       <h3 className="font-display text-lg text-foreground">{problem.title}</h3>
                     </div>
                     <p className="font-serif text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{problem.desc}</p>
-                  </motion.div>
+                  </div>
                 </AnimatedSection>
               ))}
             </div>
@@ -487,14 +473,14 @@ const MetodoEFO = () => {
                   <p className="text-cyan font-medium">E per farlo serve un metodo, non solo buone intenzioni.</p>
                 </div>
 
-                <motion.div className="mt-8" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                <div className="mt-8">
                   <Button variant="hero" size="lg" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
                       Fissa Sessione Gratuita
                     </a>
                   </Button>
-                </motion.div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -512,9 +498,8 @@ const MetodoEFO = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Scenario A */}
               <AnimatedSection direction="left">
-                <motion.div 
+                <div 
                   className="rounded-2xl p-8 bg-red-950/30 border border-red-500/30 h-full"
-                  whileHover={{ scale: 1.02 }}
                 >
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
@@ -530,14 +515,13 @@ const MetodoEFO = () => {
                     <p>Alle 23:00 sei ancora al computer. Il collo fa male. Gli occhi bruciano. Chiudi il laptop con quella sensazione di vuoto: "Cos'ho fatto oggi che conta davvero?"</p>
                     <p className="text-red-400">Domani sarà uguale. E dopodomani. Tra tre mesi sarai esattamente dove sei adesso, forse più stanco, forse più vuoto. Forse con una promozione in più e un pezzo di te in meno.</p>
                   </div>
-                </motion.div>
+                </div>
               </AnimatedSection>
 
               {/* Scenario B */}
               <AnimatedSection direction="right">
-                <motion.div 
+                <div 
                   className="rounded-2xl p-8 bg-emerald-950/30 border border-emerald-500/30 h-full"
-                  whileHover={{ scale: 1.02 }}
                 >
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
@@ -555,7 +539,7 @@ const MetodoEFO = () => {
                     <p>Alle 18:00 chiudi il computer. Davvero. Senza sensi di colpa. La sera leggi un libro, giochi con tuo figlio, fai l'amore essendo completamente lì.</p>
                     <p className="text-emerald-400">Sorridi. Sei tornato a casa, dentro te stesso.</p>
                   </div>
-                </motion.div>
+                </div>
               </AnimatedSection>
             </div>
 
@@ -631,9 +615,8 @@ const MetodoEFO = () => {
                 }
               ].map((dim, index) => (
                 <AnimatedSection key={index} delay={index * 0.15}>
-                  <motion.div 
+                  <div 
                     className="gradient-border rounded-2xl p-8 bg-gradient-card"
-                    whileHover={{ scale: 1.01 }}
                   >
                     <div className="grid lg:grid-cols-3 gap-8 items-start">
                       <div>
@@ -665,7 +648,7 @@ const MetodoEFO = () => {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </AnimatedSection>
               ))}
             </div>
@@ -688,9 +671,8 @@ const MetodoEFO = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {roadmapLevels.map((level, index) => (
                 <AnimatedSection key={index} delay={index * 0.1}>
-                  <motion.div 
-                    className={`rounded-2xl p-6 h-full ${level.unlocked ? 'bg-gradient-card border border-cyan/30' : 'bg-card/50 border border-border/30'}`}
-                    whileHover={{ y: -5 }}
+                  <div 
+                    className={`rounded-2xl p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? 'bg-gradient-card border border-cyan/30' : 'bg-card/50 border border-border/30'}`}
                   >
                     {level.dimension && (
                       <div className="mb-4 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
@@ -743,16 +725,15 @@ const MetodoEFO = () => {
                         <span className="text-xs text-emerald-400">💪 Nuova Abilità: "{level.skill}"</span>
                       )}
                     </div>
-                  </motion.div>
+                  </div>
                 </AnimatedSection>
               ))}
 
               {/* Maestria Levels */}
               {maestriaLevels.map((level, index) => (
                 <AnimatedSection key={`maestria-${index}`} delay={(roadmapLevels.length + index) * 0.1}>
-                  <motion.div 
-                    className="rounded-2xl p-6 h-full bg-gradient-to-br from-amber-950/30 to-card border border-amber-500/30"
-                    whileHover={{ y: -5 }}
+                  <div 
+                    className="rounded-2xl p-6 h-full bg-gradient-to-br from-amber-950/30 to-card border border-amber-500/30 transition-transform duration-300 hover:-translate-y-1"
                   >
                     <div className="mb-4 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block">
                       <span className="text-xs text-amber-400 font-medium">{level.dimension}</span>
@@ -785,7 +766,7 @@ const MetodoEFO = () => {
                         <span className="text-xs text-muted-foreground">🎁 {level.badge}</span>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </AnimatedSection>
               ))}
             </div>
@@ -1080,14 +1061,14 @@ const MetodoEFO = () => {
                 <p className="text-muted-foreground mb-6">
                   Se dopo la call gratuita decidi di non procedere: Avrai comunque guadagnato insight utili.
                 </p>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                <div>
                   <Button variant="hero" size="xl" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
                       Fissa Sessione Gratuita
                     </a>
                   </Button>
-                </motion.div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -1329,9 +1310,8 @@ const MetodoEFO = () => {
             <div className="grid lg:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
                 <AnimatedSection key={index} delay={index * 0.1}>
-                  <motion.div 
-                    className="gradient-border rounded-2xl p-6 bg-gradient-card h-full flex flex-col"
-                    whileHover={{ y: -5 }}
+                  <div 
+                    className="gradient-border rounded-2xl p-6 bg-gradient-card h-full flex flex-col transition-transform duration-300 hover:-translate-y-1"
                   >
                     <div className="mb-4">
                       <h3 className="font-display text-lg text-cyan">{testimonial.name}</h3>
@@ -1375,7 +1355,7 @@ const MetodoEFO = () => {
                         </Button>
                       </div>
                     )}
-                  </motion.div>
+                  </div>
                 </AnimatedSection>
               ))}
             </div>
@@ -1502,14 +1482,14 @@ const MetodoEFO = () => {
                   Il viaggio più importante è quello dentro di te. E inizia con una conversazione.
                 </p>
 
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="mb-4">
+                <div className="mb-4">
                   <Button variant="hero" size="xl" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
                       Fissa Sessione Professional Coaching Gratis
                     </a>
                   </Button>
-                </motion.div>
+                </div>
 
                 <div className="text-sm text-muted-foreground space-y-1">
                   <p>📅 <span className="font-medium">Come Funziona:</span></p>
@@ -1591,14 +1571,14 @@ const MetodoEFO = () => {
                 <p className="text-cyan font-display">Ma il vero ROI? Ritrovare te stesso.</p>
                 <p className="text-foreground mt-2">E quello non ha prezzo.</p>
 
-                <motion.div className="mt-6 text-center" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                <div className="mt-6 text-center">
                   <Button variant="hero" size="lg" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
                       Fissa Sessione Gratuita
                     </a>
                   </Button>
-                </motion.div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
