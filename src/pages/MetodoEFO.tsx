@@ -246,6 +246,7 @@ const credentialsList = [
 const testimonials = [
   {
     name: "Nicolò E.",
+    role: "Copywriter",
     title: "Da Insicuro a Libero Professionista Freelance",
     quote: "In poche sessioni, Gabriele mi ha dato un punto di vista che non avevo mai considerato. Ha migliorato drasticamente il mio focus — fondamentale per un freelance. Non solo è competente, ma sa ascoltare con empatia reale. È stato decisivo per la mia svolta professionale.",
     results: ["Superata sindrome dell'impostore", "Aperto partita IVA e ottenuto primi clienti", "Chiarezza sulla direzione professionale"],
@@ -253,6 +254,7 @@ const testimonials = [
   },
   {
     name: "Luca G.",
+    role: "Media Buyer",
     title: "Da Bloccato a Trasformato (-4kg + Nuova Autostima)",
     quote: "Gabriele ha una capacità unica di leggere tra le righe e fare le domande giuste. Mi ha aiutato a vedere ciò che io stesso non riuscivo a vedere. Non solo ho perso 4kg, ma ho riacquistato fiducia nelle mie capacità e gestisco meglio lo stress quotidiano.",
     results: ["Perdita di peso fisica e mentale", "Superamento di blocchi emotivi inconsci", "Maggiore energia e stress management"],
@@ -260,6 +262,7 @@ const testimonials = [
   },
   {
     name: "Luca L.",
+    role: "Brand Strategist",
     title: "Da Disperso a Focalizzato",
     quote: "La mia esperienza con Gabriele è stata molto positiva. In poche sessioni di professional coaching è riuscito a darmi un nuovo punto di vista, che non avevo mai preso in considerazione, aiutandomi a migliorare sensibilmente il mio focus durante le 4 sessioni previste (cosa fondamentale per un freelance come me). Il risultato è stato raggiunto grazie a domande mirate ed esercizi pratici, veloci e dall'effetto immediato come la mindfulness. Oltre questo, è da segnalare il lato umano di Gabriele, che guida le sessioni con metodo e molta empatia, rendendosi sempre disponibile a chiarire ogni singolo dubbio.",
     results: ["Aumento del focus lavorativo", "Riduzione compulsione (da dipendenza a consapevolezza)", "Maggiore produttività e presenza"],
