@@ -8,6 +8,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
 import chiSonoMondo from "@/assets/chi-sono-mondo.jpg";
 import chiSonoBivio from "@/assets/chi-sono-bivio.jpg";
+import chiSonoErrore from "@/assets/chi-sono-errore.jpg";
 import chiSonoSvolta from "@/assets/chi-sono-svolta.jpg";
 import chiSonoEpifania from "@/assets/chi-sono-epifania.jpg";
 import { Link } from "react-router-dom";
@@ -26,11 +27,11 @@ const credentials = [
 ];
 
 const credentialsList = [
-  "Laurea Magistrale in Scienze Religiose (PUL)",
+  "Laurea in Scienze Religiose (PUL)",
   "Master Universitario di 1° livello in Coaching Umanistico e PNL",
-  "Master internazionale in Life Coaching (ICF)",
-  "Specializzazione in Psicologia Positiva (Penn)",
-  "Facilitatore in Mindfulness (50 crediti ECM)",
+  "Master internazionale in Professional Coaching (ICF)",
+  "Specializzazione in Psicologia Positiva (Penn University)",
+  "Facilitatore in Meditazione Mindfulness",
   "Master in Ipnosi"
 ];
 
@@ -123,7 +124,7 @@ const ChiSono = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  Il viaggio più importante
+                  Il viaggio più importante?
                 </motion.span>
 
                 <motion.h1 
@@ -145,12 +146,21 @@ const ChiSono = () => {
                 </motion.p>
                 
                 <motion.p 
-                  className="font-serif text-muted-foreground leading-relaxed mb-6"
+                  className="font-serif text-muted-foreground leading-relaxed mb-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
-                  Guardi il tuo percorso e ti chiedi: "È davvero tutto qui?" Una presenza assente, un vuoto interiore che nessun successo esterno sembra riuscire a colmare. Una sottile solitudine che continua a crescere, nonostante tu sia circondato da persone.
+                  Guardi il tuo percorso e ti chiedi: "È davvero tutto qui?"
+                </motion.p>
+
+                <motion.p 
+                  className="font-serif text-muted-foreground leading-relaxed mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.55 }}
+                >
+                  Una presenza assente, un vuoto interiore che nessun successo esterno sembra riuscire a colmare. Una sottile solitudine che continua a crescere, nonostante tu sia circondato da persone.
                 </motion.p>
 
                 <motion.p 
@@ -226,6 +236,9 @@ const ChiSono = () => {
               <p>
                 Per un po', anch'io sacrificai il mio volto in cambio di qualche maschera; rinunciai al mio essere per conformarmi agli altri, apparire… Ma non capivo.
               </p>
+              <p>
+                Dentro di me cresceva una domanda:
+              </p>
             </AnimatedSection>
 
             <GlassQuote quote="Perché? Perché vivere così? Non c'è un'altra strada?" />
@@ -237,7 +250,7 @@ const ChiSono = () => {
           <div className="container-narrow">
             <AnimatedSection>
               <h2 className="font-display text-3xl md:text-4xl mb-8 text-center">
-                Il Bivio: <span className="text-gradient">Terra Bruciata</span>
+                Il Bivio: <span className="text-gradient">Terra Bruciata e Nella Fine l'Inizio</span>
               </h2>
             </AnimatedSection>
 
@@ -257,7 +270,13 @@ const ChiSono = () => {
                 Trasformai la mia solitudine in spazio di crescita. Dopo il diploma, mi presi diversi anni sabbatici per tuffarmi nel mare della vita e fare più esperienze nutrienti possibili — prima di morire.
               </p>
               <p>
-                Dissetare la sete di senso che il mondo non sarebbe mai riuscito a placare: il mio imperativo categorico. Feci l'amore con il sapere. Lessi voracemente — più di cento libri l'anno — spaziando tra filosofia, psicologia, spiritualità…
+                Dissetare la sete di senso che il mondo non sarebbe mai riuscito a placare: il mio imperativo categorico.
+              </p>
+              <p>
+                Feci l'amore con il sapere. Lessi voracemente — più di cento libri l'anno — spaziando tra filosofia, psicologia, spiritualità… Frequentai tanti corsi di formazione, viaggi spirituali, assorbii ogni insegnamento come se fosse l'ultimo.
+              </p>
+              <p>
+                Dovevo rispondere alle domande che titolano uno dei quadri più famosi di Gauguin:
               </p>
             </AnimatedSection>
 
@@ -279,25 +298,36 @@ const ChiSono = () => {
           <div className="container-narrow">
             <AnimatedSection>
               <h2 className="font-display text-3xl md:text-4xl mb-8 text-center">
-                L'Errore: <span className="text-gradient">Il Super-Ego</span>
+                L'Errore: <span className="text-gradient">Il Super-Ego e la Sua Prigione</span>
               </h2>
             </AnimatedSection>
+
+            <ParallaxImage src={chiSonoErrore} alt="L'errore - prigione dell'ego" />
 
             <AnimatedSection className="prose-custom">
               <p>
                 Alla ricerca di senso, trovai conferma del mio pessimismo nelle antiche tradizioni orientali. Mi ci buttai a capofitto…
               </p>
               <p>
-                Credevo che — come insegnano le filosofie orientali — distaccarmi dal mondo, dai desideri, dalle relazioni mi avrebbe reso un uomo libero. Desiderare di non desiderare è la via per il Nirvana, insegna il Buddha nelle Quattro Nobili Verità.
+                Credevo che — come insegnano le filosofie orientali — distaccarmi dal mondo, dai desideri, dalle relazioni (Illusioni! Riflessi di maya…) mi avrebbe reso un uomo libero. Desiderare di non desiderare è la via per il Nirvana, insegna il Buddha nelle Quattro Nobili Verità.
               </p>
-              <p className="text-cyan">
+              <p className="text-cyan font-medium">
                 … Ma desiderare di non desiderare non è esso stesso desiderare?! 🤔
               </p>
               <p>
                 Mi stavo costruendo una prigione ancora più stretta e subdola. Invece di liberarmi dal peso dell'ego, ne stavo forgiando uno ancora più grande: un Super-Ego. Come il titano Atlante, dovevo portare il peso del mondo da solo.
               </p>
               <p>
+                La realtà dei sensi — per le religioni orientali — è una proiezione mentale: come quando sogniamo, al risveglio, riconosciamo le cose sognate frutto della nostra immaginazione… così, per gli orientali, la vita di tutti i giorni è un sogno ancora più grande da cui svegliarsi.
+              </p>
+              <p>
+                Bisogna vedere tutte le altre persone — eccetto me: creatore del mio sogno, dunque del mondo — come proiezioni frutto del karma da bruciare nel fuoco dell'indifferenza, del non attaccamento. Gli altri erano ostacoli da superare verso l'«illuminazione», non fonti — nell'incontro — di ricchezza.
+              </p>
+              <p>
                 Le relazioni — massima fonte di felicità per l'uomo secondo le scienze psicologiche — erano distrazioni dalla meta del mio viaggio interiore. Guardavo dentro me stesso e mi allontanavo dagli altri; ma senza mettersi in discussione relazionandoci con gli altri non c'è vera crescita, sviluppo, fioritura…
+              </p>
+              <p>
+                Le filosofie orientali — tanto di moda oggi — facendo leva sul pessimismo contemporaneo e sulla paura del futuro: mascherano la pandemia della solitudine con il successo, l'individualismo diffuso come via per l'illuminazione, il narcisismo (disturbo di personalità) con il Nirvana.
               </p>
             </AnimatedSection>
 
@@ -307,11 +337,25 @@ const ChiSono = () => {
             />
 
             <AnimatedSection className="prose-custom">
+              <p className="italic text-muted-foreground">
+                Lo stesso Dalai Lama sconsiglia le pratiche orientali agli occidentali. Ci sarà un motivo?!
+              </p>
               <p>
-                La protesta del mio corpo — anch'esso illusione da superare — non si fece attendere… La voragine sempre più profonda del mio vuoto interiore mi portò a soffrire di tremende emicranie con aura: dovetti isolarmi sempre di più…
+                Investivo l'energia della mia inquietudine per cercare il senso, ma — come un cane che si morde la coda — non lo trovavo, cercandolo nei posti sbagliati…
+              </p>
+            </AnimatedSection>
+
+            <GlassQuote 
+              quote="Qualcosa di misterioso in questo universo è complice di quelli che amano solo il bene" 
+              author="Simone Weil"
+            />
+
+            <AnimatedSection className="prose-custom">
+              <p>
+                La protesta del mio corpo — anch'esso illusione da superare per vedersi solo puro spirito senza corpo — non si fece attendere… La voragine sempre più profonda del mio vuoto interiore mi portò — probabilmente — a soffrire di tremende emicranie con aura: dovetti isolarmi sempre di più — al buio — affinché mi passassero prima le fasi acute…
               </p>
               <p className="italic text-muted-foreground">
-                La mia esperienza personale, e la vita stessa mi suggerirono: "Stop, fermati. Cambia rotta. Non è questa la via"…
+                La mia esperienza personale, e la vita stessa — per quanto illusoria — mi suggerirono: "Stop, fermati. Cambia rotta. Non è questa la via"…
               </p>
             </AnimatedSection>
           </div>
@@ -339,16 +383,22 @@ const ChiSono = () => {
                 Mi sentii avvolto da una "luce". Una presenza, un calore… Il dolore si sciolse come neve al sole, e il vuoto fu riempito…
               </p>
               <p>
-                Da quel momento in poi, non ebbi più mal di testa. Uscito — in tutti i sensi — dal buio di camera mia, mi impegnai ad accogliere, accettare la realtà così com'è, smettere di combattere i mulini a vento…
+                Da quel momento in poi, non ebbi più mal di testa.
               </p>
               <p>
-                Presentatasi l'occasione, colsi la palla al balzo e andai a vivere — nove mesi — in un monastero, insieme ad altri giovani cercatori di senso come me. Nove mesi di gestazione monastica, per partorire un nuovo me.
+                Uscito — in tutti i sensi — dal buio di camera mia, mi impegnai ad accogliere, accettare la realtà così com'è, smettere di combattere i mulini a vento…
+              </p>
+              <p>
+                Presentatasi l'occasione, colsi la palla al balzo e andai a vivere — nove mesi — in un monastero, insieme ad altri giovani cercatori di senso come me, per approfondire anche altre dimensioni del sapere. Nove mesi di gestazione monastica, per partorire un nuovo me.
               </p>
               <p>
                 Lì, lontano dalle pressioni sociali, vissi forse il periodo più bello della mia vita. Sperimentai ciò che gli psicologi chiamano <em>peak experiences</em>: momenti di <em>flow</em>, presenza totale, connessione con qualcosa di superiore.
               </p>
               <p>
-                Fu così che scoprii la "bellezza collaterale": la capacità di vedere il sacro, lo straordinario, nell'ordinario. Di riconoscere che la vita, la realtà — nonostante tutto — è intrinsecamente buona…
+                Fu così che scoprii la "bellezza collaterale": la capacità di vedere il sacro, lo straordinario, nell'ordinario. Di riconoscere che la vita, la realtà — nonostante tutto — è intrinsecamente buona… Non un'illusione, non un sogno da cui svegliarsi.
+              </p>
+              <p className="text-cyan font-medium">
+                Il problema non era il mondo: era il mio sguardo sul mondo.
               </p>
             </AnimatedSection>
 
@@ -361,7 +411,7 @@ const ChiSono = () => {
               <p>
                 Trasformai il mio pessimismo adolescenziale in speranza. Non una speranza ingenua, ma una speranza fondata sull'esperienza diretta di qualcosa che trascende la mia comprensione razionale.
               </p>
-              <p className="text-cyan font-medium">
+              <p className="text-cyan font-medium text-lg">
                 Ciò non cambiò niente, se non il mio sguardo, e questo cambiò tutto…
               </p>
             </AnimatedSection>
@@ -387,8 +437,24 @@ const ChiSono = () => {
                 Decisi di abbandonare la frenesia dell'autodidatta e iniziai a studiare seriamente e con metodo… Fino a laurearmi in Scienze Religiose, per cercare di conoscere — a fondo — l'antica saggezza di altre tradizioni millenarie.
               </p>
               <p>
-                Ricercai anche differenze e similitudini con ciò che dice la scienza moderna, le neuroscienze, le scienze umane. Fu questo l'oggetto della mia tesi di laurea: antica saggezza vs scienza moderna per l'autorealizzazione e la felicità esistenzialista.
+                Come hanno fatto mistici, filosofi, saggi di tutti i tempi a realizzarsi ed essere felici, prima dell'avvento del metodo scientifico? C'è qualcosa in noi — oltre la razionalità pura della scienza — che può guidarci sulla via della pace? Quali segreti hanno scoperto gli antichi? Ci hanno lasciato qualche indizio?
               </p>
+              <p>
+                Non contento di aver trovato queste risposte oltre ad altre domande con una laurea… Ricercai anche differenze e similitudini con ciò che dice la scienza moderna, le neuroscienze, le scienze umane. Fu questo l'oggetto della mia tesi di laurea: <em>antica saggezza vs scienza moderna per l'autorealizzazione e la felicità esistenzialista</em>…
+              </p>
+              <p>
+                Ovvero: cosa che può fare l'essere umano — autonomamente e prescindendo dagli altri: incontrollabili, non manipolabili, altri da noi — per essere felice?
+              </p>
+              <p>
+                Contemporaneamente:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Conseguì un Master Universitario di 1° Livello in coaching umanistico e PNL</li>
+                <li>Un altro master internazionale — certificato ICF — in professional coaching</li>
+                <li>Mi specializzai in Psicologia Positiva presso la Penn University dell'Ivy League</li>
+                <li>Diventai facilitatore in meditazione mindfulness (scoprendo le differenze con lo yoga che praticai in passato)</li>
+                <li>Approfondii l'ipnosi con un altro master…</li>
+              </ul>
             </AnimatedSection>
 
             {/* Credentials Section */}
@@ -434,8 +500,14 @@ const ChiSono = () => {
               <p>
                 E poi, mentre stavo pensando all'indice della mia tesi di laurea… un'epifania. Grazie a un'intuizione improvvisa, finalmente tutti i <span className="text-cyan">18.000 pezzi del puzzle</span> — dopo 10+ anni di ricerca sul campo, decine di migliaia di euro investiti in formazione, 526 libri letti e numerose esperienze di vita vissuta — si unirono in un disegno coerente…
               </p>
+              <p>
+                … e anche grazie ai 9 mesi — e oltre — di gestazione in monastero:
+              </p>
               <p className="text-2xl font-display text-center my-8">
                 🧩 Nacque il <span className="text-gradient">Metodo EFO: Essere Felici Ora</span>
+              </p>
+              <p>
+                Un approccio integrato che abbraccia le tre dimensioni fondamentali della nostra vita:
               </p>
             </AnimatedSection>
 
@@ -443,8 +515,8 @@ const ChiSono = () => {
             <div className="grid md:grid-cols-3 gap-6 my-12">
               {[
                 { icon: History, title: "Trasforma il Tuo Passato", desc: "Da scheletro nell'armadio a trampolino di lancio" },
-                { icon: Clock, title: "Vivi Solo il Presente", desc: "Con la tecnica life-changing 'Al di là del Tempo nello Spazio'" },
-                { icon: Target, title: "Attrai il Futuro Desiderato", desc: "Senza la fuffa della legge d'attrazione, con strumenti scientificamente provati" }
+                { icon: Clock, title: "Vivi Solo il Presente", desc: "Grazie a uno stratagemma brevettato da me che ti riporta — \"ingannando\" il cervello — qui e ora, oltre il tempo, nel tuo spazio interiore" },
+                { icon: Target, title: "Attrai il Futuro Desiderato", desc: "Senza la fuffa della legge d'attrazione, ma con strumenti scientificamente provati" }
               ].map((dim, index) => (
                 <AnimatedSection key={index} delay={index * 0.15}>
                   <motion.div 
@@ -458,6 +530,18 @@ const ChiSono = () => {
                 </AnimatedSection>
               ))}
             </div>
+
+            <AnimatedSection className="prose-custom">
+              <p>
+                Grazie a quell'intuizione inaspettata, trovai la sintesi definitiva del mio viaggio interiore… E ora — finalmente — potevo mettere nero su bianco i tesori che avevo scoperto, condividerli con chi desidera autorealizzarsi e iniziare il viaggio più importante: dentro di sé.
+              </p>
+              <p>
+                Fenomenologia, Jung, Maslow, Peterson, psicologia positiva, bioenergetica, mindfulness, ipnosi: tutto trova posto in questo sistema innovativo integrato.
+              </p>
+              <p className="text-cyan font-medium text-lg text-center my-6">
+                Vuoi avere a disposizione tutti gli strumenti migliori per realizzarti anche tu? Senza nemmeno alzarti dalla sedia di casa tua… Risparmieresti 13 anni di vita vissuta e tutti i soldi che ho investito in formazione ed esperienze (decine di migliaia di euro) — al posto tuo.
+              </p>
+            </AnimatedSection>
           </div>
         </section>
 
@@ -478,7 +562,13 @@ const ChiSono = () => {
                 Non solo per me, ma anche per gli altri… A volte perfino più efficaci — e meno dispendiosi in termini di tempo e denaro — di anni di analisi.
               </p>
               <p>
-                Vedevo i miei coachees trasformarsi sotto i miei occhi, e mi chiedevo: com'è possibile in così poco tempo? Ho cercato solo di riflettere la luce che avevano sempre avuto dentro, ma che non riuscivano — ancora — a vedere.
+                Come successo a Liana che, dopo anni passati di psicoterapeuta in psicoterapeuta prima di trovare la sua strada, attraverso sessioni di professional coaching, riuscì finalmente a individuare e sciogliere vecchi meccanismi di difesa che si portava sul groppone da decenni: ora inutili, da adulta. Più libera e senza il peso del passato, con la tecnica mindfulness che le trasmisi, riuscì — rapidamente — a gestire i suoi pensieri e a migliorare, di settimana in settimana, la sua ansia costante per il futuro…
+              </p>
+              <p>
+                Vedevo i miei coachees trasformarsi sotto i miei occhi, e mi chiedevo: com'è possibile in così poco tempo? Abituati come siamo ad anni di terapia… per poi vedersi sempre gli stessi, dall'altra parte dello specchio…
+              </p>
+              <p className="italic text-muted-foreground">
+                Ho cercato solo di riflettere la luce che avevano sempre avuto dentro, ma che non riuscivano — ancora — a vedere.
               </p>
               <p className="font-display text-lg text-center my-6">
                 Questo è il potere socratico del professional coaching: <span className="text-cyan">partorire se stessi</span>.
@@ -520,6 +610,28 @@ const ChiSono = () => {
             </AnimatedSection>
 
             <GlassQuote quote="La paura non dice mai la verità." />
+
+            <AnimatedSection className="prose-custom">
+              <p>
+                Se la mia storia ti risuona, se anche tu senti che c'è qualcosa di più oltre la monotonia — qualcosa che ancora non sai nominare — sappi che non sei solo…
+              </p>
+              <p className="text-cyan font-medium text-lg">
+                Ci sono passato anch'io. E da oggi possiamo camminare insieme, mettendoti a disposizione tutto ciò che ho imparato lungo il cammino della vita.
+              </p>
+              <p>
+                Non ti posso promettere magie o miracoli. Ma ti offrirò un metodo — corroborato da tradizioni millenarie e dalla scienza — e una mappa per diventare il capitano della tua anima, fino a scoprire anche tu i tesori nascosti dentro di te.
+              </p>
+              <p>
+                Presenza, e dialoghi autentici tra cercatori di senso, per esplorare insieme da dove vieni, chi sei e dove vuoi andare: verso l'infinito e oltre…
+              </p>
+              <p className="font-display text-xl text-center my-8">
+                Il <span className="text-gradient">Metodo EFO</span> non è una teoria da leggere: sintetizza esperienze da vivere.<br />
+                E tutto comincia con una conversazione…
+              </p>
+              <p className="text-center text-muted-foreground">
+                Approfitta di una sessione gratuita. Senza impegno. Per conoscerci e scoprire se il Metodo EFO fa per te. Se senti la chiamata: rispondi. Il primo passo è sempre il più difficile, ma è anche quello che può cambiare tutto: a cominciare dalla tua vita…
+              </p>
+            </AnimatedSection>
           </div>
         </section>
 
@@ -572,20 +684,10 @@ const ChiSono = () => {
 
           <div className="container-narrow text-center relative z-10">
             <AnimatedSection>
-              <p className="font-serif text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
-                Se la mia storia ti risuona, se anche tu senti che c'è qualcosa di più oltre la monotonia — qualcosa che ancora non sai nominare — sappi che non sei solo…
-              </p>
-              <p className="font-display text-2xl md:text-3xl mb-8">
-                <span className="text-cyan">Ci sono passato anch'io.</span><br />
-                E da oggi possiamo camminare insieme.
-              </p>
-              <p className="font-serif text-muted-foreground mb-4">
-                Non ti posso promettere magie o miracoli. Ma ti offrirò un metodo — corroborato da tradizioni millenarie e dalla scienza — e una mappa per diventare il <em>capitano della tua anima</em>.
-              </p>
-              <p className="font-display text-lg text-foreground mb-10">
-                Il Metodo EFO non è una teoria da leggere: sintetizza esperienze da vivere.<br />
-                E tutto comincia con una conversazione…
-              </p>
+              <h2 className="font-display text-2xl md:text-4xl mb-6">
+                Fissa una Sessione Gratuita:<br />
+                <span className="text-gradient">Inizia la Tua Trasformazione!</span>
+              </h2>
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
