@@ -281,7 +281,7 @@ const MetodoEFO = () => {
               <div className="glass rounded-2xl p-8 max-w-4xl mx-auto border border-red-500/20">
                 <h3 className="font-display text-xl mb-6 text-center flex items-center justify-center gap-2">
                   <XCircle className="h-6 w-6 text-red-400" />
-                  <span>❌ Questo percorso NON è per te se...</span>
+                  <span>Questo percorso NON è per te se...</span>
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
                   {notForYouIf.map((item, index) => <div key={index} className="flex items-start gap-3">
