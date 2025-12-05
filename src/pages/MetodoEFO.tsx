@@ -878,7 +878,7 @@ const MetodoEFO = () => {
                   <h4 className="font-display text-lg text-amber-400">💰 AUMENTO PREZZO IMMINENTE</h4>
                 </div>
                 <p className="text-sm text-muted-foreground mb-2">
-                  Il prezzo attuale (789€ con sconto doppio) è valido fino al <span className="text-amber-400 font-medium">30 novembre 2025</span>.
+                  Il prezzo attuale (789€ con sconto doppio) è valido fino al <span className="text-amber-400 font-medium">31 dicembre 2025</span>.
                 </p>
                 <p className="text-sm text-muted-foreground mb-2">
                   <span className="font-medium">Perché aumenterà:</span> Da dicembre introdurrò nuovi contenuti…
