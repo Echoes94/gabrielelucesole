@@ -619,7 +619,7 @@ const MetodoEFO = () => {
                         <Sparkles className="h-5 w-5 text-amber-400" />
                       </div>
                       <span className="font-display text-2xl text-amber-400">
-                        🔓 LV ∞
+                        LV ∞ 🔐
                       </span>
                     </div>
 
