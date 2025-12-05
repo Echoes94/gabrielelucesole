@@ -16,7 +16,7 @@ const HeroSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16">
       {/* Parallax Background image */}
       <motion.div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -30,32 +30,24 @@ const HeroSection = () => {
 
       {/* Minimal background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Single subtle gradient orb */}
         <motion.div 
-          className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-cyan/5 rounded-full blur-[120px]"
-          animate={{
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          className="absolute top-1/3 left-1/4 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-cyan/5 rounded-full blur-[80px] md:blur-[120px]"
+          animate={{ opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         
-        {/* Subtle grid - even more minimal */}
         <div 
           className="absolute inset-0 opacity-[0.02]" 
           style={{
             backgroundImage: `linear-gradient(hsl(var(--cyan) / 0.5) 1px, transparent 1px),
                               linear-gradient(90deg, hsl(var(--cyan) / 0.5) 1px, transparent 1px)`,
-            backgroundSize: '80px 80px'
+            backgroundSize: '60px 60px'
           }} 
         />
       </div>
 
       <motion.div 
-        className="container-narrow relative z-10 text-center"
+        className="container-narrow relative z-10 text-center px-5"
         style={{ y: textY, opacity }}
       >
         {/* Eyebrow */}
@@ -64,14 +56,14 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/80 border border-cyan/20 rounded-full mb-10">
+          <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan/80 border border-cyan/20 rounded-full mb-6 sm:mb-10">
             Con il Metodo EFO®
           </span>
         </motion.div>
 
         {/* Main headline */}
         <motion.h1 
-          className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-8"
+          className="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-5 sm:mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -96,7 +88,7 @@ const HeroSection = () => {
 
         {/* Subheadline */}
         <motion.p 
-          className="font-serif text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-12 leading-relaxed"
+          className="font-serif text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -106,28 +98,28 @@ const HeroSection = () => {
 
         {/* CTA buttons */}
         <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Button variant="hero" size="xl" asChild>
+          <Button variant="hero" size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-10" asChild>
             <a href="mailto:gabriele.lucesole@gmail.com">
-              <Mail className="h-5 w-5" />
+              <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
               Fissa Sessione Gratuita
             </a>
           </Button>
-          <Button variant="heroOutline" size="xl" asChild>
+          <Button variant="heroOutline" size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-10" asChild>
             <a href="#problema">
               Riempi il Vuoto
-              <ArrowDown className="h-5 w-5" />
+              <ArrowDown className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
           </Button>
         </motion.div>
 
         {/* Trust indicators */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-8 md:gap-12 text-sm text-muted-foreground"
+          className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-8 md:gap-12 text-xs sm:text-sm text-muted-foreground"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.9 }}
@@ -139,7 +131,7 @@ const HeroSection = () => {
           ].map((item, index) => (
             <motion.div 
               key={index}
-              className="flex items-center gap-2"
+              className="flex items-center justify-center gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 + index * 0.15, duration: 0.4 }}
@@ -153,11 +145,11 @@ const HeroSection = () => {
 
       {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <ArrowDown className="h-5 w-5 text-muted-foreground" />
+        <ArrowDown className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground" />
       </motion.div>
     </section>
   );
