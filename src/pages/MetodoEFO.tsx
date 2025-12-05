@@ -574,7 +574,7 @@ const MetodoEFO = () => {
                         </div>
                         <div>
                           <span className={`font-display text-2xl ${level.unlocked ? 'text-cyan' : 'text-muted-foreground'}`}>
-                            🔓 LV {level.level}
+                            LV {level.level}
                           </span>
                         </div>
                       </div>
