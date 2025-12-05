@@ -41,7 +41,7 @@ const Blog = () => {
                 Blog
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6">
-                Riflessioni per <span className="text-gradient">trovalo qui... </span>
+                Cerca il senso,   <span className="text-gradient">trovalo qui... </span>
               </h1>
               <p className="font-serif text-lg text-muted-foreground max-w-2xl mx-auto">
                 Articoli su crescita personale, mindfulness e trasformazione interiore. 
