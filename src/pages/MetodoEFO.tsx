@@ -118,7 +118,7 @@ const maestriaLevels = [{
   dimension: "2D - VIVI PIENAMENTE IL PRESENTE"
 }, {
   title: "Attrazione Consapevole",
-  subtitle: "\"Tra lo stimolo e la risposta c'è uno spazio...\" – Viktor Frankl",
+  subtitle: "\"Tra lo stimolo e la risposta c'è uno spazio. In quello spazio risiede il potere di scegliere la nostra risposta. Nella nostra risposta c'è la nostra crescita e libertà.\" – Viktor Frankl",
   content: ["Professional Coaching 1-to-1: Ruota della vita UPGRADED, Individuazione valori guida, Goal-setting avanzato", "Training guidato futuro", "Allineamento valori, azioni e obiettivi", "Micro-commitments quotidiani (regola dell'1% → dal circolo vizioso al circolo virtuoso)"],
   badge: "Stazione di Servizio Platonica + Scrittura Creativa Archetipica + Su richiesta: Saggio \"La Ginnastica del Desiderio\"",
   dimension: "3D - ATTRAI IL FUTURO DESIDERATO"
