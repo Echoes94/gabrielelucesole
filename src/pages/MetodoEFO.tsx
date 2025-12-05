@@ -187,7 +187,7 @@ const testimonials = [{
   title: "Da Bloccato a Trasformato (-4kg + Nuova Autostima)",
   quote: "Gabriele ha una capacità unica di leggere tra le righe e fare le domande giuste. Mi ha aiutato a vedere ciò che io stesso non riuscivo a vedere. Non solo ho perso 4kg, ma ho riacquistato fiducia nelle mie capacità e gestisco meglio lo stress quotidiano.",
   results: ["Perdita di peso fisica e mentale", "Superamento di blocchi emotivi inconsci", "Maggiore energia e stress management"],
-  videoId: "1c_-VgFLzRPyl5aJE2f456NaduPodUYNx"
+  videoId: "1bXnXExxCKSBGn66dOWjcInfud0NF9qWi"
 }, {
   name: "Luca L.",
   role: "Brand Strategist",
