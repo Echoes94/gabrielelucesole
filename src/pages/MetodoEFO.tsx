@@ -520,7 +520,7 @@ const MetodoEFO = () => {
                           <div className="w-16 h-16 rounded-xl bg-cyan/10 flex items-center justify-center">
                             <dim.icon className="h-8 w-8 text-cyan" />
                           </div>
-                          <span className="text-3xl">{dim.num}</span>
+                          
                         </div>
                         <h3 className="font-display text-2xl mb-2">{dim.title}</h3>
                         <p className="text-cyan text-sm mb-4">{dim.sub}</p>
