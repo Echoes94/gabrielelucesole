@@ -95,7 +95,8 @@ const roadmapLevels = [{
   badge: "Formula della Trasformazione + Nuove pratiche contemplative + Assistenza 24/7",
   time: "20 min/giorno",
   achievement: "Padrone di Te Stesso",
-  skill: "Risposta Consapevole vs Reazione"
+  skill: "Risposta Consapevole vs Reazione",
+  dimension: "1D - TRASFORMA IL TUO PASSATO"
 }, {
   level: "4",
   title: "Visione",
@@ -106,7 +107,8 @@ const roadmapLevels = [{
   badge: "Future Authoring + Nuove pratiche contemplative + Assistenza 24/7",
   time: "20 min/giorno",
   achievement: "Architetto del Destino",
-  skill: "Allineamento Valori-Azioni"
+  skill: "Allineamento Valori-Azioni",
+  dimension: "1D - TRASFORMA IL TUO PASSATO"
 }];
 const maestriaLevels = [{
   title: "Presenza Radicale",
