@@ -522,7 +522,7 @@ const MetodoEFO = () => {
                           </div>
                           <span className="text-3xl">{dim.num}</span>
                         </div>
-                        <h3 className="font-display text-2xl mb-2">{dim.title}</h3>
+                        
                         <p className="text-cyan text-sm mb-4">{dim.sub}</p>
                         <p className="text-muted-foreground text-sm italic">{dim.intro}</p>
                       </div>
