@@ -507,7 +507,7 @@ const MetodoEFO = () => {
             }, {
               icon: Target,
               num: "3️⃣",
-              title: "ATTRAI IL FUTURO DESIDERATO",
+              title: "3️⃣ ATTRAI IL FUTURO DESIDERATO",
               sub: "Dalla confusione alla chiarezza di chi vuoi essere davvero",
               intro: "Non \"legge di attrazione\" magica. Ma visione chiara + valori autentici + azioni coerenti.",
               benefits: ["Ridefinire le priorità oltre la carriera (affetti, spiritualità, mission)", "Allineamento tra chi sei e cosa fai (no dissonanza cognitiva)", "Piano d'azione per trasformare la vita che \"dovresti\" vivere nella vita che vuoi vivere"],
