@@ -917,7 +917,7 @@ const MetodoEFO = () => {
             <AnimatedSection delay={0.5}>
               <div className="gradient-border rounded-2xl p-8 bg-gradient-card text-center">
                 <Shield className="h-12 w-12 text-cyan mx-auto mb-4" />
-                <h3 className="font-display text-2xl mb-4">🎯 Garanzia: Sessione Professional Coaching Gratuita</h3>
+                <h3 className="font-display text-2xl mb-4">Sessione Professional Coaching Gratuita</h3>
                 <p className="text-muted-foreground mb-4">Prima di investire, parliamo. Gratuitamente.</p>
                 <ul className="space-y-2 text-sm text-muted-foreground mb-6 text-left max-w-md mx-auto">
                   <li>✅ 30+ minuti per conoscerci davvero</li>
