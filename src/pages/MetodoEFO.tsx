@@ -499,7 +499,7 @@ const MetodoEFO = () => {
             }, {
               icon: Clock,
               num: "2️⃣",
-              title: "VIVI PIENAMENTE IL PRESENTE",
+              title: "2️⃣ VIVI PIENAMENTE IL PRESENTE",
               sub: "Dal pilota automatico della frenesia contemporanea a una presenza radicale",
               intro: "Quante volte ti senti \"presente\" solo fisicamente e con la testa da un'altra parte? Quanti momenti con i tuoi cari hai passato pensando alle scadenze del giorno dopo?",
               benefits: ["Accesso allo stato di flow anche nella quotidianità lavorativa (deep work)", "Gestione dello stress attraverso mindfulness applicata (non solo teoria)", "Capacità di essere qui e ora, senza ansia per il futuro o rimpianti per il passato"],
