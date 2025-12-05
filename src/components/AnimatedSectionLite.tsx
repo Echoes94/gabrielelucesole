@@ -36,9 +36,9 @@ const AnimatedSectionLite = ({
       y: 0,
       x: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
         delay,
-        ease: "easeOut"
+        ease: [0.16, 1, 0.3, 1] // Smooth deceleration curve
       }
     }
   };

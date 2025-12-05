@@ -56,111 +56,60 @@ const MethodPreview = () => {
     offset: ["start end", "end start"]
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <section ref={sectionRef} className="section-padding bg-gradient-to-b from-card to-background relative overflow-hidden">
-      {/* Parallax banner background */}
+    <section ref={sectionRef} className="section-padding bg-card/30 relative overflow-hidden">
+      {/* Subtle parallax background */}
       <motion.div 
-        className="absolute inset-0 opacity-20"
-        style={{ y: backgroundY, scale: backgroundScale }}
+        className="absolute inset-0 opacity-10"
+        style={{ y: backgroundY }}
       >
         <img 
           src={methodBanner} 
           alt="" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-card via-card/90 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       </motion.div>
-
-      {/* Animated background accents */}
-      <motion.div 
-        className="absolute top-1/2 left-0 w-96 h-96 bg-cyan/5 rounded-full blur-3xl -translate-y-1/2"
-        animate={{ 
-          x: [0, 50, 0],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute top-1/2 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-y-1/2"
-        animate={{ 
-          x: [0, -50, 0],
-          opacity: [0.2, 0.5, 0.2]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
 
       <div className="container-wide relative z-10">
         {/* Section header */}
         <AnimatedSection className="text-center mb-16">
-          <motion.span 
-            className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6"
-            whileHover={{ scale: 1.05, borderColor: "hsl(197 65% 70% / 0.5)" }}
-          >
+          <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-8">
             Metodo EFO®
-          </motion.span>
+          </span>
           <h2 className="font-display text-3xl md:text-5xl mb-4">
-            Essere Felici <motion.span 
-              className="text-gradient inline-block"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              ORA
-            </motion.span>
+            Essere Felici <span className="text-gradient">ORA</span>
           </h2>
-          <p className="font-serif text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-serif text-muted-foreground max-w-xl mx-auto">
             L'Approccio Integrato Definitivo che Trasforma la Tua Vita in 3D
           </p>
         </AnimatedSection>
 
-        {/* 3 Dimensions with connected line animation */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16 relative">
-          {/* Animated connecting line */}
-          <motion.div 
-            className="hidden md:block absolute top-12 left-1/6 right-1/6 h-px bg-gradient-to-r from-transparent via-cyan/50 to-transparent"
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 1.5, delay: 0.5 }}
-            viewport={{ once: true }}
-          />
-
+        {/* 3 Dimensions */}
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {dimensions.map((dim, index) => (
             <AnimatedSection
               key={index}
-              delay={index * 0.2}
-              className="group relative"
+              delay={index * 0.15}
+              className="group"
             >
               <motion.div 
-                className="relative gradient-border rounded-2xl p-8 bg-gradient-card h-full"
-                whileHover={{ 
-                  y: -15,
-                  scale: 1.02,
-                  boxShadow: "0 30px 60px -15px hsl(197 65% 70% / 0.3)"
-                }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative gradient-border rounded-xl p-6 md:p-8 bg-card h-full"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                {/* Number badge with pulse */}
-                <motion.div 
-                  className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-cyan/20 border border-cyan/40 flex items-center justify-center"
-                  animate={{ 
-                    boxShadow: ["0 0 0 0 hsl(197 65% 70% / 0.4)", "0 0 0 10px hsl(197 65% 70% / 0)", "0 0 0 0 hsl(197 65% 70% / 0)"]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                >
-                  <span className="font-display text-lg text-cyan">{dim.number}</span>
-                </motion.div>
+                {/* Number badge */}
+                <div className="absolute -top-2 -right-2 w-10 h-10 rounded-lg bg-cyan/10 border border-cyan/30 flex items-center justify-center">
+                  <span className="font-display text-sm text-cyan">{dim.number}</span>
+                </div>
 
-                <motion.div 
-                  className="w-14 h-14 rounded-xl bg-cyan/10 flex items-center justify-center mb-6 group-hover:bg-cyan/20 transition-colors"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <dim.icon className="h-7 w-7 text-cyan" />
-                </motion.div>
+                <div className="w-12 h-12 rounded-lg bg-cyan/10 flex items-center justify-center mb-5">
+                  <dim.icon className="h-6 w-6 text-cyan" />
+                </div>
 
-                <h3 className="font-display text-xl md:text-2xl mb-3 text-foreground">
+                <h3 className="font-display text-xl mb-3 text-foreground">
                   {dim.title}
                 </h3>
                 <p className="font-serif text-sm text-muted-foreground leading-relaxed">
@@ -172,80 +121,38 @@ const MethodPreview = () => {
         </div>
 
         {/* Formazione Section */}
-        <AnimatedSection delay={0.4}>
-          <motion.div 
-            className="glass rounded-2xl p-6 md:p-10 mb-12"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.h3 
-              className="font-display text-2xl md:text-3xl text-center mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
+        <AnimatedSection delay={0.3}>
+          <div className="glass rounded-xl p-6 md:p-10 mb-12">
+            <h3 className="font-display text-2xl md:text-3xl text-center mb-4">
               Formazione
-            </motion.h3>
-            <motion.p 
-              className="text-center font-serif text-muted-foreground mb-8 max-w-3xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+            </h3>
+            <p className="text-center font-serif text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Il Viaggio che farai attraverso questo Per–Corso esclusivo è il distillato di <span className="text-cyan">13 anni di ricerche sul campo</span>, 
               decine di migliaia di euro investiti in corsi di formazione e <span className="text-cyan">526 libri letti</span>…
-            </motion.p>
+            </p>
             
-            <motion.p 
-              className="text-center font-serif text-foreground mb-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
+            <p className="text-center font-serif text-foreground/80 mb-6">
               Ho anche conseguito:
-            </motion.p>
+            </p>
             
-            {/* Credentials list with stagger */}
+            {/* Credentials list */}
             <div className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto mb-10">
               {credentialsList.map((credential, index) => (
-                <motion.div 
-                  key={index} 
-                  className="flex items-center gap-3"
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <motion.span 
-                    className="w-2 h-2 rounded-full bg-cyan shrink-0"
-                    animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.1 }}
-                  />
+                <div key={index} className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-cyan/50 mt-2.5 shrink-0" />
                   <span className="font-serif text-sm text-muted-foreground">{credential}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            {/* Credential logos with hover effects */}
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            {/* Credential logos */}
+            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
               {credentials.map((cred, index) => (
                 <motion.div
                   key={index}
-                  className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center bg-white/90 rounded-xl p-3 cursor-pointer"
-                  initial={{ opacity: 0, y: 30, rotate: -10 }}
-                  whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.15, type: "spring" }}
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.15, 
-                    rotate: 5,
-                    boxShadow: "0 20px 40px -10px rgba(0,0,0,0.3)"
-                  }}
+                  className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-white/90 rounded-lg p-2"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
                 >
                   <img 
                     src={cred.logo} 
@@ -255,19 +162,17 @@ const MethodPreview = () => {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </AnimatedSection>
 
         {/* CTA */}
-        <AnimatedSection className="text-center" delay={0.5}>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/metodo-efo">
-                Scopri di più
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
-          </motion.div>
+        <AnimatedSection className="text-center" delay={0.4}>
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/metodo-efo">
+              Scopri di più
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </Button>
         </AnimatedSection>
       </div>
     </section>

@@ -33,12 +33,12 @@ const AnimatedSection = ({
 
   const getInitialPosition = () => {
     switch (direction) {
-      case "up": return { y: 60, x: 0 };
-      case "down": return { y: -60, x: 0 };
-      case "left": return { x: 60, y: 0 };
-      case "right": return { x: -60, y: 0 };
+      case "up": return { y: 30, x: 0 };
+      case "down": return { y: -30, x: 0 };
+      case "left": return { x: 30, y: 0 };
+      case "right": return { x: -30, y: 0 };
       case "none": return { x: 0, y: 0 };
-      default: return { y: 60, x: 0 };
+      default: return { y: 30, x: 0 };
     }
   };
 
@@ -46,19 +46,15 @@ const AnimatedSection = ({
     hidden: { 
       opacity: 0, 
       ...getInitialPosition(),
-      filter: "blur(8px)",
-      scale: 0.95
     },
     visible: { 
       opacity: 1, 
       y: 0, 
       x: 0,
-      filter: "blur(0px)",
-      scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         delay,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: [0.16, 1, 0.3, 1]
       }
     }
   };
