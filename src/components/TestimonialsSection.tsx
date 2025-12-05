@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     name: "Luca L.",
-    text: "La mia esperienza con Gabriele è stata molto positiva. In poche sessioni di professional coaching è riuscito a darmi un nuovo punto di vista, che non avevo mai preso in considerazione, aiutandomi a migliorare sensibilmente il mio focus durante le 4 sessioni previste (cosa fondamentale per un freelance come me). Il risultato è stato raggiunto grazie a domande mirate ed esercizi pratici, veloci e dall'effetto immediato come la mindfulness. Oltre questo, è da segnalare il lato umano di Gabriele, che guida le sessioni con metodo e molta empatia, rendendosi sempre disponibile a chiarire ogni singolo dubbio.",
+    text: "Ho aperto partita IVA, un obiettivo che sembrava irraggiungibile fino a pochi mesi fa a causa della mia bassa autostima e della sindrome dell'impostore. Avevo ansia a propormi ai potenziali clienti, ma ho deciso di cambiare. Grazie al coaching di Gabriele, ho trasformato il mio mindset e la mia autostima. Ora ho i miei primi clienti e guadagno. Consiglio vivamente il coaching di Gabriele a chi è indeciso o ha difficoltà a raggiungere i propri obiettivi. Mi ha ascoltato, capito e supportato. Grazie, Gabriele.",
     videoId: null
   },
   {
