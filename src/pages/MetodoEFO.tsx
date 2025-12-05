@@ -472,9 +472,7 @@ const MetodoEFO = () => {
                 Non terapia per psicopatologie. Non sterile motivazione. Non fuffa new age. Ma un percorso rigoroso, definitivo, che unisce:
               </p>
               <div className="flex flex-wrap justify-center gap-4 mt-6">
-                <span className="px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 text-sm">
-                  🧠 Neuroscienze (Psicologia Positiva, Mindfulness, Professional Coaching ICF, Ipnosi…)
-                </span>
+                <span className="px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 text-sm">🧠 Neuroscienze (Professional Coaching ICF, Psicologia Positiva, Mindfulness, Ipnosi…)</span>
                 <span className="px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 text-sm">
                   🏛️ Saggezza millenaria (Filosofia, pratiche contemplative, archetipi)
                 </span>
