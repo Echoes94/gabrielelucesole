@@ -204,7 +204,7 @@ const ChiSono = () => {
                     transition={{ delay: 0.8 }}
                   >
                     <h2 className="font-display text-2xl text-foreground mb-1">Gabriele Lucesole</h2>
-                    <p className="text-cyan text-sm">Coach Professionista ICF</p>
+                    <p className="text-cyan text-sm">ICF Professional Coaching</p>
                   </motion.div>
                 </motion.div>
               </AnimatedSection>
