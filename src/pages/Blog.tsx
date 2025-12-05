@@ -44,8 +44,7 @@ const Blog = () => {
                 Cerca il senso,   <span className="text-gradient">trovalo qui... </span>
               </h1>
               <p className="font-serif text-lg text-muted-foreground max-w-2xl mx-auto">
-                Articoli su crescita personale, mindfulness e trasformazione interiore. 
-                Senza fuffa, con profondità.
+                Articoli di crescita personale, meditazione e trasformazione interiore. Senza fuffa, con profondità, per la tua autorealizzazione e felicità esistenzialista GRATIS.
               </p>
             </AnimatedSection>
 
