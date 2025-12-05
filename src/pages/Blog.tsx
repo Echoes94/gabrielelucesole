@@ -157,8 +157,7 @@ const Blog = () => {
                 Vuoi andare <span className="text-gradient">più in profondità</span>?
               </h2>
               <p className="font-serif text-muted-foreground max-w-xl mx-auto mb-8">
-                Gli articoli sono solo l'inizio. Se senti che è il momento di trasformare la teoria in pratica, 
-                possiamo iniziare con una conversazione.
+                Queste letture sono solo l'inizio. Se senti che è il momento di trasformare la teoria in pratica, possiamo iniziare con una conversazione...
               </p>
               <Button variant="hero" size="xl" asChild>
                 <a href="mailto:gabriele.lucesole@gmail.com">
