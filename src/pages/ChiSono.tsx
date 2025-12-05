@@ -36,18 +36,18 @@ const credentialsList = [
 ];
 
 const GlassQuote = ({ quote, author }: { quote: string; author?: string }) => (
-  <AnimatedSection className="my-16">
+  <AnimatedSection className="my-8 md:my-12">
     <motion.blockquote 
-      className="glass rounded-2xl p-8 md:p-10 relative overflow-hidden"
-      whileHover={{ scale: 1.02 }}
+      className="glass rounded-xl p-6 md:p-8 relative overflow-hidden"
+      whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.3 }}
     >
-      <Quote className="absolute top-4 left-4 h-8 w-8 text-cyan/20" />
-      <p className="font-serif text-lg md:text-xl text-foreground italic leading-relaxed text-center relative z-10">
+      <Quote className="absolute top-4 left-4 h-6 w-6 text-cyan/20" />
+      <p className="font-serif text-base md:text-lg text-foreground italic leading-relaxed text-center relative z-10">
         "{quote}"
       </p>
       {author && (
-        <cite className="block text-center mt-4 text-cyan font-sans text-sm uppercase tracking-wider not-italic">
+        <cite className="block text-center mt-3 text-cyan font-sans text-xs uppercase tracking-wider not-italic">
           — {author}
         </cite>
       )}
@@ -61,10 +61,10 @@ const ParallaxImage = ({ src, alt }: { src: string; alt: string }) => {
     target: ref,
     offset: ["start end", "end start"]
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <div ref={ref} className="relative h-[50vh] md:h-[60vh] overflow-hidden rounded-2xl my-12">
+    <div ref={ref} className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10">
       <motion.div 
         className="absolute inset-0"
         style={{ y }}
@@ -72,9 +72,9 @@ const ParallaxImage = ({ src, alt }: { src: string; alt: string }) => {
         <img 
           src={src} 
           alt={alt} 
-          className="w-full h-[140%] object-cover"
+          className="w-full h-[120%] object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
       </motion.div>
     </div>
   );
@@ -86,7 +86,7 @@ const ChiSono = () => {
     target: heroRef,
     offset: ["start start", "end start"]
   });
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
@@ -107,19 +107,19 @@ const ChiSono = () => {
             className="absolute inset-0"
             style={{ y: heroY }}
           >
-            <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+            <div className="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </motion.div>
 
           <motion.div 
             className="container-wide relative z-10"
             style={{ opacity: heroOpacity }}
           >
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Content */}
               <AnimatedSection direction="left">
                 <motion.span 
-                  className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6"
+                  className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -128,7 +128,7 @@ const ChiSono = () => {
                 </motion.span>
 
                 <motion.h1 
-                  className="font-display text-4xl md:text-5xl lg:text-6xl mb-6"
+                  className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
@@ -137,7 +137,7 @@ const ChiSono = () => {
                 </motion.h1>
 
                 <motion.p 
-                  className="font-serif text-lg text-muted-foreground leading-relaxed mb-6"
+                  className="font-serif text-base md:text-lg text-muted-foreground leading-relaxed mb-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
@@ -146,7 +146,7 @@ const ChiSono = () => {
                 </motion.p>
                 
                 <motion.p 
-                  className="font-serif text-muted-foreground leading-relaxed mb-4"
+                  className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-3"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
@@ -155,16 +155,16 @@ const ChiSono = () => {
                 </motion.p>
 
                 <motion.p 
-                  className="font-serif text-muted-foreground leading-relaxed mb-4"
+                  className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-3"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.55 }}
                 >
-                  Una presenza assente, un vuoto interiore che nessun successo esterno sembra riuscire a colmare. Una sottile solitudine che continua a crescere, nonostante tu sia circondato da persone.
+                  Una presenza assente, un vuoto interiore che nessun successo esterno sembra riuscire a colmare.
                 </motion.p>
 
                 <motion.p 
-                  className="font-display text-xl text-cyan"
+                  className="font-display text-lg md:text-xl text-cyan"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 }}
@@ -176,35 +176,29 @@ const ChiSono = () => {
               {/* Image */}
               <AnimatedSection direction="right" className="relative">
                 <motion.div 
-                  className="relative aspect-[4/5] max-w-md mx-auto"
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  className="relative aspect-[4/5] max-w-sm mx-auto"
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
                 >
-                  <motion.div 
-                    className="absolute -inset-4 border border-cyan/20 rounded-3xl"
-                    animate={{ rotate: [0, 1, -1, 0] }}
-                    transition={{ duration: 8, repeat: Infinity }}
-                  />
-                  <div className="relative h-full rounded-2xl overflow-hidden glow-cyan">
-                    <motion.img
+                  <div className="absolute -inset-3 border border-cyan/20 rounded-2xl" />
+                  <div className="relative h-full rounded-xl overflow-hidden">
+                    <img
                       src={gabrielePhoto}
                       alt="Gabriele Lucesole"
                       className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.5 }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                   
                   <motion.div 
-                    className="absolute bottom-6 left-6 right-6"
+                    className="absolute bottom-4 left-4 right-4"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 }}
                   >
-                    <h2 className="font-display text-2xl text-foreground mb-1">Gabriele Lucesole</h2>
-                    <p className="text-cyan text-sm">ICF Professional Coaching</p>
+                    <h2 className="font-display text-xl md:text-2xl text-foreground mb-1">Gabriele Lucesole</h2>
+                    <p className="text-cyan text-xs md:text-sm">ICF Professional Coaching</p>
                   </motion.div>
                 </motion.div>
               </AnimatedSection>
@@ -216,7 +210,7 @@ const ChiSono = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection>
-              <h2 className="font-display text-3xl md:text-4xl mb-8 text-center">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Il Mondo <span className="text-gradient">Incompreso</span>
               </h2>
             </AnimatedSection>
@@ -225,16 +219,13 @@ const ChiSono = () => {
 
             <AnimatedSection className="prose-custom">
               <p>
-                Ero un adolescente che soffriva del male che vedeva nel mondo. Una società che mi appariva malata: superficiale, liquida, arrivista. Un consumismo che ti promette felicità, ma ti lascia più vuoto di prima.
+                Ero un adolescente che soffriva del male che vedeva nel mondo. Una società che mi appariva malata: superficiale, liquida, arrivista.
               </p>
               <p>
-                A scuola, nelle relazioni interpersonali, ovunque: vedevo maschere, non volti. Un fare senza senso, dovere per il dovere senza un perché. Apparire, avere senza essere…
+                A scuola, nelle relazioni interpersonali, ovunque: vedevo maschere, non volti. Un fare senza senso, dovere per il dovere senza un perché.
               </p>
               <p>
-                Gli altri sono affidabili? Il futuro — per noi giovani — è promettente o minaccioso? Mi sentivo solo, in un mondo che va troppo veloce. Cosa mi chiede il mondo? Essere me stesso o qualcun altro?
-              </p>
-              <p>
-                Per un po', anch'io sacrificai il mio volto in cambio di qualche maschera; rinunciai al mio essere per conformarmi agli altri, apparire… Ma non capivo.
+                Per un po', anch'io sacrificai il mio volto in cambio di qualche maschera; rinunciai al mio essere per conformarmi agli altri… Ma non capivo.
               </p>
               <p>
                 Dentro di me cresceva una domanda:
@@ -249,7 +240,7 @@ const ChiSono = () => {
         <section className="section-padding bg-background">
           <div className="container-narrow">
             <AnimatedSection>
-              <h2 className="font-display text-3xl md:text-4xl mb-8 text-center">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Il Bivio: <span className="text-gradient">Terra Bruciata e Nella Fine l'Inizio</span>
               </h2>
             </AnimatedSection>
@@ -260,20 +251,14 @@ const ChiSono = () => {
               <p>
                 Dovetti scegliere: continuare a sacrificare la mia profondità sull'altare della superficialità contemporanea oppure ascoltarmi ed essere coerente a me stesso.
               </p>
-              <p className="text-cyan font-medium text-lg">
+              <p className="text-cyan font-medium text-base md:text-lg">
                 Non mi disunii. Scelsi me stesso.
               </p>
               <p>
-                Diedi forma ai miei pensieri: aprii bocca e dissi ciò che pensavo, a chi dovevo. Feci terra bruciata intorno a me: avevo bisogno di tornare a respirare l'aria che sceglievo di respirare io — non quella che gli altri avevano scelto per me.
+                Diedi forma ai miei pensieri: aprii bocca e dissi ciò che pensavo. Feci terra bruciata intorno a me: avevo bisogno di tornare a respirare l'aria che sceglievo io.
               </p>
               <p>
-                Trasformai la mia solitudine in spazio di crescita. Dopo il diploma, mi presi diversi anni sabbatici per tuffarmi nel mare della vita e fare più esperienze nutrienti possibili — prima di morire.
-              </p>
-              <p>
-                Dissetare la sete di senso che il mondo non sarebbe mai riuscito a placare: il mio imperativo categorico.
-              </p>
-              <p>
-                Feci l'amore con il sapere. Lessi voracemente — più di cento libri l'anno — spaziando tra filosofia, psicologia, spiritualità… Frequentai tanti corsi di formazione, viaggi spirituali, assorbii ogni insegnamento come se fosse l'ultimo.
+                Trasformai la mia solitudine in spazio di crescita. Feci l'amore con il sapere. Lessi voracemente — più di cento libri l'anno.
               </p>
               <p>
                 Dovevo rispondere alle domande che titolano uno dei quadri più famosi di Gauguin:
@@ -284,12 +269,6 @@ const ChiSono = () => {
               quote="Da dove veniamo? Chi siamo? Dove andiamo?" 
               author="Paul Gauguin"
             />
-
-            <AnimatedSection className="prose-custom">
-              <p className="italic text-muted-foreground">
-                Cosa rende la vita degna di essere vissuta? Qual è la mappa per trovare il tesoro nascosto nella vita?
-              </p>
-            </AnimatedSection>
           </div>
         </section>
 
@@ -297,7 +276,7 @@ const ChiSono = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection>
-              <h2 className="font-display text-3xl md:text-4xl mb-8 text-center">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 L'Errore: <span className="text-gradient">Il Super-Ego e la Sua Prigione</span>
               </h2>
             </AnimatedSection>
@@ -309,25 +288,16 @@ const ChiSono = () => {
                 Alla ricerca di senso, trovai conferma del mio pessimismo nelle antiche tradizioni orientali. Mi ci buttai a capofitto…
               </p>
               <p>
-                Credevo che — come insegnano le filosofie orientali — distaccarmi dal mondo, dai desideri, dalle relazioni (Illusioni! Riflessi di maya…) mi avrebbe reso un uomo libero. Desiderare di non desiderare è la via per il Nirvana, insegna il Buddha nelle Quattro Nobili Verità.
+                Credevo che distaccarmi dal mondo, dai desideri, dalle relazioni mi avrebbe reso un uomo libero.
               </p>
               <p className="text-cyan font-medium">
                 … Ma desiderare di non desiderare non è esso stesso desiderare?! 🤔
               </p>
               <p>
-                Mi stavo costruendo una prigione ancora più stretta e subdola. Invece di liberarmi dal peso dell'ego, ne stavo forgiando uno ancora più grande: un Super-Ego. Come il titano Atlante, dovevo portare il peso del mondo da solo.
+                Mi stavo costruendo una prigione ancora più stretta e subdola. Invece di liberarmi dal peso dell'ego, ne stavo forgiando uno ancora più grande.
               </p>
               <p>
-                La realtà dei sensi — per le religioni orientali — è una proiezione mentale: come quando sogniamo, al risveglio, riconosciamo le cose sognate frutto della nostra immaginazione… così, per gli orientali, la vita di tutti i giorni è un sogno ancora più grande da cui svegliarsi.
-              </p>
-              <p>
-                Bisogna vedere tutte le altre persone — eccetto me: creatore del mio sogno, dunque del mondo — come proiezioni frutto del karma da bruciare nel fuoco dell'indifferenza, del non attaccamento. Gli altri erano ostacoli da superare verso l'«illuminazione», non fonti — nell'incontro — di ricchezza.
-              </p>
-              <p>
-                Le relazioni — massima fonte di felicità per l'uomo secondo le scienze psicologiche — erano distrazioni dalla meta del mio viaggio interiore. Guardavo dentro me stesso e mi allontanavo dagli altri; ma senza mettersi in discussione relazionandoci con gli altri non c'è vera crescita, sviluppo, fioritura…
-              </p>
-              <p>
-                Le filosofie orientali — tanto di moda oggi — facendo leva sul pessimismo contemporaneo e sulla paura del futuro: mascherano la pandemia della solitudine con il successo, l'individualismo diffuso come via per l'illuminazione, il narcisismo (disturbo di personalità) con il Nirvana.
+                Le relazioni — massima fonte di felicità per l'uomo secondo le scienze psicologiche — erano distrazioni dalla meta del mio viaggio interiore.
               </p>
             </AnimatedSection>
 
@@ -337,11 +307,11 @@ const ChiSono = () => {
             />
 
             <AnimatedSection className="prose-custom">
-              <p className="italic text-muted-foreground">
+              <p className="italic text-muted-foreground text-sm">
                 Lo stesso Dalai Lama sconsiglia le pratiche orientali agli occidentali. Ci sarà un motivo?!
               </p>
               <p>
-                Investivo l'energia della mia inquietudine per cercare il senso, ma — come un cane che si morde la coda — non lo trovavo, cercandolo nei posti sbagliati…
+                La protesta del mio corpo non si fece attendere… La voragine del mio vuoto interiore mi portò a soffrire di tremende emicranie con aura.
               </p>
             </AnimatedSection>
 
@@ -349,15 +319,6 @@ const ChiSono = () => {
               quote="Qualcosa di misterioso in questo universo è complice di quelli che amano solo il bene" 
               author="Simone Weil"
             />
-
-            <AnimatedSection className="prose-custom">
-              <p>
-                La protesta del mio corpo — anch'esso illusione da superare per vedersi solo puro spirito senza corpo — non si fece attendere… La voragine sempre più profonda del mio vuoto interiore mi portò — probabilmente — a soffrire di tremende emicranie con aura: dovetti isolarmi sempre di più — al buio — affinché mi passassero prima le fasi acute…
-              </p>
-              <p className="italic text-muted-foreground">
-                La mia esperienza personale, e la vita stessa — per quanto illusoria — mi suggerirono: "Stop, fermati. Cambia rotta. Non è questa la via"…
-              </p>
-            </AnimatedSection>
           </div>
         </section>
 
@@ -365,7 +326,7 @@ const ChiSono = () => {
         <section className="section-padding bg-background">
           <div className="container-narrow">
             <AnimatedSection>
-              <h2 className="font-display text-3xl md:text-4xl mb-8 text-center">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 La Svolta: <span className="text-gradient">Arrenditi e Ritrovati</span>
               </h2>
             </AnimatedSection>
@@ -374,28 +335,19 @@ const ChiSono = () => {
 
             <AnimatedSection className="prose-custom">
               <p>
-                Nel momento più buio, quando tutte le strategie di controllo fallirono, feci l'unica cosa che non avevo mai fatto: mi arresi. Sconfitto, perso, disperato…
+                Nel momento più buio, quando tutte le strategie di controllo fallirono, feci l'unica cosa che non avevo mai fatto: mi arresi.
               </p>
               <p>
-                Mi aprii a qualcosa più grande di me e, con rabbia, sfidai Dio: se esisteva, avrebbe dovuto "rispondermi"... E accadde qualcosa di inaspettato…
+                Mi aprii a qualcosa più grande di me e, con rabbia, sfidai Dio: se esisteva, avrebbe dovuto "rispondermi"...
               </p>
-              <p className="text-cyan font-medium text-lg">
+              <p className="text-cyan font-medium text-base md:text-lg">
                 Mi sentii avvolto da una "luce". Una presenza, un calore… Il dolore si sciolse come neve al sole, e il vuoto fu riempito…
               </p>
               <p>
                 Da quel momento in poi, non ebbi più mal di testa.
               </p>
               <p>
-                Uscito — in tutti i sensi — dal buio di camera mia, mi impegnai ad accogliere, accettare la realtà così com'è, smettere di combattere i mulini a vento…
-              </p>
-              <p>
-                Presentatasi l'occasione, colsi la palla al balzo e andai a vivere — nove mesi — in un monastero, insieme ad altri giovani cercatori di senso come me, per approfondire anche altre dimensioni del sapere. Nove mesi di gestazione monastica, per partorire un nuovo me.
-              </p>
-              <p>
-                Lì, lontano dalle pressioni sociali, vissi forse il periodo più bello della mia vita. Sperimentai ciò che gli psicologi chiamano <em>peak experiences</em>: momenti di <em>flow</em>, presenza totale, connessione con qualcosa di superiore.
-              </p>
-              <p>
-                Fu così che scoprii la "bellezza collaterale": la capacità di vedere il sacro, lo straordinario, nell'ordinario. Di riconoscere che la vita, la realtà — nonostante tutto — è intrinsecamente buona… Non un'illusione, non un sogno da cui svegliarsi.
+                Presentatasi l'occasione, andai a vivere — nove mesi — in un monastero. Lì sperimentai ciò che gli psicologi chiamano <em>peak experiences</em>: momenti di <em>flow</em>, presenza totale.
               </p>
               <p className="text-cyan font-medium">
                 Il problema non era il mondo: era il mio sguardo sul mondo.
@@ -408,10 +360,7 @@ const ChiSono = () => {
             />
 
             <AnimatedSection className="prose-custom">
-              <p>
-                Trasformai il mio pessimismo adolescenziale in speranza. Non una speranza ingenua, ma una speranza fondata sull'esperienza diretta di qualcosa che trascende la mia comprensione razionale.
-              </p>
-              <p className="text-cyan font-medium text-lg">
+              <p className="text-cyan font-medium text-base md:text-lg">
                 Ciò non cambiò niente, se non il mio sguardo, e questo cambiò tutto…
               </p>
             </AnimatedSection>
@@ -422,7 +371,7 @@ const ChiSono = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection>
-              <h2 className="font-display text-3xl md:text-4xl mb-8 text-center">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 L'Epifania: <span className="text-gradient">Nasce il Metodo EFO</span>
               </h2>
             </AnimatedSection>
@@ -431,63 +380,50 @@ const ChiSono = () => {
 
             <AnimatedSection className="prose-custom">
               <p>
-                Ritornato dal monastero, cercai di custodire i tesori che avevo scoperto nel mondo ordinario… Fallii miseramente, e sentii il bisogno di riorganizzare tutto ciò che avevo sperimentato.
+                Ritornato dal monastero, cercai di custodire i tesori che avevo scoperto. Decisi di studiare seriamente e con metodo fino a laurearmi in Scienze Religiose.
               </p>
               <p>
-                Decisi di abbandonare la frenesia dell'autodidatta e iniziai a studiare seriamente e con metodo… Fino a laurearmi in Scienze Religiose, per cercare di conoscere — a fondo — l'antica saggezza di altre tradizioni millenarie.
+                Contemporaneamente conseguii:
               </p>
-              <p>
-                Come hanno fatto mistici, filosofi, saggi di tutti i tempi a realizzarsi ed essere felici, prima dell'avvento del metodo scientifico? C'è qualcosa in noi — oltre la razionalità pura della scienza — che può guidarci sulla via della pace? Quali segreti hanno scoperto gli antichi? Ci hanno lasciato qualche indizio?
-              </p>
-              <p>
-                Non contento di aver trovato queste risposte oltre ad altre domande con una laurea… Ricercai anche differenze e similitudini con ciò che dice la scienza moderna, le neuroscienze, le scienze umane. Fu questo l'oggetto della mia tesi di laurea: <em>antica saggezza vs scienza moderna per l'autorealizzazione e la felicità esistenzialista</em>…
-              </p>
-              <p>
-                Ovvero: cosa che può fare l'essere umano — autonomamente e prescindendo dagli altri: incontrollabili, non manipolabili, altri da noi — per essere felice?
-              </p>
-              <p>
-                Contemporaneamente:
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>Conseguì un Master Universitario di 1° Livello in coaching umanistico e PNL</li>
-                <li>Un altro master internazionale — certificato ICF — in professional coaching</li>
-                <li>Mi specializzai in Psicologia Positiva presso la Penn University dell'Ivy League</li>
-                <li>Diventai facilitatore in meditazione mindfulness (scoprendo le differenze con lo yoga che praticai in passato)</li>
-                <li>Approfondii l'ipnosi con un altro master…</li>
+              <ul className="list-disc list-inside space-y-1 ml-2 text-sm md:text-base">
+                <li>Master Universitario di 1° Livello in coaching umanistico e PNL</li>
+                <li>Master internazionale — certificato ICF — in professional coaching</li>
+                <li>Specializzazione in Psicologia Positiva (Penn University)</li>
+                <li>Facilitatore in meditazione mindfulness</li>
+                <li>Master in ipnosi</li>
               </ul>
             </AnimatedSection>
 
             {/* Credentials Section */}
             <AnimatedSection delay={0.2}>
-              <div className="glass rounded-2xl p-6 md:p-10 my-12">
-                <h3 className="font-display text-2xl text-center mb-8">La mia Formazione</h3>
+              <div className="glass rounded-xl p-5 md:p-8 my-8 md:my-10">
+                <h3 className="font-display text-xl md:text-2xl text-center mb-6">La mia Formazione</h3>
                 
-                <div className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto mb-10">
+                <div className="grid md:grid-cols-2 gap-2 md:gap-3 max-w-3xl mx-auto mb-8">
                   {credentialsList.map((credential, index) => (
                     <motion.div 
                       key={index} 
-                      className="flex items-center gap-3"
-                      initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -10 : 10 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 * index }}
+                      transition={{ delay: 0.05 * index }}
                       viewport={{ once: true }}
                     >
-                      <span className="w-2 h-2 rounded-full bg-cyan shrink-0" />
-                      <span className="font-serif text-sm text-muted-foreground">{credential}</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan shrink-0" />
+                      <span className="font-serif text-xs md:text-sm text-muted-foreground">{credential}</span>
                     </motion.div>
                   ))}
                 </div>
 
-                <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+                <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
                   {credentials.map((cred, index) => (
                     <motion.div
                       key={index}
-                      className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-white/90 rounded-xl p-2"
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-white/90 rounded-lg p-1.5"
+                      initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.1 * index }}
                       viewport={{ once: true }}
-                      whileHover={{ scale: 1.1 }}
                     >
                       <img src={cred.logo} alt={cred.name} className="w-full h-full object-contain" />
                     </motion.div>
@@ -498,50 +434,33 @@ const ChiSono = () => {
 
             <AnimatedSection className="prose-custom">
               <p>
-                E poi, mentre stavo pensando all'indice della mia tesi di laurea… un'epifania. Grazie a un'intuizione improvvisa, finalmente tutti i <span className="text-cyan">18.000 pezzi del puzzle</span> — dopo 10+ anni di ricerca sul campo, decine di migliaia di euro investiti in formazione, 526 libri letti e numerose esperienze di vita vissuta — si unirono in un disegno coerente…
+                E poi, mentre stavo pensando all'indice della mia tesi… un'epifania. Tutti i <span className="text-cyan">18.000 pezzi del puzzle</span> — dopo 10+ anni di ricerca — si unirono in un disegno coerente…
               </p>
-              <p>
-                … e anche grazie ai 9 mesi — e oltre — di gestazione in monastero:
-              </p>
-              <p className="text-2xl font-display text-center my-8">
+              <p className="text-xl md:text-2xl font-display text-center my-6">
                 🧩 Nacque il <span className="text-gradient">Metodo EFO: Essere Felici Ora</span>
-              </p>
-              <p>
-                Un approccio integrato che abbraccia le tre dimensioni fondamentali della nostra vita:
               </p>
             </AnimatedSection>
 
             {/* 3 Dimensions */}
-            <div className="grid md:grid-cols-3 gap-6 my-12">
+            <div className="grid md:grid-cols-3 gap-4 my-8 md:my-10">
               {[
                 { icon: History, title: "Trasforma il Tuo Passato", desc: "Da scheletro nell'armadio a trampolino di lancio" },
-                { icon: Clock, title: "Vivi Solo il Presente", desc: "Grazie a uno stratagemma brevettato da me che ti riporta — \"ingannando\" il cervello — qui e ora, oltre il tempo, nel tuo spazio interiore" },
-                { icon: Target, title: "Attrai il Futuro Desiderato", desc: "Senza la fuffa della legge d'attrazione, ma con strumenti scientificamente provati" }
+                { icon: Clock, title: "Vivi Solo il Presente", desc: "Uno stratagemma che ti riporta qui e ora, oltre il tempo" },
+                { icon: Target, title: "Attrai il Futuro Desiderato", desc: "Con strumenti scientificamente provati" }
               ].map((dim, index) => (
-                <AnimatedSection key={index} delay={index * 0.15}>
+                <AnimatedSection key={index} delay={index * 0.1}>
                   <motion.div 
-                    className="gradient-border rounded-xl p-6 bg-gradient-card h-full text-center"
-                    whileHover={{ y: -5, scale: 1.02 }}
+                    className="gradient-border rounded-lg p-4 md:p-5 bg-gradient-card h-full text-center"
+                    whileHover={{ y: -3 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <dim.icon className="h-8 w-8 text-cyan mx-auto mb-4" />
-                    <h4 className="font-display text-lg mb-2">{dim.title}</h4>
-                    <p className="font-serif text-sm text-muted-foreground">{dim.desc}</p>
+                    <dim.icon className="h-6 w-6 md:h-7 md:w-7 text-cyan mx-auto mb-3" />
+                    <h4 className="font-display text-base md:text-lg mb-1">{dim.title}</h4>
+                    <p className="font-serif text-xs md:text-sm text-muted-foreground">{dim.desc}</p>
                   </motion.div>
                 </AnimatedSection>
               ))}
             </div>
-
-            <AnimatedSection className="prose-custom">
-              <p>
-                Grazie a quell'intuizione inaspettata, trovai la sintesi definitiva del mio viaggio interiore… E ora — finalmente — potevo mettere nero su bianco i tesori che avevo scoperto, condividerli con chi desidera autorealizzarsi e iniziare il viaggio più importante: dentro di sé.
-              </p>
-              <p>
-                Fenomenologia, Jung, Maslow, Peterson, psicologia positiva, bioenergetica, mindfulness, ipnosi: tutto trova posto in questo sistema innovativo integrato.
-              </p>
-              <p className="text-cyan font-medium text-lg text-center my-6">
-                Vuoi avere a disposizione tutti gli strumenti migliori per realizzarti anche tu? Senza nemmeno alzarti dalla sedia di casa tua… Risparmieresti 13 anni di vita vissuta e tutti i soldi che ho investito in formazione ed esperienze (decine di migliaia di euro) — al posto tuo.
-              </p>
-            </AnimatedSection>
           </div>
         </section>
 
@@ -549,40 +468,34 @@ const ChiSono = () => {
         <section className="section-padding bg-background">
           <div className="container-narrow">
             <AnimatedSection>
-              <h2 className="font-display text-3xl md:text-4xl mb-8 text-center">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Dall'Interno <span className="text-gradient">all'Esterno</span>
               </h2>
             </AnimatedSection>
 
             <AnimatedSection className="prose-custom">
               <p>
-                Ebbi un'altra rivelazione quando iniziai a lavorare come Coach Professionista… Scoprii che gli strumenti appresi e padroneggiati con la pratica negli anni di <em>studio matto e disperatissimo</em>, applicati durante sessioni di professional coaching — integrati con le mie conoscenze psicologiche e spirituali tramandate da millenni — erano sorprendentemente trasformativi…
+                Ebbi un'altra rivelazione quando iniziai a lavorare come Coach Professionista… Scoprii che gli strumenti appresi erano sorprendentemente trasformativi…
               </p>
               <p className="text-cyan font-medium">
-                Non solo per me, ma anche per gli altri… A volte perfino più efficaci — e meno dispendiosi in termini di tempo e denaro — di anni di analisi.
+                Non solo per me, ma anche per gli altri…
               </p>
               <p>
-                Come successo a Liana che, dopo anni passati di psicoterapeuta in psicoterapeuta prima di trovare la sua strada, attraverso sessioni di professional coaching, riuscì finalmente a individuare e sciogliere vecchi meccanismi di difesa che si portava sul groppone da decenni: ora inutili, da adulta. Più libera e senza il peso del passato, con la tecnica mindfulness che le trasmisi, riuscì — rapidamente — a gestire i suoi pensieri e a migliorare, di settimana in settimana, la sua ansia costante per il futuro…
+                Vedevo i miei coachees trasformarsi sotto i miei occhi.
               </p>
-              <p>
-                Vedevo i miei coachees trasformarsi sotto i miei occhi, e mi chiedevo: com'è possibile in così poco tempo? Abituati come siamo ad anni di terapia… per poi vedersi sempre gli stessi, dall'altra parte dello specchio…
+              <p className="italic text-muted-foreground text-sm">
+                Ho cercato solo di riflettere la luce che avevano sempre avuto dentro.
               </p>
-              <p className="italic text-muted-foreground">
-                Ho cercato solo di riflettere la luce che avevano sempre avuto dentro, ma che non riuscivano — ancora — a vedere.
-              </p>
-              <p className="font-display text-lg text-center my-6">
+              <p className="font-display text-base md:text-lg text-center my-4">
                 Questo è il potere socratico del professional coaching: <span className="text-cyan">partorire se stessi</span>.
-              </p>
-              <p>
-                Mi meravigliai. Fui profondamente grato e orgoglioso dei miei coachees e della loro trasformazione. Quello stesso senso di meraviglia — tipico dell'innocenza infantile — lo ritrovai osservando la fioritura degli altri.
               </p>
             </AnimatedSection>
 
             <GlassQuote quote="Basta essere presenza: creare lo spazio sicuro dove la luce può entrare, crescere, irradiarsi…" />
 
             <AnimatedSection className="prose-custom">
-              <p className="text-lg">
-                Avevo trovato il mio <span className="text-cyan font-bold">IKIGAI</span>: aiutare giovani adulti — proprio come me — ad autorealizzarsi ed essere felici esistenzialmente. Indipendenti dalla precarietà del mondo esterno, ma capaci di attingere alla ricchezza interiore inesauribile che già possiedono.
+              <p className="text-base md:text-lg">
+                Avevo trovato il mio <span className="text-cyan font-bold">IKIGAI</span>: aiutare giovani adulti ad autorealizzarsi ed essere felici esistenzialmente.
               </p>
             </AnimatedSection>
           </div>
@@ -592,7 +505,7 @@ const ChiSono = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection>
-              <h2 className="font-display text-3xl md:text-4xl mb-8 text-center">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Il Mondo <span className="text-gradient">Nuovo</span>
               </h2>
             </AnimatedSection>
@@ -602,10 +515,7 @@ const ChiSono = () => {
                 Oggi, quando guardo indietro al me stesso adolescente che soffriva per il male del mondo, vedo cosa quell'inquietudine mi ha permesso di costruire.
               </p>
               <p>
-                Avevo ragione a soffrire — ma mi sbagliavo a pensare di essere solo… Siamo in molti a scandalizzarci per ciò che potrebbe essere altrimenti, ed è proprio grazie a chi si scandalizza come noi che le cose possono migliorare.
-              </p>
-              <p>
-                Mi sbagliavo a credere che la soluzione fosse la fuga, l'isolamento, la mania di controllare tutto ciò che mi capitava a tiro… La vera soluzione era aprirmi al mondo — nonostante il timore di rimanerne scottato. Nell'accettazione. Nel coraggio di guardare il dolore senza distogliere lo sguardo e nel trovare — proprio lì — il seme della trasformazione.
+                Avevo ragione a soffrire — ma mi sbagliavo a pensare di essere solo…
               </p>
             </AnimatedSection>
 
@@ -613,23 +523,17 @@ const ChiSono = () => {
 
             <AnimatedSection className="prose-custom">
               <p>
-                Se la mia storia ti risuona, se anche tu senti che c'è qualcosa di più oltre la monotonia — qualcosa che ancora non sai nominare — sappi che non sei solo…
+                Se la mia storia ti risuona, se anche tu senti che c'è qualcosa di più oltre la monotonia — sappi che non sei solo…
               </p>
-              <p className="text-cyan font-medium text-lg">
-                Ci sono passato anch'io. E da oggi possiamo camminare insieme, mettendoti a disposizione tutto ciò che ho imparato lungo il cammino della vita.
+              <p className="text-cyan font-medium text-base md:text-lg">
+                Ci sono passato anch'io. E da oggi possiamo camminare insieme.
               </p>
-              <p>
-                Non ti posso promettere magie o miracoli. Ma ti offrirò un metodo — corroborato da tradizioni millenarie e dalla scienza — e una mappa per diventare il capitano della tua anima, fino a scoprire anche tu i tesori nascosti dentro di te.
-              </p>
-              <p>
-                Presenza, e dialoghi autentici tra cercatori di senso, per esplorare insieme da dove vieni, chi sei e dove vuoi andare: verso l'infinito e oltre…
-              </p>
-              <p className="font-display text-xl text-center my-8">
+              <p className="font-display text-lg md:text-xl text-center my-6">
                 Il <span className="text-gradient">Metodo EFO</span> non è una teoria da leggere: sintetizza esperienze da vivere.<br />
                 E tutto comincia con una conversazione…
               </p>
-              <p className="text-center text-muted-foreground">
-                Approfitta di una sessione gratuita. Senza impegno. Per conoscerci e scoprire se il Metodo EFO fa per te. Se senti la chiamata: rispondi. Il primo passo è sempre il più difficile, ma è anche quello che può cambiare tutto: a cominciare dalla tua vita…
+              <p className="text-center text-sm text-muted-foreground">
+                Approfitta di una sessione gratuita. Senza impegno. Il primo passo è sempre il più difficile, ma è anche quello che può cambiare tutto.
               </p>
             </AnimatedSection>
           </div>
@@ -638,7 +542,7 @@ const ChiSono = () => {
         {/* Stats Section */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
               {[
                 { icon: BookOpen, value: "526", label: "Libri letti" },
                 { icon: Sparkles, value: "13+", label: "Anni di ricerca" },
@@ -647,20 +551,20 @@ const ChiSono = () => {
               ].map((stat, index) => (
                 <AnimatedSection key={index} delay={index * 0.1}>
                   <motion.div 
-                    className="gradient-border rounded-2xl p-6 bg-gradient-card text-center"
-                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="gradient-border rounded-xl p-4 md:p-5 bg-gradient-card text-center"
+                    whileHover={{ y: -3 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <stat.icon className="h-8 w-8 text-cyan mx-auto mb-3" />
+                    <stat.icon className="h-5 w-5 md:h-6 md:w-6 text-cyan mx-auto mb-2" />
                     <motion.p 
-                      className="font-display text-3xl md:text-4xl text-foreground mb-1"
-                      initial={{ opacity: 0, scale: 0.5 }}
+                      className="font-display text-2xl md:text-3xl text-foreground"
+                      initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.2 + index * 0.1, type: "spring" }}
                       viewport={{ once: true }}
                     >
                       {stat.value}
                     </motion.p>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">{stat.label}</p>
                   </motion.div>
                 </AnimatedSection>
               ))}
@@ -668,46 +572,35 @@ const ChiSono = () => {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* CTA Section */}
         <section className="section-padding bg-gradient-to-b from-card to-primary relative overflow-hidden">
-          <motion.div 
-            className="absolute inset-0"
-            animate={{ 
-              background: [
-                "radial-gradient(circle at 20% 50%, hsl(197 65% 70% / 0.1) 0%, transparent 50%)",
-                "radial-gradient(circle at 80% 50%, hsl(197 65% 70% / 0.1) 0%, transparent 50%)",
-                "radial-gradient(circle at 20% 50%, hsl(197 65% 70% / 0.1) 0%, transparent 50%)"
-              ]
-            }}
-            transition={{ duration: 10, repeat: Infinity }}
-          />
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 -left-20 w-48 md:w-64 h-48 md:h-64 bg-cyan/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 -right-20 w-40 md:w-56 h-40 md:h-56 bg-accent/5 rounded-full blur-3xl" />
+          </div>
 
-          <div className="container-narrow text-center relative z-10">
-            <AnimatedSection>
-              <h2 className="font-display text-2xl md:text-4xl mb-6">
-                Fissa una Sessione Gratuita:<br />
-                <span className="text-gradient">Inizia la Tua Trasformazione!</span>
+          <div className="container-narrow relative z-10">
+            <AnimatedSection className="text-center">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-4">
+                Inizia il <span className="text-gradient">Tuo Viaggio</span>
               </h2>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.3}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                  <Button variant="hero" size="xl" asChild>
-                    <a href="mailto:gabriele.lucesole@gmail.com">
-                      <Mail className="h-5 w-5" />
-                      Fissa Sessione Gratuita
-                    </a>
-                  </Button>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                  <Button variant="heroOutline" size="xl" asChild>
-                    <Link to="/metodo-efo">
-                      Scopri il Metodo EFO
-                      <ArrowRight className="h-5 w-5" />
-                    </Link>
-                  </Button>
-                </motion.div>
+              <p className="font-serif text-sm md:text-base text-muted-foreground mb-6 max-w-xl mx-auto">
+                La sessione di professional coaching gratuita serve a conoscerci e scoprire se il Metodo EFO è adatto a te.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button variant="hero" size="lg" className="w-full sm:w-auto" asChild>
+                  <a href="mailto:gabriele.lucesole@gmail.com">
+                    <Mail className="h-4 w-4" />
+                    Prenota Sessione Gratuita
+                  </a>
+                </Button>
+                <Button variant="heroOutline" size="lg" className="w-full sm:w-auto" asChild>
+                  <Link to="/metodo-efo">
+                    Scopri il Metodo EFO
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </AnimatedSection>
           </div>
