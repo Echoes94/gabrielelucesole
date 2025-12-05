@@ -60,11 +60,11 @@ const BlogPost = () => {
     const flushList = () => {
       if (listItems.length > 0) {
         elements.push(
-          <ul key={`list-${elements.length}`} className="space-y-2 mb-6 ml-4">
+          <ul key={`list-${elements.length}`} className="space-y-3 mb-8 ml-4">
             {listItems.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan mt-2.5 shrink-0" />
-                <span className="font-serif text-muted-foreground">{item}</span>
+                <span className="font-serif text-muted-foreground leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
@@ -86,7 +86,7 @@ const BlogPost = () => {
       if (trimmed.startsWith('### ')) {
         flushList();
         elements.push(
-          <h3 key={index} className="font-display text-xl md:text-2xl text-foreground mt-10 mb-4">
+          <h3 key={index} className="font-display text-lg md:text-xl lg:text-2xl text-foreground mt-10 mb-4">
             {trimmed.slice(4)}
           </h3>
         );
@@ -96,7 +96,7 @@ const BlogPost = () => {
       if (trimmed.startsWith('## ')) {
         flushList();
         elements.push(
-          <h2 key={index} className="font-display text-2xl md:text-3xl text-foreground mt-12 mb-6">
+          <h2 key={index} className="font-display text-xl md:text-2xl lg:text-3xl text-foreground mt-12 mb-6">
             {trimmed.slice(3)}
           </h2>
         );
@@ -107,8 +107,8 @@ const BlogPost = () => {
       if (trimmed.startsWith('> ')) {
         flushList();
         elements.push(
-          <blockquote key={index} className="border-l-4 border-cyan pl-6 py-2 my-8 italic">
-            <p className="font-serif text-lg text-foreground/90">{trimmed.slice(2)}</p>
+          <blockquote key={index} className="border-l-2 border-cyan/50 pl-6 py-2 my-8">
+            <p className="font-serif text-base md:text-lg text-foreground/80 italic">{trimmed.slice(2)}</p>
           </blockquote>
         );
         return;
@@ -141,7 +141,7 @@ const BlogPost = () => {
       });
 
       elements.push(
-        <p key={index} className="font-serif text-muted-foreground leading-relaxed mb-6">
+        <p key={index} className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
           {parsedParts}
         </p>
       );
@@ -164,17 +164,13 @@ const BlogPost = () => {
 
       <Layout>
         {/* Header */}
-        <section className="section-padding bg-gradient-hero relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan/10 rounded-full blur-3xl" />
-          </div>
-
+        <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-background relative">
           <div className="container-narrow relative z-10">
             {/* Back link */}
             <AnimatedSection>
               <Link 
                 to="/blog" 
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-cyan transition-colors mb-8"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-cyan transition-colors duration-300 mb-8"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Torna al blog
@@ -182,8 +178,8 @@ const BlogPost = () => {
             </AnimatedSection>
 
             {/* Meta */}
-            <AnimatedSection delay={0.1}>
-              <div className="flex flex-wrap items-center gap-4 mb-6">
+            <AnimatedSection delay={0.05}>
+              <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-6">
                 <span className="px-3 py-1 text-xs font-sans uppercase tracking-wider text-cyan bg-cyan/10 rounded-full">
                   {post.category}
                 </span>
@@ -199,15 +195,15 @@ const BlogPost = () => {
             </AnimatedSection>
 
             {/* Title */}
-            <AnimatedSection delay={0.2}>
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-foreground">
+            <AnimatedSection delay={0.1}>
+              <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-foreground">
                 {post.title}
               </h1>
             </AnimatedSection>
 
             {/* Excerpt */}
-            <AnimatedSection delay={0.3}>
-              <p className="font-serif text-xl text-muted-foreground leading-relaxed">
+            <AnimatedSection delay={0.15}>
+              <p className="font-serif text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
                 {post.excerpt}
               </p>
             </AnimatedSection>
@@ -215,21 +211,21 @@ const BlogPost = () => {
         </section>
 
         {/* Content */}
-        <article className="py-12 md:py-20 bg-background">
+        <article className="py-10 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-background">
           <div className="container-narrow">
             <AnimatedSection>
-              <div className="prose prose-invert max-w-none">
+              <div className="max-w-none">
                 {renderContent(post.content)}
               </div>
             </AnimatedSection>
 
             {/* Share */}
-            <AnimatedSection delay={0.1} className="mt-12 pt-8 border-t border-border">
-              <div className="flex items-center justify-between">
+            <AnimatedSection delay={0.05} className="mt-12 pt-8 border-t border-border/30">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <p className="text-sm text-muted-foreground">
                   Ti è piaciuto questo articolo?
                 </p>
-                <Button variant="heroOutline" size="sm" onClick={handleShare}>
+                <Button variant="outline" size="sm" onClick={handleShare}>
                   <Share2 className="h-4 w-4" />
                   Condividi
                 </Button>
@@ -239,18 +235,18 @@ const BlogPost = () => {
         </article>
 
         {/* Author CTA */}
-        <section className="py-12 bg-card">
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-card/30">
           <div className="container-narrow">
             <AnimatedSection>
-              <div className="gradient-border rounded-2xl p-8 bg-gradient-card text-center">
-                <h3 className="font-display text-2xl mb-4">
+              <div className="border border-border/30 rounded-2xl p-6 md:p-10 bg-card/50 text-center">
+                <h3 className="font-display text-xl md:text-2xl mb-4">
                   Vuoi approfondire?
                 </h3>
-                <p className="font-serif text-muted-foreground mb-6 max-w-lg mx-auto">
+                <p className="font-serif text-sm md:text-base text-muted-foreground mb-6 max-w-lg mx-auto leading-relaxed">
                   Se questo articolo ti ha fatto riflettere, immagina cosa potrebbe fare una conversazione 
                   personalizzata. Prenota una sessione gratuita.
                 </p>
-                <Button variant="hero" asChild>
+                <Button variant="hero" className="w-full sm:w-auto" asChild>
                   <a href="mailto:gabriele.lucesole@gmail.com">
                     <Mail className="h-4 w-4" />
                     Fissa Sessione Gratuita
@@ -262,21 +258,22 @@ const BlogPost = () => {
         </section>
 
         {/* Navigation */}
-        <section className="py-12 bg-background border-t border-border">
+        <section className="py-10 md:py-16 px-4 sm:px-6 lg:px-8 bg-background border-t border-border/20">
           <div className="container-wide">
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
               {prevPost && (
                 <AnimatedSection direction="left">
                   <Link to={`/blog/${prevPost.slug}`} className="block group">
                     <motion.div 
-                      className="gradient-border rounded-xl p-6 bg-gradient-card h-full"
-                      whileHover={{ x: -5 }}
+                      className="border border-border/30 rounded-xl p-5 md:p-6 bg-card/30 h-full hover:border-cyan/20 transition-all duration-300"
+                      whileHover={{ x: -4 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <span className="text-xs text-muted-foreground flex items-center gap-2 mb-3">
                         <ArrowLeft className="h-3 w-3" />
                         Articolo precedente
                       </span>
-                      <h4 className="font-display text-lg text-foreground group-hover:text-cyan transition-colors">
+                      <h4 className="font-display text-base md:text-lg text-foreground group-hover:text-cyan transition-colors duration-300">
                         {prevPost.title}
                       </h4>
                     </motion.div>
@@ -284,17 +281,18 @@ const BlogPost = () => {
                 </AnimatedSection>
               )}
               {nextPost && (
-                <AnimatedSection direction="right" className={!prevPost ? 'md:col-start-2' : ''}>
+                <AnimatedSection direction="right" className={!prevPost ? 'sm:col-start-2' : ''}>
                   <Link to={`/blog/${nextPost.slug}`} className="block group">
                     <motion.div 
-                      className="gradient-border rounded-xl p-6 bg-gradient-card h-full text-right"
-                      whileHover={{ x: 5 }}
+                      className="border border-border/30 rounded-xl p-5 md:p-6 bg-card/30 h-full text-right hover:border-cyan/20 transition-all duration-300"
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <span className="text-xs text-muted-foreground flex items-center justify-end gap-2 mb-3">
                         Articolo successivo
                         <ArrowRight className="h-3 w-3" />
                       </span>
-                      <h4 className="font-display text-lg text-foreground group-hover:text-cyan transition-colors">
+                      <h4 className="font-display text-base md:text-lg text-foreground group-hover:text-cyan transition-colors duration-300">
                         {nextPost.title}
                       </h4>
                     </motion.div>
