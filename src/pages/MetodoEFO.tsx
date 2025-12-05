@@ -208,40 +208,40 @@ const MetodoEFO = () => {
         {/* Hero - No lazy load, critical content */}
         <section className="min-h-screen flex items-center section-padding bg-gradient-hero relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+            <div className="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
 
           <div className="container-narrow relative z-10 text-center">
             <AnimatedSectionLite>
-              <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6">METODO EFO®</span>
+              <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">METODO EFO®</span>
 
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6">
+              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6">
                 Hai Fatto Tutto.<br />
                 <span className="text-gradient">Ma Manca Ancora Qualcosa.</span>
               </h1>
 
-              <p className="font-serif text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
+              <p className="font-serif text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-3 leading-relaxed">
                 Forse hai successo sulla carta, ma senti un vuoto che non riesci a colmare. 
                 La carriera avanza. Il conto in banca cresce. Ma la sensazione di vivere davvero... quella no.
               </p>
               
-              <p className="font-serif text-muted-foreground max-w-2xl mx-auto mb-4">
+              <p className="font-serif text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-3">
                 Tra scadenze e meeting, ti stai perdendo per strada.
               </p>
 
-              <p className="font-serif text-foreground max-w-2xl mx-auto mb-8">
+              <p className="font-serif text-sm md:text-base text-foreground max-w-2xl mx-auto mb-6 md:mb-8">
                 Il Metodo EFO® non ti promette "work-life balance" con frasi fatte. Ti offre un <span className="text-cyan">sistema integrato per ritrovare te stesso</span> — senza sacrificare il successo.
               </p>
 
-              <Button variant="hero" size="xl" className="transition-transform hover:scale-105" asChild>
+              <Button variant="hero" size="xl" className="w-full sm:w-auto transition-transform hover:scale-105" asChild>
                 <a href="mailto:gabriele.lucesole@gmail.com">
                   <Mail className="h-5 w-5" />
                   Fissa Sessione Professional Coaching Gratis
                 </a>
               </Button>
 
-              <p className="text-cyan mt-8 flex items-center justify-center gap-2 animate-bounce">
+              <p className="text-cyan mt-6 md:mt-8 flex items-center justify-center gap-2">
                 <ArrowDown className="h-4 w-4" />
                 Scopri se è il momento giusto per te
               </p>
@@ -252,24 +252,24 @@ const MetodoEFO = () => {
         {/* For You If */}
         <section className="section-padding bg-card">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                👤 Questo percorso è <span className="text-cyan">per te</span> se...
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                Questo percorso è <span className="text-cyan">per te</span> se...
               </h2>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-              {forYouIf.map((item, index) => <AnimatedSection key={index} delay={index * 0.1}>
-                  <div className="gradient-border rounded-2xl p-6 bg-gradient-card h-full transition-transform duration-300 hover:-translate-y-1">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-                        <item.icon className="h-6 w-6 text-emerald-400" />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-16">
+              {forYouIf.map((item, index) => <AnimatedSection key={index} delay={index * 0.08}>
+                  <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full transition-transform duration-300 hover:-translate-y-1">
+                    <div className="flex items-start gap-3 md:gap-4">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                        <item.icon className="h-5 w-5 md:h-6 md:w-6 text-emerald-400" />
                       </div>
                       <div>
-                        <h3 className="font-display text-lg mb-2 text-foreground">
+                        <h3 className="font-display text-base md:text-lg mb-1.5 text-foreground">
                           Sei un {item.title}
                         </h3>
-                        <p className="font-serif text-sm text-muted-foreground leading-relaxed">
+                        <p className="font-serif text-xs md:text-sm text-muted-foreground leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -279,29 +279,29 @@ const MetodoEFO = () => {
             </div>
 
             {/* Not for you */}
-            <AnimatedSection delay={0.4}>
-              <div className="glass rounded-2xl p-8 max-w-4xl mx-auto border border-red-500/20">
-                <h3 className="font-display text-xl mb-6 text-center flex items-center justify-center gap-2">
-                  <XCircle className="h-6 w-6 text-red-400" />
+            <AnimatedSection delay={0.3}>
+              <div className="glass rounded-xl p-5 md:p-8 max-w-4xl mx-auto border border-red-500/20">
+                <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center flex items-center justify-center gap-2">
+                  <XCircle className="h-5 w-5 md:h-6 md:w-6 text-red-400" />
                   <span>Questo percorso NON è per te se...</span>
                 </h3>
-                <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  {notForYouIf.map((item, index) => <div key={index} className="flex items-start gap-3">
-                      <span className="w-2 h-2 rounded-full bg-red-400 mt-2 shrink-0" />
-                      <span className="text-sm text-muted-foreground">{item}</span>
+                <div className="grid md:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
+                  {notForYouIf.map((item, index) => <div key={index} className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0" />
+                      <span className="text-xs md:text-sm text-muted-foreground">{item}</span>
                     </div>)}
                 </div>
-                <div className="border-t border-border/50 pt-6 space-y-3 text-center">
-                  <p className="text-sm text-muted-foreground">
+                <div className="border-t border-border/50 pt-4 md:pt-6 space-y-2 text-center">
+                  <p className="text-xs md:text-sm text-muted-foreground">
                     Se ti riconosci nel primo gruppo, continua a leggere.
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs md:text-sm text-muted-foreground">
                     Se ti riconosci nel secondo, ti auguro di trovare ciò che cerchi altrove.
                   </p>
-                  <p className="text-sm text-muted-foreground italic">
+                  <p className="text-xs md:text-sm text-muted-foreground italic">
                     Non è giudizio. È allineamento. Il Metodo EFO® funziona solo con chi si sente pronto.
                   </p>
-                  <p className="text-cyan font-display text-lg mt-4">Sei pronto?</p>
+                  <p className="text-cyan font-display text-base md:text-lg mt-3 md:mt-4">Sei pronto?</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -311,50 +311,50 @@ const MetodoEFO = () => {
         {/* Problems / Signals */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-12">
-              <p className="text-muted-foreground uppercase tracking-wider text-sm mb-4">IL PROBLEMA CHE CONOSCIAMO TROPPO BENE</p>
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                🎯 Riconosci <span className="text-gradient">Questi Segnali?</span>
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">IL PROBLEMA CHE CONOSCIAMO TROPPO BENE</p>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                Riconosci <span className="text-gradient">Questi Segnali?</span>
               </h2>
             </AnimatedSection>
 
-            <div className="space-y-6 mb-12">
-              {problems.map((problem, index) => <AnimatedSection key={index} delay={index * 0.1}>
-                  <div className="p-6 rounded-xl bg-card border border-border/50 transition-colors duration-300 hover:border-cyan/50">
-                    <div className="flex items-center gap-2 mb-4">
-                      <CheckCircle className="h-5 w-5 text-cyan shrink-0" />
-                      <h3 className="font-display text-lg text-foreground">{problem.title}</h3>
+            <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
+              {problems.map((problem, index) => <AnimatedSection key={index} delay={index * 0.08}>
+                  <div className="p-4 md:p-6 rounded-xl bg-card border border-border/50 transition-colors duration-300 hover:border-cyan/50">
+                    <div className="flex items-center gap-2 mb-3 md:mb-4">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-cyan shrink-0" />
+                      <h3 className="font-display text-base md:text-lg text-foreground">{problem.title}</h3>
                     </div>
-                    <p className="font-serif text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{problem.desc}</p>
+                    <p className="font-serif text-xs md:text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{problem.desc}</p>
                   </div>
                 </AnimatedSection>)}
             </div>
 
             {/* Good news */}
-            <AnimatedSection delay={0.5}>
-              <div className="glass rounded-2xl p-8 max-w-4xl mx-auto text-center border border-emerald-500/20">
-                <h3 className="font-display text-2xl mb-4 flex items-center justify-center gap-2">
-                  <Heart className="h-6 w-6 text-emerald-400" />
+            <AnimatedSection delay={0.4}>
+              <div className="glass rounded-xl p-5 md:p-8 max-w-4xl mx-auto text-center border border-emerald-500/20">
+                <h3 className="font-display text-xl md:text-2xl mb-3 md:mb-4 flex items-center justify-center gap-2">
+                  <Heart className="h-5 w-5 md:h-6 md:w-6 text-emerald-400" />
                   <span className="text-emerald-400">Ma c'è una buona notizia...</span>
                 </h3>
-                <p className="font-serif text-muted-foreground mb-4">
+                <p className="font-serif text-sm md:text-base text-muted-foreground mb-3">
                   Se hai riconosciuto anche solo 2 di questi segnali, significa che la tua consapevolezza è già attiva.
                 </p>
-                <p className="font-serif text-foreground mb-4">
+                <p className="font-serif text-sm md:text-base text-foreground mb-3">
                   <span className="text-foreground font-medium">Non sei "rotto". Non hai fallito.</span> Sei semplicemente arrivato a un punto di svolta.
                 </p>
-                <p className="font-serif text-muted-foreground mb-4">
+                <p className="font-serif text-sm md:text-base text-muted-foreground mb-3">
                   Molti prima di te hanno attraversato esattamente questo momento. Prima di emergere trasformati.
                 </p>
-                <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                <div className="space-y-1.5 text-xs md:text-sm text-muted-foreground mb-3">
                   <p><span className="text-cyan">Nicolò</span> era bloccato dall'insicurezza. Oggi è un freelance affermato con clienti importanti.</p>
                   <p><span className="text-cyan">Luca G.</span> aveva perso fiducia in sé stesso. Oggi ha ritrovato energia, perso 4kg e gestisce meglio lo stress quotidiano.</p>
                   <p><span className="text-cyan">Luca L.</span> era disperso e compulsivo. Oggi vive con focus e maggiore presenza.</p>
                 </div>
-                <p className="text-cyan font-display text-lg">
+                <p className="text-cyan font-display text-base md:text-lg">
                   La trasformazione non è un'eccezione. È la regola, quando hai il metodo giusto.
                 </p>
-                <p className="text-muted-foreground mt-4 italic">Lascia che ti presenti il mio metodo…</p>
+                <p className="text-muted-foreground mt-3 italic text-sm">Lascia che ti presenti il mio metodo…</p>
               </div>
             </AnimatedSection>
           </div>
@@ -364,28 +364,28 @@ const MetodoEFO = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection className="text-center">
-              <div className="glass rounded-2xl p-8 border border-cyan/20">
-                <Briefcase className="h-12 w-12 text-cyan mx-auto mb-6" />
-                <h2 className="font-display text-2xl md:text-3xl mb-4">Il Paradosso del Professionista e del Successo Esteriore</h2>
-                <p className="font-serif text-muted-foreground mb-4">
+              <div className="glass rounded-xl p-5 md:p-8 border border-cyan/20">
+                <Briefcase className="h-10 w-10 md:h-12 md:w-12 text-cyan mx-auto mb-4 md:mb-6" />
+                <h2 className="font-display text-xl md:text-2xl lg:text-3xl mb-3 md:mb-4">Il Paradosso del Professionista e del Successo Esteriore</h2>
+                <p className="font-serif text-sm md:text-base text-muted-foreground mb-3">
                   Forse sei un Professionista impegnato. Management o ruoli di responsabilità. Ma quando si tratta della tua vita interiore... non sai da dove iniziare.
                 </p>
-                <p className="font-serif text-muted-foreground mb-6">
+                <p className="font-serif text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
                   Il problema non è mancanza di volontà. Il problema è che nessuno ti ha mai insegnato a gestire la risorsa più importante che hai:
                 </p>
-                <p className="font-serif text-foreground mb-2">I soldi? Il tempo?</p>
-                <p className="font-display text-2xl text-cyan mb-6">Te stesso!</p>
+                <p className="font-serif text-sm md:text-base text-foreground mb-2">I soldi? Il tempo?</p>
+                <p className="font-display text-xl md:text-2xl text-cyan mb-4 md:mb-6">Te stesso!</p>
 
-                <div className="border-t border-border/50 pt-6">
-                  <p className="text-muted-foreground mb-2">🤔 <span className="font-display">La Verità Che Nessuno Ti Dice:</span></p>
-                  <p className="font-serif text-sm text-muted-foreground mb-4">
+                <div className="border-t border-border/50 pt-4 md:pt-6">
+                  <p className="text-muted-foreground mb-2 text-sm md:text-base"><span className="font-display">La Verità Che Nessuno Ti Dice:</span></p>
+                  <p className="font-serif text-xs md:text-sm text-muted-foreground mb-3">
                     Non hai bisogno di un altro corso di produttività. Non hai bisogno di ottimizzare ulteriormente le tue performance. Hai bisogno di fermarti, guardarti dentro e ripartire dalle fondamenta.
                   </p>
-                  <p className="text-cyan font-medium">E per farlo serve un metodo, non solo buone intenzioni.</p>
+                  <p className="text-cyan font-medium text-sm md:text-base">E per farlo serve un metodo, non solo buone intenzioni.</p>
                 </div>
 
-                <div className="mt-8">
-                  <Button variant="hero" size="lg" asChild>
+                <div className="mt-6 md:mt-8">
+                  <Button variant="hero" size="lg" className="w-full sm:w-auto" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
                       Fissa Sessione Gratuita
@@ -400,26 +400,26 @@ const MetodoEFO = () => {
         {/* Two Scenarios */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                🔄 La Tua Vita <span className="text-gradient">Tra 90 Giorni</span>
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                La Tua Vita <span className="text-gradient">Tra 90 Giorni</span>
               </h2>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-8">
               {/* Scenario A */}
               <AnimatedSection direction="left">
-                <div className="rounded-2xl p-8 bg-red-950/30 border border-red-500/30 h-full">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
-                      <XCircle className="h-6 w-6 text-red-400" />
+                <div className="rounded-xl p-5 md:p-8 bg-red-950/30 border border-red-500/30 h-full">
+                  <div className="flex items-center gap-3 mb-4 md:mb-6">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+                      <XCircle className="h-5 w-5 md:h-6 md:w-6 text-red-400" />
                     </div>
                     <div>
-                      <h3 className="font-display text-xl text-red-400">SCENARIO A</h3>
-                      <p className="text-sm text-muted-foreground">Se Non Cambi Nulla</p>
+                      <h3 className="font-display text-lg md:text-xl text-red-400">SCENARIO A</h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">Se Non Cambi Nulla</p>
                     </div>
                   </div>
-                  <div className="space-y-4 font-serif text-sm text-muted-foreground">
+                  <div className="space-y-3 font-serif text-xs md:text-sm text-muted-foreground">
                     <p>È lunedì mattina, ore 7:00. La sveglia suona e il primo pensiero è già una scadenza. Ti alzi con quel peso familiare sul petto. Durante la colazione scorri le email con una mano mentre l'altra tiene il caffè che ormai è freddo. Il tuo partner ti parla ma tu annuisci senza ascoltare davvero — la tua mente è già in ufficio.</p>
                     <p>Alle 23:00 sei ancora al computer. Il collo fa male. Gli occhi bruciano. Chiudi il laptop con quella sensazione di vuoto: "Cos'ho fatto oggi che conta davvero?"</p>
                     <p className="text-red-400">Domani sarà uguale. E dopodomani. Tra tre mesi sarai esattamente dove sei adesso, forse più stanco, forse più vuoto. Forse con una promozione in più e un pezzo di te in meno.</p>
@@ -429,17 +429,17 @@ const MetodoEFO = () => {
 
               {/* Scenario B */}
               <AnimatedSection direction="right">
-                <div className="rounded-2xl p-8 bg-emerald-950/30 border border-emerald-500/30 h-full">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                      <CheckCircle className="h-6 w-6 text-emerald-400" />
+                <div className="rounded-xl p-5 md:p-8 bg-emerald-950/30 border border-emerald-500/30 h-full">
+                  <div className="flex items-center gap-3 mb-4 md:mb-6">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                      <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-emerald-400" />
                     </div>
                     <div>
-                      <h3 className="font-display text-xl text-emerald-400">SCENARIO B</h3>
-                      <p className="text-sm text-muted-foreground">Dopo il Metodo EFO®</p>
+                      <h3 className="font-display text-lg md:text-xl text-emerald-400">SCENARIO B</h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">Dopo il Metodo EFO®</p>
                     </div>
                   </div>
-                  <div className="space-y-4 font-serif text-sm text-muted-foreground">
+                  <div className="space-y-3 font-serif text-xs md:text-sm text-muted-foreground">
                     <p>È lunedì mattina, ore 7:00. La sveglia suona ma tu sei già sveglio, seduto in meditazione. Senti il respiro che entra ed esce. Sei presente. Non pensi al lavoro. Non pensi a niente. Sei semplicemente qui.</p>
                     <p>Durante la colazione guardi il tuo partner negli occhi mentre parla dei suoi sogni — e per la prima volta dopo mesi ascolti davvero. Senti il sapore del caffè. Noti il sole che entra dalla finestra. Ti accorgi di essere vivo.</p>
                     <p>Alle 9:00 inizi a lavorare con focus — tre ore di deep work senza distrazioni, senza ansia. Produci più in tre ore di quanto facevi nel doppio del tempo.</p>
@@ -450,8 +450,8 @@ const MetodoEFO = () => {
               </AnimatedSection>
             </div>
 
-            <AnimatedSection className="text-center mt-8">
-              <p className="font-display text-2xl text-cyan">Quale scenario vuoi vivere?</p>
+            <AnimatedSection className="text-center mt-6 md:mt-8">
+              <p className="font-display text-xl md:text-2xl text-cyan">Quale scenario vuoi vivere?</p>
             </AnimatedSection>
           </div>
         </section>
@@ -459,27 +459,27 @@ const MetodoEFO = () => {
         {/* 3 Dimensions */}
         <section className="section-padding bg-card">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-12">
-              <p className="text-muted-foreground uppercase tracking-wider text-sm mb-4">LA SOLUZIONE</p>
-              <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6">
-                🧩 Metodo EFO®
+            <AnimatedSection className="text-center mb-8 md:mb-12">
+              <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">LA SOLUZIONE</p>
+              <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
+                Metodo EFO®
               </span>
-              <h2 className="font-display text-3xl md:text-5xl mb-4">
+              <h2 className="font-display text-2xl md:text-4xl lg:text-5xl mb-3">
                 Essere Felici <span className="text-gradient">ORA</span>
               </h2>
-              <p className="font-serif text-muted-foreground max-w-3xl mx-auto mb-4">
+              <p className="font-serif text-sm md:text-base text-muted-foreground max-w-3xl mx-auto mb-3">
                 Il sistema integrato che può trasformarti da professionista in crisi a leader centrato, presente e realizzato a 360°.
               </p>
-              <p className="font-serif text-muted-foreground max-w-3xl mx-auto">
+              <p className="font-serif text-sm md:text-base text-muted-foreground max-w-3xl mx-auto">
                 Non terapia per psicopatologie. Non sterile motivazione. Non fuffa new age. Ma un percorso rigoroso, definitivo, che unisce:
               </p>
-              <div className="flex flex-wrap justify-center gap-4 mt-6">
-                <span className="px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 text-sm">🧠 Neuroscienze (Professional Coaching ICF, Psicologia Positiva, Mindfulness, Ipnosi…)</span>
-                <span className="px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 text-sm">
-                  🏛️ Saggezza millenaria (Filosofia, pratiche contemplative, archetipi)
+              <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-4 md:mt-6">
+                <span className="px-3 py-1.5 rounded-full bg-cyan/10 border border-cyan/20 text-xs md:text-sm">Neuroscienze (Professional Coaching ICF, Psicologia Positiva, Mindfulness, Ipnosi…)</span>
+                <span className="px-3 py-1.5 rounded-full bg-cyan/10 border border-cyan/20 text-xs md:text-sm">
+                  Saggezza millenaria (Filosofia, pratiche contemplative, archetipi)
                 </span>
-                <span className="px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 text-sm">
-                  🔢 Risultati misurabili (13+ settimane di pratica, non solo teoria)
+                <span className="px-3 py-1.5 rounded-full bg-cyan/10 border border-cyan/20 text-xs md:text-sm">
+                  Risultati misurabili (13+ settimane di pratica, non solo teoria)
                 </span>
               </div>
             </AnimatedSection>
