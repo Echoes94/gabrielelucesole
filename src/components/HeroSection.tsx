@@ -205,7 +205,7 @@ const HeroSection = () => {
           text: "526 libri letti",
           delay: 0.3
         }, {
-          text: "Coach ICF Certificato",
+          text: "Diploma ICF Coach Professionista",
           delay: 0.6
         }].map((item, index) => <motion.div key={index} className="flex items-center gap-2" initial={{
           opacity: 0,
