@@ -1134,8 +1134,7 @@ const MetodoEFO = () => {
             {/* Credentials */}
             <AnimatedSection className="mt-12">
               <div className="glass rounded-2xl p-8 border border-cyan/20">
-                <h3 className="font-display text-xl mb-6 text-center flex items-center justify-center gap-2">
-                  <GraduationCap className="h-5 w-5 text-cyan" />
+                <h3 className="font-display text-xl mb-6 text-center flex items-center justify-center gap-2">Certificazioni<GraduationCap className="h-5 w-5 text-cyan" />
                   🎓 Certificazioni
                 </h3>
                 <p className="text-center text-muted-foreground mb-6">
