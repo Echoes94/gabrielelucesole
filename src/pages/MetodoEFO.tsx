@@ -458,7 +458,7 @@ const MetodoEFO = () => {
         <section className="section-padding bg-card">
           <div className="container-wide">
             <AnimatedSection className="text-center mb-12">
-              <p className="text-muted-foreground uppercase tracking-wider text-sm mb-4">LA SOLUZIONE: METODO EFO®</p>
+              <p className="text-muted-foreground uppercase tracking-wider text-sm mb-4">LA SOLUZIONE</p>
               <span className="inline-block px-4 py-2 text-xs font-sans uppercase tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-6">
                 🧩 Metodo EFO®
               </span>
