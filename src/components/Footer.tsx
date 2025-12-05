@@ -70,7 +70,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Gabriele Lucesole. Tutti i diritti riservati.
           </p>
           <p className="text-xs text-muted-foreground flex items-center gap-1">
-            Creato con <Heart className="h-3 w-3 text-cyan" /> per chi cerca il senso
+            Creato per i cercatori di senso <Heart className="h-3 w-3 text-cyan" />
           </p>
         </div>
       </div>
