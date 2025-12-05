@@ -829,7 +829,7 @@ const MetodoEFO = () => {
               <div className="rounded-2xl p-8 bg-red-950/30 border border-red-500/30 mb-8">
                 <div className="flex items-center gap-3 mb-6">
                   <AlertTriangle className="h-6 w-6 text-red-400" />
-                  <h3 className="font-display text-xl text-red-400">⚠️ DISPONIBILITÀ LIMITATA</h3>
+                  <h3 className="font-display text-xl text-red-400">DISPONIBILITÀ LIMITATA</h3>
                 </div>
 
                 <p className="text-muted-foreground mb-4">
