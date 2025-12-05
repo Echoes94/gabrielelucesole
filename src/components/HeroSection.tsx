@@ -198,14 +198,14 @@ const HeroSection = () => {
         duration: 0.8,
         delay: 1.1
       }}>
-          {[{
+        {[{
           text: "13+ anni di ricerca",
           delay: 0
         }, {
-          text: "Coach ICF Certificato",
+          text: "526 libri letti",
           delay: 0.3
         }, {
-          text: "526 libri letti",
+          text: "Coach ICF Certificato",
           delay: 0.6
         }].map((item, index) => <motion.div key={index} className="flex items-center gap-2" initial={{
           opacity: 0,
