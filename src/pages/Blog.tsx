@@ -7,18 +7,12 @@ import { Button } from "@/components/ui/button";
 import { blogPosts, getAllCategories } from "@/data/blogPosts";
 import { Calendar, Clock, ArrowRight, Mail } from "lucide-react";
 import { useState } from "react";
-
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const categories = getAllCategories();
-  
-  const filteredPosts = selectedCategory 
-    ? blogPosts.filter(post => post.category === selectedCategory)
-    : blogPosts;
-
+  const filteredPosts = selectedCategory ? blogPosts.filter(post => post.category === selectedCategory) : blogPosts;
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = filteredPosts.filter(post => !post.featured || selectedCategory);
-
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('it-IT', {
       day: 'numeric',
@@ -26,15 +20,10 @@ const Blog = () => {
       year: 'numeric'
     });
   };
-
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Blog | Gabriele Lucesole - Articoli su Crescita Personale</title>
-        <meta 
-          name="description" 
-          content="Articoli su crescita personale, mindfulness, coaching e autorealizzazione. Contenuti di valore per chi cerca profondità e trasformazione." 
-        />
+        <meta name="description" content="Articoli su crescita personale, mindfulness, coaching e autorealizzazione. Contenuti di valore per chi cerca profondità e trasformazione." />
         <link rel="canonical" href="https://gabrielelucesole.com/blog" />
       </Helmet>
 
@@ -52,7 +41,7 @@ const Blog = () => {
                 Blog
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6">
-                Riflessioni per <span className="text-gradient">cercatori di senso</span>
+                Riflessioni per <span className="text-gradient">trovalo qui... </span>
               </h1>
               <p className="font-serif text-lg text-muted-foreground max-w-2xl mx-auto">
                 Articoli su crescita personale, mindfulness e trasformazione interiore. 
@@ -62,36 +51,18 @@ const Blog = () => {
 
             {/* Categories */}
             <AnimatedSection delay={0.2} className="flex flex-wrap justify-center gap-3 mb-12">
-              <button
-                onClick={() => setSelectedCategory(null)}
-                className={`px-4 py-2 rounded-full text-sm transition-all ${
-                  !selectedCategory 
-                    ? 'bg-cyan text-background' 
-                    : 'bg-card border border-border text-muted-foreground hover:border-cyan/50'
-                }`}
-              >
+              <button onClick={() => setSelectedCategory(null)} className={`px-4 py-2 rounded-full text-sm transition-all ${!selectedCategory ? 'bg-cyan text-background' : 'bg-card border border-border text-muted-foreground hover:border-cyan/50'}`}>
                 Tutti
               </button>
-              {categories.map(category => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm transition-all ${
-                    selectedCategory === category 
-                      ? 'bg-cyan text-background' 
-                      : 'bg-card border border-border text-muted-foreground hover:border-cyan/50'
-                  }`}
-                >
+              {categories.map(category => <button key={category} onClick={() => setSelectedCategory(category)} className={`px-4 py-2 rounded-full text-sm transition-all ${selectedCategory === category ? 'bg-cyan text-background' : 'bg-card border border-border text-muted-foreground hover:border-cyan/50'}`}>
                   {category}
-                </button>
-              ))}
+                </button>)}
             </AnimatedSection>
           </div>
         </section>
 
         {/* Featured Post */}
-        {featuredPost && !selectedCategory && (
-          <section className="py-12 bg-card">
+        {featuredPost && !selectedCategory && <section className="py-12 bg-card">
             <div className="container-wide">
               <AnimatedSection>
                 <Link to={`/blog/${featuredPost.slug}`} className="block group">
@@ -132,21 +103,20 @@ const Blog = () => {
                 </Link>
               </AnimatedSection>
             </div>
-          </section>
-        )}
+          </section>}
 
         {/* Posts Grid */}
         <section className="section-padding bg-background">
           <div className="container-wide">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {regularPosts.map((post, index) => (
-                <AnimatedSection key={post.id} delay={index * 0.1}>
+              {regularPosts.map((post, index) => <AnimatedSection key={post.id} delay={index * 0.1}>
                   <Link to={`/blog/${post.slug}`} className="block group h-full">
-                    <motion.article 
-                      className="gradient-border rounded-2xl p-6 bg-gradient-card h-full flex flex-col"
-                      whileHover={{ y: -5, scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
+                    <motion.article className="gradient-border rounded-2xl p-6 bg-gradient-card h-full flex flex-col" whileHover={{
+                  y: -5,
+                  scale: 1.02
+                }} transition={{
+                  duration: 0.3
+                }}>
                       {/* Category */}
                       <span className="inline-block px-3 py-1 text-xs font-sans uppercase tracking-wider text-cyan/70 bg-cyan/10 rounded-full mb-4 self-start">
                         {post.category}
@@ -175,8 +145,7 @@ const Blog = () => {
                       </div>
                     </motion.article>
                   </Link>
-                </AnimatedSection>
-              ))}
+                </AnimatedSection>)}
             </div>
           </div>
         </section>
@@ -202,8 +171,6 @@ const Blog = () => {
           </div>
         </section>
       </Layout>
-    </>
-  );
+    </>;
 };
-
 export default Blog;
