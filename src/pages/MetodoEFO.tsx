@@ -233,8 +233,7 @@ const MetodoEFO = () => {
               </p>
 
               <Button variant="hero" size="xl" className="transition-transform hover:scale-105" asChild>
-                <a href="mailto:gabriele.lucesole@gmail.com">
-                  <Mail className="h-5 w-5" />
+                <a href="mailto:gabriele.lucesole@gmail.com">Fissa Sessione Professional Coaching GRATIS<Mail className="h-5 w-5" />
                   Fissa Sessione Professional Coaching Gratis
                 </a>
               </Button>
