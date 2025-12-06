@@ -7,7 +7,7 @@ import { Mail, ArrowRight, BookOpen, Award, Heart, Sparkles, Quote, History, Clo
 import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 // Use lite version for better performance
 const AnimatedSection = AnimatedSectionLite;
-import gabrielePhoto from "@/assets/gabriele-photo.webp";
+import gabrielePhoto from "@/assets/chi-sono-gabriele.webp";
 import chiSonoMondo from "@/assets/chi-sono-mondo.jpg";
 import chiSonoBivio from "@/assets/chi-sono-bivio.jpg";
 import chiSonoErrore from "@/assets/chi-sono-errore.jpg";
