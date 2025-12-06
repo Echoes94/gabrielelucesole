@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight } from "lucide-react";
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSectionLite from "./AnimatedSectionLite";
 
 const CTASection = () => {
   return (
@@ -12,17 +11,11 @@ const CTASection = () => {
       </div>
 
       <div className="container-narrow relative z-10">
-        <AnimatedSection className="text-center">
+        <AnimatedSectionLite className="text-center">
           {/* Icon */}
-          <motion.div 
-            className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-8 sm:mb-10 rounded-xl bg-cyan/10 border border-cyan/20 flex items-center justify-center"
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true }}
-          >
+          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-8 sm:mb-10 rounded-xl bg-cyan/10 border border-cyan/20 flex items-center justify-center">
             <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-cyan" />
-          </motion.div>
+          </div>
 
           {/* Content */}
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
@@ -54,7 +47,7 @@ const CTASection = () => {
           <p className="text-[10px] sm:text-xs text-muted-foreground mt-6 sm:mt-8">
             Senza impegno • 30+ minuti di conversazione autentica
           </p>
-        </AnimatedSection>
+        </AnimatedSectionLite>
       </div>
     </section>
   );

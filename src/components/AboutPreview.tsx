@@ -1,76 +1,60 @@
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSectionLite from "./AnimatedSectionLite";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
 
 const AboutPreview = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
 
-  const imageY = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setImageLoaded(true);
+    }
+  }, []);
 
   return (
-    <section ref={sectionRef} className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden">
       {/* Subtle background accent */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-cyan/[0.02] to-transparent" />
       
       <div className="container-wide relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-          {/* Image with parallax */}
-          <motion.div 
-            className="relative order-2 lg:order-1"
-            style={{ y: imageY }}
-          >
-            <AnimatedSection direction="left" className="relative aspect-[4/5] max-w-sm sm:max-w-md mx-auto lg:mx-0">
+          {/* Image - simplified, no parallax */}
+          <div className="relative order-2 lg:order-1">
+            <AnimatedSectionLite direction="left" className="relative aspect-[4/5] max-w-sm sm:max-w-md mx-auto lg:mx-0">
               {/* Single decorative frame */}
-              <motion.div 
-                className="absolute -inset-2 sm:-inset-3 border border-cyan/10 rounded-xl sm:rounded-2xl"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                viewport={{ once: true }}
-              />
+              <div className="absolute -inset-2 sm:-inset-3 border border-cyan/10 rounded-xl sm:rounded-2xl" />
               
-              {/* Main image */}
-              <motion.div 
-                className="relative h-full rounded-lg sm:rounded-xl overflow-hidden"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
+              {/* Main image with lazy loading */}
+              <div className="relative h-full rounded-lg sm:rounded-xl overflow-hidden">
+                {!imageLoaded && (
+                  <div className="absolute inset-0 bg-muted/20 animate-pulse" />
+                )}
                 <img
+                  ref={imgRef}
                   src={gabrielePhoto}
                   alt="Gabriele Lucesole - Coach Professionista"
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-cover transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  loading="lazy"
+                  onLoad={() => setImageLoaded(true)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
-              </motion.div>
+              </div>
 
               {/* Badge */}
-              <motion.div 
-                className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 lg:right-auto lg:-left-3 glass rounded-lg px-3 sm:px-4 py-2 sm:py-3"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                viewport={{ once: true }}
-              >
+              <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 lg:right-auto lg:-left-3 glass rounded-lg px-3 sm:px-4 py-2 sm:py-3">
                 <p className="font-display text-base sm:text-lg text-cyan">13 Anni</p>
                 <p className="text-[10px] sm:text-xs text-muted-foreground">di ricerche sul campo</p>
-              </motion.div>
-            </AnimatedSection>
-          </motion.div>
+              </div>
+            </AnimatedSectionLite>
+          </div>
 
           {/* Content */}
-          <motion.div className="order-1 lg:order-2" style={{ y: contentY }}>
-            <AnimatedSection direction="right">
+          <div className="order-1 lg:order-2">
+            <AnimatedSectionLite direction="right">
               <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
                 Non sei solo! Ti capisco, ci sono passato anch'io…
               </span>
@@ -101,8 +85,8 @@ const AboutPreview = () => {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-            </AnimatedSection>
-          </motion.div>
+            </AnimatedSectionLite>
+          </div>
         </div>
       </div>
     </section>
