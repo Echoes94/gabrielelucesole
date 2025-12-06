@@ -1,10 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight, BookOpen, Award, Heart, Sparkles, Quote, History, Clock, Target } from "lucide-react";
-import AnimatedSection from "@/components/AnimatedSection";
+import AnimatedSectionLite from "@/components/AnimatedSectionLite";
+// Use lite version for better performance
+const AnimatedSection = AnimatedSectionLite;
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
 import chiSonoMondo from "@/assets/chi-sono-mondo.jpg";
 import chiSonoBivio from "@/assets/chi-sono-bivio.jpg";
@@ -51,28 +53,41 @@ const GlassQuote = ({ quote, author }: { quote: string; author?: string }) => (
   </AnimatedSection>
 );
 
-const ParallaxImage = ({ src, alt }: { src: string; alt: string }) => {
+// Simple lazy image without heavy parallax for performance
+const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "100px" }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div ref={ref} className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10">
-      <motion.div 
-        className="absolute inset-0"
-        style={{ y }}
-      >
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-muted/20 animate-pulse" />
+      )}
+      {isInView && (
         <img 
           src={src} 
           alt={alt} 
-          className="w-full h-[120%] object-cover"
+          className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           loading="lazy"
+          onLoad={() => setIsLoaded(true)}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-      </motion.div>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent pointer-events-none" />
     </div>
   );
 };
@@ -169,7 +184,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <ParallaxImage src={chiSonoMondo} alt="Il mondo incompreso - alienazione giovanile" />
+            <LazyImage src={chiSonoMondo} alt="Il mondo incompreso - alienazione giovanile" />
 
             <AnimatedSection className="prose-custom">
               <p>
@@ -202,7 +217,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <ParallaxImage src={chiSonoBivio} alt="Il bivio - scelta del proprio cammino" />
+            <LazyImage src={chiSonoBivio} alt="Il bivio - scelta del proprio cammino" />
 
             <AnimatedSection className="prose-custom">
               <p>
@@ -250,7 +265,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <ParallaxImage src={chiSonoErrore} alt="L'errore - prigione dell'ego" />
+            <LazyImage src={chiSonoErrore} alt="L'errore - prigione dell'ego" />
 
             <AnimatedSection className="prose-custom">
               <p>
@@ -318,7 +333,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <ParallaxImage src={chiSonoSvolta} alt="La svolta spirituale - monastero all'alba" />
+            <LazyImage src={chiSonoSvolta} alt="La svolta spirituale - monastero all'alba" />
 
             <AnimatedSection className="prose-custom">
               <p>
@@ -375,7 +390,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <ParallaxImage src={chiSonoEpifania} alt="L'epifania - illuminazione e connessione" />
+            <LazyImage src={chiSonoEpifania} alt="L'epifania - illuminazione e connessione" />
 
             <AnimatedSection className="prose-custom">
               <p>

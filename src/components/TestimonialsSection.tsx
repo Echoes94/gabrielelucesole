@@ -1,7 +1,7 @@
 import { Quote } from "lucide-react";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSectionLite from "./AnimatedSectionLite";
 
 const testimonials = [
   {
@@ -24,6 +24,46 @@ const testimonials = [
   },
 ];
 
+// Lazy video component
+const LazyVideo = ({ videoId, name }: { videoId: string; name: string }) => {
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "100px" }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="relative aspect-video rounded-lg overflow-hidden bg-background/50">
+      {isInView ? (
+        <iframe
+          src={`https://drive.google.com/file/d/${videoId}/preview`}
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          className="absolute inset-0 w-full h-full"
+          title={`Video testimonianza di ${name}`}
+          loading="lazy"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-muted/20 animate-pulse flex items-center justify-center">
+          <span className="text-muted-foreground text-sm">Caricamento video...</span>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const TestimonialsSection = () => {
   return (
     <section className="section-padding relative overflow-hidden">
@@ -34,7 +74,7 @@ const TestimonialsSection = () => {
 
       <div className="container-wide relative z-10">
         {/* Section header */}
-        <AnimatedSection className="text-center mb-10 sm:mb-16">
+        <AnimatedSectionLite className="text-center mb-10 sm:mb-16">
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
             Testimonianze
           </span>
@@ -44,29 +84,18 @@ const TestimonialsSection = () => {
           <p className="font-serif text-sm sm:text-base text-muted-foreground max-w-lg mx-auto px-2">
             Le parole di chi ha già iniziato il viaggio verso l'autorealizzazione
           </p>
-        </AnimatedSection>
+        </AnimatedSectionLite>
 
-        {/* Testimonials */}
+        {/* Testimonials - simplified hover with CSS */}
         <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
           {testimonials.map((testimonial, index) => (
-            <AnimatedSection key={index} delay={index * 0.15}>
-              <motion.div
-                className={`grid ${testimonial.videoId ? "lg:grid-cols-2" : "lg:grid-cols-1 max-w-2xl mx-auto"} gap-5 sm:gap-8 items-center gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card`}
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            <AnimatedSectionLite key={index} delay={index * 0.1}>
+              <div
+                className={`grid ${testimonial.videoId ? "lg:grid-cols-2" : "lg:grid-cols-1 max-w-2xl mx-auto"} gap-5 sm:gap-8 items-center gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card transition-transform duration-300 hover:-translate-y-0.5`}
               >
-                {/* Video embed */}
+                {/* Lazy video embed */}
                 {testimonial.videoId && (
-                  <div className="relative aspect-video rounded-lg overflow-hidden bg-background/50">
-                    <iframe
-                      src={`https://drive.google.com/file/d/${testimonial.videoId}/preview`}
-                      width="100%"
-                      height="100%"
-                      allow="autoplay"
-                      className="absolute inset-0 w-full h-full"
-                      title={`Video testimonianza di ${testimonial.name}`}
-                    />
-                  </div>
+                  <LazyVideo videoId={testimonial.videoId} name={testimonial.name} />
                 )}
 
                 {/* Content */}
@@ -100,8 +129,8 @@ const TestimonialsSection = () => {
                     </Button>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatedSection>
+              </div>
+            </AnimatedSectionLite>
           ))}
         </div>
       </div>

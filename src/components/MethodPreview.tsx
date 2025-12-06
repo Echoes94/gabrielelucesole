@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, History, Clock, Target } from "lucide-react";
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSectionLite from "./AnimatedSectionLite";
 import methodBanner from "@/assets/method-banner.jpg";
 
 // Credential logos
@@ -50,32 +49,32 @@ const credentialsList = [
 ];
 
 const MethodPreview = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  const [bgLoaded, setBgLoaded] = useState(false);
+  const bgRef = useRef<HTMLImageElement>(null);
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  useEffect(() => {
+    const img = new Image();
+    img.src = methodBanner;
+    img.onload = () => setBgLoaded(true);
+  }, []);
 
   return (
-    <section ref={sectionRef} className="section-padding bg-card/30 relative overflow-hidden">
-      {/* Subtle parallax background */}
-      <motion.div 
-        className="absolute inset-0 opacity-10"
-        style={{ y: backgroundY }}
-      >
+    <section className="section-padding bg-card/30 relative overflow-hidden">
+      {/* Static background with lazy load */}
+      <div className={`absolute inset-0 opacity-10 transition-opacity duration-700 ${bgLoaded ? 'opacity-10' : 'opacity-0'}`}>
         <img 
+          ref={bgRef}
           src={methodBanner} 
           alt="" 
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-      </motion.div>
+      </div>
 
       <div className="container-wide relative z-10">
         {/* Section header */}
-        <AnimatedSection className="text-center mb-10 sm:mb-16">
+        <AnimatedSectionLite className="text-center mb-10 sm:mb-16">
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
             Metodo EFO®
           </span>
@@ -85,21 +84,17 @@ const MethodPreview = () => {
           <p className="font-serif text-sm sm:text-base text-muted-foreground max-w-xl mx-auto px-2">
             L'Approccio Integrato Definitivo che Trasforma la Tua Vita in 3D
           </p>
-        </AnimatedSection>
+        </AnimatedSectionLite>
 
-        {/* 3 Dimensions */}
+        {/* 3 Dimensions - simplified hover */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-10 sm:mb-16">
           {dimensions.map((dim, index) => (
-            <AnimatedSection
+            <AnimatedSectionLite
               key={index}
-              delay={index * 0.15}
+              delay={index * 0.1}
               className="group"
             >
-              <motion.div 
-                className="relative gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card h-full"
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              >
+              <div className="relative gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card h-full transition-transform duration-300 hover:-translate-y-1">
                 {/* Number badge */}
                 <div className="absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-cyan/10 border border-cyan/30 flex items-center justify-center">
                   <span className="font-display text-xs sm:text-sm text-cyan">{dim.number}</span>
@@ -115,13 +110,13 @@ const MethodPreview = () => {
                 <p className="font-serif text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   {dim.description}
                 </p>
-              </motion.div>
-            </AnimatedSection>
+              </div>
+            </AnimatedSectionLite>
           ))}
         </div>
 
         {/* Formazione Section */}
-        <AnimatedSection delay={0.3}>
+        <AnimatedSectionLite delay={0.2}>
           <div className="glass rounded-xl p-5 sm:p-6 md:p-10 mb-8 sm:mb-12">
             <h3 className="font-display text-xl sm:text-2xl md:text-3xl text-center mb-3 sm:mb-4">
               Formazione
@@ -145,35 +140,34 @@ const MethodPreview = () => {
               ))}
             </div>
 
-            {/* Credential logos */}
+            {/* Credential logos - CSS hover instead of framer motion */}
             <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-10">
               {credentials.map((cred, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center bg-white/90 rounded-lg p-1.5 sm:p-2"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
+                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center bg-white/90 rounded-lg p-1.5 sm:p-2 transition-transform duration-200 hover:scale-105"
                 >
                   <img 
                     src={cred.logo} 
                     alt={cred.name} 
                     className="w-full h-full object-contain"
+                    loading="lazy"
                   />
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </AnimatedSection>
+        </AnimatedSectionLite>
 
         {/* CTA */}
-        <AnimatedSection className="text-center" delay={0.4}>
+        <AnimatedSectionLite className="text-center" delay={0.3}>
           <Button variant="hero" size="lg" className="w-full sm:w-auto" asChild>
             <Link to="/metodo-efo">
               Scopri di più
               <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </Link>
           </Button>
-        </AnimatedSection>
+        </AnimatedSectionLite>
       </div>
     </section>
   );
