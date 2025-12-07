@@ -785,7 +785,7 @@ const MetodoEFO = () => {
           <div className="container-wide">
             <AnimatedSection className="text-center mb-8 md:mb-12">
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
-                Cosa È <span className="text-gradient">Incluso</span> Nel Percorso
+                 💎 Cosa È <span className="text-gradient">Incluso</span> Nel Percorso
               </h2>
               <p className="text-sm md:text-base text-muted-foreground">
                 Percorso Completo Metodo EFO® (13+ settimane)
