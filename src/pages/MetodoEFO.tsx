@@ -72,7 +72,7 @@ const roadmapLevels = [{
   content: ["Sessione 1-to-1 per avviare la pratica mindfulness (10+ min/giorno)", "Prime transizioni tra stati di coscienza", "Sperimentazione dei primi benefici (riduzione stress, maggiore focus)"],
   badge: 'Libro "Felicità Esistenzialista ORA"',
   time: "⏱️ 10 min/giorno",
-  achievement: "🎖️ Primo Passo Consapevole"
+  achievement: 🎖️ Primo Passo Consapevole
 }, {
   level: "2",
   title: "Cura",
@@ -82,8 +82,8 @@ const roadmapLevels = [{
   content: ["Tecniche di reparenting", "Integrazione degli archetipi nella coscienza", "Training guidato per liberare il bambino interiore"],
   badge: "Past Authoring + Pratiche contemplative + Guida completa + Assistenza WhatsApp 24/7",
   time: "⏱️ 15 min/giorno",
-  achievement: "🎖️ Cura del Bambino Interiore",
-  skill: "💪🏻 Integrazione Archetipi",
+  achievement: 🎖️ Cura del Bambino Interiore,
+  skill: "Integrazione Archetipi",
   dimension: "1D - TRASFORMA IL TUO PASSATO"
 }, {
   level: "3",
@@ -94,8 +94,8 @@ const roadmapLevels = [{
   content: ['Training guidato per sbloccare i "poteri" dell\'adulto', "Identificazione con l'eroe adulto dentro di te", "Accesso allo stato di flow avanzato"],
   badge: "Formula della Trasformazione + Nuove pratiche contemplative + Assistenza 24/7",
   time: "⏱️ 20 min/giorno",
-  achievement: "🎖️ Padrone di Te Stesso",
-  skill: "💪🏻 Risposta Consapevole vs Reazione",
+  achievement: 🎖️ Padrone di Te Stesso,
+  skill: "Risposta Consapevole vs Reazione",
   dimension: "1D - TRASFORMA IL TUO PASSATO"
 }, {
   level: "4",
@@ -106,8 +106,8 @@ const roadmapLevels = [{
   content: ["Training guidato focus futuro con visualizzazioni strategiche (non fantasie, ma nuove mappe neurali)", "Esplorazione di nuove possibilità oltre la monotonia", "Identificazione di valori autentici e allineamento con azioni quotidiane"],
   badge: "Future Authoring + Nuove pratiche contemplative + Assistenza 24/7",
   time: "⏱️ 20 min/giorno",
-  achievement: "🎖️ Architetto del Destino",
-  skill: "💪🏻 Allineamento Valori-Azioni",
+  achievement: 🎖️ Architetto del Destino,
+  skill: "Allineamento Valori-Azioni",
   dimension: "1D - TRASFORMA IL TUO PASSATO"
 }];
 const maestriaLevels = [{
@@ -661,7 +661,7 @@ const MetodoEFO = () => {
                       </div>
                       <div className="flex flex-col gap-0.5 md:gap-1">
                         <span className="text-xs text-cyan">{level.time}</span>
-                        {level.skill && <span className="text-xs text-emerald-400">Nuova Abilità: "{level.skill}"</span>}
+                        {level.skill && <span className="text-xs text-emerald-400">💪🏻 Nuova Abilità: "{level.skill}"</span>}
                         {level.achievement && <span className="text-xs text-amber-400">"{level.achievement}"</span>}
                       </div>
                     </div>
