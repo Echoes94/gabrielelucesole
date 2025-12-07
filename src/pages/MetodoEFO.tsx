@@ -212,7 +212,7 @@ const MetodoEFO = () => {
             <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
 
-          <div className="container-narrow relative z-10 text-center">
+          <div className="container-narrow w-full relative z-10 text-center">
             <AnimatedSectionLite>
               <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
                 METODO EFO®
