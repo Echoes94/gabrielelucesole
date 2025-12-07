@@ -13,7 +13,6 @@ const Navbar = () => {
     { href: "/", label: "Home" },
     { href: "/chi-sono", label: "Chi Sono" },
     { href: "/metodo-efo", label: "Metodo EFO" },
-    { href: "/blog", label: "Blog" },
   ];
 
   const isActive = (href: string) => location.pathname === href;
