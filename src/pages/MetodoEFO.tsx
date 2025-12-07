@@ -552,7 +552,7 @@ const MetodoEFO = () => {
           <div className="container-wide">
             <AnimatedSection className="text-center mb-8 md:mb-12">
               <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">COME FUNZIONA: LA ROADMAP COMPLETA</p>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">🗺️ La Tua Mappa di Trasformazione<span className="text-gradient">Trasformazione</span>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">🗺️ La Tua Mappa di <span className="text-gradient">Trasformazione</span>
               </h2>
               <p className="font-serif text-sm md:text-base text-muted-foreground">
                 Ogni fase è un livello da completare. Ogni livello sblocca nuove abilità e bonus esclusivi.
