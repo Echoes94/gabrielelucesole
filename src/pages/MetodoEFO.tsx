@@ -242,7 +242,7 @@ const MetodoEFO = () => {
               <Button variant="hero" size="xl" className="w-full sm:w-auto transition-transform hover:scale-105" asChild>
                 <a href="mailto:gabriele.lucesole@gmail.com">
                   <Mail className="h-5 w-5" />
-                  Fissa Sessione Professional Coaching GRATIS
+                  Fissa Sessione GRATIS
                 </a>
               </Button>
 
