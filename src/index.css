@@ -28,12 +28,13 @@
     --accent: 220 90% 56%;
     --accent-foreground: 0 0% 98%;
 
-    /* Cyan glow - more vibrant */
-    --cyan: 190 80% 65%;
-    --cyan-light: 185 75% 85%;
+    /* Cyan glow - more vibrant, WCAG AA compliant */
+    --cyan: 190 85% 55%;
+    --cyan-light: 185 80% 75%;
 
     --muted: 250 20% 15%;
-    --muted-foreground: 220 15% 55%;
+    /* Improved contrast for muted text - WCAG AA compliant (4.5:1 minimum) */
+    --muted-foreground: 220 15% 65%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
@@ -79,6 +80,36 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
+  }
+
+  /* Accessibility: Skip to content link */
+  .skip-link {
+    @apply absolute -top-10 left-4 z-[100] px-4 py-2 bg-cyan text-background font-medium rounded-md;
+    transition: top 0.3s ease;
+  }
+  
+  .skip-link:focus {
+    @apply top-4;
+  }
+
+  /* Accessibility: Focus states */
+  :focus-visible {
+    @apply outline-none ring-2 ring-cyan ring-offset-2 ring-offset-background;
+  }
+
+  /* Remove default focus for mouse users */
+  :focus:not(:focus-visible) {
+    @apply outline-none ring-0;
+  }
+
+  /* Enhanced focus for interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-cyan ring-offset-2 ring-offset-background rounded-sm;
   }
 
   h1, h2, h3, h4, h5, h6 {
