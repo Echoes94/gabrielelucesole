@@ -1456,7 +1456,7 @@ const MetodoEFO = () => {
 
           <div className="container-narrow relative z-10">
             <AnimatedSection className="text-center mb-8 md:mb-12">
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">Due Strade Davanti a Te</h2>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3"> 🛣️ Due Strade Davanti a Te 🛣️   </h2>
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
