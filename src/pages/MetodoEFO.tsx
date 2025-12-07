@@ -291,26 +291,18 @@ const MetodoEFO = () => {
                       <span className="text-xs md:text-sm text-muted-foreground">{item}</span>
                     </div>)}
                 </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Alignment message - separate card */}
-            <AnimatedSection delay={0.4}>
-              <div className="glass rounded-xl p-5 md:p-8 max-w-3xl mx-auto border border-cyan/20 text-center space-y-4">
-                <div className="space-y-3">
-                  <p className="text-sm md:text-base text-foreground/90">
-                    Se ti riconosci nel <span className="text-emerald-400 font-medium">primo gruppo</span>, continua a leggere.
+                <div className="border-t border-border/50 pt-4 md:pt-6 space-y-2 text-center">
+                  <p className="text-xs md:text-sm text-muted-foreground">
+                    Se ti riconosci nel primo gruppo, continua a leggere.
                   </p>
-                  <p className="text-sm md:text-base text-foreground/90">
-                    Se ti riconosci nel <span className="text-red-400 font-medium">secondo</span>, ti auguro di trovare ciò che cerchi altrove.
+                  <p className="text-xs md:text-sm text-muted-foreground">
+                    Se ti riconosci nel secondo, ti auguro di trovare ciò che cerchi altrove.
                   </p>
-                </div>
-                <div className="border-t border-border/30 pt-4">
                   <p className="text-xs md:text-sm text-muted-foreground italic">
                     Non è giudizio. È allineamento. Il Metodo EFO® funziona solo con chi si sente pronto.
                   </p>
+                  <p className="text-cyan font-display text-base md:text-lg mt-3 md:mt-4">Sei pronto?</p>
                 </div>
-                <p className="text-cyan font-display text-lg md:text-xl pt-2">Sei pronto?</p>
               </div>
             </AnimatedSection>
           </div>
