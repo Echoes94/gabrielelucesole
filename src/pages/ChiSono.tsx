@@ -20,95 +20,81 @@ import logoPul from "@/assets/logo-pul.png";
 import logoIcf from "@/assets/logo-icf.webp";
 import logoPenn from "@/assets/logo-penn.webp";
 import logoMinistero from "@/assets/logo-ministero.webp";
-
-const credentials = [
-  { logo: logoPul, name: "Pontificia Università Lateranense" },
-  { logo: logoIcf, name: "International Coaching Federation" },
-  { logo: logoPenn, name: "University of Pennsylvania" },
-  { logo: logoMinistero, name: "Ministero della Salute" }
-];
-
-const credentialsList = [
-  "Laurea in Scienze Religiose (PUL)",
-  "Master Universitario di 1° livello in Coaching Umanistico e PNL",
-  "Master internazionale in Professional Coaching (ICF)",
-  "Specializzazione in Psicologia Positiva (Penn University)",
-  "Facilitatore in Meditazione Mindfulness",
-  "Master in Ipnosi"
-];
-
-const GlassQuote = ({ quote, author }: { quote: string; author?: string }) => (
-  <AnimatedSection className="my-8 md:my-12">
+const credentials = [{
+  logo: logoPul,
+  name: "Pontificia Università Lateranense"
+}, {
+  logo: logoIcf,
+  name: "International Coaching Federation"
+}, {
+  logo: logoPenn,
+  name: "University of Pennsylvania"
+}, {
+  logo: logoMinistero,
+  name: "Ministero della Salute"
+}];
+const credentialsList = ["Laurea in Scienze Religiose (PUL)", "Master Universitario di 1° livello in Coaching Umanistico e PNL", "Master internazionale in Professional Coaching (ICF)", "Specializzazione in Psicologia Positiva (Penn University)", "Facilitatore in Meditazione Mindfulness", "Master in Ipnosi"];
+const GlassQuote = ({
+  quote,
+  author
+}: {
+  quote: string;
+  author?: string;
+}) => <AnimatedSection className="my-8 md:my-12">
     <blockquote className="glass rounded-2xl p-6 md:p-8 relative overflow-hidden">
       <Quote className="absolute top-4 left-4 h-6 w-6 text-cyan/20" />
       <p className="font-serif text-base md:text-lg text-foreground italic leading-relaxed text-center relative z-10">
         "{quote}"
       </p>
-      {author && (
-        <cite className="block text-center mt-3 text-cyan font-sans text-xs uppercase tracking-wider not-italic">
+      {author && <cite className="block text-center mt-3 text-cyan font-sans text-xs uppercase tracking-wider not-italic">
           — {author}
-        </cite>
-      )}
+        </cite>}
     </blockquote>
-  </AnimatedSection>
-);
+  </AnimatedSection>;
 
 // Simple lazy image without heavy parallax for performance
-const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
+const LazyImage = ({
+  src,
+  alt
+}: {
+  src: string;
+  alt: string;
+}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "100px" }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsInView(true);
+        observer.disconnect();
+      }
+    }, {
+      rootMargin: "100px"
+    });
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-
-  return (
-    <div ref={ref} className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10">
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-muted/20 animate-pulse" />
-      )}
-      {isInView && (
-        <img 
-          src={src} 
-          alt={alt} 
-          className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          loading="lazy"
-          onLoad={() => setIsLoaded(true)}
-        />
-      )}
+  return <div ref={ref} className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10">
+      {!isLoaded && <div className="absolute inset-0 bg-muted/20 animate-pulse" />}
+      {isInView && <img src={src} alt={alt} className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} loading="lazy" onLoad={() => setIsLoaded(true)} />}
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent pointer-events-none" />
-    </div>
-  );
+    </div>;
 };
-
 const ChiSono = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
+  const {
+    scrollYProgress
+  } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
   });
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Chi Sono | Gabriele Lucesole - Coach Professionista</title>
-        <meta 
-          name="description" 
-          content="La mia storia: da giovane inquieto alla scoperta del Metodo EFO. 13 anni di ricerca, 526 libri, formazione certificata per aiutarti a trovare il tuo senso." 
-        />
+        <meta name="description" content="La mia storia: da giovane inquieto alla scoperta del Metodo EFO. 13 anni di ricerca, 526 libri, formazione certificata per aiutarti a trovare il tuo senso." />
         <link rel="canonical" href="https://gabrielelucesole.com/chi-sono" />
       </Helmet>
 
@@ -120,10 +106,9 @@ const ChiSono = () => {
             <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
 
-          <motion.div 
-            className="container-wide relative z-10"
-            style={{ opacity: heroOpacity }}
-          >
+          <motion.div className="container-wide relative z-10" style={{
+          opacity: heroOpacity
+        }}>
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Content */}
               <AnimatedSection direction="left">
@@ -157,11 +142,7 @@ const ChiSono = () => {
                 <div className="relative aspect-[4/5] max-w-sm md:max-w-md mx-auto">
                   <div className="absolute -inset-3 border border-cyan/20 rounded-2xl" />
                   <div className="relative h-full rounded-xl overflow-hidden">
-                    <img
-                      src={gabrielePhoto}
-                      alt="Gabriele Lucesole"
-                      className="w-full h-full object-cover"
-                    />
+                    <img src={gabrielePhoto} alt="Gabriele Lucesole" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                   
@@ -243,10 +224,7 @@ const ChiSono = () => {
               </p>
             </AnimatedSection>
 
-            <GlassQuote 
-              quote="Da dove veniamo? Chi siamo? Dove andiamo?" 
-              author="Paul Gauguin"
-            />
+            <GlassQuote quote="Da dove veniamo? Chi siamo? Dove andiamo?" author="Paul Gauguin" />
 
             <AnimatedSection className="prose-custom">
               <p className="italic text-muted-foreground">
@@ -294,10 +272,7 @@ const ChiSono = () => {
               </p>
             </AnimatedSection>
 
-            <GlassQuote 
-              quote="Quindi, in generale, tu, la tua gente, dovresti mantenere le tue tradizioni" 
-              author="Dalai Lama, 1999"
-            />
+            <GlassQuote quote="Quindi, in generale, tu, la tua gente, dovresti mantenere le tue tradizioni" author="Dalai Lama, 1999" />
 
             <AnimatedSection className="prose-custom">
               <p className="italic text-muted-foreground">
@@ -308,10 +283,7 @@ const ChiSono = () => {
               </p>
             </AnimatedSection>
 
-            <GlassQuote 
-              quote="Qualcosa di misterioso in questo universo è complice di quelli che amano solo il bene" 
-              author="Simone Weil"
-            />
+            <GlassQuote quote="Qualcosa di misterioso in questo universo è complice di quelli che amano solo il bene" author="Simone Weil" />
 
             <AnimatedSection className="prose-custom">
               <p>
@@ -365,10 +337,7 @@ const ChiSono = () => {
               </p>
             </AnimatedSection>
 
-            <GlassQuote 
-              quote="Noi non vediamo le cose come sono; vediamo le cose come siamo." 
-              author="Talmud"
-            />
+            <GlassQuote quote="Noi non vediamo le cose come sono; vediamo le cose come siamo." author="Talmud" />
 
             <AnimatedSection className="prose-custom">
               <p>
@@ -426,26 +395,16 @@ const ChiSono = () => {
                 <h3 className="font-display text-xl md:text-2xl text-center mb-6">La mia Formazione</h3>
                 
                 <div className="grid md:grid-cols-2 gap-2 md:gap-3 max-w-3xl mx-auto mb-8">
-                  {credentialsList.map((credential, index) => (
-                    <div 
-                      key={index} 
-                      className="flex items-center gap-2"
-                    >
+                  {credentialsList.map((credential, index) => <div key={index} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-cyan shrink-0" />
                       <span className="font-serif text-xs md:text-sm text-muted-foreground">{credential}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
 
                 <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
-                  {credentials.map((cred, index) => (
-                    <div
-                      key={index}
-                      className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-white/90 rounded-lg p-1.5 transition-transform duration-300 hover:scale-105"
-                    >
+                  {credentials.map((cred, index) => <div key={index} className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-white/90 rounded-lg p-1.5 transition-transform duration-300 hover:scale-105">
                       <img src={cred.logo} alt={cred.name} className="w-full h-full object-contain" loading="lazy" />
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </AnimatedSection>
@@ -467,19 +426,25 @@ const ChiSono = () => {
 
             {/* 3 Dimensions */}
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 my-8 md:my-10">
-              {[
-                { icon: History, title: "Trasforma il Tuo Passato", desc: "Da scheletro nell'armadio a trampolino di lancio" },
-                { icon: Clock, title: "Vivi Solo il Presente", desc: "Grazie a uno stratagemma brevettato da me che ti riporta — \"ingannando\" il cervello — qui e ora, oltre il tempo, nel tuo spazio interiore" },
-                { icon: Target, title: "Attrai il Futuro Desiderato", desc: "Senza la fuffa della legge d'attrazione, ma con strumenti scientificamente provati" }
-              ].map((dim, index) => (
-                <AnimatedSection key={index} delay={index * 0.1}>
+              {[{
+              icon: History,
+              title: "Trasforma il Tuo Passato",
+              desc: "Da scheletro nell'armadio a trampolino di lancio"
+            }, {
+              icon: Clock,
+              title: "Vivi Solo il Presente",
+              desc: "Grazie a uno stratagemma brevettato da me che ti riporta — \"ingannando\" il cervello — qui e ora, oltre il tempo, nel tuo spazio interiore"
+            }, {
+              icon: Target,
+              title: "Attrai il Futuro Desiderato",
+              desc: "Senza la fuffa della legge d'attrazione, ma con strumenti scientificamente provati"
+            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.1}>
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full text-center transition-transform duration-300 hover:-translate-y-1">
                     <dim.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan mx-auto mb-3" />
                     <h4 className="font-display text-base md:text-lg mb-2">{dim.title}</h4>
                     <p className="font-serif text-xs md:text-sm text-muted-foreground">{dim.desc}</p>
                   </div>
-                </AnimatedSection>
-              ))}
+                </AnimatedSection>)}
             </div>
 
             <AnimatedSection className="prose-custom">
@@ -590,13 +555,23 @@ const ChiSono = () => {
         <section className="section-padding bg-background">
           <div className="container-wide">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {[
-                { icon: BookOpen, value: "526", label: "Libri letti" },
-                { icon: Sparkles, value: "13+", label: "Anni di ricerca" },
-                { icon: Award, value: "6", label: "Certificazioni" },
-                { icon: Heart, value: "∞", label: "Passione" }
-              ].map((stat, index) => (
-                <AnimatedSection key={index} delay={index * 0.1}>
+              {[{
+              icon: BookOpen,
+              value: "526",
+              label: "Libri letti"
+            }, {
+              icon: Sparkles,
+              value: "13+",
+              label: "Anni di ricerca"
+            }, {
+              icon: Award,
+              value: "6",
+              label: "Certificazioni"
+            }, {
+              icon: Heart,
+              value: "∞",
+              label: "Passione"
+            }].map((stat, index) => <AnimatedSection key={index} delay={index * 0.1}>
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card text-center transition-transform duration-300 hover:-translate-y-1">
                     <stat.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan mx-auto mb-2 md:mb-3" />
                     <p className="font-display text-2xl md:text-3xl text-foreground mb-1">
@@ -604,8 +579,7 @@ const ChiSono = () => {
                     </p>
                     <p className="text-xs md:text-sm text-muted-foreground">{stat.label}</p>
                   </div>
-                </AnimatedSection>
-              ))}
+                </AnimatedSection>)}
             </div>
           </div>
         </section>
@@ -630,7 +604,7 @@ const ChiSono = () => {
                 <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
                   <a href="mailto:gabriele.lucesole@gmail.com">
                     <Mail className="h-5 w-5" />
-                    Fissa Sessione Gratuita
+                    Fissa Sessione GRATIS
                   </a>
                 </Button>
                 <Button variant="heroOutline" size="xl" className="w-full sm:w-auto" asChild>
@@ -644,8 +618,6 @@ const ChiSono = () => {
           </div>
         </section>
       </Layout>
-    </>
-  );
+    </>;
 };
-
 export default ChiSono;
