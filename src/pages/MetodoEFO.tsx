@@ -1311,8 +1311,7 @@ const MetodoEFO = () => {
                 </p>
 
                 <div className="prose-custom mb-4 md:mb-6 space-y-2 md:space-y-3">
-                  <p className="font-serif text-xs md:text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">La mia storia:</span>
+                  <p className="font-serif text-xs md:text-sm text-muted-foreground">Da adolescente, soffrivo per il male che vedevo nel mondo. Cercai risposte ovunque: filosofia orientale, spiritualità new age, meditazione trascendentale.
                     <br />
                     Da adolescente, soffrivo per il male che vedevo nel mondo. Cercai risposte ovunque: filosofia
                     orientale, spiritualità new age, meditazione trascendentale.
