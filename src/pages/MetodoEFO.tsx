@@ -314,7 +314,7 @@ const MetodoEFO = () => {
             <AnimatedSection className="text-center mb-8 md:mb-12">
               <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">IL PROBLEMA CHE CONOSCIAMO TROPPO BENE</p>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
-                Riconosci <span className="text-gradient">Questi Segnali?</span>
+                 🎯 Riconosci <span className="text-gradient">Questi Segnali?</span>
               </h2>
             </AnimatedSection>
 
