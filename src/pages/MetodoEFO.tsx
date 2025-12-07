@@ -254,7 +254,7 @@ const MetodoEFO = () => {
           <div className="container-wide">
             <AnimatedSection className="text-center mb-8 md:mb-12">
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
-                Questo percorso è <span className="text-cyan">per te</span> se...
+                 🫵🏻 Questo percorso è <span className="text-cyan">per te</span> se...
               </h2>
             </AnimatedSection>
 
