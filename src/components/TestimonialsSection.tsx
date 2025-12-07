@@ -11,16 +11,16 @@ const testimonials = [
     videoId: "1c_-VgFLzRPyl5aJE2f456NaduPodUYNx",
   },
   {
-    name: "Luca L.",
-    role: "Brand Strategist",
-    text: "La mia esperienza con Gabriele è stata molto positiva. In poche sessioni di professional coaching è riuscito a darmi un nuovo punto di vista, che non avevo mai preso in considerazione, aiutandomi a migliorare sensibilmente il mio focus. Il risultato è stato raggiunto grazie a domande mirate ed esercizi pratici.",
-    videoId: null,
-  },
-  {
     name: "Luca G.",
     role: "Media Buyer",
     text: "Gabriele ha una capacità rara di vedere ciò che non riesci a vedere da solo. Mi ha aiutato a ritrovare energia, ho perso 4kg e gestisco meglio lo stress quotidiano. La trasformazione è stata più rapida di anni di terapia.",
     videoId: "1bXnXExxCKSBGn66dOWjcInfud0NF9qWi",
+  },
+  {
+    name: "Luca L.",
+    role: "Brand Strategist",
+    text: "La mia esperienza con Gabriele è stata molto positiva. In poche sessioni di professional coaching è riuscito a darmi un nuovo punto di vista, che non avevo mai preso in considerazione, aiutandomi a migliorare sensibilmente il mio focus. Il risultato è stato raggiunto grazie a domande mirate ed esercizi pratici.",
+    videoId: null,
   },
 ];
 
