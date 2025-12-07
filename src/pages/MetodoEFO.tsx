@@ -464,8 +464,7 @@ const MetodoEFO = () => {
               <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
                 Metodo EFO®
               </span>
-              <h2 className="font-display text-2xl md:text-4xl lg:text-5xl mb-3">
-                Essere Felici <span className="text-gradient">ORA</span>
+              <h2 className="font-display text-2xl md:text-4xl lg:text-5xl mb-3">🧩 Essere Felici ORA<span className="text-gradient">ORA</span>
               </h2>
               <p className="font-serif text-sm md:text-base text-muted-foreground max-w-3xl mx-auto mb-3">
                 Il sistema integrato che può trasformarti da professionista in crisi a leader centrato, presente e realizzato a 360°.
