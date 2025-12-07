@@ -1032,7 +1032,7 @@ const MetodoEFO = () => {
                   <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
                     <a href="mailto:gabriele.lucesole@gmail.com">
                       <Mail className="h-5 w-5" />
-                      Fissa Sessione Gratuita
+                      Fissa Sessione GRATIS
                     </a>
                   </Button>
                 </div>
