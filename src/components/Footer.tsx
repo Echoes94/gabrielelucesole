@@ -4,13 +4,13 @@ import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-card/30 border-t border-border/50">
+    <footer className="bg-card/30 border-t border-border/50" role="contentinfo" aria-label="Footer del sito">
       <div className="container-wide py-12 sm:py-16 md:py-20">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
           {/* Brand */}
           <div className="space-y-3 sm:space-y-4 sm:col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 sm:gap-3">
-              <img src={logo} alt="L.G. Logo" className="h-8 w-8 sm:h-10 sm:w-10" />
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 rounded-md w-fit" aria-label="Vai alla homepage">
+              <img src={logo} alt="" aria-hidden="true" className="h-8 w-8 sm:h-10 sm:w-10" />
               <div>
                 <span className="font-display text-base sm:text-lg text-foreground block">L.G.</span>
                 <span className="text-[10px] sm:text-xs text-muted-foreground">Coach Professionista</span>
@@ -23,18 +23,18 @@ const Footer = () => {
 
           {/* Navigation */}
           <div className="space-y-3 sm:space-y-4">
-            <h4 className="font-sans text-xs sm:text-sm font-medium text-foreground uppercase tracking-wider">Navigazione</h4>
-            <nav className="flex flex-col gap-2 sm:gap-3">
-              <Link to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
+            <h4 className="font-sans text-xs sm:text-sm font-medium text-foreground uppercase tracking-wider" id="footer-nav-heading">Navigazione</h4>
+            <nav className="flex flex-col gap-2 sm:gap-3" aria-labelledby="footer-nav-heading">
+              <Link to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit">
                 Home
               </Link>
-              <Link to="/chi-sono" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
+              <Link to="/chi-sono" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit">
                 Chi Sono
               </Link>
-              <Link to="/metodo-efo" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
+              <Link to="/metodo-efo" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit">
                 Metodo EFO®
               </Link>
-              <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
+              <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit">
                 Blog
               </Link>
             </nav>
@@ -42,25 +42,27 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="space-y-3 sm:space-y-4">
-            <h4 className="font-sans text-xs sm:text-sm font-medium text-foreground uppercase tracking-wider">Contatti</h4>
-            <div className="flex flex-col gap-2 sm:gap-3">
+            <h4 className="font-sans text-xs sm:text-sm font-medium text-foreground uppercase tracking-wider" id="footer-contact-heading">Contatti</h4>
+            <address className="flex flex-col gap-2 sm:gap-3 not-italic" aria-labelledby="footer-contact-heading">
               <a
                 href="mailto:gabriele.lucesole@gmail.com"
-                className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+                className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit"
+                aria-label="Invia email a gabriele.lucesole@gmail.com"
               >
-                <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 gabriele.lucesole@gmail.com
               </a>
               <a
                 href="https://instagram.com/gabrielelucesole"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+                className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit"
+                aria-label="Seguici su Instagram @gabrielelucesole (apre in nuova finestra)"
               >
-                <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 @gabrielelucesole
               </a>
-            </div>
+            </address>
           </div>
         </div>
 
