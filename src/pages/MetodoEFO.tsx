@@ -206,7 +206,7 @@ const MetodoEFO = () => {
 
       <Layout>
         {/* Hero - No lazy load, critical content */}
-        <section className="min-h-screen flex items-center section-padding bg-gradient-hero relative overflow-hidden">
+        <section className="relative min-h-[100svh] flex items-center justify-center section-padding bg-gradient-hero overflow-hidden pt-16”>
           <div className="absolute inset-0">
             <div className="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
