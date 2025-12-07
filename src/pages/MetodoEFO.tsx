@@ -291,17 +291,20 @@ const MetodoEFO = () => {
                       <span className="text-xs md:text-sm text-muted-foreground">{item}</span>
                     </div>)}
                 </div>
-                <div className="border-t border-border/50 pt-4 md:pt-6 space-y-2 text-center">
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    Se ti riconosci nel primo gruppo, continua a leggere.
-                  </p>
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    Se ti riconosci nel secondo, ti auguro di trovare ciò che cerchi altrove.
-                  </p>
-                  <p className="text-xs md:text-sm text-muted-foreground italic">
+                <div className="border-t border-border/50 pt-4 md:pt-6 text-center">
+                  <div className="flex flex-col md:flex-row gap-3 md:gap-6 justify-center mb-4">
+                    <p className="text-xs md:text-sm text-muted-foreground px-3 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                      Se ti riconosci nel primo gruppo, continua a leggere.
+                    </p>
+                    <p className="text-xs md:text-sm text-muted-foreground px-3 py-2 rounded-lg bg-red-500/10 border border-red-500/20">
+                      Se ti riconosci nel secondo, ti auguro di trovare ciò che cerchi altrove.
+                    </p>
+                  </div>
+                  <div className="w-12 h-px bg-border/50 mx-auto my-4" />
+                  <p className="text-xs md:text-sm text-muted-foreground italic mb-4">
                     Non è giudizio. È allineamento. Il Metodo EFO® funziona solo con chi si sente pronto.
                   </p>
-                  <p className="text-cyan font-display text-base md:text-lg mt-3 md:mt-4">Sei pronto?</p>
+                  <p className="text-cyan font-display text-base md:text-lg">Sei pronto?</p>
                 </div>
               </div>
             </AnimatedSection>
