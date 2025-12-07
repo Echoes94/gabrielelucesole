@@ -1651,7 +1651,7 @@ const MetodoEFO = () => {
             <AnimatedSection delay={0.15} className="mt-8 md:mt-12">
               <div className="glass rounded-xl md:rounded-2xl p-4 md:p-6 border border-border/50">
                 <p className="font-display text-base md:text-lg mb-3 md:mb-4">
-                  P.S. Se sei abituato a decidere in fretta…
+                   🔮 P.S. Se sei abituato a decidere in fretta…
                 </p>
                 <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
                   A valutare ROI, costi-benefici, investimenti. Ecco i numeri:
