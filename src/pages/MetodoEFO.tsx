@@ -488,8 +488,7 @@ const MetodoEFO = () => {
                       Durante la colazione guardi il tuo partner negli occhi mentre parla dei suoi sogni — e per la prima volta dopo mesi ascolti davvero, senza che la mente vaghi altrove. Senti il sapore del caffè. Noti il sole che entra dalla finestra. Ti accorgi di essere vivo.
                     </p>
                     <p>
-                      Alle 9:00 inizi a lavorare con focus — tre ore di deep work senza distrazioni, senza ansia.
-                      Produci più in tre ore di quanto facevi nel doppio del tempo.
+                      Alle 9:00 inizi a lavorare con focus — tre ore di deep work senza distrazioni, senza ansia. Produci più in tre ore di quanto facevi nel doppio del tempo, perché sei presente.
                     </p>
                     <p>
                       Alle 18:00 chiudi il computer. Davvero. Senza sensi di colpa. La sera leggi un libro, giochi con
