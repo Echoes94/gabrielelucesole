@@ -42,7 +42,7 @@ const GlassQuote = ({
   author?: string;
 }) => <AnimatedSection className="my-8 md:my-12">
     <blockquote className="glass rounded-2xl p-6 md:p-8 relative overflow-hidden">
-      <Quote className="absolute top-4 left-4 h-6 w-6 text-cyan/20" />
+      <Quote className="absolute top-4 left-4 h-6 w-6 text-cyan/20" aria-hidden="true" />
       <p className="font-serif text-base md:text-lg text-foreground italic leading-relaxed text-center relative z-10">
         "{quote}"
       </p>
@@ -75,10 +75,10 @@ const LazyImage = ({
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-  return <div ref={ref} className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10">
-      {!isLoaded && <div className="absolute inset-0 bg-muted/20 animate-pulse" />}
+  return <div ref={ref} className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10" role="img" aria-label={alt}>
+      {!isLoaded && <div className="absolute inset-0 bg-muted/20 animate-pulse" aria-hidden="true" />}
       {isInView && <img src={src} alt={alt} className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} loading="lazy" onLoad={() => setIsLoaded(true)} />}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent pointer-events-none" aria-hidden="true" />
     </div>;
 };
 const ChiSono = () => {
@@ -100,8 +100,8 @@ const ChiSono = () => {
 
       <Layout>
         {/* Hero */}
-        <section ref={heroRef} className="min-h-screen flex items-center section-padding bg-gradient-hero relative overflow-hidden">
-          <div className="absolute inset-0">
+        <section ref={heroRef} className="min-h-screen flex items-center section-padding bg-gradient-hero relative overflow-hidden" aria-labelledby="chi-sono-heading">
+          <div className="absolute inset-0" aria-hidden="true">
             <div className="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
@@ -116,7 +116,7 @@ const ChiSono = () => {
                   Il viaggio più importante?
                 </span>
 
-                <h1 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6">
+                <h1 id="chi-sono-heading" className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6">
                   La mia <span className="text-gradient">storia</span>
                 </h1>
 

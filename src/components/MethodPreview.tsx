@@ -59,9 +59,9 @@ const MethodPreview = () => {
   }, []);
 
   return (
-    <section className="section-padding bg-card/30 relative overflow-hidden">
+    <section className="section-padding bg-card/30 relative overflow-hidden" aria-labelledby="method-preview-heading">
       {/* Static background with lazy load */}
-      <div className={`absolute inset-0 opacity-10 transition-opacity duration-700 ${bgLoaded ? 'opacity-10' : 'opacity-0'}`}>
+      <div className={`absolute inset-0 opacity-10 transition-opacity duration-700 ${bgLoaded ? 'opacity-10' : 'opacity-0'}`} aria-hidden="true">
         <img 
           ref={bgRef}
           src={methodBanner} 
@@ -78,7 +78,7 @@ const MethodPreview = () => {
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
             Metodo EFO®
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4">
+          <h2 id="method-preview-heading" className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4">
             Essere Felici <span className="text-gradient">ORA</span>
           </h2>
           <p className="font-serif text-sm sm:text-base text-muted-foreground max-w-xl mx-auto px-2">
@@ -95,12 +95,11 @@ const MethodPreview = () => {
               className="group"
             >
               <div className="relative gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card h-full transition-transform duration-300 hover:-translate-y-1">
-                {/* Number badge */}
-                <div className="absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-cyan/10 border border-cyan/30 flex items-center justify-center">
+                <div className="absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-cyan/10 border border-cyan/30 flex items-center justify-center" aria-hidden="true">
                   <span className="font-display text-xs sm:text-sm text-cyan">{dim.number}</span>
                 </div>
 
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-cyan/10 flex items-center justify-center mb-4 sm:mb-5">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-cyan/10 flex items-center justify-center mb-4 sm:mb-5" aria-hidden="true">
                   <dim.icon className="h-5 w-5 sm:h-6 sm:w-6 text-cyan" />
                 </div>
 
@@ -134,7 +133,7 @@ const MethodPreview = () => {
             <div className="grid sm:grid-cols-2 gap-2 sm:gap-3 max-w-3xl mx-auto mb-8 sm:mb-10">
               {credentialsList.map((credential, index) => (
                 <div key={index} className="flex items-start gap-2 sm:gap-3">
-                  <span className="w-1 h-1 rounded-full bg-cyan/50 mt-2 shrink-0" />
+                  <span className="w-1 h-1 rounded-full bg-cyan/50 mt-2 shrink-0" aria-hidden="true" />
                   <span className="font-serif text-xs sm:text-sm text-muted-foreground">{credential}</span>
                 </div>
               ))}
@@ -149,7 +148,7 @@ const MethodPreview = () => {
                 >
                   <img 
                     src={cred.logo} 
-                    alt={cred.name} 
+                    alt={`Logo ${cred.name}`} 
                     className="w-full h-full object-contain"
                     loading="lazy"
                   />
@@ -162,9 +161,9 @@ const MethodPreview = () => {
         {/* CTA */}
         <AnimatedSectionLite className="text-center" delay={0.3}>
           <Button variant="hero" size="lg" className="w-full sm:w-auto" asChild>
-            <Link to="/metodo-efo">
+            <Link to="/metodo-efo" aria-label="Scopri di più sul Metodo EFO">
               Scopri di più
-              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
             </Link>
           </Button>
         </AnimatedSectionLite>

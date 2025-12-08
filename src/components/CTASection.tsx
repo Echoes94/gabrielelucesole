@@ -4,16 +4,16 @@ import AnimatedSectionLite from "./AnimatedSectionLite";
 
 const CTASection = () => {
   return (
-    <section className="section-padding bg-card/50 relative overflow-hidden">
+    <section className="section-padding bg-card/50 relative overflow-hidden" aria-labelledby="cta-heading">
       {/* Subtle background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-cyan/[0.03] rounded-full blur-[80px] sm:blur-[100px]" />
       </div>
 
       <div className="container-narrow relative z-10">
         <AnimatedSectionLite className="text-center">
           {/* Icon */}
-          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-8 sm:mb-10 rounded-xl bg-cyan/10 border border-cyan/20 flex items-center justify-center">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-8 sm:mb-10 rounded-xl bg-cyan/10 border border-cyan/20 flex items-center justify-center" aria-hidden="true">
             <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-cyan" />
           </div>
 
@@ -22,7 +22,7 @@ const CTASection = () => {
             Conosciamoci
           </span>
           
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 sm:mb-8 leading-tight">
+          <h2 id="cta-heading" className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 sm:mb-8 leading-tight">
             <span className="block text-foreground/80">Fissa una sessione di</span>
             <span className="text-gradient block">professional coaching GRATIS</span>
           </h2>
@@ -36,10 +36,10 @@ const CTASection = () => {
 
           {/* CTA button */}
           <Button variant="hero" size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-10" asChild>
-            <a href="mailto:gabriele.lucesole@gmail.com">
-              <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
+            <a href="mailto:gabriele.lucesole@gmail.com" aria-label="Invia email per iniziare la tua trasformazione">
+              <Mail className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
               Inizia la Tua Trasformazione
-              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
             </a>
           </Button>
 
