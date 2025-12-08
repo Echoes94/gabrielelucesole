@@ -206,8 +206,8 @@ const MetodoEFO = () => {
 
       <Layout>
         {/* Hero - No lazy load, critical content */}
-        <section className="relative min-h-[100svh] flex items-center justify-center section-padding bg-gradient-hero overflow-hidden">
-          <div className="absolute inset-0">
+        <section className="relative min-h-[100svh] flex items-center justify-center section-padding bg-gradient-hero overflow-hidden" aria-labelledby="metodo-efo-heading">
+          <div className="absolute inset-0" aria-hidden="true">
             <div className="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
@@ -218,7 +218,7 @@ const MetodoEFO = () => {
                 METODO EFO®
               </span>
 
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6">
+              <h1 id="metodo-efo-heading" className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6">
                 Hai Fatto Tutto.
                 <br />
                 <span className="text-gradient">Ma Manca Ancora Qualcosa.</span>
@@ -240,13 +240,13 @@ const MetodoEFO = () => {
               </p>
 
               <Button variant="hero" size="xl" className="w-full sm:w-auto transition-transform hover:scale-105" asChild>
-                <a href="mailto:gabriele.lucesole@gmail.com">
-                  <Mail className="h-5 w-5" />
+                <a href="mailto:gabriele.lucesole@gmail.com" aria-label="Fissa una sessione gratuita - invia email">
+                  <Mail className="h-5 w-5" aria-hidden="true" />
                   Fissa Sessione GRATIS
                 </a>
               </Button>
 
-              <p className="text-cyan mt-6 md:mt-8 flex items-center justify-center gap-2">
+              <p className="text-cyan mt-6 md:mt-8 flex items-center justify-center gap-2" aria-hidden="true">
                 <ArrowDown className="h-4 w-4" />
                 Scopri se è il momento giusto per te
               </p>

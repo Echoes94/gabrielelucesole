@@ -66,9 +66,9 @@ const LazyVideo = ({ videoId, name }: { videoId: string; name: string }) => {
 
 const TestimonialsSection = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden" aria-labelledby="testimonials-heading">
       {/* Subtle background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-cyan/[0.02] rounded-full blur-[120px] md:blur-[150px]" />
       </div>
 
@@ -78,7 +78,7 @@ const TestimonialsSection = () => {
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
             Testimonianze
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4">
+          <h2 id="testimonials-heading" className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4">
             Storie di <span className="text-gradient">Trasformazione</span>
           </h2>
           <p className="font-serif text-sm sm:text-base text-muted-foreground max-w-lg mx-auto px-2">
@@ -101,7 +101,7 @@ const TestimonialsSection = () => {
                 {/* Content */}
                 <div className={testimonial.videoId ? "" : "text-center"}>
                   {/* Quote icon */}
-                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-cyan/10 flex items-center justify-center mb-4 sm:mb-5 ${!testimonial.videoId ? "mx-auto" : ""}`}>
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-cyan/10 flex items-center justify-center mb-4 sm:mb-5 ${!testimonial.videoId ? "mx-auto" : ""}`} aria-hidden="true">
                     <Quote className="h-4 w-4 sm:h-5 sm:w-5 text-cyan" />
                   </div>
 
@@ -125,7 +125,7 @@ const TestimonialsSection = () => {
                   {/* CTA */}
                   <div className={!testimonial.videoId ? "flex justify-center" : ""}>
                     <Button variant="heroOutline" size="sm" className="text-xs sm:text-sm w-full sm:w-auto" asChild>
-                      <a href="mailto:gabriele.lucesole@gmail.com">Fissa Sessione Gratis</a>
+                      <a href="mailto:gabriele.lucesole@gmail.com" aria-label={`Fissa sessione gratis - inizia il tuo percorso come ${testimonial.name}`}>Fissa Sessione Gratis</a>
                     </Button>
                   </div>
                 </div>

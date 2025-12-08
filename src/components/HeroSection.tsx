@@ -20,7 +20,7 @@ const HeroSection = () => {
     img.src = heroBg;
     img.onload = () => setImageLoaded(true);
   }, []);
-  return <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16">
+  return <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16" aria-labelledby="hero-heading">
       {/* Static Background image with lazy fade-in */}
       <div className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`} style={{
       backgroundImage: `url(${heroBg})`
@@ -59,7 +59,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Main headline - simplified animation */}
-        <motion.h1 className="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-5 sm:mb-8" initial={{
+        <motion.h1 id="hero-heading" className="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-5 sm:mb-8" initial={{
         opacity: 0,
         y: 20
       }} animate={{
@@ -99,15 +99,15 @@ const HeroSection = () => {
         delay: 0.4
       }}>
           <Button variant="hero" size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-10" asChild>
-            <a href="mailto:gabriele.lucesole@gmail.com">
-              <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
+            <a href="mailto:gabriele.lucesole@gmail.com" aria-label="Fissa una sessione gratuita - invia email">
+              <Mail className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
               Fissa Sessione GRATIS
             </a>
           </Button>
           <Button variant="heroOutline" size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-10" asChild>
-            <a href="#problema">
+            <a href="#problema" aria-label="Scopri come riempire il vuoto interiore">
               Riempi il Vuoto
-              <ArrowDown className="h-4 w-4 sm:h-5 sm:w-5" />
+              <ArrowDown className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
             </a>
           </Button>
         </motion.div>
@@ -122,14 +122,14 @@ const HeroSection = () => {
         delay: 0.5
       }}>
           {["13+ anni di ricerca", "526 libri letti", "Diploma ICF Coach Professionista"].map((item, index) => <div key={index} className="flex items-center justify-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan/60" />
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan/60" aria-hidden="true" />
               <span>{item}</span>
             </div>)}
         </motion.div>
       </motion.div>
 
       {/* Scroll indicator - CSS animation instead of framer-motion */}
-      <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
         <ArrowDown className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground" />
       </div>
     </section>;
