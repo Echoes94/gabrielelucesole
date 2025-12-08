@@ -485,9 +485,7 @@ const MetodoEFO = () => {
                       semplicemente qui.
                     </p>
                     <p>
-                      Durante la colazione guardi il tuo partner negli occhi mentre parla dei suoi sogni — e per la
-                      prima volta dopo mesi ascolti davvero. Senti il sapore del caffè. Noti il sole che entra dalla
-                      finestra. Ti accorgi di essere vivo.
+                      Durante la colazione guardi il tuo partner negli occhi mentre parla dei suoi sogni — e per la prima volta dopo mesi ascolti davvero, senza che la mente vaghi altrove. Senti il sapore del caffè. Noti il sole che entra dalla finestra. Ti accorgi di essere vivo.
                     </p>
                     <p>
                       Alle 9:00 inizi a lavorare con focus — tre ore di deep work senza distrazioni, senza ansia.
