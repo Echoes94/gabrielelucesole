@@ -285,18 +285,23 @@ const MetodoEFO = () => {
 
             {/* Not for you */}
             <AnimatedSection delay={0.3}>
-              <div className="glass rounded-xl p-5 md:p-8 max-w-4xl mx-auto border border-red-500/20">
-                <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center flex items-center justify-center gap-2">
-                  <XCircle className="h-5 w-5 md:h-6 md:w-6 text-red-400" />
-                  <span>Questo percorso NON è per te se...</span>
-                </h3>
-                <div className="grid md:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
-                  {notForYouIf.map((item, index) => <div key={index} className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0" />
-                      <span className="text-xs md:text-sm text-muted-foreground">{item}</span>
-                    </div>)}
+              <div className="max-w-4xl mx-auto space-y-6">
+                {/* Card principale - Lista "Non per te" */}
+                <div className="glass rounded-xl p-5 md:p-8 border border-red-500/20">
+                  <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center flex items-center justify-center gap-2">
+                    <XCircle className="h-5 w-5 md:h-6 md:w-6 text-red-400" aria-hidden="true" />
+                    <span>Questo percorso NON è per te se...</span>
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-3 md:gap-4">
+                    {notForYouIf.map((item, index) => <div key={index} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0" aria-hidden="true" />
+                        <span className="text-xs md:text-sm text-muted-foreground">{item}</span>
+                      </div>)}
+                  </div>
                 </div>
-                <div className="border-t border-border/50 pt-4 md:pt-6 space-y-2 text-center">
+
+                {/* Testo di chiusura - separato */}
+                <div className="space-y-3 text-center pt-2">
                   <p className="text-xs md:text-sm text-muted-foreground">
                     Se ti riconosci nel primo gruppo, continua a leggere.
                   </p>
@@ -306,7 +311,7 @@ const MetodoEFO = () => {
                   <p className="text-xs md:text-sm text-muted-foreground italic">
                     Non è giudizio. È allineamento. Il Metodo EFO® funziona solo con chi si sente pronto.
                   </p>
-                  <p className="text-cyan font-display text-base md:text-lg mt-3 md:mt-4">Sei pronto?</p>
+                  <p className="text-cyan font-display text-base md:text-lg mt-4 md:mt-5">Sei pronto?</p>
                 </div>
               </div>
             </AnimatedSection>
