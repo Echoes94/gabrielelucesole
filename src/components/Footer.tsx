@@ -57,7 +57,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Gabriele Lucesole. Tutti i diritti riservati.
           </p>
           <p className="text-[10px] sm:text-xs text-muted-foreground">
-            © 2025 Gabriele Lucesole. Tutti i diritti riservati.
+            Creato per i cercatori di senso
           </p>
         </div>
       </div>
