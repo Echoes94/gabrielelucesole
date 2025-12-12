@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { Instagram, Mail } from "lucide-react";
 import logo from "@/assets/logo.png";
-
 const Footer = () => {
-  return (
-    <footer className="bg-card/30 border-t border-border/50" role="contentinfo" aria-label="Footer del sito">
+  return <footer className="bg-card/30 border-t border-border/50" role="contentinfo" aria-label="Footer del sito">
       <div className="container-wide py-12 sm:py-16 md:py-20">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
           {/* Brand */}
@@ -41,21 +39,11 @@ const Footer = () => {
           <div className="space-y-3 sm:space-y-4">
             <h4 className="font-sans text-xs sm:text-sm font-medium text-foreground uppercase tracking-wider" id="footer-contact-heading">Contatti</h4>
             <address className="flex flex-col gap-2 sm:gap-3 not-italic" aria-labelledby="footer-contact-heading">
-              <a
-                href="mailto:gabriele.lucesole@gmail.com"
-                className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit"
-                aria-label="Invia email a gabriele.lucesole@gmail.com"
-              >
+              <a href="mailto:gabriele.lucesole@gmail.com" className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit" aria-label="Invia email a gabriele.lucesole@gmail.com">
                 <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 gabriele.lucesole@gmail.com
               </a>
-              <a
-                href="https://instagram.com/gabrielelucesole"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit"
-                aria-label="Seguici su Instagram @gabrielelucesole (apre in nuova finestra)"
-              >
+              <a href="https://instagram.com/gabrielelucesole" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit" aria-label="Seguici su Instagram @gabrielelucesole (apre in nuova finestra)">
                 <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 @gabrielelucesole
               </a>
@@ -69,12 +57,10 @@ const Footer = () => {
             © {new Date().getFullYear()} Gabriele Lucesole. Tutti i diritti riservati.
           </p>
           <p className="text-[10px] sm:text-xs text-muted-foreground">
-            Creato per i cercatori di senso
+            © 2025 Gabriele Lucesole. Tutti i diritti riservati.
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
