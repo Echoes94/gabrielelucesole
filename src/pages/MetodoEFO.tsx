@@ -285,7 +285,7 @@ const MetodoEFO = () => {
 
             {/* Not for you */}
             <AnimatedSection delay={0.3}>
-              <div className="max-w-4xl mx-auto space-y-6">
+              <div className="max-w-4xl mx-auto">
                 {/* Card principale - Lista "Non per te" */}
                 <div className="glass rounded-xl p-5 md:p-8 border border-red-500/20">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center flex items-center justify-center gap-2">
@@ -300,8 +300,8 @@ const MetodoEFO = () => {
                   </div>
                 </div>
 
-                {/* Testo di chiusura - separato */}
-                <div className="space-y-3 text-center pt-2">
+                {/* Testo di chiusura - separato con margini corretti */}
+                <div className="space-y-3 text-center mt-10 md:mt-16 mb-10 md:mb-16">
                   <p className="text-xs md:text-sm text-muted-foreground">
                     Se ti riconosci nel primo gruppo, continua a leggere.
                   </p>
