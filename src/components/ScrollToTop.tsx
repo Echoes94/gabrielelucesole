@@ -2,10 +2,22 @@ import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { pathname } = useLocation();
 
+  // 1. Reset automatico della scrollbar quando cambia la pagina (Opzione A)
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // "instant" evita lo scroll visibile al cambio pagina
+    });
+  }, [pathname]);
+
+  // 2. Logica per mostrare/nascondere il bottone (funzionalità originale)
   useEffect(() => {
     const toggleVisibility = () => {
       setIsVisible(window.scrollY > 300);
@@ -15,6 +27,7 @@ const ScrollToTop = () => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
+  // 3. Azione del bottone manuale
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
