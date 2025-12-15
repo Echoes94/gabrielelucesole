@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Mail } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import logo from "@/assets/logo.png";
 const Footer = () => {
   return <footer className="bg-card/30 border-t border-border/50" role="contentinfo" aria-label="Footer del sito">
@@ -46,6 +46,10 @@ const Footer = () => {
               <a href="https://instagram.com/gabrielelucesole" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit" aria-label="Seguici su Instagram @gabrielelucesole (apre in nuova finestra)">
                 <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 @gabrielelucesole
+              </a>
+              <a href="https://linkedin.com/in/gabrielelucesole" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit" aria-label="Connettiti su LinkedIn (apre in nuova finestra)">
+                <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
+                LinkedIn
               </a>
             </address>
           </div>

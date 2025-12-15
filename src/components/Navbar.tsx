@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Instagram, Mail } from "lucide-react";
+import { Menu, X, Instagram, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
@@ -74,6 +74,15 @@ const Navbar = () => {
           >
             <Instagram className="h-5 w-5" />
           </a>
+          <a
+            href="https://linkedin.com/in/gabrielelucesole"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="h-5 w-5" />
+          </a>
           <Button variant="hero" size="sm" asChild>
             <a href="mailto:gabriele.lucesole@gmail.com">
               <Mail className="h-4 w-4" />
@@ -136,6 +145,15 @@ const Navbar = () => {
                   aria-label="Seguici su Instagram"
                 >
                   <Instagram className="h-5 w-5" aria-hidden="true" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/gabrielelucesole"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-md p-1"
+                  aria-label="Seguici su LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5" aria-hidden="true" />
                 </a>
                 <Button variant="hero" size="sm" className="flex-1 text-xs sm:text-sm" asChild>
                   <a href="mailto:gabriele.lucesole@gmail.com" aria-label="Invia email a Gabriele">
