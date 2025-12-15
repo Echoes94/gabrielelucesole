@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ScrollToTop = () => {
@@ -31,23 +32,15 @@ const ScrollToTop = () => {
           transition={{ duration: 0.2 }}
           className="fixed bottom-6 right-6 z-50"
         >
-          <motion.button
+          <Button
             onClick={scrollToTop}
-            whileHover={{ 
-              scale: 1.1,
-              boxShadow: "0 0 20px hsl(var(--primary) / 0.4)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="h-12 w-12 rounded-full shadow-lg border border-border/50 bg-card/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors duration-300"
+            variant="outline"
+            size="icon"
+            className="h-12 w-12 rounded-full shadow-lg border-border/50 bg-card/80 backdrop-blur-sm hover:bg-card transition-colors duration-300"
             aria-label="Torna all'inizio della pagina"
           >
-            <motion.div
-              whileHover={{ y: -2 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <ArrowUp className="h-5 w-5" />
-            </motion.div>
-          </motion.button>
+            <ArrowUp className="h-5 w-5" />
+          </Button>
         </motion.div>
       )}
     </AnimatePresence>
