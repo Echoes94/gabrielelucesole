@@ -131,7 +131,7 @@
   }
   
   p {
-    @apply text-sm sm:text-base leading-relaxed;
+    @apply text-sm sm:text-lg leading-relaxed;
   }
 
   .font-serif {
