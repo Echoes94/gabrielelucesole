@@ -80,7 +80,6 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
   }
 
   /* Accessibility: Skip to content link */
@@ -132,7 +131,7 @@
   }
   
   p {
-    @apply text-base leading-relaxed;
+    @apply text-sm sm:text-base leading-relaxed;
   }
 
   .font-serif {
