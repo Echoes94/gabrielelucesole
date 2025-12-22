@@ -6,65 +6,65 @@
 
 @layer base {
   :root {
-    /* Primary palette - WCAG AA compliant (4.5:1 minimum for normal text) */
-    --background: 240 20% 4%; /* Deep dark background */
-    --foreground: 0 0% 98%; /* Pure white - 19.5:1 contrast */
+    /* Primary palette - Deep blues to cyan - Enhanced contrast */
+    --background: 250 30% 3%; /* Deeper, cleaner black */
+    --foreground: 0 0% 98%; /* Pure white for better contrast */
 
-    --card: 240 18% 8%;
-    --card-foreground: 0 0% 96%; /* 16:1 contrast */
+    --card: 250 25% 8%; /* Subtle card background */
+    --card-foreground: 0 0% 95%;
 
-    --popover: 240 18% 10%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 250 25% 10%;
+    --popover-foreground: 0 0% 95%;
 
     /* Deep navy primary */
-    --primary: 225 55% 15%;
+    --primary: 230 60% 12%;
     --primary-foreground: 0 0% 98%;
 
     /* Royal blue secondary */
-    --secondary: 225 45% 20%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 230 50% 18%;
+    --secondary-foreground: 0 0% 95%;
 
-    /* Bright blue accent - WCAG AA for large text */
-    --accent: 215 85% 60%;
+    /* Bright blue accent */
+    --accent: 220 90% 56%;
     --accent-foreground: 0 0% 98%;
 
-    /* Cyan glow - WCAG AA compliant (4.6:1 on dark bg) */
-    --cyan: 185 75% 48%;
-    --cyan-light: 180 70% 70%;
+    /* Cyan glow - more vibrant, WCAG AA compliant */
+    --cyan: 190 85% 55%;
+    --cyan-light: 185 80% 75%;
 
-    --muted: 240 15% 14%;
-    /* Muted text - WCAG AA compliant (5.2:1 on background) */
-    --muted-foreground: 215 20% 72%;
+    --muted: 250 20% 15%;
+    /* Improved contrast for muted text - WCAG AA compliant (4.5:1 minimum) */
+    --muted-foreground: 220 15% 65%;
 
-    --destructive: 0 72% 55%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 15% 20%;
-    --input: 240 18% 12%;
-    --ring: 185 70% 55%;
+    --border: 250 20% 18%;
+    --input: 250 20% 12%;
+    --ring: 190 80% 65%;
 
     --radius: 0.5rem;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(180deg, hsl(240 20% 4%) 0%, hsl(240 18% 7%) 100%);
-    --gradient-card: linear-gradient(160deg, hsl(240 18% 10%) 0%, hsl(240 18% 7%) 100%);
-    --gradient-glow: linear-gradient(135deg, hsl(185 70% 55% / 0.15) 0%, hsl(215 85% 60% / 0.1) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(180 70% 70%) 100%);
+    /* Gradients - Simplified */
+    --gradient-hero: linear-gradient(180deg, hsl(250 30% 3%) 0%, hsl(250 25% 6%) 100%);
+    --gradient-card: linear-gradient(160deg, hsl(250 25% 10%) 0%, hsl(250 25% 6%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(190 80% 65% / 0.15) 0%, hsl(220 90% 56% / 0.1) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(190 80% 75%) 100%);
     
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(185 70% 55% / 0.12);
-    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
-    --shadow-button: 0 4px 20px -4px hsl(185 70% 55% / 0.3);
+    /* Shadows - More subtle */
+    --shadow-glow: 0 0 40px hsl(190 80% 65% / 0.12);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+    --shadow-button: 0 4px 20px -4px hsl(190 80% 65% / 0.3);
 
     /* Sidebar */
-    --sidebar-background: 240 20% 4%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 185 70% 55%;
-    --sidebar-primary-foreground: 240 20% 4%;
-    --sidebar-accent: 240 18% 10%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 240 15% 20%;
-    --sidebar-ring: 185 70% 55%;
+    --sidebar-background: 250 30% 3%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 190 80% 65%;
+    --sidebar-primary-foreground: 250 30% 3%;
+    --sidebar-accent: 250 25% 10%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 250 20% 18%;
+    --sidebar-ring: 190 80% 65%;
   }
 }
 
@@ -80,9 +80,6 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    line-height: 1.7;
-    letter-spacing: -0.01em;
   }
 
   /* Accessibility: Skip to content link */
@@ -117,8 +114,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
-    @apply font-medium leading-[1.2];
-    letter-spacing: -0.02em;
+    @apply font-medium tracking-tight leading-[1.15];
   }
   
   /* Mobile typography scale */
@@ -135,9 +131,7 @@
   }
   
   p {
-    @apply text-base sm:text-lg;
-    line-height: 1.75;
-    letter-spacing: -0.005em;
+    @apply text-sm sm:text-base leading-relaxed;
   }
 
   .font-serif {
