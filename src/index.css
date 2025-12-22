@@ -81,6 +81,8 @@
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
   }
 
   /* Accessibility: Skip to content link */
@@ -115,7 +117,8 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
-    @apply font-medium tracking-tight leading-[1.15];
+    @apply font-medium leading-[1.2];
+    letter-spacing: -0.02em;
   }
   
   /* Mobile typography scale */
@@ -132,7 +135,9 @@
   }
   
   p {
-    @apply text-sm sm:text-base leading-relaxed;
+    @apply text-base sm:text-lg;
+    line-height: 1.75;
+    letter-spacing: -0.005em;
   }
 
   .font-serif {
