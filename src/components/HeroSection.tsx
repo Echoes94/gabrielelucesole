@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Mail } from "lucide-react";
-import heroBg from "@/assets/hero-bg-circles.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
