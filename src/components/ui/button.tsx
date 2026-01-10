@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-card/50",
         link: "text-cyan underline-offset-4 hover:underline hover:text-cyan-light",
         hero: "bg-cyan text-background font-semibold hover:bg-cyan-light hover:-translate-y-0.5 active:translate-y-0 shadow-lg hover:shadow-xl",
-        heroOutline: "border-2 border-cyan text-cyan font-semibold hover:bg-cyan/10 hover:border-cyan-light hover:-translate-y-0.5 active:translate-y-0 shadow-md hover:shadow-lg",
+        heroOutline: "border border-cyan/50 text-cyan hover:bg-cyan/5 hover:border-cyan hover:-translate-y-0.5 active:translate-y-0",
         cta: "bg-cyan text-background font-semibold hover:bg-cyan-light hover:-translate-y-0.5 active:translate-y-0 shadow-lg hover:shadow-xl",
         glass: "glass hover:bg-card/90 hover:-translate-y-0.5 active:translate-y-0",
       },

@@ -25,7 +25,7 @@ const HeroSection = () => {
       <div className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`} style={{
       backgroundImage: `url(${heroBg})`
     }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
 
       {/* Simplified background elements - no continuous animation */}
