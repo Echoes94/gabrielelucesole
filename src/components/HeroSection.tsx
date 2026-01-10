@@ -112,19 +112,30 @@ const HeroSection = () => {
           </Button>
         </motion.div>
 
-        {/* Trust indicators - simplified */}
-        <motion.div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-8 md:gap-12 text-xs sm:text-sm text-muted-foreground" initial={{
-        opacity: 0
+        {/* Trust indicators - enhanced visibility */}
+        <motion.div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8" initial={{
+        opacity: 0,
+        y: 10
       }} animate={{
-        opacity: 1
+        opacity: 1,
+        y: 0
       }} transition={{
         duration: 0.5,
         delay: 0.5
       }}>
-          {["13+ anni di ricerca", "526 libri letti", "Diploma ICF Coach Professionista"].map((item, index) => <div key={index} className="flex items-center justify-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan/60" aria-hidden="true" />
-              <span>{item}</span>
-            </div>)}
+          {[
+            { icon: "🔬", text: "13+ anni di ricerca" },
+            { icon: "📚", text: "526 libri letti" },
+            { icon: "🎓", text: "Diploma ICF Coach" }
+          ].map((item, index) => (
+            <div 
+              key={index} 
+              className="flex items-center justify-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-cyan/20 backdrop-blur-sm"
+            >
+              <span className="text-base" aria-hidden="true">{item.icon}</span>
+              <span className="text-sm sm:text-base font-medium text-foreground/90">{item.text}</span>
+            </div>
+          ))}
         </motion.div>
       </motion.div>
 
