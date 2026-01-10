@@ -69,7 +69,7 @@ const HeroSection = () => {
             delay: 0.1,
           }}
         >
-          <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan/80 border border-cyan/20 rounded-full mb-6 sm:mb-10">
+          <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan/80 border border-cyan/20 rounded-full mb-6 sm:mb-10">
             Con il Metodo EFO®
           </span>
         </motion.div>
@@ -97,7 +97,7 @@ const HeroSection = () => {
 
         {/* Subheadline */}
         <motion.p
-          className="font-serif text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2"
+          className="font-serif text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2"
           initial={{
             opacity: 0,
             y: 20,
@@ -116,7 +116,7 @@ const HeroSection = () => {
 
         {/* CTA buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-20"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-4 justify-center items-center mb-12 sm:mb-20"
           initial={{
             opacity: 0,
             y: 20,
@@ -171,9 +171,9 @@ const HeroSection = () => {
           }}
         >
           {[
-            { text: "13+ anni di ricerca" },
-            { text: "526 libri letti" },
-            { text: "Diploma ICF Coach Professionista" },
+            { icon: "🔬", text: "13+ anni di ricerca" },
+            { icon: "📚", text: "526 libri letti" },
+            { icon: "🎓", text: "Diploma ICF Coach Professionista" },
           ].map((item, index) => (
             <div
               key={index}
