@@ -112,8 +112,8 @@ const HeroSection = () => {
           </Button>
         </motion.div>
 
-        {/* Trust indicators - enhanced visibility */}
-        <motion.div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-10 md:gap-14 text-sm sm:text-base text-foreground/90" initial={{
+        {/* Trust indicators - simplified */}
+        <motion.div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-8 md:gap-12 text-xs sm:text-sm text-muted-foreground" initial={{
         opacity: 0
       }} animate={{
         opacity: 1
@@ -121,13 +121,9 @@ const HeroSection = () => {
         duration: 0.5,
         delay: 0.5
       }}>
-          {[
-            { icon: "⏱", text: "13+ anni di ricerca" },
-            { icon: "📚", text: "526 libri letti" },
-            { icon: "🎓", text: "Diploma ICF Coach" }
-          ].map((item, index) => <div key={index} className="flex items-center justify-center gap-2.5 px-3 py-1.5 rounded-full bg-cyan/5 border border-cyan/10">
-              <span className="text-base sm:text-lg" aria-hidden="true">{item.icon}</span>
-              <span className="font-medium">{item.text}</span>
+          {["13+ anni di ricerca", "526 libri letti", "Diploma ICF Coach Professionista"].map((item, index) => <div key={index} className="flex items-center justify-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan/60" aria-hidden="true" />
+              <span>{item}</span>
             </div>)}
         </motion.div>
       </motion.div>
