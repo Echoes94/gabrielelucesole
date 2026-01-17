@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, History, Clock, Target } from "lucide-react";
 import AnimatedSectionLite from "./AnimatedSectionLite";
-import methodBanner from "@/assets/method-banner.jpg";
 
 // Credential logos
 import logoPul from "@/assets/logo-pul.png";
@@ -49,28 +47,8 @@ const credentialsList = [
 ];
 
 const MethodPreview = () => {
-  const [bgLoaded, setBgLoaded] = useState(false);
-  const bgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = methodBanner;
-    img.onload = () => setBgLoaded(true);
-  }, []);
-
   return (
     <section className="section-padding bg-card/30 relative overflow-hidden" aria-labelledby="method-preview-heading">
-      {/* Static background with lazy load */}
-      <div className={`absolute inset-0 opacity-10 transition-opacity duration-700 ${bgLoaded ? 'opacity-10' : 'opacity-0'}`} aria-hidden="true">
-        <img 
-          ref={bgRef}
-          src={methodBanner} 
-          alt="" 
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-      </div>
 
       <div className="container-wide relative z-10">
         {/* Section header */}
