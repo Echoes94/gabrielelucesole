@@ -9,7 +9,7 @@ import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 const AnimatedSection = AnimatedSectionLite;
 import LazySection from "@/components/LazySection";
 import { Link } from "react-router-dom";
-import gabrielePhoto from "@/assets/gabriele-photo.png";
+import gabrielePhoto from "@/assets/gabriele-photo.webp";
 
 // Credential logos
 import logoPul from "@/assets/logo-pul.png";
