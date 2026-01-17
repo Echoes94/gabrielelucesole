@@ -49,20 +49,6 @@ const credentialsList = [
 const MethodPreview = () => {
   return (
     <section className="section-padding bg-card/30 relative overflow-hidden" aria-labelledby="method-preview-heading">
-      {/* Decorative background */}
-      <div className="absolute inset-0 z-0" aria-hidden="true">
-        {/* Radial gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--cyan)/0.08)_0%,transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(var(--primary)/0.06)_0%,transparent_40%)]" />
-        {/* Subtle grid pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--cyan)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--cyan)) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }}
-        />
-      </div>
 
       <div className="container-wide relative z-10">
         {/* Section header */}
