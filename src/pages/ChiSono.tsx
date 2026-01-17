@@ -9,10 +9,10 @@ import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 const AnimatedSection = AnimatedSectionLite;
 import gabrielePhoto from "@/assets/chi-sono-gabriele.webp";
 import chiSonoMondo from "@/assets/chi-sono-mondo.jpg";
-import chiSonoBivio from "@/assets/chi-sono-bivio.jpg";
-import chiSonoErrore from "@/assets/chi-sono-errore.jpg";
-import chiSonoSvolta from "@/assets/chi-sono-svolta.jpg";
-import chiSonoEpifania from "@/assets/chi-sono-epifania.jpg";
+import chiSonoBivio from "@/assets/chi-sono-bivio.webp";
+import chiSonoErrore from "@/assets/chi-sono-errore.webp";
+import chiSonoSvolta from "@/assets/chi-sono-svolta.webp";
+import chiSonoEpifania from "@/assets/chi-sono-epifania.webp";
 import { Link } from "react-router-dom";
 
 // Credential logos
