@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo.webp";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +30,6 @@ const Navbar = () => {
             src={logo}
             alt=""
             aria-hidden="true"
-            width={40}
-            height={40}
             className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 transition-transform duration-300 group-hover:scale-105"
           />
           <span className="font-display text-base sm:text-lg text-foreground">

@@ -7,16 +7,16 @@ import { Mail, ArrowRight, BookOpen, Award, Heart, Sparkles, Quote, History, Clo
 import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 // Use lite version for better performance
 const AnimatedSection = AnimatedSectionLite;
-import gabrielePhoto from "@/assets/gabriele-photo.webp";
-import chiSonoMondo from "@/assets/chi-sono-mondo.webp";
-import chiSonoBivio from "@/assets/chi-sono-bivio.webp";
-import chiSonoErrore from "@/assets/chi-sono-errore.webp";
-import chiSonoSvolta from "@/assets/chi-sono-svolta.webp";
-import chiSonoEpifania from "@/assets/chi-sono-epifania.webp";
+import gabrielePhoto from "@/assets/chi-sono-gabriele.webp";
+import chiSonoMondo from "@/assets/chi-sono-mondo.jpg";
+import chiSonoBivio from "@/assets/chi-sono-bivio.jpg";
+import chiSonoErrore from "@/assets/chi-sono-errore.jpg";
+import chiSonoSvolta from "@/assets/chi-sono-svolta.jpg";
+import chiSonoEpifania from "@/assets/chi-sono-epifania.jpg";
 import { Link } from "react-router-dom";
 
 // Credential logos
-import logoPul from "@/assets/logo-pul.webp";
+import logoPul from "@/assets/logo-pul.png";
 import logoIcf from "@/assets/logo-icf.webp";
 import logoPenn from "@/assets/logo-penn.webp";
 import logoMinistero from "@/assets/logo-ministero.webp";
@@ -142,7 +142,7 @@ const ChiSono = () => {
                 <div className="relative aspect-[4/5] max-w-sm md:max-w-md mx-auto">
                   <div className="absolute -inset-3 border border-cyan/20 rounded-2xl" />
                   <div className="relative h-full rounded-xl overflow-hidden">
-                    <img src={gabrielePhoto} alt="Gabriele Lucesole" width={400} height={500} className="w-full h-full object-cover" />
+                    <img src={gabrielePhoto} alt="Gabriele Lucesole" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                   
