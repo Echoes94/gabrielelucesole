@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Font Merriweather caricato solo dove usato (lazy) - rimosso dal bundle critico */
+/* I font principali (Playfair, Inter) sono caricati via index.html con display=swap */
 
 @layer base {
   :root {
@@ -79,7 +80,12 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    /* Prevent CLS from late-loading fonts */
+    font-display: swap;
+    /* GPU acceleration for smooth scroll */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Accessibility: Skip to content link */
@@ -135,15 +141,20 @@
   }
 
   .font-serif {
-    font-family: 'Merriweather', serif;
+    font-family: 'Merriweather', Georgia, serif;
   }
 
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', Georgia, serif;
   }
 
   .font-sans {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  /* Prevent layout shift during font loading */
+  .font-display, .font-serif, .font-sans {
+    font-display: swap;
   }
 }
 

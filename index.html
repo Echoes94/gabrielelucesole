@@ -7,25 +7,38 @@
     <meta name="description" content="Dalla crisi esistenziale all'autorealizzazione. Professional coaching con il Metodo EFO®: antica saggezza e neuroscienze per trasformare la tua vita.">
     <meta name="author" content="Gabriele Lucesole" />
 
-    
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    
-    
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
+    <!-- Preconnect per risorse critiche -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload font critici con display=swap per evitare FOIT -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
+    
+    <!-- Preload hero image per LCP -->
     <link rel="preload" as="image" href="/src/assets/hero-bg.webp" fetchpriority="high">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     <meta property="og:title" content="Gabriele Lucesole | Coach Professionista - Metodo EFO®">
-  <meta name="twitter:title" content="Gabriele Lucesole | Coach Professionista - Metodo EFO®">
-  <meta property="og:description" content="Dalla crisi esistenziale all&#39;autorealizzazione. Professional coaching con il Metodo EFO®: antica saggezza e neuroscienze per trasformare la tua vita.">
-  <meta name="twitter:description" content="Dalla crisi esistenziale all&#39;autorealizzazione. Professional coaching con il Metodo EFO®: antica saggezza e neuroscienze per trasformare la tua vita.">
-  <link rel="icon" type="image/x-icon" href="https://storage.googleapis.com/gpt-engineer-file-uploads/BmpjfubOVThqzb5lOPYRWMd94bu2/uploads/1764936890529-Risorsa 1.png">
-</head>
+    <meta property="og:description" content="Dalla crisi esistenziale all'autorealizzazione. Professional coaching con il Metodo EFO®: antica saggezza e neuroscienze per trasformare la tua vita.">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:title" content="Gabriele Lucesole | Coach Professionista - Metodo EFO®">
+    <meta name="twitter:description" content="Dalla crisi esistenziale all'autorealizzazione. Professional coaching con il Metodo EFO®: antica saggezza e neuroscienze per trasformare la tua vita.">
+    
+    <link rel="icon" type="image/x-icon" href="https://storage.googleapis.com/gpt-engineer-file-uploads/BmpjfubOVThqzb5lOPYRWMd94bu2/uploads/1764936890529-Risorsa 1.png">
+    
+    <!-- Critical CSS inline per First Paint -->
+    <style>
+      body { background: hsl(250 30% 3%); color: hsl(0 0% 98%); margin: 0; }
+      #root { min-height: 100vh; }
+    </style>
+  </head>
 
   <body>
     <div id="root"></div>
