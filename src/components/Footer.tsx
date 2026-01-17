@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
 const Footer = () => {
   return <footer className="bg-card/30 border-t border-border/50" role="contentinfo" aria-label="Footer del sito">
       <div className="container-wide py-12 sm:py-16 md:py-20">
@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-3 sm:space-y-4 sm:col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 sm:gap-3 rounded-md w-fit" aria-label="Vai alla homepage">
-              <img src={logo} alt="" aria-hidden="true" className="h-8 w-8 sm:h-10 sm:w-10" />
+              <img src={logo} alt="" aria-hidden="true" width={40} height={40} className="h-8 w-8 sm:h-10 sm:w-10" />
               <div>
                 <span className="font-display text-base sm:text-lg text-foreground block">L.G.</span>
                 <span className="text-[10px] sm:text-xs text-muted-foreground">Coach Professionista</span>

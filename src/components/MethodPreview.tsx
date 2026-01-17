@@ -4,7 +4,7 @@ import { ArrowRight, History, Clock, Target } from "lucide-react";
 import AnimatedSectionLite from "./AnimatedSectionLite";
 
 // Credential logos
-import logoPul from "@/assets/logo-pul.png";
+import logoPul from "@/assets/logo-pul.webp";
 import logoIcf from "@/assets/logo-icf.webp";
 import logoPenn from "@/assets/logo-penn.webp";
 import logoMinistero from "@/assets/logo-ministero.webp";
@@ -127,6 +127,8 @@ const MethodPreview = () => {
                   <img 
                     src={cred.logo} 
                     alt={`Logo ${cred.name}`} 
+                    width={80}
+                    height={80}
                     className="w-full h-full object-contain"
                     loading="lazy"
                   />

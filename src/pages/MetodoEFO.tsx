@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
 
 // Credential logos
-import logoPul from "@/assets/logo-pul.png";
+import logoPul from "@/assets/logo-pul.webp";
 import logoIcf from "@/assets/logo-icf.webp";
 import logoPenn from "@/assets/logo-penn.webp";
 import logoMinistero from "@/assets/logo-ministero.webp";
