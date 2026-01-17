@@ -172,8 +172,8 @@ const HeroSection = () => {
         >
           {[
             { text: "13+ anni di ricerca" },
-            { icon: "📚", text: "526 libri letti" },
-            { icon: "🎓", text: "Diploma ICF Coach" },
+            { text: "526 libri letti" },
+            { text: "Diploma ICF Coach Professionista" },
           ].map((item, index) => (
             <div
               key={index}
