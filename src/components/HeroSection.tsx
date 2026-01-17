@@ -21,12 +21,18 @@ const HeroSection = () => {
     img.onload = () => setImageLoaded(true);
   }, []);
   return <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16" aria-labelledby="hero-heading">
-      {/* Static Background image with lazy fade-in */}
-      <div className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${imageLoaded ? "opacity-100" : "opacity-0"}`} style={{
-      backgroundImage: `url(${heroBg})`
-    }}>
+      {/* Static Background with reserved space to prevent CLS */}
+      <div 
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${imageLoaded ? "opacity-100" : "opacity-0"}`} 
+        style={{ backgroundImage: `url(${heroBg})` }}
+        role="img"
+        aria-label="Sfondo hero cosmico"
+      >
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
+      
+      {/* Placeholder background to prevent CLS during image load */}
+      <div className="absolute inset-0 bg-gradient-hero" aria-hidden="true" />
 
       {/* Simplified background elements - no continuous animation */}
       <div className="absolute inset-0 overflow-hidden">
