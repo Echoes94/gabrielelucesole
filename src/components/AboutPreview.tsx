@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import AnimatedSectionLite from "./AnimatedSectionLite";
-import gabrielePhoto from "@/assets/gabriele-photo.webp";
+import gabrielePhoto from "@/assets/gabriele-photo.png";
 
 const AboutPreview = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
