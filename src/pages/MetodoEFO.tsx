@@ -683,7 +683,7 @@ const MetodoEFO = () => {
                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-amber-500/20">
                         <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
                       </div>
-                      <span className="font-display text-xl md:text-2xl text-amber-400">LV 5 </span>
+                      <span className="font-display text-xl md:text-2xl text-amber-400">LV {5 + index} </span>
                     </div>
 
                     <h3 className="font-display text-lg md:text-xl mb-1 text-amber-400">MAESTRIA</h3>
