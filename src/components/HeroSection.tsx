@@ -131,7 +131,7 @@ const HeroSection = () => {
           text: "526 libri letti"
         }, {
           icon: "🎓",
-          text: "Diploma ICF Coach"
+          text: "Diploma ICF Coach Professionista"
         }].map((item, index) => <div key={index} className="flex items-center justify-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-cyan/20 backdrop-blur-sm">
               
               <span className="text-sm sm:text-base font-medium text-foreground/90">{item.text}</span>
