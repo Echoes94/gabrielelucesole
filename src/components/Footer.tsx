@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-lg.png";
 const Footer = () => {
   return <footer className="bg-card/30 border-t border-border/50" role="contentinfo" aria-label="Footer del sito">
       <div className="container-wide py-12 sm:py-16 md:py-20">
