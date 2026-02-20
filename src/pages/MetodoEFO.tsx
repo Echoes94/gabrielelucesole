@@ -214,7 +214,7 @@ const MetodoEFO = () => {
 
           <div className="container-narrow relative z-10 text-center w-full">
             <AnimatedSectionLite>
-              <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
+              <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-violet-400 border border-violet-400/30 rounded-full mb-4 md:mb-6">
                 METODO EFO®
               </span>
 
@@ -519,7 +519,7 @@ const MetodoEFO = () => {
           <div className="container-wide">
             <AnimatedSection className="text-center mb-8 md:mb-12">
               <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">LA SOLUZIONE</p>
-              <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
+              <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-violet-400 border border-violet-400/30 rounded-full mb-4 md:mb-6">
                 Metodo EFO®
               </span>
               <h2 className="font-display text-2xl md:text-4xl lg:text-5xl mb-3">
@@ -631,8 +631,8 @@ const MetodoEFO = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
               {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.08}>
                   <div className={`rounded-xl p-4 md:p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? "bg-gradient-card border border-cyan/30" : "bg-card/50 border border-border/30"}`}>
-                    {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
-                        <span className="text-xs text-cyan font-medium">{level.dimension}</span>
+                    {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-violet-500/10 border border-violet-400/20 inline-block">
+                        <span className="text-xs text-violet-400 font-medium">{level.dimension}</span>
                       </div>}
                     <div className="flex items-center justify-between mb-3 md:mb-4">
                       <div className="flex items-center gap-2 md:gap-3">
@@ -1391,12 +1391,13 @@ const MetodoEFO = () => {
               {testimonials.map((testimonial, index) => <AnimatedSection key={index} delay={index * 0.08}>
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full flex flex-col transition-transform duration-300 hover:-translate-y-1">
                     <div className="mb-3 md:mb-4">
-                      <h3 className="font-display text-base md:text-lg text-cyan">{testimonial.name}</h3>
+                      <h3 className="font-display text-base md:text-lg text-foreground">{testimonial.name}</h3>
+                      <p className="text-xs md:text-sm text-violet-400">{testimonial.role}</p>
                       <p className="text-xs md:text-sm text-muted-foreground">{testimonial.title}</p>
                     </div>
 
                     <div className="mb-3 md:mb-4 flex-1">
-                      <Quote className="h-4 w-4 md:h-6 md:w-6 text-cyan/50 mb-1.5 md:mb-2" />
+                      <Quote className="h-4 w-4 md:h-6 md:w-6 text-violet-400/50 mb-1.5 md:mb-2" />
                       <p className="font-serif text-xs md:text-sm text-muted-foreground italic leading-relaxed">
                         "{testimonial.quote}"
                       </p>
@@ -1604,7 +1605,7 @@ const MetodoEFO = () => {
           <div className="container-narrow">
             <AnimatedSection className="text-center">
               <div className="prose-custom max-w-2xl mx-auto">
-                <blockquote className="glass rounded-xl md:rounded-2xl p-5 md:p-8 border border-cyan/20 italic">
+                <blockquote className="glass rounded-xl md:rounded-2xl p-5 md:p-8 border border-violet-400/20 italic">
                   <p className="font-serif text-sm md:text-lg text-foreground mb-3 md:mb-4">
                     "Ho tutto quello che pensavo di volere, ma non riesco a sentirmi davvero realizzato."
                   </p>

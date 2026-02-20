@@ -238,17 +238,18 @@
     box-shadow: var(--shadow-card);
   }
 
-  /* Clean border */
+  /* Clean border with navy shadow */
   .gradient-border {
     position: relative;
     background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid hsl(var(--border) / 0.60);
+    box-shadow: 0 8px 40px -8px hsl(var(--navy-950) / 0.15);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   }
 
   .gradient-border:hover {
-    border-color: hsl(var(--cyan) / 0.4);
-    box-shadow: var(--shadow-card);
+    border-color: hsl(var(--violet-400) / 0.35);
+    box-shadow: 0 12px 48px -8px hsl(var(--navy-950) / 0.22);
   }
 
   /* Floating animation */
@@ -287,11 +288,12 @@
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
 
-  /* Glass effect */
+  /* Glass effect with navy shadow */
   .glass {
     @apply backdrop-blur-md;
     background: hsl(var(--card) / 0.80);
     border: 1px solid hsl(var(--border) / 0.60);
+    box-shadow: 0 8px 40px -8px hsl(var(--navy-950) / 0.15);
   }
 
   /* Section spacing */
