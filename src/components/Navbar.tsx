@@ -4,6 +4,7 @@ import { Menu, X, Instagram, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-lg.png";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,6 +66,7 @@ const Navbar = () => {
 
         {/* CTA Button Desktop */}
         <div className="hidden md:flex items-center gap-4 lg:gap-5">
+          <ThemeToggle />
           <a
             href="https://instagram.com/gabrielelucesole"
             target="_blank"
@@ -137,6 +139,7 @@ const Navbar = () => {
                 </motion.div>
               ))}
               <div className="flex items-center gap-3 sm:gap-4 pt-3 sm:pt-5 border-t border-border/50">
+                <ThemeToggle />
                 <a
                   href="https://instagram.com/gabrielelucesole"
                   target="_blank"
