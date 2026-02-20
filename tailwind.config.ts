@@ -52,23 +52,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        /* Brand palette tokens */
-        navy: {
-          950: "hsl(var(--navy-950))",
-          900: "hsl(var(--navy-900))",
-          800: "hsl(var(--navy-800))",
-        },
         cyan: {
           DEFAULT: "hsl(var(--cyan))",
           light: "hsl(var(--cyan-light))",
-          200: "hsl(var(--cyan-200))",
-          300: "hsl(var(--cyan-300))",
-          400: "hsl(var(--cyan-400))",
-        },
-        violet: {
-          200: "hsl(var(--violet-200))",
-          400: "hsl(var(--violet-400))",
-          500: "hsl(var(--violet-500))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -82,10 +68,9 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",           /* 14px */
-        md: "var(--radius-sm)",        /* 10px */
-        sm: "calc(var(--radius-sm) - 2px)", /* 8px */
-        xl: "var(--radius-lg)",        /* 20px */
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
         "accordion-down": {

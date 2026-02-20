@@ -69,13 +69,13 @@ const TestimonialsSection = () => {
     <section className="section-padding relative overflow-hidden" aria-labelledby="testimonials-heading">
       {/* Subtle background */}
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-violet-500/[0.04] rounded-full blur-[120px] md:blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-cyan/[0.02] rounded-full blur-[120px] md:blur-[150px]" />
       </div>
 
       <div className="container-wide relative z-10">
         {/* Section header */}
         <AnimatedSectionLite className="text-center mb-10 sm:mb-16">
-          <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-violet-400 border border-violet-400/30 rounded-full mb-5 sm:mb-8">
+          <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
             Testimonianze
           </span>
           <h2 id="testimonials-heading" className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4">
@@ -86,12 +86,12 @@ const TestimonialsSection = () => {
           </p>
         </AnimatedSectionLite>
 
-        {/* Testimonials */}
+        {/* Testimonials - simplified hover with CSS */}
         <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
           {testimonials.map((testimonial, index) => (
             <AnimatedSectionLite key={index} delay={index * 0.1}>
               <div
-                className={`grid ${testimonial.videoId ? "lg:grid-cols-2" : "lg:grid-cols-1 max-w-2xl mx-auto"} gap-5 sm:gap-8 items-center rounded-xl p-5 sm:p-6 md:p-8 bg-card border border-border/60 shadow-[0_8px_40px_-8px_hsl(var(--navy-950)/0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_48px_-8px_hsl(var(--navy-950)/0.22)] hover:border-violet-400/30`}
+                className={`grid ${testimonial.videoId ? "lg:grid-cols-2" : "lg:grid-cols-1 max-w-2xl mx-auto"} gap-5 sm:gap-8 items-center gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card transition-transform duration-300 hover:-translate-y-0.5`}
               >
                 {/* Lazy video embed */}
                 {testimonial.videoId && (
@@ -101,8 +101,8 @@ const TestimonialsSection = () => {
                 {/* Content */}
                 <div className={testimonial.videoId ? "" : "text-center"}>
                   {/* Quote icon */}
-                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-violet-500/10 flex items-center justify-center mb-4 sm:mb-5 ${!testimonial.videoId ? "mx-auto" : ""}`} aria-hidden="true">
-                    <Quote className="h-4 w-4 sm:h-5 sm:w-5 text-violet-400" />
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-cyan/10 flex items-center justify-center mb-4 sm:mb-5 ${!testimonial.videoId ? "mx-auto" : ""}`} aria-hidden="true">
+                    <Quote className="h-4 w-4 sm:h-5 sm:w-5 text-cyan" />
                   </div>
 
                   <p className="font-serif text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6 italic">
@@ -111,14 +111,14 @@ const TestimonialsSection = () => {
 
                   {/* Author */}
                   <div className={`flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 ${!testimonial.videoId ? "justify-center" : ""}`}>
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-cyan/20 border border-cyan/30 flex items-center justify-center">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-cyan/20 flex items-center justify-center">
                       <span className="font-display text-xs sm:text-sm text-cyan">
                         {testimonial.name.split(" ").map((n) => n[0]).join("")}
                       </span>
                     </div>
                     <div>
                       <p className="font-display text-sm sm:text-base text-foreground">{testimonial.name}</p>
-                      <p className="text-xs sm:text-sm text-violet-400">{testimonial.role}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </div>
 

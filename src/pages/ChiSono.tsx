@@ -42,11 +42,11 @@ const GlassQuote = ({
   author?: string;
 }) => <AnimatedSection className="my-8 md:my-12">
     <blockquote className="glass rounded-2xl p-6 md:p-8 relative overflow-hidden">
-      <Quote className="absolute top-4 left-4 h-6 w-6 text-violet-400/30" aria-hidden="true" />
+      <Quote className="absolute top-4 left-4 h-6 w-6 text-cyan/20" aria-hidden="true" />
       <p className="font-serif text-base md:text-lg text-foreground italic leading-relaxed text-center relative z-10">
         "{quote}"
       </p>
-      {author && <cite className="block text-center mt-3 text-violet-400 font-sans text-xs uppercase tracking-wider not-italic">
+      {author && <cite className="block text-center mt-3 text-cyan font-sans text-xs uppercase tracking-wider not-italic">
           — {author}
         </cite>}
     </blockquote>
@@ -112,7 +112,7 @@ const ChiSono = () => {
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Content */}
               <AnimatedSection direction="left">
-                <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-violet-400 border border-violet-400/30 rounded-full mb-4 md:mb-6">
+                <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
                   Il viaggio più importante?
                 </span>
 
@@ -396,13 +396,13 @@ const ChiSono = () => {
                 
                 <div className="grid md:grid-cols-2 gap-2 md:gap-3 max-w-3xl mx-auto mb-8">
                   {credentialsList.map((credential, index) => <div key={index} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-violet-400/60 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan shrink-0" />
                       <span className="font-serif text-xs md:text-sm text-muted-foreground">{credential}</span>
                     </div>)}
                 </div>
 
                 <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
-                  {credentials.map((cred, index) => <div key={index} className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-white/90 rounded-lg p-1.5 border border-border/40 transition-transform duration-300 hover:scale-105">
+                  {credentials.map((cred, index) => <div key={index} className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-white/90 rounded-lg p-1.5 transition-transform duration-300 hover:scale-105">
                       <img src={cred.logo} alt={cred.name} className="w-full h-full object-contain" loading="lazy" />
                     </div>)}
                 </div>
