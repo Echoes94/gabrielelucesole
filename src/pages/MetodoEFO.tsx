@@ -1695,7 +1695,7 @@ const MetodoEFO = () => {
         <section className="py-12 bg-background border-t border-border/50">
           <div className="container-narrow">
             <div className="text-center text-xs text-muted-foreground space-y-4">
-              <p>© 2025 Gabriele Lucesole. Tutti i diritti riservati.</p>
+              <p>© 2026 Gabriele Lucesole. Tutti i diritti riservati.</p>
               <div className="max-w-3xl mx-auto text-left">
                 <p className="font-medium mb-2">Disclaimer legale</p>
                 <p>
