@@ -33,7 +33,7 @@ const credentials = [{
   logo: logoMinistero,
   name: "Ministero della Salute"
 }];
-const credentialsList = ["Laurea in Scienze Religiose (PUL)", "Master Universitario di 1° livello in Coaching Umanistico e PNL", "Master internazionale in Professional Coaching (ICF)", "Specializzazione in Psicologia Positiva (Penn University)", "Facilitatore in Meditazione Mindfulness", "Master in Ipnosi"];
+const credentialsList = ["Laurea Magistrale in Scienze Religiose (PUL)", "Master Universitario di 1° livello in Coaching Umanistico e PNL", "Master internazionale in Professional Coaching (ICF)", "Specializzazione in Psicologia Positiva (Penn University)", "Facilitatore in Meditazione Mindfulness", "Master in Ipnosi"];
 const GlassQuote = ({
   quote,
   author
