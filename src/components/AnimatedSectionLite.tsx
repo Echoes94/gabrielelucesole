@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, Transition } from "framer-motion";
 import { ReactNode } from "react";
 
 type AnimationType = "fade" | "blur" | "scale" | "slide";
@@ -20,55 +20,41 @@ const AnimatedSectionLite = ({
   type = "fade",
   staggerChildren,
 }: AnimatedSectionLiteProps) => {
-  const getInitialPosition = () => {
-    const distance = type === "slide" ? 40 : 20;
+  const distance = type === "slide" ? 40 : 20;
+  
+  const getOffset = () => {
     switch (direction) {
-      case "up": return { y: distance, x: 0 };
-      case "down": return { y: -distance, x: 0 };
-      case "left": return { x: distance, y: 0 };
-      case "right": return { x: -distance, y: 0 };
-      case "none": return { x: 0, y: 0 };
-      default: return { y: distance, x: 0 };
+      case "up": return { y: distance };
+      case "down": return { y: -distance };
+      case "left": return { x: distance };
+      case "right": return { x: -distance };
+      case "none": return {};
+      default: return { y: distance };
     }
   };
 
-  const getHiddenState = () => {
-    const base = { opacity: 0, ...getInitialPosition() };
-    switch (type) {
-      case "blur":
-        return { ...base, filter: "blur(8px)" };
-      case "scale":
-        return { ...base, scale: 0.92 };
-      case "slide":
-        return { ...base };
-      default:
-        return base;
-    }
-  };
-
-  const getVisibleState = () => {
-    const base: Record<string, unknown> = { 
-      opacity: 1, y: 0, x: 0,
-      transition: {
-        duration: type === "slide" ? 0.7 : 0.6,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-        ...(staggerChildren ? { staggerChildren } : {}),
-      }
-    };
-    switch (type) {
-      case "blur":
-        return { ...base, filter: "blur(0px)" };
-      case "scale":
-        return { ...base, scale: 1 };
-      default:
-        return base;
-    }
+  const transition: Transition = {
+    duration: type === "slide" ? 0.7 : 0.6,
+    delay,
+    ease: [0.16, 1, 0.3, 1],
+    ...(staggerChildren ? { staggerChildren } : {}),
   };
 
   const variants: Variants = {
-    hidden: getHiddenState(),
-    visible: getVisibleState(),
+    hidden: {
+      opacity: 0,
+      ...getOffset(),
+      ...(type === "blur" ? { filter: "blur(8px)" } : {}),
+      ...(type === "scale" ? { scale: 0.92 } : {}),
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      ...(type === "blur" ? { filter: "blur(0px)" } : {}),
+      ...(type === "scale" ? { scale: 1 } : {}),
+      transition,
+    },
   };
 
   return (
@@ -97,32 +83,34 @@ export const AnimatedItem = ({
   direction?: "up" | "down" | "left" | "right" | "none";
 }) => {
   const distance = type === "slide" ? 30 : 16;
-  const getPos = () => {
+  const getOffset = () => {
     switch (direction) {
-      case "up": return { y: distance, x: 0 };
-      case "left": return { x: distance, y: 0 };
-      case "right": return { x: -distance, y: 0 };
-      default: return { y: distance, x: 0 };
+      case "up": return { y: distance };
+      case "left": return { x: distance };
+      case "right": return { x: -distance };
+      default: return { y: distance };
     }
   };
 
-  const hidden: Record<string, number | string> = { opacity: 0, ...getPos() };
-  const visible: Record<string, number | string | Record<string, unknown>> = { 
-    opacity: 1, y: 0, x: 0,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+  const variants: Variants = {
+    hidden: {
+      opacity: 0,
+      ...getOffset(),
+      ...(type === "blur" ? { filter: "blur(6px)" } : {}),
+      ...(type === "scale" ? { scale: 0.9 } : {}),
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      ...(type === "blur" ? { filter: "blur(0px)" } : {}),
+      ...(type === "scale" ? { scale: 1 } : {}),
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    },
   };
 
-  if (type === "blur") {
-    hidden.filter = "blur(6px)";
-    visible.filter = "blur(0px)";
-  }
-  if (type === "scale") {
-    hidden.scale = 0.9;
-    visible.scale = 1;
-  }
-
   return (
-    <motion.div variants={{ hidden, visible }} className={className}>
+    <motion.div variants={variants} className={className}>
       {children}
     </motion.div>
   );
