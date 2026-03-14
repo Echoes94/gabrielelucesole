@@ -159,7 +159,7 @@ const ChiSono = () => {
         {/* Section 1: Il Mondo Incompreso */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection type="blur">
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Il Mondo <span className="text-gradient">Incompreso</span>
               </h2>
