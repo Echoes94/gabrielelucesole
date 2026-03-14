@@ -361,7 +361,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoEpifania} alt="L'epifania - illuminazione e connessione" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" type="fade">
               <p>
                 Ritornato dal monastero, cercai di custodire i tesori che avevo scoperto nel mondo ordinario… Fallii miseramente, e sentii il bisogno di riorganizzare tutto ciò che avevo sperimentato.
               </p>
