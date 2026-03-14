@@ -245,7 +245,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoErrore} alt="L'errore - prigione dell'ego" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" type="fade">
               <p>
                 Alla ricerca di senso, trovai conferma del mio pessimismo nelle antiche tradizioni orientali. Mi ci buttai a capofitto…
               </p>
