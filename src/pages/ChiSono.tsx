@@ -138,7 +138,7 @@ const ChiSono = () => {
               </AnimatedSection>
 
               {/* Image */}
-              <AnimatedSection direction="right" className="relative">
+              <AnimatedSection direction="right" type="scale" className="relative">
                 <div className="relative aspect-[4/5] max-w-sm md:max-w-md mx-auto">
                   <div className="absolute -inset-3 border border-cyan/20 rounded-2xl" />
                   <div className="relative h-full rounded-xl overflow-hidden">
