@@ -353,7 +353,7 @@ const ChiSono = () => {
         {/* Section 5: L'Epifania */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection type="blur">
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 L'Epifania: <span className="text-gradient">Nasce il Metodo EFO</span>
               </h2>
