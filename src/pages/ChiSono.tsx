@@ -200,7 +200,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoBivio} alt="Il bivio - scelta del proprio cammino" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" type="slide">
               <p>
                 Dovetti scegliere: continuare a sacrificare la mia profondità sull'altare della superficialità contemporanea oppure ascoltarmi ed essere coerente a me stesso.
               </p>
