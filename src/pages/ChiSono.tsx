@@ -237,7 +237,7 @@ const ChiSono = () => {
         {/* Section 3: L'Errore */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection type="blur">
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 L'Errore: <span className="text-gradient">Il Super-Ego e la Sua Prigione</span>
               </h2>
