@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight, BookOpen, Award, Heart, Sparkles, Quote, History, Clock, Target } from "lucide-react";
-import AnimatedSectionLite from "@/components/AnimatedSectionLite";
+import AnimatedSectionLite, { AnimatedItem } from "@/components/AnimatedSectionLite";
 // Use lite version for better performance
 const AnimatedSection = AnimatedSectionLite;
 import gabrielePhoto from "@/assets/chi-sono-gabriele.webp";
