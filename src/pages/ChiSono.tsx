@@ -167,7 +167,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoMondo} alt="Il mondo incompreso - alienazione giovanile" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" type="fade" direction="up">
               <p>
                 Ero un adolescente che soffriva del male che vedeva nel mondo. Una società che mi appariva malata: superficiale, liquida, arrivista. Un consumismo che ti promette felicità, ma ti lascia più vuoto di prima.
               </p>
