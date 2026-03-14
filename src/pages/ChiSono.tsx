@@ -592,7 +592,7 @@ const ChiSono = () => {
           </div>
 
           <div className="container-narrow text-center relative z-10">
-            <AnimatedSection>
+            <AnimatedSection type="blur">
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6">
                 Fissa una Sessione Gratuita:<br />
                 <span className="text-gradient">Inizia la Tua Trasformazione!</span>
