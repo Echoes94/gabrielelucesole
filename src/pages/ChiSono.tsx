@@ -438,7 +438,7 @@ const ChiSono = () => {
               icon: Target,
               title: "Attrai il Futuro Desiderato",
               desc: "Senza la fuffa della legge d'attrazione, ma con strumenti scientificamente provati"
-            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.1}>
+            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.1} type="scale">
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full text-center transition-transform duration-300 hover:-translate-y-1">
                     <dim.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan mx-auto mb-3" />
                     <h4 className="font-display text-base md:text-lg mb-2">{dim.title}</h4>
