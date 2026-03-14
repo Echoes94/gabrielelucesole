@@ -299,7 +299,7 @@ const ChiSono = () => {
         {/* Section 4: La Svolta */}
         <section className="section-padding bg-background">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection type="blur">
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 La Svolta: <span className="text-gradient">Arrenditi e Ritrovati</span>
               </h2>
