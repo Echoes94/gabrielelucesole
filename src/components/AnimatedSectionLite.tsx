@@ -106,8 +106,8 @@ export const AnimatedItem = ({
     }
   };
 
-  const hidden: Record<string, unknown> = { opacity: 0, ...getPos() };
-  const visible: Record<string, unknown> = { 
+  const hidden: Record<string, number | string> = { opacity: 0, ...getPos() };
+  const visible: Record<string, number | string | Record<string, unknown>> = { 
     opacity: 1, y: 0, x: 0,
     transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
   };
