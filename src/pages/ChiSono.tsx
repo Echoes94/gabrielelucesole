@@ -192,7 +192,7 @@ const ChiSono = () => {
         {/* Section 2: Il Bivio */}
         <section className="section-padding bg-background">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection type="blur">
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Il Bivio: <span className="text-gradient">Terra Bruciata e Nella Fine l'Inizio</span>
               </h2>
