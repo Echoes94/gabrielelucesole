@@ -111,7 +111,7 @@ const ChiSono = () => {
         }}>
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Content */}
-              <AnimatedSection direction="left">
+              <AnimatedSection direction="left" type="slide">
                 <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
                   Il viaggio più importante?
                 </span>
