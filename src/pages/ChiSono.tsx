@@ -390,7 +390,7 @@ const ChiSono = () => {
             </AnimatedSection>
 
             {/* Credentials Section */}
-            <AnimatedSection delay={0.1}>
+            <AnimatedSection delay={0.1} type="scale">
               <div className="glass rounded-xl p-5 md:p-8 my-8 md:my-10">
                 <h3 className="font-display text-xl md:text-2xl text-center mb-6">La mia Formazione</h3>
                 
