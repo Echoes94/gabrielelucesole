@@ -45,13 +45,16 @@ const HeroSection = () => {
         {/* Eyebrow */}
         <motion.div initial={{
         opacity: 0,
-        y: 20
+        y: 20,
+        filter: "blur(8px)"
       }} animate={{
         opacity: 1,
-        y: 0
+        y: 0,
+        filter: "blur(0px)"
       }} transition={{
-        duration: 0.5,
-        delay: 0.1
+        duration: 0.6,
+        delay: 0.1,
+        ease: [0.22, 1, 0.36, 1]
       }}>
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan/80 border border-cyan/20 rounded-full mb-6 sm:mb-10">
             Con il Metodo EFO®
