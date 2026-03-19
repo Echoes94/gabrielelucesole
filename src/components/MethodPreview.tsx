@@ -94,7 +94,7 @@ const MethodPreview = () => {
         </div>
 
         {/* Formazione Section */}
-        <AnimatedSectionLite delay={0.2}>
+        <AnimatedSectionLite delay={0.2} scale>
           <div className="glass rounded-xl p-5 sm:p-6 md:p-10 mb-8 sm:mb-12">
             <h3 className="font-display text-xl sm:text-2xl md:text-3xl text-center mb-3 sm:mb-4">
               Formazione

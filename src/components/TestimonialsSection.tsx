@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
         {/* Testimonials - simplified hover with CSS */}
         <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
           {testimonials.map((testimonial, index) => (
-            <AnimatedSectionLite key={index} delay={index * 0.1}>
+            <AnimatedSectionLite key={index} delay={index * 0.12} scale>
               <div
                 className={`grid ${testimonial.videoId ? "lg:grid-cols-2" : "lg:grid-cols-1 max-w-2xl mx-auto"} gap-5 sm:gap-8 items-center gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card transition-transform duration-300 hover:-translate-y-0.5`}
               >
