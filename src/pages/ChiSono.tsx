@@ -473,7 +473,7 @@ const ChiSono = () => {
         {/* Section 6: Dall'interno all'esterno */}
         <section className="section-padding bg-background">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Dall'Interno <span className="text-gradient">all'Esterno</span>
               </h2>
