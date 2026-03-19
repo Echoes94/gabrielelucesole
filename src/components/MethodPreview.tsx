@@ -69,8 +69,9 @@ const MethodPreview = () => {
           {dimensions.map((dim, index) => (
             <AnimatedSectionLite
               key={index}
-              delay={index * 0.1}
+              delay={index * 0.12}
               className="group"
+              scale
             >
               <div className="relative gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card h-full transition-transform duration-300 hover:-translate-y-1">
                 <div className="absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-cyan/10 border border-cyan/30 flex items-center justify-center" aria-hidden="true">
