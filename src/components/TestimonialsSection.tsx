@@ -74,7 +74,7 @@ const TestimonialsSection = () => {
 
       <div className="container-wide relative z-10">
         {/* Section header */}
-        <AnimatedSectionLite className="text-center mb-10 sm:mb-16">
+        <AnimatedSectionLite className="text-center mb-10 sm:mb-16" blur>
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
             Testimonianze
           </span>
@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
         {/* Testimonials - simplified hover with CSS */}
         <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
           {testimonials.map((testimonial, index) => (
-            <AnimatedSectionLite key={index} delay={index * 0.1}>
+            <AnimatedSectionLite key={index} delay={index * 0.12} scale>
               <div
                 className={`grid ${testimonial.videoId ? "lg:grid-cols-2" : "lg:grid-cols-1 max-w-2xl mx-auto"} gap-5 sm:gap-8 items-center gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card transition-transform duration-300 hover:-translate-y-0.5`}
               >

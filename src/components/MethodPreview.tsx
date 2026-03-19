@@ -52,7 +52,7 @@ const MethodPreview = () => {
 
       <div className="container-wide relative z-10">
         {/* Section header */}
-        <AnimatedSectionLite className="text-center mb-10 sm:mb-16">
+        <AnimatedSectionLite className="text-center mb-10 sm:mb-16" blur>
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
             Metodo EFO®
           </span>
@@ -69,8 +69,9 @@ const MethodPreview = () => {
           {dimensions.map((dim, index) => (
             <AnimatedSectionLite
               key={index}
-              delay={index * 0.1}
+              delay={index * 0.12}
               className="group"
+              scale
             >
               <div className="relative gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card h-full transition-transform duration-300 hover:-translate-y-1">
                 <div className="absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-cyan/10 border border-cyan/30 flex items-center justify-center" aria-hidden="true">
@@ -93,7 +94,7 @@ const MethodPreview = () => {
         </div>
 
         {/* Formazione Section */}
-        <AnimatedSectionLite delay={0.2}>
+        <AnimatedSectionLite delay={0.2} scale>
           <div className="glass rounded-xl p-5 sm:p-6 md:p-10 mb-8 sm:mb-12">
             <h3 className="font-display text-xl sm:text-2xl md:text-3xl text-center mb-3 sm:mb-4">
               Formazione

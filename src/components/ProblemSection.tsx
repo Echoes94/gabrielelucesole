@@ -41,7 +41,7 @@ const ProblemSection = () => {
 
       <div className="container-wide relative z-10">
         {/* Section header */}
-        <AnimatedSectionLite className="text-center mb-10 sm:mb-16">
+        <AnimatedSectionLite className="text-center mb-10 sm:mb-16" blur>
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
             Ti riconosci in questa storia?
           </span>
@@ -57,6 +57,7 @@ const ProblemSection = () => {
               key={index}
               delay={index * 0.1}
               className="h-full"
+              scale
             >
               <div className="gradient-border rounded-xl p-5 sm:p-6 md:p-8 bg-card h-full flex flex-col transition-transform duration-300 hover:-translate-y-1">
                 <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">

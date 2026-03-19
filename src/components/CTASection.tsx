@@ -11,7 +11,7 @@ const CTASection = () => {
       </div>
 
       <div className="container-narrow relative z-10">
-        <AnimatedSectionLite className="text-center">
+        <AnimatedSectionLite className="text-center" blur scale>
           {/* Icon */}
           <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-8 sm:mb-10 rounded-xl bg-cyan/10 border border-cyan/20 flex items-center justify-center" aria-hidden="true">
             <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-cyan" />

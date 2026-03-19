@@ -24,7 +24,7 @@ const AboutPreview = () => {
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
           {/* Image - simplified, no parallax */}
           <div className="relative order-2 lg:order-1">
-            <AnimatedSectionLite direction="left" className="relative aspect-[4/5] max-w-sm sm:max-w-md mx-auto lg:mx-0">
+            <AnimatedSectionLite direction="left" className="relative aspect-[4/5] max-w-sm sm:max-w-md mx-auto lg:mx-0" scale>
               {/* Single decorative frame */}
               <div className="absolute -inset-2 sm:-inset-3 border border-cyan/10 rounded-xl sm:rounded-2xl" aria-hidden="true" />
               
@@ -54,7 +54,7 @@ const AboutPreview = () => {
 
           {/* Content */}
           <div className="order-1 lg:order-2">
-            <AnimatedSectionLite direction="right">
+            <AnimatedSectionLite direction="right" blur>
               <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
                 Non sei solo! Ti capisco, ci sono passato anch'io…
               </span>

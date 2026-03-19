@@ -45,13 +45,16 @@ const HeroSection = () => {
         {/* Eyebrow */}
         <motion.div initial={{
         opacity: 0,
-        y: 20
+        y: 20,
+        filter: "blur(8px)"
       }} animate={{
         opacity: 1,
-        y: 0
+        y: 0,
+        filter: "blur(0px)"
       }} transition={{
-        duration: 0.5,
-        delay: 0.1
+        duration: 0.6,
+        delay: 0.1,
+        ease: [0.22, 1, 0.36, 1]
       }}>
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan/80 border border-cyan/20 rounded-full mb-6 sm:mb-10">
             Con il Metodo EFO®
@@ -61,13 +64,16 @@ const HeroSection = () => {
         {/* Main headline - simplified animation */}
         <motion.h1 id="hero-heading" className="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-5 sm:mb-8" initial={{
         opacity: 0,
-        y: 20
+        y: 20,
+        filter: "blur(8px)"
       }} animate={{
         opacity: 1,
-        y: 0
+        y: 0,
+        filter: "blur(0px)"
       }} transition={{
-        duration: 0.5,
-        delay: 0.2
+        duration: 0.6,
+        delay: 0.2,
+        ease: [0.22, 1, 0.36, 1]
       }}>
           <span className="block">Dalla crisi esistenziale</span>
           <span className="text-gradient block">alla tua Autorealizzazione</span>
@@ -76,13 +82,16 @@ const HeroSection = () => {
         {/* Subheadline */}
         <motion.p className="font-serif text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2" initial={{
         opacity: 0,
-        y: 20
+        y: 20,
+        filter: "blur(6px)"
       }} animate={{
         opacity: 1,
-        y: 0
+        y: 0,
+        filter: "blur(0px)"
       }} transition={{
-        duration: 0.5,
-        delay: 0.3
+        duration: 0.6,
+        delay: 0.3,
+        ease: [0.22, 1, 0.36, 1]
       }}>
           Supera l'inquietudine con un nuovo approccio integrato tra antica saggezza e neuroscienze moderne
         </motion.p>
@@ -90,13 +99,16 @@ const HeroSection = () => {
         {/* CTA buttons */}
         <motion.div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-20" initial={{
         opacity: 0,
-        y: 20
+        y: 20,
+        scale: 0.95
       }} animate={{
         opacity: 1,
-        y: 0
+        y: 0,
+        scale: 1
       }} transition={{
-        duration: 0.5,
-        delay: 0.4
+        duration: 0.6,
+        delay: 0.4,
+        ease: [0.22, 1, 0.36, 1]
       }}>
           <Button variant="hero" size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-10" asChild>
             <a href="mailto:gabriele.lucesole@gmail.com" aria-label="Fissa una sessione gratuita - invia email">
@@ -115,13 +127,16 @@ const HeroSection = () => {
         {/* Trust indicators - enhanced visibility */}
         <motion.div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8" initial={{
         opacity: 0,
-        y: 10
+        y: 10,
+        filter: "blur(4px)"
       }} animate={{
         opacity: 1,
-        y: 0
+        y: 0,
+        filter: "blur(0px)"
       }} transition={{
-        duration: 0.5,
-        delay: 0.5
+        duration: 0.6,
+        delay: 0.5,
+        ease: [0.22, 1, 0.36, 1]
       }}>
           {[{
           icon: "🔬",
