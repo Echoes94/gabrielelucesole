@@ -213,7 +213,7 @@ const MetodoEFO = () => {
           </div>
 
           <div className="container-narrow relative z-10 text-center w-full">
-            <AnimatedSectionLite>
+            <AnimatedSectionLite blur>
               <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
                 METODO EFO®
               </span>
@@ -257,14 +257,14 @@ const MetodoEFO = () => {
         {/* For You If */}
         <section className="section-padding bg-card">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 🫵🏻 Questo percorso è <span className="text-cyan">per te</span> se...
               </h2>
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-16">
-              {forYouIf.map((item, index) => <AnimatedSection key={index} delay={index * 0.08}>
+              {forYouIf.map((item, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full transition-transform duration-300 hover:-translate-y-1">
                     <div className="flex items-start gap-3 md:gap-4">
                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
@@ -284,7 +284,7 @@ const MetodoEFO = () => {
             </div>
 
             {/* Not for you */}
-            <AnimatedSection delay={0.3}>
+            <AnimatedSection delay={0.3} scale>
               <div className="max-w-4xl mx-auto">
                 {/* Card principale - Lista "Non per te" */}
                 <div className="glass rounded-xl p-5 md:p-8 border border-red-500/20">
@@ -321,7 +321,7 @@ const MetodoEFO = () => {
         {/* Problems / Signals */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">
                 IL PROBLEMA CHE CONOSCIAMO TROPPO BENE
               </p>
@@ -331,7 +331,7 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
-              {problems.map((problem, index) => <AnimatedSection key={index} delay={index * 0.08}>
+              {problems.map((problem, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className="p-4 md:p-6 rounded-xl bg-card border border-border/50 transition-colors duration-300 hover:border-cyan/50">
                     <div className="flex items-center gap-2 mb-3 md:mb-4">
                       <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-cyan shrink-0" />
@@ -345,7 +345,7 @@ const MetodoEFO = () => {
             </div>
 
             {/* Good news */}
-            <AnimatedSection delay={0.4}>
+            <AnimatedSection delay={0.4} scale>
               <div className="glass rounded-xl p-5 md:p-8 max-w-4xl mx-auto text-center border border-emerald-500/20">
                 <h3 className="font-display text-xl md:text-2xl mb-3 md:mb-4 flex items-center justify-center gap-2">
                   <Heart className="h-5 w-5 md:h-6 md:w-6 text-emerald-400" />
@@ -387,7 +387,7 @@ const MetodoEFO = () => {
         {/* Paradox section */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection className="text-center">
+            <AnimatedSection className="text-center" blur scale>
               <div className="glass rounded-xl p-5 md:p-8 border border-cyan/20">
                 <Briefcase className="h-10 w-10 md:h-12 md:w-12 text-cyan mx-auto mb-4 md:mb-6" />
                 <h2 className="font-display text-xl md:text-2xl lg:text-3xl mb-3 md:mb-4">
@@ -433,7 +433,7 @@ const MetodoEFO = () => {
         {/* Two Scenarios */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 La Tua Vita <span className="text-gradient">Tra 90 Giorni</span>
               </h2>
@@ -441,7 +441,7 @@ const MetodoEFO = () => {
 
             <div className="grid md:grid-cols-2 gap-4 md:gap-8">
               {/* Scenario A */}
-              <AnimatedSection direction="left">
+              <AnimatedSection direction="left" scale>
                 <div className="rounded-xl p-5 md:p-8 bg-red-950/30 border border-red-500/30 h-full">
                   <div className="flex items-center gap-3 mb-4 md:mb-6">
                     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-red-500/20 flex items-center justify-center">
@@ -472,7 +472,7 @@ const MetodoEFO = () => {
               </AnimatedSection>
 
               {/* Scenario B */}
-              <AnimatedSection direction="right">
+              <AnimatedSection direction="right" scale>
                 <div className="rounded-xl p-5 md:p-8 bg-emerald-950/30 border border-emerald-500/30 h-full">
                   <div className="flex items-center gap-3 mb-4 md:mb-6">
                     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
@@ -508,7 +508,7 @@ const MetodoEFO = () => {
               </AnimatedSection>
             </div>
 
-            <AnimatedSection className="text-center mt-6 md:mt-8">
+            <AnimatedSection className="text-center mt-6 md:mt-8" blur>
               <p className="font-display text-xl md:text-2xl text-cyan">Quale scenario vuoi vivere?</p>
             </AnimatedSection>
           </div>
@@ -517,7 +517,7 @@ const MetodoEFO = () => {
         {/* 3 Dimensions */}
         <section className="section-padding bg-card">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">LA SOLUZIONE</p>
               <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
                 Metodo EFO®
@@ -546,7 +546,7 @@ const MetodoEFO = () => {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection className="text-center mb-6 md:mb-8">
+            <AnimatedSection className="text-center mb-6 md:mb-8" blur>
               <p className="text-muted-foreground text-xs md:text-sm">Perché "EFO"?</p>
               <h3 className="font-display text-xl md:text-2xl text-cyan">Le 3 Dimensioni della Trasformazione</h3>
             </AnimatedSection>
@@ -576,7 +576,7 @@ const MetodoEFO = () => {
               intro: 'Non "legge di attrazione" magica. Ma visione chiara + valori autentici + azioni coerenti.',
               benefits: ["Ridefinire le priorità oltre la carriera (affetti, spiritualità, mission)", "Allineamento tra chi sei e cosa fai (no dissonanza cognitiva)", 'Piano d\'azione per trasformare la vita che "dovresti" vivere nella vita che vuoi vivere'],
               result: "Non rincorri più obiettivi altrui. Crei il tuo destino."
-            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.1}>
+            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.12} scale>
                   <div className="gradient-border rounded-xl p-4 md:p-8 bg-gradient-card">
                     <div className="grid lg:grid-cols-3 gap-4 md:gap-8 items-start">
                       <div>
@@ -616,7 +616,7 @@ const MetodoEFO = () => {
         {/* Roadmap - Gamified Levels */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">
                 COME FUNZIONA: LA ROADMAP COMPLETA
               </p>
@@ -629,7 +629,7 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
-              {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.08}>
+              {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className={`rounded-xl p-4 md:p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? "bg-gradient-card border border-cyan/30" : "bg-card/50 border border-border/30"}`}>
                     {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
                         <span className="text-xs text-cyan font-medium">{level.dimension}</span>
@@ -708,7 +708,7 @@ const MetodoEFO = () => {
             </div>
 
             {/* Progress bar */}
-            <AnimatedSection className="max-w-2xl mx-auto mb-6 md:mb-8">
+            <AnimatedSection className="max-w-2xl mx-auto mb-6 md:mb-8" scale>
               <div className="glass rounded-xl p-4 md:p-6 border border-cyan/20">
                 <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">IL TUO PROGRESSO</p>
                 <div className="flex items-center gap-2 mb-2">
@@ -724,7 +724,7 @@ const MetodoEFO = () => {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection className="text-center">
+            <AnimatedSection className="text-center" blur scale>
               <p className="font-display text-base md:text-lg text-foreground">
                 Non è un corso. Non è un percorso qualsiasi. È una{" "}
                 <span className="text-cyan">quest di trasformazione esistenziale.</span>
@@ -736,7 +736,7 @@ const MetodoEFO = () => {
         {/* Pause section */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection className="text-center">
+            <AnimatedSection className="text-center" blur scale>
               <div className="glass rounded-xl p-5 md:p-8 border border-border/50">
                 <p className="text-2xl md:text-3xl mb-3 md:mb-4">⏸️</p>
                 <h2 className="font-display text-xl md:text-2xl mb-4 md:mb-6">PAUSA. Respira.</h2>
@@ -788,7 +788,7 @@ const MetodoEFO = () => {
         {/* What's included */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 💎 Cosa È <span className="text-gradient">Incluso</span> Nel Percorso
               </h2>
@@ -798,7 +798,7 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
-              <AnimatedSection>
+              <AnimatedSection scale>
                 <div className="glass rounded-xl p-5 md:p-8 border border-cyan/20 h-full">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-cyan" />
@@ -813,7 +813,7 @@ const MetodoEFO = () => {
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.1}>
+              <AnimatedSection delay={0.1} scale>
                 <div className="glass rounded-xl p-5 md:p-8 border border-amber-500/20 h-full">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 flex items-center gap-2">
                     <Gift className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
@@ -848,14 +848,14 @@ const MetodoEFO = () => {
         {/* Pricing & Urgency */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 <span className="text-gradient">Investimento</span>
               </h2>
             </AnimatedSection>
 
             {/* Value breakdown */}
-            <AnimatedSection className="mb-6 md:mb-8">
+            <AnimatedSection className="mb-6 md:mb-8" scale>
               <div className="glass rounded-xl p-5 md:p-8 border border-border/50">
                 <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">Il Valore Reale:</h3>
                 <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6 text-xs md:text-sm text-muted-foreground">
@@ -885,7 +885,7 @@ const MetodoEFO = () => {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection>
+            <AnimatedSection scale>
               <div className="gradient-border rounded-xl p-5 md:p-8 bg-gradient-card mb-6 md:mb-8">
                 <div className="text-center mb-6 md:mb-8">
                   <p className="text-xs md:text-sm text-muted-foreground mb-2">
@@ -922,7 +922,7 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             {/* Urgency */}
-            <AnimatedSection delay={0.15}>
+            <AnimatedSection delay={0.15} scale>
               <div className="rounded-xl p-5 md:p-8 bg-red-950/30 border border-red-500/30 mb-6 md:mb-8">
                 <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
                   <AlertTriangle className="h-5 w-5 md:h-6 md:w-6 text-red-400" />
@@ -971,7 +971,7 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             {/* Price increase */}
-            <AnimatedSection delay={0.2}>
+            <AnimatedSection delay={0.2} scale>
               <div className="rounded-xl p-4 md:p-6 bg-amber-950/30 border border-amber-500/30 mb-6 md:mb-8">
                 <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
                   <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
@@ -997,7 +997,7 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             {/* Urgency summary */}
-            <AnimatedSection delay={0.25}>
+            <AnimatedSection delay={0.25} scale>
               <div className="glass rounded-xl p-4 md:p-6 border border-cyan/20 mb-6 md:mb-8">
                 <h4 className="font-display text-base md:text-lg mb-3 md:mb-4 text-center">RIEPILOGO URGENZA:</h4>
                 <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-center">
@@ -1015,7 +1015,7 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             {/* Guarantee */}
-            <AnimatedSection delay={0.3}>
+            <AnimatedSection delay={0.3} scale>
               <div className="gradient-border rounded-xl p-5 md:p-8 bg-gradient-card text-center">
                 <Shield className="h-10 w-10 md:h-12 md:w-12 text-cyan mx-auto mb-3 md:mb-4" />
                 <h3 className="font-display text-xl md:text-2xl mb-3 md:mb-4">
@@ -1049,7 +1049,7 @@ const MetodoEFO = () => {
         {/* Comparison Tables */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 Perché Metodo EFO® <span className="text-gradient">(E Non Altro)</span>
               </h2>
@@ -1058,7 +1058,7 @@ const MetodoEFO = () => {
 
             <div className="space-y-4 md:space-y-8">
               {/* VS Psicoterapia */}
-              <AnimatedSection>
+              <AnimatedSection scale>
                 <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">
                     VS Psicoterapia Tradizionale
@@ -1120,7 +1120,7 @@ const MetodoEFO = () => {
               </AnimatedSection>
 
               {/* VS Altri Coach */}
-              <AnimatedSection delay={0.1}>
+              <AnimatedSection delay={0.1} scale>
                 <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">VS Altri "Coach"</h3>
                   <div className="grid md:grid-cols-2 gap-3 md:gap-6">
@@ -1178,7 +1178,7 @@ const MetodoEFO = () => {
               </AnimatedSection>
 
               {/* VS App/Libri */}
-              <AnimatedSection delay={0.15}>
+              <AnimatedSection delay={0.15} scale>
                 <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">
                     VS App di Meditazione & Libri Self-Help
@@ -1230,7 +1230,7 @@ const MetodoEFO = () => {
             </div>
 
             {/* What makes unique */}
-            <AnimatedSection delay={0.2} className="mt-8 md:mt-12">
+            <AnimatedSection delay={0.2} className="mt-8 md:mt-12" scale>
               <div className="gradient-border rounded-xl p-5 md:p-8 bg-gradient-card">
                 <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">
                   Cosa Rende Unico il Metodo EFO®
@@ -1290,12 +1290,12 @@ const MetodoEFO = () => {
         {/* Chi Sono Preview */}
         <section className="section-padding bg-card">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">CHI SONO</h2>
             </AnimatedSection>
 
             <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-              <AnimatedSection direction="left">
+              <AnimatedSection direction="left" scale>
                 <div className="relative aspect-square max-w-sm md:max-w-md mx-auto">
                   <div className="absolute -inset-3 border border-cyan/20 rounded-2xl md:rounded-3xl" />
                   <div className="relative h-full rounded-xl md:rounded-2xl overflow-hidden">
@@ -1305,7 +1305,7 @@ const MetodoEFO = () => {
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection direction="right">
+              <AnimatedSection direction="right" scale>
                 <h3 className="font-display text-xl md:text-2xl lg:text-3xl mb-1.5 md:mb-2">
                   <span className="text-gradient">Gabriele Lucesole</span>
                 </h3>
@@ -1348,7 +1348,7 @@ const MetodoEFO = () => {
             </div>
 
             {/* Credentials */}
-            <AnimatedSection className="mt-8 md:mt-12">
+            <AnimatedSection className="mt-8 md:mt-12" scale>
               <div className="glass rounded-xl p-5 md:p-8 border border-cyan/20">
                 <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center flex items-center justify-center gap-2">
                   <GraduationCap className="h-4 w-4 md:h-5 md:w-5 text-cyan" />
@@ -1381,14 +1381,14 @@ const MetodoEFO = () => {
         {/* Testimonials */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 Testimonianze di <span className="text-gradient">Trasformazione</span>
               </h2>
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-              {testimonials.map((testimonial, index) => <AnimatedSection key={index} delay={index * 0.08}>
+              {testimonials.map((testimonial, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full flex flex-col transition-transform duration-300 hover:-translate-y-1">
                     <div className="mb-3 md:mb-4">
                       <h3 className="font-display text-base md:text-lg text-cyan">{testimonial.name}</h3>
@@ -1432,13 +1432,13 @@ const MetodoEFO = () => {
         {/* FAQ Accordion */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 Domande <span className="text-gradient">Frequenti</span> (FAQ)
               </h2>
             </AnimatedSection>
 
-            <AnimatedSection>
+            <AnimatedSection scale>
               <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
                 {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="gradient-border rounded-lg md:rounded-xl bg-gradient-card px-4 md:px-6 border-0">
                     <AccordionTrigger className="text-left font-display text-sm md:text-lg hover:no-underline py-4 md:py-6">
@@ -1461,12 +1461,12 @@ const MetodoEFO = () => {
           </div>
 
           <div className="container-narrow relative z-10">
-            <AnimatedSection className="text-center mb-8 md:mb-12">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3"> 🛣️ Due Strade Davanti a Te 🛣️ </h2>
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
-              <AnimatedSection direction="left">
+              <AnimatedSection direction="left" scale>
                 <div className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-red-950/30 border border-red-500/30 h-full">
                   <h3 className="font-display text-lg md:text-xl text-red-400 mb-3 md:mb-4">
                     STRADA 1: Continuare Così
@@ -1483,7 +1483,7 @@ const MetodoEFO = () => {
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection direction="right">
+              <AnimatedSection direction="right" scale>
                 <div className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-emerald-950/30 border border-emerald-500/30 h-full">
                   <h3 className="font-display text-lg md:text-xl text-emerald-400 mb-3 md:mb-4">STRADA 2: Decidere</h3>
                   <p className="font-serif text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
@@ -1502,7 +1502,7 @@ const MetodoEFO = () => {
               </AnimatedSection>
             </div>
 
-            <AnimatedSection>
+            <AnimatedSection scale>
               <div className="glass rounded-xl md:rounded-2xl p-5 md:p-8 border border-cyan/20 text-center mb-6 md:mb-8">
                 <h3 className="font-display text-xl md:text-2xl mb-4 md:mb-6">La Chiamata (Per Chi È Pronto)</h3>
                 <p className="font-serif text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
@@ -1535,7 +1535,7 @@ const MetodoEFO = () => {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.15}>
+            <AnimatedSection delay={0.15} scale>
               <div className="gradient-border rounded-xl md:rounded-2xl p-5 md:p-8 bg-gradient-card text-center">
                 <h3 className="font-display text-xl md:text-2xl mb-3 md:mb-4">Il Primo Passo È Semplice</h3>
                 <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
@@ -1576,7 +1576,7 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             {/* Alternative contact */}
-            <AnimatedSection delay={0.2} className="mt-6 md:mt-8 text-center">
+            <AnimatedSection delay={0.2} className="mt-6 md:mt-8 text-center" blur scale>
               <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">Preferisci Scrivermi Prima?</p>
               <div className="flex flex-col sm:flex-row justify-center gap-2 md:gap-4">
                 <Button variant="heroOutline" size="sm" className="w-full sm:w-auto" asChild>
@@ -1602,7 +1602,7 @@ const MetodoEFO = () => {
         {/* Closing evocative */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection className="text-center">
+            <AnimatedSection className="text-center" blur scale>
               <div className="prose-custom max-w-2xl mx-auto">
                 <blockquote className="glass rounded-xl md:rounded-2xl p-5 md:p-8 border border-cyan/20 italic">
                   <p className="font-serif text-sm md:text-lg text-foreground mb-3 md:mb-4">
@@ -1654,7 +1654,7 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             {/* PS */}
-            <AnimatedSection delay={0.15} className="mt-8 md:mt-12">
+            <AnimatedSection delay={0.15} className="mt-8 md:mt-12" scale>
               <div className="glass rounded-xl md:rounded-2xl p-4 md:p-6 border border-border/50">
                 <p className="font-display text-base md:text-lg mb-3 md:mb-4">
                   🔮 P.S. Se sei abituato a decidere in fretta…
