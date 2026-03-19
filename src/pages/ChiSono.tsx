@@ -40,7 +40,7 @@ const GlassQuote = ({
 }: {
   quote: string;
   author?: string;
-}) => <AnimatedSection className="my-8 md:my-12">
+}) => <AnimatedSection className="my-8 md:my-12" scale blur>
     <blockquote className="glass rounded-2xl p-6 md:p-8 relative overflow-hidden">
       <Quote className="absolute top-4 left-4 h-6 w-6 text-cyan/20" aria-hidden="true" />
       <p className="font-serif text-base md:text-lg text-foreground italic leading-relaxed text-center relative z-10">
