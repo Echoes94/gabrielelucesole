@@ -74,7 +74,7 @@ const TestimonialsSection = () => {
 
       <div className="container-wide relative z-10">
         {/* Section header */}
-        <AnimatedSectionLite className="text-center mb-10 sm:mb-16">
+        <AnimatedSectionLite className="text-center mb-10 sm:mb-16" blur>
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground border border-border rounded-full mb-5 sm:mb-8">
             Testimonianze
           </span>
