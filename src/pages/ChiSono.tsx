@@ -316,7 +316,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoSvolta} alt="La svolta spirituale - monastero all'alba" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="right" delay={0.1}>
               <p>
                 Nel momento più buio, quando tutte le strategie di controllo fallirono, feci l'unica cosa che non avevo mai fatto: mi arresi. Sconfitto, perso, disperato…
               </p>
