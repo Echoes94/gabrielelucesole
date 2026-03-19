@@ -99,13 +99,16 @@ const HeroSection = () => {
         {/* CTA buttons */}
         <motion.div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-20" initial={{
         opacity: 0,
-        y: 20
+        y: 20,
+        scale: 0.95
       }} animate={{
         opacity: 1,
-        y: 0
+        y: 0,
+        scale: 1
       }} transition={{
-        duration: 0.5,
-        delay: 0.4
+        duration: 0.6,
+        delay: 0.4,
+        ease: [0.22, 1, 0.36, 1]
       }}>
           <Button variant="hero" size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-10" asChild>
             <a href="mailto:gabriele.lucesole@gmail.com" aria-label="Fissa una sessione gratuita - invia email">
