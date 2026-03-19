@@ -82,13 +82,16 @@ const HeroSection = () => {
         {/* Subheadline */}
         <motion.p className="font-serif text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2" initial={{
         opacity: 0,
-        y: 20
+        y: 20,
+        filter: "blur(6px)"
       }} animate={{
         opacity: 1,
-        y: 0
+        y: 0,
+        filter: "blur(0px)"
       }} transition={{
-        duration: 0.5,
-        delay: 0.3
+        duration: 0.6,
+        delay: 0.3,
+        ease: [0.22, 1, 0.36, 1]
       }}>
           Supera l'inquietudine con un nuovo approccio integrato tra antica saggezza e neuroscienze moderne
         </motion.p>
