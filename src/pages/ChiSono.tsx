@@ -580,7 +580,7 @@ const ChiSono = () => {
               icon: Heart,
               value: "∞",
               label: "Passione"
-            }].map((stat, index) => <AnimatedSection key={index} delay={index * 0.1}>
+            }].map((stat, index) => <AnimatedSection key={index} delay={index * 0.12} scale>
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card text-center transition-transform duration-300 hover:-translate-y-1">
                     <stat.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan mx-auto mb-2 md:mb-3" />
                     <p className="font-display text-2xl md:text-3xl text-foreground mb-1">
