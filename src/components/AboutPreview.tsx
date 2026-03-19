@@ -24,7 +24,7 @@ const AboutPreview = () => {
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
           {/* Image - simplified, no parallax */}
           <div className="relative order-2 lg:order-1">
-            <AnimatedSectionLite direction="left" className="relative aspect-[4/5] max-w-sm sm:max-w-md mx-auto lg:mx-0">
+            <AnimatedSectionLite direction="left" className="relative aspect-[4/5] max-w-sm sm:max-w-md mx-auto lg:mx-0" scale>
               {/* Single decorative frame */}
               <div className="absolute -inset-2 sm:-inset-3 border border-cyan/10 rounded-xl sm:rounded-2xl" aria-hidden="true" />
               
