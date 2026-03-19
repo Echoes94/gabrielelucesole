@@ -505,7 +505,7 @@ const ChiSono = () => {
 
             <GlassQuote quote="Basta essere presenza: creare lo spazio sicuro dove la luce può entrare, crescere, irradiarsi…" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="left" delay={0.1}>
               <p className="text-lg">
                 Avevo trovato il mio <span className="text-cyan font-bold">IKIGAI</span>: aiutare giovani adulti — proprio come me — ad autorealizzarsi ed essere felici esistenzialmente. Indipendenti dalla precarietà del mondo esterno, ma capaci di attingere alla ricchezza interiore inesauribile che già possiedono.
               </p>
