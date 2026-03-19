@@ -479,7 +479,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="right" delay={0.1}>
               <p>
                 Ebbi un'altra rivelazione quando iniziai a lavorare come Coach Professionista… Scoprii che gli strumenti appresi e padroneggiati con la pratica negli anni di <em>studio matto e disperatissimo</em>, applicati durante sessioni di professional coaching — integrati con le mie conoscenze psicologiche e spirituali tramandate da millenni — erano sorprendentemente trasformativi…
               </p>
