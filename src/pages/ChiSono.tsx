@@ -40,7 +40,7 @@ const GlassQuote = ({
 }: {
   quote: string;
   author?: string;
-}) => <AnimatedSection className="my-8 md:my-12">
+}) => <AnimatedSection className="my-8 md:my-12" scale blur>
     <blockquote className="glass rounded-2xl p-6 md:p-8 relative overflow-hidden">
       <Quote className="absolute top-4 left-4 h-6 w-6 text-cyan/20" aria-hidden="true" />
       <p className="font-serif text-base md:text-lg text-foreground italic leading-relaxed text-center relative z-10">
@@ -75,11 +75,20 @@ const LazyImage = ({
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-  return <div ref={ref} className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10" role="img" aria-label={alt}>
+  return <motion.div 
+      ref={ref} 
+      className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10" 
+      role="img" 
+      aria-label={alt}
+      initial={{ opacity: 0, scale: 1.05, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+    >
       {!isLoaded && <div className="absolute inset-0 bg-muted/20 animate-pulse" aria-hidden="true" />}
       {isInView && <img src={src} alt={alt} className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} loading="lazy" onLoad={() => setIsLoaded(true)} />}
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent pointer-events-none" aria-hidden="true" />
-    </div>;
+    </motion.div>;
 };
 const ChiSono = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -111,7 +120,7 @@ const ChiSono = () => {
         }}>
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Content */}
-              <AnimatedSection direction="left">
+              <AnimatedSection direction="left" blur>
                 <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
                   Il viaggio più importante?
                 </span>
@@ -138,7 +147,7 @@ const ChiSono = () => {
               </AnimatedSection>
 
               {/* Image */}
-              <AnimatedSection direction="right" className="relative">
+              <AnimatedSection direction="right" scale className="relative">
                 <div className="relative aspect-[4/5] max-w-sm md:max-w-md mx-auto">
                   <div className="absolute -inset-3 border border-cyan/20 rounded-2xl" />
                   <div className="relative h-full rounded-xl overflow-hidden">
@@ -159,7 +168,7 @@ const ChiSono = () => {
         {/* Section 1: Il Mondo Incompreso */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Il Mondo <span className="text-gradient">Incompreso</span>
               </h2>
@@ -167,7 +176,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoMondo} alt="Il mondo incompreso - alienazione giovanile" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="left" delay={0.1}>
               <p>
                 Ero un adolescente che soffriva del male che vedeva nel mondo. Una società che mi appariva malata: superficiale, liquida, arrivista. Un consumismo che ti promette felicità, ma ti lascia più vuoto di prima.
               </p>
@@ -192,7 +201,7 @@ const ChiSono = () => {
         {/* Section 2: Il Bivio */}
         <section className="section-padding bg-background">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Il Bivio: <span className="text-gradient">Terra Bruciata e Nella Fine l'Inizio</span>
               </h2>
@@ -200,7 +209,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoBivio} alt="Il bivio - scelta del proprio cammino" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="right" delay={0.1}>
               <p>
                 Dovetti scegliere: continuare a sacrificare la mia profondità sull'altare della superficialità contemporanea oppure ascoltarmi ed essere coerente a me stesso.
               </p>
@@ -237,7 +246,7 @@ const ChiSono = () => {
         {/* Section 3: L'Errore */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 L'Errore: <span className="text-gradient">Il Super-Ego e la Sua Prigione</span>
               </h2>
@@ -245,7 +254,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoErrore} alt="L'errore - prigione dell'ego" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="left" delay={0.1}>
               <p>
                 Alla ricerca di senso, trovai conferma del mio pessimismo nelle antiche tradizioni orientali. Mi ci buttai a capofitto…
               </p>
@@ -299,7 +308,7 @@ const ChiSono = () => {
         {/* Section 4: La Svolta */}
         <section className="section-padding bg-background">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 La Svolta: <span className="text-gradient">Arrenditi e Ritrovati</span>
               </h2>
@@ -307,7 +316,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoSvolta} alt="La svolta spirituale - monastero all'alba" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="right" delay={0.1}>
               <p>
                 Nel momento più buio, quando tutte le strategie di controllo fallirono, feci l'unica cosa che non avevo mai fatto: mi arresi. Sconfitto, perso, disperato…
               </p>
@@ -353,7 +362,7 @@ const ChiSono = () => {
         {/* Section 5: L'Epifania */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 L'Epifania: <span className="text-gradient">Nasce il Metodo EFO</span>
               </h2>
@@ -361,7 +370,7 @@ const ChiSono = () => {
 
             <LazyImage src={chiSonoEpifania} alt="L'epifania - illuminazione e connessione" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="left" delay={0.1}>
               <p>
                 Ritornato dal monastero, cercai di custodire i tesori che avevo scoperto nel mondo ordinario… Fallii miseramente, e sentii il bisogno di riorganizzare tutto ciò che avevo sperimentato.
               </p>
@@ -390,7 +399,7 @@ const ChiSono = () => {
             </AnimatedSection>
 
             {/* Credentials Section */}
-            <AnimatedSection delay={0.1}>
+            <AnimatedSection delay={0.1} scale>
               <div className="glass rounded-xl p-5 md:p-8 my-8 md:my-10">
                 <h3 className="font-display text-xl md:text-2xl text-center mb-6">La mia Formazione</h3>
                 
@@ -438,7 +447,7 @@ const ChiSono = () => {
               icon: Target,
               title: "Attrai il Futuro Desiderato",
               desc: "Senza la fuffa della legge d'attrazione, ma con strumenti scientificamente provati"
-            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.1}>
+            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.15} scale>
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full text-center transition-transform duration-300 hover:-translate-y-1">
                     <dim.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan mx-auto mb-3" />
                     <h4 className="font-display text-base md:text-lg mb-2">{dim.title}</h4>
@@ -464,13 +473,13 @@ const ChiSono = () => {
         {/* Section 6: Dall'interno all'esterno */}
         <section className="section-padding bg-background">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Dall'Interno <span className="text-gradient">all'Esterno</span>
               </h2>
             </AnimatedSection>
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="right" delay={0.1}>
               <p>
                 Ebbi un'altra rivelazione quando iniziai a lavorare come Coach Professionista… Scoprii che gli strumenti appresi e padroneggiati con la pratica negli anni di <em>studio matto e disperatissimo</em>, applicati durante sessioni di professional coaching — integrati con le mie conoscenze psicologiche e spirituali tramandate da millenni — erano sorprendentemente trasformativi…
               </p>
@@ -496,7 +505,7 @@ const ChiSono = () => {
 
             <GlassQuote quote="Basta essere presenza: creare lo spazio sicuro dove la luce può entrare, crescere, irradiarsi…" />
 
-            <AnimatedSection className="prose-custom">
+            <AnimatedSection className="prose-custom" direction="left" delay={0.1}>
               <p className="text-lg">
                 Avevo trovato il mio <span className="text-cyan font-bold">IKIGAI</span>: aiutare giovani adulti — proprio come me — ad autorealizzarsi ed essere felici esistenzialmente. Indipendenti dalla precarietà del mondo esterno, ma capaci di attingere alla ricchezza interiore inesauribile che già possiedono.
               </p>
@@ -507,7 +516,7 @@ const ChiSono = () => {
         {/* Section 7: Il Mondo Nuovo */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Il Mondo <span className="text-gradient">Nuovo</span>
               </h2>
@@ -571,7 +580,7 @@ const ChiSono = () => {
               icon: Heart,
               value: "∞",
               label: "Passione"
-            }].map((stat, index) => <AnimatedSection key={index} delay={index * 0.1}>
+            }].map((stat, index) => <AnimatedSection key={index} delay={index * 0.12} scale>
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card text-center transition-transform duration-300 hover:-translate-y-1">
                     <stat.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan mx-auto mb-2 md:mb-3" />
                     <p className="font-display text-2xl md:text-3xl text-foreground mb-1">
@@ -592,7 +601,7 @@ const ChiSono = () => {
           </div>
 
           <div className="container-narrow text-center relative z-10">
-            <AnimatedSection>
+            <AnimatedSection blur scale>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6">
                 Fissa una Sessione Gratuita:<br />
                 <span className="text-gradient">Inizia la Tua Trasformazione!</span>
