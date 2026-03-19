@@ -516,7 +516,7 @@ const ChiSono = () => {
         {/* Section 7: Il Mondo Nuovo */}
         <section className="section-padding bg-card">
           <div className="container-narrow">
-            <AnimatedSection>
+            <AnimatedSection blur>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
                 Il Mondo <span className="text-gradient">Nuovo</span>
               </h2>
