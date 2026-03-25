@@ -175,7 +175,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <LazyImage src={chiSonoMondo} alt="Il mondo incompreso - alienazione giovanile" />
+            <LazyImage src={chiSonoMondo} alt="Il mondo incompreso - alienazione giovanile" placeholder={chiSonoMondoPlaceholder} />
 
             <AnimatedSection className="prose-custom" direction="left" delay={0.1}>
               <p>
@@ -208,7 +208,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <LazyImage src={chiSonoBivio} alt="Il bivio - scelta del proprio cammino" />
+            <LazyImage src={chiSonoBivio} alt="Il bivio - scelta del proprio cammino" placeholder={chiSonoBivioPlaceholder} />
 
             <AnimatedSection className="prose-custom" direction="right" delay={0.1}>
               <p>
@@ -253,7 +253,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <LazyImage src={chiSonoErrore} alt="L'errore - prigione dell'ego" />
+            <LazyImage src={chiSonoErrore} alt="L'errore - prigione dell'ego" placeholder={chiSonoErrorePlaceholder} />
 
             <AnimatedSection className="prose-custom" direction="left" delay={0.1}>
               <p>
@@ -315,7 +315,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <LazyImage src={chiSonoSvolta} alt="La svolta spirituale - monastero all'alba" />
+            <LazyImage src={chiSonoSvolta} alt="La svolta spirituale - monastero all'alba" placeholder={chiSonoSvoltaPlaceholder} />
 
             <AnimatedSection className="prose-custom" direction="right" delay={0.1}>
               <p>
@@ -369,7 +369,7 @@ const ChiSono = () => {
               </h2>
             </AnimatedSection>
 
-            <LazyImage src={chiSonoEpifania} alt="L'epifania - illuminazione e connessione" />
+            <LazyImage src={chiSonoEpifania} alt="L'epifania - illuminazione e connessione" placeholder={chiSonoEpifaniaPlaceholder} />
 
             <AnimatedSection className="prose-custom" direction="left" delay={0.1}>
               <p>
