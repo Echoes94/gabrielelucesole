@@ -7,15 +7,6 @@ import gabrielePhoto from "@/assets/gabriele-photo.webp";
 import { gabrielePhotoPlaceholder } from "@/lib/image-placeholders";
 
 const AboutPreview = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    if (imgRef.current?.complete) {
-      setImageLoaded(true);
-    }
-  }, []);
-
   return (
     <section className="section-padding relative overflow-hidden" aria-labelledby="about-preview-heading">
       {/* Subtle background accent */}
@@ -29,18 +20,13 @@ const AboutPreview = () => {
               {/* Single decorative frame */}
               <div className="absolute -inset-2 sm:-inset-3 border border-cyan/10 rounded-xl sm:rounded-2xl" aria-hidden="true" />
               
-              {/* Main image with lazy loading */}
+              {/* Main image with blur placeholder */}
               <div className="relative h-full rounded-lg sm:rounded-xl overflow-hidden">
-                {!imageLoaded && (
-                  <div className="absolute inset-0 bg-muted/20 animate-pulse" aria-hidden="true" />
-                )}
-                <img
-                  ref={imgRef}
+                <BlurImage
                   src={gabrielePhoto}
                   alt="Gabriele Lucesole - Coach Professionista"
-                  className={`w-full h-full object-cover transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  loading="lazy"
-                  onLoad={() => setImageLoaded(true)}
+                  placeholder={gabrielePhotoPlaceholder}
+                  className="w-full h-full"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" aria-hidden="true" />
               </div>
