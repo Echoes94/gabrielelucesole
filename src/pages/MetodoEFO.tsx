@@ -10,6 +10,8 @@ const AnimatedSection = AnimatedSectionLite;
 import LazySection from "@/components/LazySection";
 import { Link } from "react-router-dom";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
+import BlurImage from "@/components/BlurImage";
+import { gabrielePhotoPlaceholder } from "@/lib/image-placeholders";
 
 // Credential logos
 import logoPul from "@/assets/logo-pul.png";
@@ -1299,7 +1301,7 @@ const MetodoEFO = () => {
                 <div className="relative aspect-square max-w-sm md:max-w-md mx-auto">
                   <div className="absolute -inset-3 border border-cyan/20 rounded-2xl md:rounded-3xl" />
                   <div className="relative h-full rounded-xl md:rounded-2xl overflow-hidden">
-                    <img src={gabrielePhoto} alt="Gabriele Lucesole" className="w-full h-full object-cover" loading="lazy" />
+                    <BlurImage src={gabrielePhoto} alt="Gabriele Lucesole" placeholder={gabrielePhotoPlaceholder} className="w-full h-full" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                 </div>
