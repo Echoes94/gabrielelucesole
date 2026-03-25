@@ -8,11 +8,20 @@ import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 // Use lite version for better performance
 const AnimatedSection = AnimatedSectionLite;
 import gabrielePhoto from "@/assets/chi-sono-gabriele.webp";
-import chiSonoMondo from "@/assets/chi-sono-mondo.jpg";
-import chiSonoBivio from "@/assets/chi-sono-bivio.jpg";
-import chiSonoErrore from "@/assets/chi-sono-errore.jpg";
-import chiSonoSvolta from "@/assets/chi-sono-svolta.jpg";
+import chiSonoMondo from "@/assets/chi-sono-mondo.webp";
+import chiSonoBivio from "@/assets/chi-sono-bivio.webp";
+import chiSonoErrore from "@/assets/chi-sono-errore.webp";
+import chiSonoSvolta from "@/assets/chi-sono-svolta.webp";
 import chiSonoEpifania from "@/assets/chi-sono-epifania.jpg";
+import BlurImage from "@/components/BlurImage";
+import {
+  chiSonoGabrielePlaceholder,
+  chiSonoMondoPlaceholder,
+  chiSonoBivioPlaceholder,
+  chiSonoErrorePlaceholder,
+  chiSonoSvoltaPlaceholder,
+  chiSonoEpifaniaPlaceholder,
+} from "@/lib/image-placeholders";
 import { Link } from "react-router-dom";
 
 // Credential logos
@@ -55,40 +64,32 @@ const GlassQuote = ({
 // Simple lazy image without heavy parallax for performance
 const LazyImage = ({
   src,
-  alt
+  alt,
+  placeholder,
 }: {
   src: string;
   alt: string;
+  placeholder?: string;
 }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsInView(true);
-        observer.disconnect();
-      }
-    }, {
-      rootMargin: "100px"
-    });
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-  return <motion.div 
-      ref={ref} 
-      className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10" 
-      role="img" 
+  return (
+    <motion.div
+      className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10"
+      role="img"
       aria-label={alt}
       initial={{ opacity: 0, scale: 1.05, filter: "blur(8px)" }}
       whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
     >
-      {!isLoaded && <div className="absolute inset-0 bg-muted/20 animate-pulse" aria-hidden="true" />}
-      {isInView && <img src={src} alt={alt} className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} loading="lazy" onLoad={() => setIsLoaded(true)} />}
+      <BlurImage
+        src={src}
+        alt={alt}
+        placeholder={placeholder}
+        className="absolute inset-0"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent pointer-events-none" aria-hidden="true" />
-    </motion.div>;
+    </motion.div>
+  );
 };
 const ChiSono = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -151,7 +152,7 @@ const ChiSono = () => {
                 <div className="relative aspect-[4/5] max-w-sm md:max-w-md mx-auto">
                   <div className="absolute -inset-3 border border-cyan/20 rounded-2xl" />
                   <div className="relative h-full rounded-xl overflow-hidden">
-                    <img src={gabrielePhoto} alt="Gabriele Lucesole" className="w-full h-full object-cover" />
+                    <BlurImage src={gabrielePhoto} alt="Gabriele Lucesole" placeholder={chiSonoGabrielePlaceholder} className="w-full h-full" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                   

@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Mail } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import { heroBgPlaceholder } from "@/lib/image-placeholders";
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
   const [imageLoaded, setImageLoaded] = useState(false);

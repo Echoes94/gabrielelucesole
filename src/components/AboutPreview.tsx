@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import AnimatedSectionLite from "./AnimatedSectionLite";
+import BlurImage from "./BlurImage";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
+import { gabrielePhotoPlaceholder } from "@/lib/image-placeholders";
 
 const AboutPreview = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
