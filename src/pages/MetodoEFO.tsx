@@ -1,10 +1,9 @@
-import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Mail, ArrowRight, CheckCircle, Sparkles, Users, Star, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Search, Heart, Compass, Flame, Play, Instagram, Linkedin, Check, Briefcase, GraduationCap, Quote, ChevronDown } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle, Sparkles, Users, Star, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Search, Heart, Compass, Flame, Play, Instagram, Linkedin, Check, Briefcase, GraduationCap, Quote } from "lucide-react";
 import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 // Alias for backward compatibility - using lite version for performance
 const AnimatedSection = AnimatedSectionLite;
@@ -19,7 +18,6 @@ import logoPul from "@/assets/logo-pul.png";
 import logoIcf from "@/assets/logo-icf.webp";
 import logoPenn from "@/assets/logo-penn.webp";
 import logoMinistero from "@/assets/logo-ministero.webp";
-
 const forYouIf = [{
   icon: Search,
   title: "Ricercatore Autentico",
@@ -41,9 +39,7 @@ const forYouIf = [{
   title: "Pronto a Scendere Prima di Risalire",
   description: "Non cerchi motivazione superficiale o pensiero positivo tossico. Sei disposto a guardarti dentro anche dove fa male. Sai che la vera trasformazione passa attraverso l'oscurità, non intorno ad essa. Hai il coraggio di attraversare il fuoco per rinascere dalle ceneri."
 }];
-
 const notForYouIf = ["Cerchi soluzioni magiche immediate senza impegno personale", "Vuoi solo ottimizzare la produttività senza toccare la tua interiorità", "Non sei disposto a dedicare 20-30 min/giorno alla tua trasformazione", "Cerchi qualcuno che ti dica cosa fare invece di aiutarti a scoprirlo", "Hai bisogno di supporto clinico per disturbi psichiatrici (in quel caso ti indirizzo allo specialista giusto)"];
-
 const problems = [{
   title: "Burnout mascherato da produttività",
   desc: 'È sera tardi. Sei ancora davanti allo schermo, gli occhi bruciano per la luce blu. Il collo è rigido, le spalle tese come corde di violino. Chiudi l\'ultimo file, spegni il computer... e senti quel vuoto allo stomaco. "Cos\'ho fatto oggi di davvero importante?" La risposta non arriva. Solo sabbia che scorre tra le dita. Hai lavorato tante ore, ma senti di aver fatto poco o niente che conta davvero. Il burnout non arriva con le sirene. Arriva in silenzio, mascherato da "produttività". Finché un giorno ti svegli e non riconosci più la persona riflessa nello specchio.'
@@ -60,7 +56,6 @@ const problems = [{
   title: "Ricerca di senso oltre la carriera",
   desc: "Hai provato superficiali rimedi fai-da-te: app di meditazione che usi per pochi giorni e poi abbandoni. Libri di self-help che leggi ma non applichi. Video motivazionali su YouTube che ti gasano per un'ora e poi svaniscono. Ma troppa fuffa, senti il bisogno di qualcosa di più profondo. Qualcosa che tocchi l'anima, non solo la mente. Qualcosa che trasformi, non che consoli."
 }];
-
 const roadmapLevels = [{
   level: "0",
   title: "Punto di Partenza",
@@ -75,7 +70,7 @@ const roadmapLevels = [{
   title: "Fondamenta",
   subtitle: "Installazione Pratica Mindfulness",
   week: "Settimana 1",
-  unlocked: false, // ORA È BLOCCATO DI DEFAULT
+  unlocked: true,
   content: ["Sessione 1-to-1 per avviare la pratica mindfulness (10+ min/giorno)", "Prime transizioni tra stati di coscienza", "Sperimentazione dei primi benefici (riduzione stress, maggiore focus)"],
   badge: 'Libro "Felicità Esistenzialista ORA"',
   time: "⏱️ 10 min/giorno",
@@ -117,23 +112,19 @@ const roadmapLevels = [{
   skill: "Allineamento Valori-Azioni",
   dimension: "1D - TRASFORMA IL TUO PASSATO"
 }];
-
 const maestriaLevels = [{
   title: "Presenza Radicale",
   subtitle: "Al di là del tempo nello spazio",
-  unlocked: false,
   content: ['Tecnica meditativa esclusiva per accesso immediato al "Potere di Adesso"', "Mindfulness somatica profonda (body scan evoluto)", "Capacità di vivere nell'eterno presente, oltre il tempo lineare", "Coaching ipnotico 1-to-1 per automatizzare la presenza mentale"],
   badge: 'Guida "Creazione della Pietra Filosofale" + Present Authoring + Tecniche segrete (EMDR, metodi Harvard) + Nuove tecniche meditative',
   dimension: "2D - VIVI PIENAMENTE IL PRESENTE"
 }, {
   title: "Attrazione Consapevole",
-  subtitle: "\"Tra lo stimolo e la risposta c'è uno spazio. In quello spazio risiede il potere di scegliere la nostra risposta...\"",
-  unlocked: false,
+  subtitle: "\"Tra lo stimolo e la risposta c'è uno spazio. In quello spazio risiede il potere di scegliere la nostra risposta. Nella nostra risposta c'è la nostra crescita e libertà.\" – Viktor Frankl",
   content: ["Professional Coaching 1-to-1: Ruota della vita UPGRADED, Individuazione valori guida + trasformazione dello stress, Goal-setting avanzato", "Training guidato futuro", "Allineamento valori, azioni e obiettivi", "Micro-commitments quotidiani (regola dell'1% → dal circolo vizioso al circolo virtuoso → vizio della virtù)"],
   badge: 'Stazione di Servizio Platonica + Scrittura Creativa Archetipica + Su richiesta: Saggio "La Ginnastica del Desiderio"',
   dimension: "3D - ATTRAI IL FUTURO DESIDERATO"
 }];
-
 const inclusions = ["Sessioni live di Professional Coaching 1-to-1 (30+ min ciascuna, personalizzate per il tuo profilo)", "Supporto WhatsApp 24/7 per 3 mesi — Domande, dubbi, perplessità? Scrivi quando vuoi. Rispondo io, personalmente, subito.", "Training Bambino Interiore", "Training Personalità Adulta", "Training Futuro & Visione", "Mindfulness somatica profonda", "Tecniche contemplative personalizzate", "Visualizzazioni guidate registrate", 'Meditazione segreta "Al di là del Tempo nello Spazio"', "Self Authoring Suite di Jordan Peterson (Past-Present-Future)", "Guide scientifiche dettagliate per ogni fase del percorso", "Roadmap di lavoro ed esercizi pratici", "Registrazioni per pratica autonoma"];
 const bonuses = ['Libro "Felicità Esistenzialista ORA"', 'Guida "Creazione della Pietra Filosofale"', "Tecniche segrete di trasformazione (EMDR, metodi testati a Harvard)", "Tecniche meditative (Esercizi di ricarica, Radicamento, meditazione della montagna, ecc.)", "Stazione di Servizio Platonica (incarna idee platoniche)", "Scrittura Creativa Archetipica (avvicinati alla vita dei sogni)", 'Su richiesta: Saggio accademico "La Ginnastica del Desiderio"'];
 const comingSoon = [{
@@ -207,141 +198,7 @@ const testimonials = [{
   results: ["Aumento del focus lavorativo", "Riduzione compulsione (da dipendenza a consapevolezza)", "Maggiore produttività e presenza"],
   videoId: null
 }];
-
-// --- NUOVO COMPONENTE: TIMELINE NODE --- //
-const TimelineNode = ({ node, isLast }: any) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const isUnlocked = node.unlocked === true;
-  
-  const themeColorHex = node.isMaestria ? "text-amber-400" : "text-cyan";
-  const themeBgHex = node.isMaestria ? "bg-amber-400" : "bg-cyan";
-  const themeBorder = node.isMaestria ? "border-amber-500/30" : "border-cyan/30";
-  const themeGradient = node.isMaestria ? "from-amber-500/20" : "from-cyan/20";
-  
-  const toggleNode = () => {
-    // Permettiamo di aprire anche i nodi bloccati per invogliare, oppure li teniamo bloccati? 
-    // Secondo la gamification, è bello poterli espandere sbirciando sotto la "nebbia"
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <div className="relative pl-10 md:pl-16 py-4 group">
-      {/* Linea verticale di connessione */}
-      {!isLast && (
-        <div className={`absolute left-[19px] md:left-[27px] top-12 bottom-[-1rem] w-0.5 bg-gradient-to-b ${themeGradient} to-transparent z-0`} />
-      )}
-
-      {/* Punto (Dot) della timeline */}
-      <div className={`absolute left-2 md:left-4 top-8 w-8 h-8 rounded-full border-2 flex items-center justify-center bg-background ${node.isMaestria ? "border-amber-400" : "border-cyan"} z-10 shadow-[0_0_15px_rgba(0,0,0,0.5)] ${node.isMaestria ? 'shadow-amber-500/20' : 'shadow-cyan/20'}`}>
-        {isUnlocked ? (
-          <div className={`w-3 h-3 rounded-full ${themeBgHex} animate-pulse`} />
-        ) : (
-          <Lock className={`w-3 h-3 ${themeColorHex} opacity-60`} />
-        )}
-      </div>
-
-      {/* Content Card (Accordion) */}
-      <div 
-        onClick={toggleNode}
-        className={`relative rounded-xl border ${themeBorder} transition-all duration-300 cursor-pointer overflow-hidden ${isUnlocked ? 'bg-gradient-card shadow-lg shadow-cyan/5' : 'bg-card/40 hover:bg-card/70'}`}
-      >
-        {/* Overlay Nebbia per i livelli bloccati (sparisce in hover) */}
-        {!isUnlocked && (
-          <div className="absolute inset-0 bg-background/60 backdrop-blur-[3px] z-10 flex flex-col items-center justify-center transition-all duration-500 group-hover:opacity-0 group-hover:backdrop-blur-none pointer-events-none">
-            <Lock className={`h-8 w-8 ${themeColorHex} mb-2 opacity-70`} />
-            <span className={`text-xs md:text-sm font-display tracking-widest uppercase ${themeColorHex} opacity-90 drop-shadow-md`}>
-              Esplora per Sbloccare
-            </span>
-          </div>
-        )}
-
-        <div className="p-4 md:p-6 relative z-0">
-          {/* Header Principale (sempre visibile) */}
-          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 md:gap-4">
-            <div>
-              <div className="flex items-center gap-2 md:gap-3 mb-1.5 md:mb-2">
-                <span className={`font-display text-xl md:text-2xl ${themeColorHex}`}>
-                  LV {node.level}
-                </span>
-                {node.isMaestria && (
-                  <span className="text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-medium tracking-wider">
-                    MAESTRIA
-                  </span>
-                )}
-              </div>
-              <h3 className={`font-display text-lg md:text-xl mb-1 ${!isUnlocked && 'text-foreground/80'}`}>{node.title}</h3>
-              <p className={`text-xs md:text-sm ${themeColorHex}`}>{node.subtitle}</p>
-            </div>
-            
-            <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 w-full sm:w-auto mt-2 sm:mt-0">
-              <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">{node.week || "Livello Master"}</span>
-              <div className={`p-1.5 rounded-full bg-background/50 border border-border/50 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
-                <ChevronDown className={`h-4 w-4 ${themeColorHex}`} />
-              </div>
-            </div>
-          </div>
-
-          {/* Dettagli Espandibili */}
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <div className="pt-4 mt-4 border-t border-border/50">
-                  {node.dimension && (
-                    <div className={`mb-3 md:mb-4 px-2.5 py-1 rounded-full inline-block bg-background/50 border ${themeBorder}`}>
-                      <span className={`text-[10px] md:text-xs font-medium uppercase tracking-wider ${themeColorHex}`}>{node.dimension}</span>
-                    </div>
-                  )}
-
-                  <p className="text-xs text-muted-foreground mb-2 font-medium">COSA SUCCEDE / FAREMO:</p>
-                  <ul className="space-y-1.5 md:space-y-2 mb-4">
-                    {node.content.map((item: string, i: number) => (
-                      <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
-                        <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${themeBgHex}`} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className={`space-y-2 pt-3 md:pt-4 border-t ${themeBorder}`}>
-                    <div className="flex items-start gap-2">
-                      <Gift className={`h-4 w-4 shrink-0 mt-0.5 ${themeColorHex}`} />
-                      <span className="text-xs md:text-sm text-muted-foreground">{node.badge}</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mt-2">
-                      {node.time && (
-                        <span className="text-xs md:text-sm font-medium flex items-center gap-1 text-muted-foreground">
-                          <span className={themeColorHex}>{node.time}</span>
-                        </span>
-                      )}
-                      {node.skill && <span className="text-xs md:text-sm text-emerald-400 flex items-center gap-1">💪🏻 Nuova Abilità: "{node.skill}"</span>}
-                      {node.achievement && <span className="text-xs md:text-sm text-amber-400 flex items-center gap-1">🎖️ Traguardo: "{node.achievement}"</span>}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-    </div>
-  );
-};
-// ------------------------------------- //
-
-
 const MetodoEFO = () => {
-  // Prepara l'array unico della timeline combinando Roadmap e Maestria
-  const allTimelineLevels = [
-    ...roadmapLevels.map((n, i) => ({ ...n, isMaestria: false, index: i })),
-    ...maestriaLevels.map((n, i) => ({ ...n, level: String(5 + i), isMaestria: true, index: roadmapLevels.length + i }))
-  ];
-
   return <>
       <Helmet>
         <title>Metodo EFO® | Essere Felici Ora - Gabriele Lucesole</title>
@@ -758,59 +615,121 @@ const MetodoEFO = () => {
           </div>
         </section>
 
-        {/* Roadmap - Gamified Timeline */}
-        <section className="section-padding bg-background relative overflow-hidden">
-          <div className="container-narrow">
-            <AnimatedSection className="text-center mb-10 md:mb-16" blur>
-              <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3 font-medium">
+        {/* Roadmap - Gamified Levels */}
+        <section className="section-padding bg-background">
+          <div className="container-wide">
+            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
+              <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">
                 COME FUNZIONA: LA ROADMAP COMPLETA
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
-                🗺️ Mappa di <span className="text-gradient">Trasformazione</span>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                🗺️ La Tua Mappa di <span className="text-gradient">Trasformazione</span>
               </h2>
-              <p className="font-serif text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
-                Ogni fase è un livello da completare. Espandi i nodi per scoprire le abilità sbloccate e i bonus esclusivi del tuo viaggio.
+              <p className="font-serif text-sm md:text-base text-muted-foreground">
+                Ogni fase è un livello da completare. Ogni livello sblocca nuove abilità e bonus esclusivi.
               </p>
             </AnimatedSection>
 
-            {/* Rendering Dinamico della Timeline a Singola Colonna */}
-            <div className="max-w-3xl mx-auto mb-12 md:mb-16">
-              {allTimelineLevels.map((node, i) => (
-                <AnimatedSection key={i} delay={i * 0.15} direction="up" scale>
-                  <TimelineNode 
-                    node={node} 
-                    isLast={i === allTimelineLevels.length - 1} 
-                  />
-                </AnimatedSection>
-              ))}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+              {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
+                  <div className={`rounded-xl p-4 md:p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? "bg-gradient-card border border-cyan/30" : "bg-card/50 border border-border/30"}`}>
+                    {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
+                        <span className="text-xs text-cyan font-medium">{level.dimension}</span>
+                      </div>}
+                    <div className="flex items-center justify-between mb-3 md:mb-4">
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center ${level.unlocked ? "bg-cyan/20" : "bg-muted/20"}`}>
+                          {level.unlocked ? <Unlock className={`h-4 w-4 md:h-5 md:w-5 ${level.unlocked ? "text-cyan" : "text-muted-foreground"}`} /> : <Lock className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />}
+                        </div>
+                        <div>
+                          <span className={`font-display text-xl md:text-2xl ${level.unlocked ? "text-cyan" : "text-muted-foreground"}`}>
+                            LV {level.level}
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-xs text-muted-foreground">{level.week}</span>
+                    </div>
+
+                    <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
+                    <p className="text-xs md:text-sm text-cyan mb-3 md:mb-4">{level.subtitle}</p>
+
+                    <p className="text-xs text-muted-foreground mb-2">Cosa succede/faremo:</p>
+                    <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
+                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
+                          <span className="w-1 h-1 rounded-full bg-cyan mt-1.5 shrink-0" />
+                          {item}
+                        </li>)}
+                    </ul>
+
+                    <div className="space-y-1.5 md:space-y-2 pt-3 md:pt-4 border-t border-border/50">
+                      <div className="flex items-start gap-1.5 md:gap-2">
+                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-cyan shrink-0 mt-0.5" />
+                        <span className="text-xs text-muted-foreground">{level.badge}</span>
+                      </div>
+                      <div className="flex flex-col gap-0.5 md:gap-1">
+                        <span className="text-xs text-cyan">{level.time}</span>
+                        {level.skill && <span className="text-xs text-emerald-400">💪🏻 Nuova Abilità: "{level.skill}"</span>}
+                        {level.achievement && <span className="text-xs text-amber-400">🎖️ "{level.achievement}"</span>}
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>)}
+
+              {/* Maestria Levels */}
+              {maestriaLevels.map((level, index) => <AnimatedSection key={`maestria-${index}`} delay={(roadmapLevels.length + index) * 0.08}>
+                  <div className="rounded-xl p-4 md:p-6 h-full bg-gradient-to-br from-amber-950/30 to-card border border-amber-500/30 transition-transform duration-300 hover:-translate-y-1">
+                    <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block">
+                      <span className="text-xs text-amber-400 font-medium">{level.dimension}</span>
+                    </div>
+                    <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-amber-500/20">
+                        <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
+                      </div>
+                      <span className="font-display text-xl md:text-2xl text-amber-400">LV {5 + index} </span>
+                    </div>
+
+                    <h3 className="font-display text-lg md:text-xl mb-1 text-amber-400">MAESTRIA</h3>
+                    <p className="text-xs md:text-sm text-foreground mb-1">{level.title}</p>
+                    <p className="text-xs text-muted-foreground italic mb-3 md:mb-4">{level.subtitle}</p>
+
+                    <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
+                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
+                          <span className="w-1 h-1 rounded-full bg-amber-400 mt-1.5 shrink-0" />
+                          {item}
+                        </li>)}
+                    </ul>
+
+                    <div className="pt-3 md:pt-4 border-t border-amber-500/30">
+                      <div className="flex items-start gap-1.5 md:gap-2">
+                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-amber-400 shrink-0 mt-0.5" />
+                        <span className="text-xs text-muted-foreground">{level.badge}</span>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>)}
             </div>
 
-            {/* Progress bar animata */}
-            <AnimatedSection className="max-w-2xl mx-auto mb-6 md:mb-8" scale delay={0.3}>
-              <div className="glass rounded-xl p-5 md:p-6 border border-cyan/20 shadow-lg shadow-cyan/5 text-center">
-                <p className="text-xs md:text-sm text-foreground font-medium mb-3 md:mb-4 tracking-wider">IL TUO PROGRESSO</p>
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="flex-1 h-3 md:h-4 bg-muted/50 rounded-full overflow-hidden relative">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "16.666%" }} // 1/6 representing level 0
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan to-accent rounded-full shadow-[0_0_10px_rgba(0,255,255,0.5)]" 
-                    />
+            {/* Progress bar */}
+            <AnimatedSection className="max-w-2xl mx-auto mb-6 md:mb-8" scale>
+              <div className="glass rounded-xl p-4 md:p-6 border border-cyan/20">
+                <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">IL TUO PROGRESSO</p>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="flex-1 h-3 md:h-4 bg-muted/30 rounded-full overflow-hidden">
+                    <div className="h-full w-1/6 bg-gradient-to-r from-cyan to-accent rounded-full" />
                   </div>
                 </div>
-                <p className="text-xs text-cyan font-display mb-1.5 md:mb-2 text-center text-lg">Livello 0 → Inizia il Viaggio</p>
-                <p className="text-xs md:text-sm text-muted-foreground italic">
+                <p className="text-xs text-muted-foreground">Livello 0 → Inizia il Viaggio</p>
+                <p className="text-xs text-muted-foreground mt-1.5 md:mt-2">
                   Ogni settimana che completi, sali di livello. Ogni pratica che esegui, accumuli esperienza. Ogni
                   insight che integri, sblocchi nuove possibilità.
                 </p>
               </div>
             </AnimatedSection>
 
-            <AnimatedSection className="text-center mt-8" blur scale>
-              <p className="font-display text-base md:text-xl text-foreground bg-cyan/5 border border-cyan/20 py-3 px-6 rounded-full inline-block">
-                Non è un corso. È una <span className="text-cyan">quest di trasformazione esistenziale.</span>
+            <AnimatedSection className="text-center" blur scale>
+              <p className="font-display text-base md:text-lg text-foreground">
+                Non è un corso. Non è un percorso qualsiasi. È una{" "}
+                <span className="text-cyan">quest di trasformazione esistenziale.</span>
               </p>
             </AnimatedSection>
           </div>
@@ -1807,5 +1726,4 @@ const MetodoEFO = () => {
       </Layout>
     </>;
 };
-
 export default MetodoEFO;
