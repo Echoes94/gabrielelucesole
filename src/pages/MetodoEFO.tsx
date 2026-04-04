@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Mail, ArrowRight, CheckCircle, Sparkles, Users, Star, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Search, Heart, Compass, Flame, Play, Instagram, Linkedin, Check, Briefcase, GraduationCap, Quote } from "lucide-react";
+import RoadmapCarousel from "@/components/RoadmapCarousel";
 import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 // Alias for backward compatibility - using lite version for performance
 const AnimatedSection = AnimatedSectionLite;
