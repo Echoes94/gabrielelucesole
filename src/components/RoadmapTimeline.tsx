@@ -337,7 +337,7 @@ const RoadmapTimeline = () => {
                   {/* Timeline dot - mobile: left aligned, desktop: center */}
                   <div
                     className={`absolute left-6 md:left-1/2 w-3 h-3 md:w-4 md:h-4 rounded-full z-10 transition-all duration-500
-                    ${isActive ? `${colors.dot} scale-150 shadow-lg` : i <= activeLevel ? colors.dot : "bg-muted/50"}
+                    ${isActive ? `${colors.dot} scale-150 shadow-lg` : index <= activeLevel ? colors.dot : "bg-muted/50"}
                     md:-translate-x-1/2 -translate-x-1/2`}
                     style={{ top: "1.5rem" }}
                   />
