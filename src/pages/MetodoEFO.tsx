@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Mail, ArrowRight, CheckCircle, Sparkles, Users, Star, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Search, Heart, Compass, Flame, Play, Instagram, Linkedin, Check, Briefcase, GraduationCap, Quote } from "lucide-react";
+import RoadmapCarousel from "@/components/RoadmapCarousel";
 import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 // Alias for backward compatibility - using lite version for performance
 const AnimatedSection = AnimatedSectionLite;
@@ -630,101 +631,23 @@ const MetodoEFO = () => {
               </p>
             </AnimatedSection>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
-              {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
-                  <div className={`rounded-xl p-4 md:p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? "bg-gradient-card border border-cyan/30" : "bg-card/50 border border-border/30"}`}>
-                    {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
-                        <span className="text-xs text-cyan font-medium">{level.dimension}</span>
-                      </div>}
-                    <div className="flex items-center justify-between mb-3 md:mb-4">
-                      <div className="flex items-center gap-2 md:gap-3">
-                        <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center ${level.unlocked ? "bg-cyan/20" : "bg-muted/20"}`}>
-                          {level.unlocked ? <Unlock className={`h-4 w-4 md:h-5 md:w-5 ${level.unlocked ? "text-cyan" : "text-muted-foreground"}`} /> : <Lock className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />}
-                        </div>
-                        <div>
-                          <span className={`font-display text-xl md:text-2xl ${level.unlocked ? "text-cyan" : "text-muted-foreground"}`}>
-                            LV {level.level}
-                          </span>
-                        </div>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{level.week}</span>
-                    </div>
-
-                    <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
-                    <p className="text-xs md:text-sm text-cyan mb-3 md:mb-4">{level.subtitle}</p>
-
-                    <p className="text-xs text-muted-foreground mb-2">Cosa succede/faremo:</p>
-                    <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
-                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
-                          <span className="w-1 h-1 rounded-full bg-cyan mt-1.5 shrink-0" />
-                          {item}
-                        </li>)}
-                    </ul>
-
-                    <div className="space-y-1.5 md:space-y-2 pt-3 md:pt-4 border-t border-border/50">
-                      <div className="flex items-start gap-1.5 md:gap-2">
-                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-cyan shrink-0 mt-0.5" />
-                        <span className="text-xs text-muted-foreground">{level.badge}</span>
-                      </div>
-                      <div className="flex flex-col gap-0.5 md:gap-1">
-                        <span className="text-xs text-cyan">{level.time}</span>
-                        {level.skill && <span className="text-xs text-emerald-400">💪🏻 Nuova Abilità: "{level.skill}"</span>}
-                        {level.achievement && <span className="text-xs text-amber-400">🎖️ "{level.achievement}"</span>}
-                      </div>
-                    </div>
-                  </div>
-                </AnimatedSection>)}
-
-              {/* Maestria Levels */}
-              {maestriaLevels.map((level, index) => <AnimatedSection key={`maestria-${index}`} delay={(roadmapLevels.length + index) * 0.08}>
-                  <div className="rounded-xl p-4 md:p-6 h-full bg-gradient-to-br from-amber-950/30 to-card border border-amber-500/30 transition-transform duration-300 hover:-translate-y-1">
-                    <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block">
-                      <span className="text-xs text-amber-400 font-medium">{level.dimension}</span>
-                    </div>
-                    <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-amber-500/20">
-                        <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
-                      </div>
-                      <span className="font-display text-xl md:text-2xl text-amber-400">LV {5 + index} </span>
-                    </div>
-
-                    <h3 className="font-display text-lg md:text-xl mb-1 text-amber-400">MAESTRIA</h3>
-                    <p className="text-xs md:text-sm text-foreground mb-1">{level.title}</p>
-                    <p className="text-xs text-muted-foreground italic mb-3 md:mb-4">{level.subtitle}</p>
-
-                    <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
-                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
-                          <span className="w-1 h-1 rounded-full bg-amber-400 mt-1.5 shrink-0" />
-                          {item}
-                        </li>)}
-                    </ul>
-
-                    <div className="pt-3 md:pt-4 border-t border-amber-500/30">
-                      <div className="flex items-start gap-1.5 md:gap-2">
-                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-amber-400 shrink-0 mt-0.5" />
-                        <span className="text-xs text-muted-foreground">{level.badge}</span>
-                      </div>
-                    </div>
-                  </div>
-                </AnimatedSection>)}
-            </div>
-
-            {/* Progress bar */}
-            <AnimatedSection className="max-w-2xl mx-auto mb-6 md:mb-8" scale>
-              <div className="glass rounded-xl p-4 md:p-6 border border-cyan/20">
-                <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">IL TUO PROGRESSO</p>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="flex-1 h-3 md:h-4 bg-muted/30 rounded-full overflow-hidden">
-                    <div className="h-full w-1/6 bg-gradient-to-r from-cyan to-accent rounded-full" />
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground">Livello 0 → Inizia il Viaggio</p>
-                <p className="text-xs text-muted-foreground mt-1.5 md:mt-2">
-                  Ogni settimana che completi, sali di livello. Ogni pratica che esegui, accumuli esperienza. Ogni
-                  insight che integri, sblocchi nuove possibilità.
-                </p>
-              </div>
+            <AnimatedSection className="mb-8 md:mb-12" scale>
+              <RoadmapCarousel
+                levels={[
+                  ...roadmapLevels.map(l => ({ ...l, isMaestria: false })),
+                  ...maestriaLevels.map((l, i) => ({
+                    ...l,
+                    level: String(5 + i),
+                    week: undefined,
+                    unlocked: false,
+                    time: undefined,
+                    isMaestria: true,
+                  })),
+                ]}
+              />
             </AnimatedSection>
+
+
 
             <AnimatedSection className="text-center" blur scale>
               <p className="font-display text-base md:text-lg text-foreground">
