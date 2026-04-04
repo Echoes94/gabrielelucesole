@@ -8,7 +8,6 @@ import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 // Alias for backward compatibility - using lite version for performance
 const AnimatedSection = AnimatedSectionLite;
 import LazySection from "@/components/LazySection";
-
 import { Link } from "react-router-dom";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
 import BlurImage from "@/components/BlurImage";
@@ -57,9 +56,75 @@ const problems = [{
   title: "Ricerca di senso oltre la carriera",
   desc: "Hai provato superficiali rimedi fai-da-te: app di meditazione che usi per pochi giorni e poi abbandoni. Libri di self-help che leggi ma non applichi. Video motivazionali su YouTube che ti gasano per un'ora e poi svaniscono. Ma troppa fuffa, senti il bisogno di qualcosa di più profondo. Qualcosa che tocchi l'anima, non solo la mente. Qualcosa che trasformi, non che consoli."
 }];
-const roadmapLevels = [{level:"0",title:"Punto di Partenza",subtitle:"Sessione Professional Coaching Gratuita",week:"Inizia",unlocked:true,content:["Analizziamo la tua situazione attuale (stress, vuoto esistenziale, ricerca di senso)",'Identifichiamo il tuo "gap trasformativo"',"Ti spiego come funziona il Metodo EFO® e se è adatto al tuo caso specifico","Decidi cosa fare della tua vita"],badge:"Analisi personalizzata del tuo gap trasformativo",time:"⏱️ 30+ min"},{level:"1",title:"Fondamenta",subtitle:"Installazione Pratica Mindfulness",week:"Settimana 1",unlocked:true,content:["Sessione 1-to-1 per avviare la pratica mindfulness (10+ min/giorno)","Prime transizioni tra stati di coscienza","Sperimentazione dei primi benefici (riduzione stress, maggiore focus)"],badge:'Libro "Felicità Esistenzialista ORA"',time:"⏱️ 10 min/giorno",achievement:"Primo Passo Consapevole"},{level:"2",title:"Cura",subtitle:"Training Bambino Interiore",week:"Settimane 2-4",unlocked:false,content:["Tecniche di reparenting","Integrazione degli archetipi nella coscienza","Training guidato per liberare il bambino interiore"],badge:"Past Authoring + Pratiche contemplative + Guida completa + Assistenza WhatsApp 24/7",time:"⏱️ 15 min/giorno",achievement:"Cura del Bambino Interiore",skill:"Integrazione Archetipi",dimension:"1D - TRASFORMA IL TUO PASSATO"},{level:"3",title:"Sovranità",subtitle:"Training Personalità Adulta",week:"Settimane 5-10",unlocked:false,content:['Training guidato per sbloccare i "poteri" dell\'adulto',"Identificazione con l'eroe adulto dentro di te","Accesso allo stato di flow avanzato"],badge:"Formula della Trasformazione + Nuove pratiche contemplative + Assistenza 24/7",time:"⏱️ 20 min/giorno",achievement:"Padrone di Te Stesso",skill:"Risposta Consapevole vs Reazione",dimension:"1D - TRASFORMA IL TUO PASSATO"},{level:"4",title:"Visione",subtitle:"Training Apertura al Futuro",week:"Settimane 11-13",unlocked:false,content:["Training guidato focus futuro con visualizzazioni strategiche (non fantasie, ma nuove mappe neurali)","Esplorazione di nuove possibilità oltre la monotonia","Identificazione di valori autentici e allineamento con azioni quotidiane"],badge:"Future Authoring + Nuove pratiche contemplative + Assistenza 24/7",time:"⏱️ 20 min/giorno",achievement:"Architetto del Destino",skill:"Allineamento Valori-Azioni",dimension:"1D - TRASFORMA IL TUO PASSATO"}];
-const maestriaLevels = [{title:"Presenza Radicale",subtitle:"Al di là del tempo nello spazio",content:['Tecnica meditativa esclusiva per accesso immediato al "Potere di Adesso"',"Mindfulness somatica profonda (body scan evoluto)","Capacità di vivere nell'eterno presente, oltre il tempo lineare","Coaching ipnotico 1-to-1 per automatizzare la presenza mentale"],badge:'Guida "Creazione della Pietra Filosofale" + Present Authoring + Tecniche segrete (EMDR, metodi Harvard) + Nuove tecniche meditative',dimension:"2D - VIVI PIENAMENTE IL PRESENTE"},{title:"Attrazione Consapevole",subtitle:"\"Tra lo stimolo e la risposta c'è uno spazio. In quello spazio risiede il potere di scegliere la nostra risposta. Nella nostra risposta c'è la nostra crescita e libertà.\" – Viktor Frankl",content:["Professional Coaching 1-to-1: Ruota della vita UPGRADED, Individuazione valori guida + trasformazione dello stress, Goal-setting avanzato","Training guidato futuro","Allineamento valori, azioni e obiettivi","Micro-commitments quotidiani (regola dell'1% → dal circolo vizioso al circolo virtuoso → vizio della virtù)"],badge:'Stazione di Servizio Platonica + Scrittura Creativa Archetipica + Su richiesta: Saggio "La Ginnastica del Desiderio"',dimension:"3D - ATTRAI IL FUTURO DESIDERATO"}];
-
+const roadmapLevels = [{
+  level: "0",
+  title: "Punto di Partenza",
+  subtitle: "Sessione Professional Coaching Gratuita",
+  week: "Inizia",
+  unlocked: true,
+  content: ["Analizziamo la tua situazione attuale (stress, vuoto esistenziale, ricerca di senso)", 'Identifichiamo il tuo "gap trasformativo"', "Ti spiego come funziona il Metodo EFO® e se è adatto al tuo caso specifico", "Decidi cosa fare della tua vita"],
+  badge: "Analisi personalizzata del tuo gap trasformativo",
+  time: "⏱️ 30+ min"
+}, {
+  level: "1",
+  title: "Fondamenta",
+  subtitle: "Installazione Pratica Mindfulness",
+  week: "Settimana 1",
+  unlocked: true,
+  content: ["Sessione 1-to-1 per avviare la pratica mindfulness (10+ min/giorno)", "Prime transizioni tra stati di coscienza", "Sperimentazione dei primi benefici (riduzione stress, maggiore focus)"],
+  badge: 'Libro "Felicità Esistenzialista ORA"',
+  time: "⏱️ 10 min/giorno",
+  achievement: "Primo Passo Consapevole"
+}, {
+  level: "2",
+  title: "Cura",
+  subtitle: "Training Bambino Interiore",
+  week: "Settimane 2-4",
+  unlocked: false,
+  content: ["Tecniche di reparenting", "Integrazione degli archetipi nella coscienza", "Training guidato per liberare il bambino interiore"],
+  badge: "Past Authoring + Pratiche contemplative + Guida completa + Assistenza WhatsApp 24/7",
+  time: "⏱️ 15 min/giorno",
+  achievement: "Cura del Bambino Interiore",
+  skill: "Integrazione Archetipi",
+  dimension: "1D - TRASFORMA IL TUO PASSATO"
+}, {
+  level: "3",
+  title: "Sovranità",
+  subtitle: "Training Personalità Adulta",
+  week: "Settimane 5-10",
+  unlocked: false,
+  content: ['Training guidato per sbloccare i "poteri" dell\'adulto', "Identificazione con l'eroe adulto dentro di te", "Accesso allo stato di flow avanzato"],
+  badge: "Formula della Trasformazione + Nuove pratiche contemplative + Assistenza 24/7",
+  time: "⏱️ 20 min/giorno",
+  achievement: "Padrone di Te Stesso",
+  skill: "Risposta Consapevole vs Reazione",
+  dimension: "1D - TRASFORMA IL TUO PASSATO"
+}, {
+  level: "4",
+  title: "Visione",
+  subtitle: "Training Apertura al Futuro",
+  week: "Settimane 11-13",
+  unlocked: false,
+  content: ["Training guidato focus futuro con visualizzazioni strategiche (non fantasie, ma nuove mappe neurali)", "Esplorazione di nuove possibilità oltre la monotonia", "Identificazione di valori autentici e allineamento con azioni quotidiane"],
+  badge: "Future Authoring + Nuove pratiche contemplative + Assistenza 24/7",
+  time: "⏱️ 20 min/giorno",
+  achievement: "Architetto del Destino",
+  skill: "Allineamento Valori-Azioni",
+  dimension: "1D - TRASFORMA IL TUO PASSATO"
+}];
+const maestriaLevels = [{
+  title: "Presenza Radicale",
+  subtitle: "Al di là del tempo nello spazio",
+  content: ['Tecnica meditativa esclusiva per accesso immediato al "Potere di Adesso"', "Mindfulness somatica profonda (body scan evoluto)", "Capacità di vivere nell'eterno presente, oltre il tempo lineare", "Coaching ipnotico 1-to-1 per automatizzare la presenza mentale"],
+  badge: 'Guida "Creazione della Pietra Filosofale" + Present Authoring + Tecniche segrete (EMDR, metodi Harvard) + Nuove tecniche meditative',
+  dimension: "2D - VIVI PIENAMENTE IL PRESENTE"
+}, {
+  title: "Attrazione Consapevole",
+  subtitle: "\"Tra lo stimolo e la risposta c'è uno spazio. In quello spazio risiede il potere di scegliere la nostra risposta. Nella nostra risposta c'è la nostra crescita e libertà.\" – Viktor Frankl",
+  content: ["Professional Coaching 1-to-1: Ruota della vita UPGRADED, Individuazione valori guida + trasformazione dello stress, Goal-setting avanzato", "Training guidato futuro", "Allineamento valori, azioni e obiettivi", "Micro-commitments quotidiani (regola dell'1% → dal circolo vizioso al circolo virtuoso → vizio della virtù)"],
+  badge: 'Stazione di Servizio Platonica + Scrittura Creativa Archetipica + Su richiesta: Saggio "La Ginnastica del Desiderio"',
+  dimension: "3D - ATTRAI IL FUTURO DESIDERATO"
+}];
 const inclusions = ["Sessioni live di Professional Coaching 1-to-1 (30+ min ciascuna, personalizzate per il tuo profilo)", "Supporto WhatsApp 24/7 per 3 mesi — Domande, dubbi, perplessità? Scrivi quando vuoi. Rispondo io, personalmente, subito.", "Training Bambino Interiore", "Training Personalità Adulta", "Training Futuro & Visione", "Mindfulness somatica profonda", "Tecniche contemplative personalizzate", "Visualizzazioni guidate registrate", 'Meditazione segreta "Al di là del Tempo nello Spazio"', "Self Authoring Suite di Jordan Peterson (Past-Present-Future)", "Guide scientifiche dettagliate per ogni fase del percorso", "Roadmap di lavoro ed esercizi pratici", "Registrazioni per pratica autonoma"];
 const bonuses = ['Libro "Felicità Esistenzialista ORA"', 'Guida "Creazione della Pietra Filosofale"', "Tecniche segrete di trasformazione (EMDR, metodi testati a Harvard)", "Tecniche meditative (Esercizi di ricarica, Radicamento, meditazione della montagna, ecc.)", "Stazione di Servizio Platonica (incarna idee platoniche)", "Scrittura Creativa Archetipica (avvicinati alla vita dei sogni)", 'Su richiesta: Saggio accademico "La Ginnastica del Desiderio"'];
 const comingSoon = [{
@@ -554,31 +619,53 @@ const MetodoEFO = () => {
         <section className="section-padding bg-background">
           <div className="container-wide">
             <AnimatedSection className="text-center mb-8 md:mb-12" blur>
-              <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">COME FUNZIONA: LA ROADMAP COMPLETA</p>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">🗺️ La Tua Mappa di <span className="text-gradient">Trasformazione</span></h2>
-              <p className="font-serif text-sm md:text-base text-muted-foreground">Ogni fase è un livello da completare. Ogni livello sblocca nuove abilità e bonus esclusivi.</p>
+              <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">
+                COME FUNZIONA: LA ROADMAP COMPLETA
+              </p>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+                🗺️ La Tua Mappa di <span className="text-gradient">Trasformazione</span>
+              </h2>
+              <p className="font-serif text-sm md:text-base text-muted-foreground">
+                Ogni fase è un livello da completare. Ogni livello sblocca nuove abilità e bonus esclusivi.
+              </p>
             </AnimatedSection>
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
               {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className={`rounded-xl p-4 md:p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? "bg-gradient-card border border-cyan/30" : "bg-card/50 border border-border/30"}`}>
-                    {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block"><span className="text-xs text-cyan font-medium">{level.dimension}</span></div>}
+                    {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
+                        <span className="text-xs text-cyan font-medium">{level.dimension}</span>
+                      </div>}
                     <div className="flex items-center justify-between mb-3 md:mb-4">
                       <div className="flex items-center gap-2 md:gap-3">
                         <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center ${level.unlocked ? "bg-cyan/20" : "bg-muted/20"}`}>
                           {level.unlocked ? <Unlock className={`h-4 w-4 md:h-5 md:w-5 ${level.unlocked ? "text-cyan" : "text-muted-foreground"}`} /> : <Lock className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />}
                         </div>
-                        <div><span className={`font-display text-xl md:text-2xl ${level.unlocked ? "text-cyan" : "text-muted-foreground"}`}>LV {level.level}</span></div>
+                        <div>
+                          <span className={`font-display text-xl md:text-2xl ${level.unlocked ? "text-cyan" : "text-muted-foreground"}`}>
+                            LV {level.level}
+                          </span>
+                        </div>
                       </div>
                       <span className="text-xs text-muted-foreground">{level.week}</span>
                     </div>
+
                     <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
                     <p className="text-xs md:text-sm text-cyan mb-3 md:mb-4">{level.subtitle}</p>
+
                     <p className="text-xs text-muted-foreground mb-2">Cosa succede/faremo:</p>
                     <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
-                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground"><span className="w-1 h-1 rounded-full bg-cyan mt-1.5 shrink-0" />{item}</li>)}
+                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
+                          <span className="w-1 h-1 rounded-full bg-cyan mt-1.5 shrink-0" />
+                          {item}
+                        </li>)}
                     </ul>
+
                     <div className="space-y-1.5 md:space-y-2 pt-3 md:pt-4 border-t border-border/50">
-                      <div className="flex items-start gap-1.5 md:gap-2"><Gift className="h-3 w-3 md:h-4 md:w-4 text-cyan shrink-0 mt-0.5" /><span className="text-xs text-muted-foreground">{level.badge}</span></div>
+                      <div className="flex items-start gap-1.5 md:gap-2">
+                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-cyan shrink-0 mt-0.5" />
+                        <span className="text-xs text-muted-foreground">{level.badge}</span>
+                      </div>
                       <div className="flex flex-col gap-0.5 md:gap-1">
                         <span className="text-xs text-cyan">{level.time}</span>
                         {level.skill && <span className="text-xs text-emerald-400">💪🏻 Nuova Abilità: "{level.skill}"</span>}
@@ -587,35 +674,63 @@ const MetodoEFO = () => {
                     </div>
                   </div>
                 </AnimatedSection>)}
+
+              {/* Maestria Levels */}
               {maestriaLevels.map((level, index) => <AnimatedSection key={`maestria-${index}`} delay={(roadmapLevels.length + index) * 0.08}>
                   <div className="rounded-xl p-4 md:p-6 h-full bg-gradient-to-br from-amber-950/30 to-card border border-amber-500/30 transition-transform duration-300 hover:-translate-y-1">
-                    <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block"><span className="text-xs text-amber-400 font-medium">{level.dimension}</span></div>
-                    <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-amber-500/20"><Sparkles className="h-4 w-4 md:h-5 md:w-5 text-amber-400" /></div>
-                      <span className="font-display text-xl md:text-2xl text-amber-400">LV {5 + index}</span>
+                    <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block">
+                      <span className="text-xs text-amber-400 font-medium">{level.dimension}</span>
                     </div>
+                    <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-amber-500/20">
+                        <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
+                      </div>
+                      <span className="font-display text-xl md:text-2xl text-amber-400">LV {5 + index} </span>
+                    </div>
+
                     <h3 className="font-display text-lg md:text-xl mb-1 text-amber-400">MAESTRIA</h3>
                     <p className="text-xs md:text-sm text-foreground mb-1">{level.title}</p>
                     <p className="text-xs text-muted-foreground italic mb-3 md:mb-4">{level.subtitle}</p>
+
                     <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
-                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground"><span className="w-1 h-1 rounded-full bg-amber-400 mt-1.5 shrink-0" />{item}</li>)}
+                      {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
+                          <span className="w-1 h-1 rounded-full bg-amber-400 mt-1.5 shrink-0" />
+                          {item}
+                        </li>)}
                     </ul>
+
                     <div className="pt-3 md:pt-4 border-t border-amber-500/30">
-                      <div className="flex items-start gap-1.5 md:gap-2"><Gift className="h-3 w-3 md:h-4 md:w-4 text-amber-400 shrink-0 mt-0.5" /><span className="text-xs text-muted-foreground">{level.badge}</span></div>
+                      <div className="flex items-start gap-1.5 md:gap-2">
+                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-amber-400 shrink-0 mt-0.5" />
+                        <span className="text-xs text-muted-foreground">{level.badge}</span>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>)}
             </div>
+
+            {/* Progress bar */}
             <AnimatedSection className="max-w-2xl mx-auto mb-6 md:mb-8" scale>
               <div className="glass rounded-xl p-4 md:p-6 border border-cyan/20">
                 <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">IL TUO PROGRESSO</p>
-                <div className="flex items-center gap-2 mb-2"><div className="flex-1 h-3 md:h-4 bg-muted/30 rounded-full overflow-hidden"><div className="h-full w-1/6 bg-gradient-to-r from-cyan to-accent rounded-full" /></div></div>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="flex-1 h-3 md:h-4 bg-muted/30 rounded-full overflow-hidden">
+                    <div className="h-full w-1/6 bg-gradient-to-r from-cyan to-accent rounded-full" />
+                  </div>
+                </div>
                 <p className="text-xs text-muted-foreground">Livello 0 → Inizia il Viaggio</p>
-                <p className="text-xs text-muted-foreground mt-1.5 md:mt-2">Ogni settimana che completi, sali di livello. Ogni pratica che esegui, accumuli esperienza. Ogni insight che integri, sblocchi nuove possibilità.</p>
+                <p className="text-xs text-muted-foreground mt-1.5 md:mt-2">
+                  Ogni settimana che completi, sali di livello. Ogni pratica che esegui, accumuli esperienza. Ogni
+                  insight che integri, sblocchi nuove possibilità.
+                </p>
               </div>
             </AnimatedSection>
+
             <AnimatedSection className="text-center" blur scale>
-              <p className="font-display text-base md:text-lg text-foreground">Non è un corso. Non è un percorso qualsiasi. È una{" "}<span className="text-cyan">quest di trasformazione esistenziale.</span></p>
+              <p className="font-display text-base md:text-lg text-foreground">
+                Non è un corso. Non è un percorso qualsiasi. È una{" "}
+                <span className="text-cyan">quest di trasformazione esistenziale.</span>
+              </p>
             </AnimatedSection>
           </div>
         </section>

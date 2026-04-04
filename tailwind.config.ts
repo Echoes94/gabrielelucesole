@@ -56,10 +56,6 @@ export default {
           DEFAULT: "hsl(var(--cyan))",
           light: "hsl(var(--cyan-light))",
         },
-        violet: {
-          DEFAULT: "hsl(var(--violet))",
-          light: "hsl(var(--violet-light))",
-        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
