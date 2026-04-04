@@ -631,7 +631,21 @@ const MetodoEFO = () => {
               </p>
             </AnimatedSection>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+            <AnimatedSection className="mb-8 md:mb-12" scale>
+              <RoadmapCarousel
+                levels={[
+                  ...roadmapLevels.map(l => ({ ...l, isMaestria: false })),
+                  ...maestriaLevels.map((l, i) => ({
+                    ...l,
+                    level: String(5 + i),
+                    week: undefined,
+                    unlocked: false,
+                    time: undefined,
+                    isMaestria: true,
+                  })),
+                ]}
+              />
+            </AnimatedSection>
               {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className={`rounded-xl p-4 md:p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? "bg-gradient-card border border-cyan/30" : "bg-card/50 border border-border/30"}`}>
                     {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
