@@ -32,6 +32,10 @@
     --cyan: 190 85% 55%;
     --cyan-light: 185 80% 75%;
 
+    /* Violet accent - 2D Presente dimension */
+    --violet: 270 40% 55%;
+    --violet-light: 270 35% 72%;
+
     --muted: 250 20% 15%;
     /* Improved contrast for muted text - WCAG AA compliant (4.5:1 minimum) */
     --muted-foreground: 220 15% 65%;
