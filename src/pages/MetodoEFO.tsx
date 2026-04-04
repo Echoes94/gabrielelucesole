@@ -8,6 +8,7 @@ import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 // Alias for backward compatibility - using lite version for performance
 const AnimatedSection = AnimatedSectionLite;
 import LazySection from "@/components/LazySection";
+import RoadmapTimeline from "@/components/RoadmapTimeline";
 import { Link } from "react-router-dom";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
 import BlurImage from "@/components/BlurImage";
