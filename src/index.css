@@ -282,6 +282,59 @@
   .transition-smooth {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  /* Roadmap card styles */
+  .roadmap-card-active {
+    background: radial-gradient(ellipse at 30% 20%, hsl(var(--cyan) / 0.08), transparent 60%), 
+                var(--gradient-card);
+  }
+
+  .roadmap-card-maestria {
+    background: radial-gradient(ellipse at 70% 20%, hsl(40 80% 55% / 0.06), transparent 60%),
+                linear-gradient(160deg, hsl(40 30% 10% / 0.4) 0%, hsl(var(--card)) 100%);
+    border: 1px solid hsl(40 80% 55% / 0.25);
+  }
+
+  .roadmap-badge-pulse {
+    animation: badge-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes badge-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--cyan) / 0.2); }
+    50% { box-shadow: 0 0 0 6px hsl(var(--cyan) / 0); }
+  }
+
+  .roadmap-progress-active {
+    animation: progress-glow 2.5s ease-in-out infinite;
+  }
+
+  @keyframes progress-glow {
+    0%, 100% { box-shadow: 0 0 8px hsl(var(--cyan) / 0.3); }
+    50% { box-shadow: 0 0 16px hsl(var(--cyan) / 0.5); }
+  }
+
+  /* Roadmap chips */
+  .roadmap-chip {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] md:text-xs font-sans;
+  }
+
+  .roadmap-chip-time {
+    @apply bg-muted/20 text-muted-foreground/60 border border-border/30;
+  }
+
+  .roadmap-chip-skill {
+    @apply bg-emerald-500/10 text-emerald-400/80 border border-emerald-500/20;
+  }
+
+  .roadmap-chip-achievement {
+    @apply bg-amber-500/10 text-amber-400/80 border border-amber-500/20;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+  }
 }
 
 /* Custom scrollbar */
