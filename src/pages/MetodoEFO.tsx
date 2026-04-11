@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Mail, ArrowRight, CheckCircle, Sparkles, Users, Star, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Search, Heart, Compass, Flame, Play, Instagram, Linkedin, Check, Briefcase, GraduationCap, Quote } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle, Sparkles, Users, Star, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Search, Heart, Compass, Flame, Play, Instagram, Linkedin, Check, Briefcase, GraduationCap, Quote, ChevronRight, Trophy } from "lucide-react";
 import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 // Alias for backward compatibility - using lite version for performance
 const AnimatedSection = AnimatedSectionLite;
@@ -616,60 +616,96 @@ const MetodoEFO = () => {
         </section>
 
         {/* Roadmap - Gamified Levels */}
-        <section className="section-padding bg-background">
-          <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
-              <p className="text-muted-foreground uppercase tracking-wider text-xs mb-3">
+        <section className="section-padding bg-background relative overflow-hidden">
+          {/* Subtle ambient glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan/[0.03] rounded-full blur-[120px] pointer-events-none" />
+          
+          <div className="container-wide relative z-10">
+            <AnimatedSection className="text-center mb-8 md:mb-14" blur>
+              <p className="text-muted-foreground uppercase tracking-[0.2em] text-xs mb-3 font-sans">
                 COME FUNZIONA: LA ROADMAP COMPLETA
               </p>
               <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
                 🗺️ La Tua Mappa di <span className="text-gradient">Trasformazione</span>
               </h2>
-              <p className="font-serif text-sm md:text-base text-muted-foreground">
+              <p className="font-serif text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
                 Ogni fase è un livello da completare. Ogni livello sblocca nuove abilità e bonus esclusivi.
               </p>
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
               {roadmapLevels.map((level, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
-                  <div className={`rounded-xl p-4 md:p-6 h-full transition-transform duration-300 hover:-translate-y-1 ${level.unlocked ? "bg-gradient-card border border-cyan/30" : "bg-card/50 border border-border/30"}`}>
-                    {level.dimension && <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-cyan/10 border border-cyan/20 inline-block">
-                        <span className="text-xs text-cyan font-medium">{level.dimension}</span>
+                  <div className={`group rounded-2xl p-4 md:p-6 h-full transition-all duration-500 ease-out
+                    ${level.unlocked && index === 0
+                      ? "roadmap-card-active border-2 border-cyan/50 hover:border-cyan/80 hover:shadow-[0_0_40px_-8px_hsl(var(--cyan)/0.25)] hover:scale-[1.02]"
+                      : level.unlocked
+                        ? "bg-gradient-card border border-cyan/20 hover:border-cyan/40 hover:shadow-[0_0_30px_-8px_hsl(var(--cyan)/0.15)] hover:scale-[1.02]"
+                        : "bg-card/40 border border-border/20 hover:border-border/40 hover:bg-card/60 opacity-80 hover:opacity-100"
+                    }`}>
+                    {level.dimension && <div className="mb-3 md:mb-4">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-cyan/10 border border-cyan/20 text-[10px] md:text-xs text-cyan font-medium tracking-wide">
+                          {level.dimension}
+                        </span>
                       </div>}
                     <div className="flex items-center justify-between mb-3 md:mb-4">
-                      <div className="flex items-center gap-2 md:gap-3">
-                        <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center ${level.unlocked ? "bg-cyan/20" : "bg-muted/20"}`}>
-                          {level.unlocked ? <Unlock className={`h-4 w-4 md:h-5 md:w-5 ${level.unlocked ? "text-cyan" : "text-muted-foreground"}`} /> : <Lock className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />}
+                      <div className="flex items-center gap-2.5 md:gap-3">
+                        {/* Redesigned Level Badge */}
+                        <div className={`relative w-11 h-11 md:w-14 md:h-14 rounded-xl flex items-center justify-center font-display text-lg md:text-xl font-bold
+                          ${level.unlocked && index === 0
+                            ? "bg-gradient-to-br from-cyan/30 to-cyan/10 border-2 border-cyan/60 text-cyan roadmap-badge-pulse"
+                            : level.unlocked
+                              ? "bg-gradient-to-br from-cyan/20 to-cyan/5 border border-cyan/30 text-cyan"
+                              : "bg-muted/10 border border-border/30 text-muted-foreground/50"
+                          }`}>
+                          {level.level}
                         </div>
                         <div>
-                          <span className={`font-display text-xl md:text-2xl ${level.unlocked ? "text-cyan" : "text-muted-foreground"}`}>
-                            LV {level.level}
+                          <span className={`font-sans text-[10px] md:text-xs uppercase tracking-[0.15em] ${level.unlocked ? "text-cyan/60" : "text-muted-foreground/40"}`}>
+                            Livello
                           </span>
+                          <div className="flex items-center gap-1.5">
+                            {level.unlocked 
+                              ? <Unlock className="h-3 w-3 text-cyan/50" /> 
+                              : <Lock className="h-3 w-3 text-muted-foreground/30 group-hover:animate-[shake_0.5s_ease-in-out]" />}
+                            <span className={`text-xs ${level.unlocked ? "text-foreground/60" : "text-muted-foreground/40"}`}>
+                              {level.unlocked ? "Sbloccato" : "Bloccato"}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <span className="text-xs text-muted-foreground">{level.week}</span>
+                      <span className="text-[10px] md:text-xs text-muted-foreground/50 font-sans">{level.week}</span>
                     </div>
 
-                    <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
-                    <p className="text-xs md:text-sm text-cyan mb-3 md:mb-4">{level.subtitle}</p>
+                    <h3 className="font-display text-lg md:text-xl mb-0.5 tracking-tight">{level.title}</h3>
+                    <p className={`text-xs md:text-sm mb-3 md:mb-4 ${level.unlocked ? "text-gradient inline-block" : "text-muted-foreground/60"}`}>{level.subtitle}</p>
 
-                    <p className="text-xs text-muted-foreground mb-2">Cosa succede/faremo:</p>
+                    <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground/40 mb-2 font-sans">Cosa succede</p>
                     <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
                       {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
-                          <span className="w-1 h-1 rounded-full bg-cyan mt-1.5 shrink-0" />
+                          <ChevronRight className={`h-3 w-3 mt-0.5 shrink-0 ${level.unlocked ? "text-cyan/50" : "text-muted-foreground/30"}`} />
                           {item}
                         </li>)}
                     </ul>
 
-                    <div className="space-y-1.5 md:space-y-2 pt-3 md:pt-4 border-t border-border/50">
+                    {/* Redesigned footer chips */}
+                    <div className="space-y-2 pt-3 md:pt-4 border-t border-border/30">
                       <div className="flex items-start gap-1.5 md:gap-2">
-                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-cyan shrink-0 mt-0.5" />
+                        <Gift className={`h-3.5 w-3.5 shrink-0 mt-0.5 ${level.unlocked ? "text-cyan/60" : "text-muted-foreground/30"}`} />
                         <span className="text-xs text-muted-foreground">{level.badge}</span>
                       </div>
-                      <div className="flex flex-col gap-0.5 md:gap-1">
-                        <span className="text-xs text-cyan">{level.time}</span>
-                        {level.skill && <span className="text-xs text-emerald-400">💪🏻 Nuova Abilità: "{level.skill}"</span>}
-                        {level.achievement && <span className="text-xs text-amber-400">🎖️ "{level.achievement}"</span>}
+                      <div className="flex flex-wrap gap-1.5">
+                        <span className="roadmap-chip roadmap-chip-time">
+                          <Clock className="h-3 w-3" />
+                          {level.time}
+                        </span>
+                        {level.skill && <span className="roadmap-chip roadmap-chip-skill">
+                          <Zap className="h-3 w-3" />
+                          {level.skill}
+                        </span>}
+                        {level.achievement && <span className="roadmap-chip roadmap-chip-achievement">
+                          <Trophy className="h-3 w-3" />
+                          {level.achievement}
+                        </span>}
                       </div>
                     </div>
                   </div>
@@ -677,31 +713,44 @@ const MetodoEFO = () => {
 
               {/* Maestria Levels */}
               {maestriaLevels.map((level, index) => <AnimatedSection key={`maestria-${index}`} delay={(roadmapLevels.length + index) * 0.08}>
-                  <div className="rounded-xl p-4 md:p-6 h-full bg-gradient-to-br from-amber-950/30 to-card border border-amber-500/30 transition-transform duration-300 hover:-translate-y-1">
-                    <div className="mb-3 md:mb-4 px-2 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 inline-block">
-                      <span className="text-xs text-amber-400 font-medium">{level.dimension}</span>
+                  <div className="group rounded-2xl p-4 md:p-6 h-full roadmap-card-maestria transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-[0_0_50px_-10px_hsl(40_80%_55%/0.2)]">
+                    <div className="mb-3 md:mb-4">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] md:text-xs text-amber-400 font-medium tracking-wide">
+                        {level.dimension}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-amber-500/20">
-                        <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-amber-400" />
+                    <div className="flex items-center gap-2.5 md:gap-3 mb-3 md:mb-4">
+                      {/* Maestria Badge */}
+                      <div className="relative w-11 h-11 md:w-14 md:h-14 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-500/30 to-amber-600/10 border-2 border-amber-500/40">
+                        <Sparkles className="h-5 w-5 md:h-6 md:w-6 text-amber-400" />
+                        <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-amber-500/80 flex items-center justify-center">
+                          <span className="text-[8px] font-bold text-background">{5 + index}</span>
+                        </div>
                       </div>
-                      <span className="font-display text-xl md:text-2xl text-amber-400">LV {5 + index} </span>
+                      <div>
+                        <span className="font-sans text-[10px] md:text-xs uppercase tracking-[0.15em] text-amber-400/60">
+                          Maestria
+                        </span>
+                        <span className="block font-display text-lg md:text-xl text-amber-400">
+                          LV {5 + index}
+                        </span>
+                      </div>
                     </div>
 
-                    <h3 className="font-display text-lg md:text-xl mb-1 text-amber-400">MAESTRIA</h3>
-                    <p className="text-xs md:text-sm text-foreground mb-1">{level.title}</p>
-                    <p className="text-xs text-muted-foreground italic mb-3 md:mb-4">{level.subtitle}</p>
+                    <h3 className="font-display text-lg md:text-xl mb-0.5 text-amber-400 tracking-tight">{level.title}</h3>
+                    <p className="text-xs md:text-sm text-foreground/80 mb-1">{level.subtitle}</p>
+                    <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground/40 mb-2 mt-3 font-sans">Contenuto</p>
 
                     <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
                       {level.content.map((item, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-muted-foreground">
-                          <span className="w-1 h-1 rounded-full bg-amber-400 mt-1.5 shrink-0" />
+                          <ChevronRight className="h-3 w-3 mt-0.5 shrink-0 text-amber-400/40" />
                           {item}
                         </li>)}
                     </ul>
 
-                    <div className="pt-3 md:pt-4 border-t border-amber-500/30">
+                    <div className="pt-3 md:pt-4 border-t border-amber-500/20">
                       <div className="flex items-start gap-1.5 md:gap-2">
-                        <Gift className="h-3 w-3 md:h-4 md:w-4 text-amber-400 shrink-0 mt-0.5" />
+                        <Gift className="h-3.5 w-3.5 text-amber-400/60 shrink-0 mt-0.5" />
                         <span className="text-xs text-muted-foreground">{level.badge}</span>
                       </div>
                     </div>
@@ -709,19 +758,26 @@ const MetodoEFO = () => {
                 </AnimatedSection>)}
             </div>
 
-            {/* Progress bar */}
+            {/* Segmented Progress bar */}
             <AnimatedSection className="max-w-2xl mx-auto mb-6 md:mb-8" scale>
-              <div className="glass rounded-xl p-4 md:p-6 border border-cyan/20">
-                <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">IL TUO PROGRESSO</p>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="flex-1 h-3 md:h-4 bg-muted/30 rounded-full overflow-hidden">
-                    <div className="h-full w-1/6 bg-gradient-to-r from-cyan to-accent rounded-full" />
-                  </div>
+              <div className="glass rounded-2xl p-4 md:p-6 border border-cyan/15">
+                <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground/50 mb-3 font-sans">Il tuo progresso</p>
+                <div className="flex gap-1 mb-2.5">
+                  {[0,1,2,3,4,5,6].map((seg) => (
+                    <div key={seg} className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-700 ${
+                      seg === 0 
+                        ? "bg-gradient-to-r from-cyan to-accent roadmap-progress-active" 
+                        : "bg-muted/20"
+                    }`} />
+                  ))}
                 </div>
-                <p className="text-xs text-muted-foreground">Livello 0 → Inizia il Viaggio</p>
-                <p className="text-xs text-muted-foreground mt-1.5 md:mt-2">
-                  Ogni settimana che completi, sali di livello. Ogni pratica che esegui, accumuli esperienza. Ogni
-                  insight che integri, sblocchi nuove possibilità.
+                <div className="flex justify-between mb-3">
+                  {["LV0","LV1","LV2","LV3","LV4","M5","M6"].map((lbl, i) => (
+                    <span key={lbl} className={`text-[8px] md:text-[10px] font-sans ${i === 0 ? "text-cyan" : "text-muted-foreground/30"}`}>{lbl}</span>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground/60">
+                  Ogni settimana che completi, sali di livello. Ogni pratica che esegui, accumuli esperienza.
                 </p>
               </div>
             </AnimatedSection>
@@ -729,7 +785,7 @@ const MetodoEFO = () => {
             <AnimatedSection className="text-center" blur scale>
               <p className="font-display text-base md:text-lg text-foreground">
                 Non è un corso. Non è un percorso qualsiasi. È una{" "}
-                <span className="text-cyan">quest di trasformazione esistenziale.</span>
+                <span className="text-gradient">quest di trasformazione esistenziale.</span>
               </p>
             </AnimatedSection>
           </div>
