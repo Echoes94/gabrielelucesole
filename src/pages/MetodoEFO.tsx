@@ -871,7 +871,7 @@ const MetodoEFO = () => {
                         >
                           {/* Header */}
                           <div className="flex items-center gap-3 mb-3">
-                            <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? `text-${colorToken}` : "text-muted-foreground/50"}`}>
+                            <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? (isAmber ? "text-amber" : "text-maestria") : "text-muted-foreground/50"}`}>
                               LV {5 + index}
                             </span>
                             <span className={`px-2 py-0.5 rounded-full border text-[10px] md:text-xs font-medium ${
