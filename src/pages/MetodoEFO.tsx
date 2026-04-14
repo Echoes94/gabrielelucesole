@@ -202,6 +202,17 @@ const testimonials = [{
 const MetodoEFO = () => {
   const [activeLevel, setActiveLevel] = useState(0);
   const totalLevels = roadmapLevels.length + maestriaLevels.length;
+  const levelRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleLevelChange = useCallback((index: number) => {
+    setActiveLevel(index);
+    const el = levelRefs.current[index];
+    if (el) {
+      const offset = 140; // account for sticky progress bar
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  }, []);
   
   return <>
       <Helmet>
