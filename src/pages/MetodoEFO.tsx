@@ -646,29 +646,65 @@ const MetodoEFO = () => {
             {/* Interactive Progress Bar - Sticky */}
             <AnimatedSection className="max-w-3xl mx-auto mb-10 md:mb-14 sticky top-20 md:top-24 z-20" scale>
               <div className="glass rounded-xl p-4 md:p-5 border border-cyan/20">
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-3">
                   <p className="text-xs md:text-sm text-muted-foreground font-medium">IL TUO PROGRESSO</p>
                   <p className="text-xs text-cyan font-medium">
                     LV {activeLevel} / {totalLevels - 1}
                   </p>
                 </div>
-                <div className="flex items-center gap-1.5 md:gap-2 mb-2">
-                  {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveLevel(i)}
-                      className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
-                        i <= activeLevel 
-                          ? i >= roadmapLevels.length 
-                            ? "bg-gradient-to-r from-amber-500 to-amber-400" 
-                            : "bg-gradient-to-r from-cyan to-accent"
-                          : "bg-muted/30 hover:bg-muted/50"
-                      }`}
-                      aria-label={`Vai al livello ${level.level}`}
-                    />
+                
+                {/* Level labels */}
+                <div className="flex items-center gap-1.5 md:gap-2 mb-1.5">
+                  {levelLabels.map((label, i) => (
+                    <div key={i} className="flex-1 text-center">
+                      <span className={`text-[9px] md:text-[10px] font-medium transition-colors duration-300 ${
+                        i === activeLevel 
+                          ? i >= roadmapLevels.length ? "text-amber-400" : "text-cyan"
+                          : i < activeLevel 
+                            ? "text-muted-foreground" 
+                            : "text-muted-foreground/40"
+                      }`}>
+                        {label}
+                      </span>
+                    </div>
                   ))}
                 </div>
-                <p className="text-xs text-muted-foreground">
+                
+                {/* Progress segments */}
+                <div className="flex items-center gap-1.5 md:gap-2 mb-1.5 relative">
+                  {allLevels.map((level, i) => (
+                    <div key={i} className="flex-1 relative group">
+                      <button
+                        onClick={() => handleLevelClick(i)}
+                        className={`w-full h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
+                          i <= activeLevel 
+                            ? i >= roadmapLevels.length 
+                              ? "bg-gradient-to-r from-amber-500 to-amber-400" 
+                              : "bg-gradient-to-r from-cyan to-accent"
+                            : "bg-muted/30 hover:bg-muted/50"
+                        }`}
+                        aria-label={`Vai al livello ${level.level}`}
+                      />
+                      {/* Active indicator dot */}
+                      {i === activeLevel && (
+                        <motion.div
+                          layoutId="activeIndicator"
+                          className={`absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full ${
+                            i >= roadmapLevels.length ? "bg-amber-400" : "bg-cyan"
+                          }`}
+                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        />
+                      )}
+                      {/* Tooltip on hover */}
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 rounded-md bg-card border border-border text-[10px] text-foreground whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-30">
+                        {allLevels[i].title}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Current level description */}
+                <p className="text-xs text-muted-foreground mt-3">
                   {activeLevel === 0 && "Punto di Partenza → Sessione Gratuita"}
                   {activeLevel === 1 && "Fondamenta → Installazione Mindfulness"}
                   {activeLevel === 2 && "Cura → Training Bambino Interiore"}
