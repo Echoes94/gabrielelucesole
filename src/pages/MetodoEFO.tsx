@@ -658,27 +658,37 @@ const MetodoEFO = () => {
                   {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => (
                     <button
                       key={i}
-                      onClick={() => setActiveLevel(i)}
-                      className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
+                      onClick={() => handleLevelChange(i)}
+                      className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer relative group ${
                         i <= activeLevel 
                           ? i >= roadmapLevels.length 
-                            ? "bg-gradient-to-r from-amber-500 to-amber-400" 
-                            : "bg-gradient-to-r from-cyan to-accent"
+                            ? "bg-gradient-to-r from-amber-500 to-amber-400 shadow-[0_0_8px_hsl(38_92%_50%/0.3)]" 
+                            : "bg-gradient-to-r from-cyan to-accent shadow-[0_0_8px_hsl(190_80%_65%/0.2)]"
                           : "bg-muted/30 hover:bg-muted/50"
                       }`}
                       aria-label={`Vai al livello ${level.level}`}
-                    />
+                    >
+                      <span className="absolute -top-7 left-1/2 -translate-x-1/2 text-[10px] font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none text-muted-foreground">
+                        LV {i}
+                      </span>
+                    </button>
                   ))}
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  {activeLevel === 0 && "Punto di Partenza → Sessione Gratuita"}
-                  {activeLevel === 1 && "Fondamenta → Installazione Mindfulness"}
-                  {activeLevel === 2 && "Cura → Training Bambino Interiore"}
-                  {activeLevel === 3 && "Sovranità → Training Personalità Adulta"}
-                  {activeLevel === 4 && "Visione → Apertura al Futuro"}
-                  {activeLevel === 5 && "Maestria → Presenza Radicale"}
-                  {activeLevel === 6 && "Maestria → Attrazione Consapevole"}
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-muted-foreground">
+                    {activeLevel === 0 && "Punto di Partenza → Sessione Gratuita"}
+                    {activeLevel === 1 && "Fondamenta → Installazione Mindfulness"}
+                    {activeLevel === 2 && "Cura → Training Bambino Interiore"}
+                    {activeLevel === 3 && "Sovranità → Training Personalità Adulta"}
+                    {activeLevel === 4 && "Visione → Apertura al Futuro"}
+                    {activeLevel === 5 && "Maestria → Presenza Radicale"}
+                    {activeLevel === 6 && "Maestria → Attrazione Consapevole"}
+                  </p>
+                  <div className="flex items-center gap-1.5">
+                    <div className={`w-2 h-2 rounded-full ${activeLevel > 0 ? "bg-cyan animate-pulse" : "bg-muted/50"}`} />
+                    <span className="text-[10px] text-muted-foreground">{Math.round(((activeLevel + 1) / totalLevels) * 100)}%</span>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
 
