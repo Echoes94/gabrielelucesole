@@ -811,7 +811,6 @@ const MetodoEFO = () => {
 
               {/* Maestria Divider */}
               <AnimatedSection className="relative my-10 md:my-16" blur>
-                </div>
                 <div className="ml-16 md:ml-0 md:text-center">
                   <p className="font-display text-lg md:text-xl text-amber-400">LIVELLI MAESTRIA</p>
                   <p className="text-xs text-muted-foreground mt-1">Trasformazione avanzata</p>
