@@ -833,14 +833,14 @@ const MetodoEFO = () => {
                         <div
                           className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 cursor-pointer ${
                             isActive
-                              ? "bg-amber-500 border-amber-400 scale-110 shadow-[0_0_20px_hsl(38_92%_50%/0.4)]"
+                              ? "bg-maestria border-maestria-light scale-110 shadow-[0_0_20px_hsl(270_60%_58%/0.4)]"
                               : isPast
-                              ? "bg-amber-500/20 border-amber-500/50"
+                              ? "bg-maestria/20 border-maestria/50"
                               : "bg-card border-border"
                           }`}
                         >
                           <Sparkles className={`h-3.5 w-3.5 md:h-4 md:w-4 ${
-                            isActive ? "text-background" : isPast ? "text-amber-400" : "text-muted-foreground"
+                            isActive ? "text-background" : isPast ? "text-maestria" : "text-muted-foreground"
                           }`} />
                         </div>
                       </div>
@@ -850,38 +850,38 @@ const MetodoEFO = () => {
                         <div
                           className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
                             isActive
-                              ? "bg-gradient-to-br from-amber-950/40 to-card border border-amber-500/50 shadow-[0_0_30px_hsl(38_92%_50%/0.1)]"
+                              ? "bg-gradient-to-br from-maestria-deep to-card border border-maestria/50 shadow-[0_0_30px_hsl(270_60%_58%/0.12)]"
                               : isPast
-                              ? "bg-gradient-to-br from-amber-950/20 to-card border border-amber-500/20 opacity-80"
-                              : "bg-gradient-to-br from-amber-950/10 to-card/40 border border-border/30"
+                              ? "bg-gradient-to-br from-maestria-deep/60 to-card border border-maestria/20 opacity-80"
+                              : "bg-gradient-to-br from-maestria-deep/30 to-card/40 border border-border/30"
                           }`}
                         >
                           {/* Header */}
                           <div className="flex items-center gap-3 mb-3">
-                            <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? "text-amber-400" : "text-muted-foreground/50"}`}>
+                            <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? "text-maestria" : "text-muted-foreground/50"}`}>
                               LV {5 + index}
                             </span>
-                            <span className="px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] md:text-xs text-amber-400 font-medium">
+                            <span className="px-2 py-0.5 rounded-full bg-maestria/10 border border-maestria/20 text-[10px] md:text-xs text-maestria-light font-medium">
                               {level.dimension}
                             </span>
                           </div>
 
-                          <h3 className="font-display text-lg md:text-xl mb-1 text-amber-400">MAESTRIA</h3>
+                          <h3 className="font-display text-lg md:text-xl mb-1 text-maestria-light">MAESTRIA</h3>
                           <p className="text-xs md:text-sm text-foreground mb-1">{level.title}</p>
                           <p className="text-xs text-muted-foreground italic mb-4">{level.subtitle}</p>
 
                           <ul className="space-y-2 mb-4">
                             {level.content.map((item, i) => (
                               <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
-                                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-maestria mt-1.5 shrink-0" />
                                 {item}
                               </li>
                             ))}
                           </ul>
 
-                          <div className="pt-4 border-t border-amber-500/30">
+                          <div className="pt-4 border-t border-maestria/30">
                             <div className="flex items-start gap-2">
-                              <Gift className="h-3.5 w-3.5 md:h-4 md:w-4 text-amber-400 shrink-0 mt-0.5" />
+                              <Gift className="h-3.5 w-3.5 md:h-4 md:w-4 text-maestria shrink-0 mt-0.5" />
                               <span className="text-xs text-muted-foreground">{level.badge}</span>
                             </div>
                           </div>
