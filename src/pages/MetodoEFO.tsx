@@ -766,8 +766,8 @@ const MetodoEFO = () => {
                                 </span>
                               )}
                             </div>
-                            <span className="font-sans text-[11px] md:text-xs tracking-wide text-cyan/50 uppercase">
-                              📅 {level.week}
+                            <span className="font-sans text-[11px] md:text-xs tracking-wide uppercase text-muted-foreground">
+                              {level.week}
                             </span>
                           </div>
 
