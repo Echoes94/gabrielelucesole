@@ -811,10 +811,6 @@ const MetodoEFO = () => {
 
               {/* Maestria Divider */}
               <AnimatedSection className="relative my-10 md:my-16" blur>
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-maestria/20 border-2 border-maestria/50 flex items-center justify-center">
-                    <Sparkles className="h-5 w-5 md:h-6 md:w-6 text-maestria" />
-                  </div>
                 </div>
                 <div className="ml-16 md:ml-0 md:text-center">
                   <p className="font-display text-lg md:text-xl text-amber-400">LIVELLI MAESTRIA</p>
