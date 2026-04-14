@@ -640,12 +640,13 @@ const MetodoEFO = () => {
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs md:text-sm text-muted-foreground font-medium">IL TUO PROGRESSO</p>
                   <p className="text-xs font-medium">
-                    <span className={activeLevel >= roadmapLevels.length ? "text-maestria" : "text-cyan"}>LV {activeLevel}</span>
+                    <span className={activeLevel >= roadmapLevels.length + 1 ? "text-amber" : activeLevel >= roadmapLevels.length ? "text-maestria" : "text-cyan"}>LV {activeLevel}</span>
                     <span className="text-muted-foreground"> / {totalLevels - 1}</span>
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5 md:gap-2 mb-2">
                   {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => {
+                    const isLv6 = i === roadmapLevels.length + 1;
                     const isMaestria = i >= roadmapLevels.length;
                     return (
                       <button
@@ -653,12 +654,15 @@ const MetodoEFO = () => {
                         onClick={() => setActiveLevel(i)}
                         className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
                           i <= activeLevel
-                            ? isMaestria
+                            ? isLv6
+                              ? "bg-gradient-to-r from-amber to-amber-light"
+                              : isMaestria
                               ? "bg-gradient-to-r from-maestria to-maestria-light"
                               : "bg-gradient-to-r from-cyan to-accent"
                             : "bg-muted/30 hover:bg-muted/50"
                         }`}
                         aria-label={`Vai al livello ${level.level}`}
+                      />
                       />
                     );
                   })}
