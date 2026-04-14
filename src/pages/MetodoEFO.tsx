@@ -200,6 +200,9 @@ const testimonials = [{
   videoId: null
 }];
 const MetodoEFO = () => {
+  const [activeLevel, setActiveLevel] = useState(0);
+  const totalLevels = roadmapLevels.length + maestriaLevels.length;
+  
   return <>
       <Helmet>
         <title>Metodo EFO® | Essere Felici Ora - Gabriele Lucesole</title>
