@@ -202,6 +202,15 @@ const testimonials = [{
 const MetodoEFO = () => {
   const [activeLevel, setActiveLevel] = useState(0);
   const totalLevels = roadmapLevels.length + maestriaLevels.length;
+  const levelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
+  const allLevels = [...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))];
+  const levelLabels = ["Start", "LV 1", "LV 2", "LV 3", "LV 4", "LV 5", "LV 6"];
+  
+  const handleLevelClick = useCallback((index: number) => {
+    setActiveLevel(index);
+    levelRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, []);
   
   return <>
       <Helmet>
