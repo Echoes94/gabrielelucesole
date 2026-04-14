@@ -61,6 +61,11 @@ export default {
           light: "hsl(var(--maestria-light))",
           deep: "hsl(var(--maestria-deep))",
         },
+        amber: {
+          DEFAULT: "hsl(var(--amber))",
+          light: "hsl(var(--amber-light))",
+          deep: "hsl(var(--amber-deep))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

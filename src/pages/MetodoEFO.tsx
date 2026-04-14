@@ -640,12 +640,13 @@ const MetodoEFO = () => {
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs md:text-sm text-muted-foreground font-medium">IL TUO PROGRESSO</p>
                   <p className="text-xs font-medium">
-                    <span className={activeLevel >= roadmapLevels.length ? "text-maestria" : "text-cyan"}>LV {activeLevel}</span>
+                    <span className={activeLevel >= roadmapLevels.length + 1 ? "text-amber" : activeLevel >= roadmapLevels.length ? "text-maestria" : "text-cyan"}>LV {activeLevel}</span>
                     <span className="text-muted-foreground"> / {totalLevels - 1}</span>
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5 md:gap-2 mb-2">
                   {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => {
+                    const isLv6 = i === roadmapLevels.length + 1;
                     const isMaestria = i >= roadmapLevels.length;
                     return (
                       <button
@@ -653,7 +654,9 @@ const MetodoEFO = () => {
                         onClick={() => setActiveLevel(i)}
                         className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
                           i <= activeLevel
-                            ? isMaestria
+                            ? isLv6
+                              ? "bg-gradient-to-r from-amber to-amber-light"
+                              : isMaestria
                               ? "bg-gradient-to-r from-maestria to-maestria-light"
                               : "bg-gradient-to-r from-cyan to-accent"
                             : "bg-muted/30 hover:bg-muted/50"
@@ -810,6 +813,23 @@ const MetodoEFO = () => {
                 const isActive = globalIndex === activeLevel;
                 const isPast = globalIndex < activeLevel;
                 const isRight = globalIndex % 2 === 0;
+                const isAmber = index === 1; // LV 6 = amber
+                
+                const activeNodeClass = isAmber
+                  ? "bg-amber border-amber-light scale-110 shadow-[0_0_20px_hsl(38_92%_50%/0.4)]"
+                  : "bg-maestria border-maestria-light scale-110 shadow-[0_0_20px_hsl(270_60%_58%/0.4)]";
+                const pastNodeClass = isAmber
+                  ? "bg-amber/20 border-amber/50"
+                  : "bg-maestria/20 border-maestria/50";
+                const activeCardClass = isAmber
+                  ? "bg-gradient-to-br from-amber-deep to-card border border-amber/50 shadow-[0_0_30px_hsl(38_92%_50%/0.12)]"
+                  : "bg-gradient-to-br from-maestria-deep to-card border border-maestria/50 shadow-[0_0_30px_hsl(270_60%_58%/0.12)]";
+                const pastCardClass = isAmber
+                  ? "bg-gradient-to-br from-amber-deep/60 to-card border border-amber/20 opacity-80"
+                  : "bg-gradient-to-br from-maestria-deep/60 to-card border border-maestria/20 opacity-80";
+                const lockedCardClass = isAmber
+                  ? "bg-gradient-to-br from-amber-deep/30 to-card/40 border border-border/30"
+                  : "bg-gradient-to-br from-maestria-deep/30 to-card/40 border border-border/30";
 
                 return (
                   <AnimatedSection
@@ -832,15 +852,11 @@ const MetodoEFO = () => {
                       <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
                         <div
                           className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 cursor-pointer ${
-                            isActive
-                              ? "bg-maestria border-maestria-light scale-110 shadow-[0_0_20px_hsl(270_60%_58%/0.4)]"
-                              : isPast
-                              ? "bg-maestria/20 border-maestria/50"
-                              : "bg-card border-border"
+                            isActive ? activeNodeClass : isPast ? pastNodeClass : "bg-card border-border"
                           }`}
                         >
                           <Sparkles className={`h-3.5 w-3.5 md:h-4 md:w-4 ${
-                            isActive ? "text-background" : isPast ? "text-maestria" : "text-muted-foreground"
+                            isActive ? "text-background" : isPast ? (isAmber ? "text-amber" : "text-maestria") : "text-muted-foreground"
                           }`} />
                         </div>
                       </div>
@@ -849,39 +865,39 @@ const MetodoEFO = () => {
                       <div className={`ml-12 md:ml-0 flex-1 ${isRight ? "md:pr-12 md:mr-[50%]" : "md:pl-12 md:ml-[50%]"}`}>
                         <div
                           className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
-                            isActive
-                              ? "bg-gradient-to-br from-maestria-deep to-card border border-maestria/50 shadow-[0_0_30px_hsl(270_60%_58%/0.12)]"
-                              : isPast
-                              ? "bg-gradient-to-br from-maestria-deep/60 to-card border border-maestria/20 opacity-80"
-                              : "bg-gradient-to-br from-maestria-deep/30 to-card/40 border border-border/30"
+                            isActive ? activeCardClass : isPast ? pastCardClass : lockedCardClass
                           }`}
                         >
                           {/* Header */}
                           <div className="flex items-center gap-3 mb-3">
-                            <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? "text-maestria" : "text-muted-foreground/50"}`}>
+                            <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? (isAmber ? "text-amber" : "text-maestria") : "text-muted-foreground/50"}`}>
                               LV {5 + index}
                             </span>
-                            <span className="px-2 py-0.5 rounded-full bg-maestria/10 border border-maestria/20 text-[10px] md:text-xs text-maestria-light font-medium">
+                            <span className={`px-2 py-0.5 rounded-full border text-[10px] md:text-xs font-medium ${
+                              isAmber 
+                                ? "bg-amber/10 border-amber/20 text-amber-light" 
+                                : "bg-maestria/10 border-maestria/20 text-maestria-light"
+                            }`}>
                               {level.dimension}
                             </span>
                           </div>
 
-                          <h3 className="font-display text-lg md:text-xl mb-1 text-maestria-light">MAESTRIA</h3>
+                          <h3 className={`font-display text-lg md:text-xl mb-1 ${isAmber ? "text-amber-light" : "text-maestria-light"}`}>MAESTRIA</h3>
                           <p className="text-xs md:text-sm text-foreground mb-1">{level.title}</p>
                           <p className="text-xs text-muted-foreground italic mb-4">{level.subtitle}</p>
 
                           <ul className="space-y-2 mb-4">
                             {level.content.map((item, i) => (
                               <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
-                                <span className="w-1.5 h-1.5 rounded-full bg-maestria mt-1.5 shrink-0" />
+                                <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isAmber ? "bg-amber" : "bg-maestria"}`} />
                                 {item}
                               </li>
                             ))}
                           </ul>
 
-                          <div className="pt-4 border-t border-maestria/30">
+                          <div className={`pt-4 border-t ${isAmber ? "border-amber/30" : "border-maestria/30"}`}>
                             <div className="flex items-start gap-2">
-                              <Gift className="h-3.5 w-3.5 md:h-4 md:w-4 text-maestria shrink-0 mt-0.5" />
+                              <Gift className={`h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 mt-0.5 ${isAmber ? "text-amber" : "text-maestria"}`} />
                               <span className="text-xs text-muted-foreground">{level.badge}</span>
                             </div>
                           </div>
