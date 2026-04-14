@@ -802,7 +802,7 @@ const MetodoEFO = () => {
                       </div>
                     </div>
                   </AnimatedSection>
-                );
+                  </div>
               })}
 
               {/* Maestria Divider */}
