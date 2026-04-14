@@ -755,7 +755,7 @@ const MetodoEFO = () => {
                           }`}
                         >
                           {/* Header */}
-                          <div className="flex items-center justify-between mb-3">
+                          <div className="mb-3 space-y-2">
                             <div className="flex items-center gap-3">
                               <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? "text-cyan" : "text-muted-foreground/50"}`}>
                                 LV {level.level}
@@ -766,7 +766,9 @@ const MetodoEFO = () => {
                                 </span>
                               )}
                             </div>
-                            <span className="text-xs text-muted-foreground">{level.week}</span>
+                            <span className="font-sans text-[11px] md:text-xs tracking-wide text-cyan/50 uppercase">
+                              📅 {level.week}
+                            </span>
                           </div>
 
                           <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
