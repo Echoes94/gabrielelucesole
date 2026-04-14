@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useCallback, useRef } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -202,6 +202,18 @@ const testimonials = [{
 const MetodoEFO = () => {
   const [activeLevel, setActiveLevel] = useState(0);
   const totalLevels = roadmapLevels.length + maestriaLevels.length;
+  const levelRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const scrollToLevel = useCallback((index: number) => {
+    setActiveLevel(index);
+    // Small delay to let state update and animations start
+    setTimeout(() => {
+      const el = levelRefs.current[index];
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 100);
+  }, []);
   
   return <>
       <Helmet>
@@ -651,7 +663,7 @@ const MetodoEFO = () => {
                     return (
                       <button
                         key={i}
-                        onClick={() => setActiveLevel(i)}
+                        onClick={() => scrollToLevel(i)}
                         className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
                           i <= activeLevel
                             ? isLv6
@@ -696,8 +708,8 @@ const MetodoEFO = () => {
                 const isRight = index % 2 === 0;
 
                 return (
+                  <div key={index} ref={(el) => { levelRefs.current[index] = el; }}>
                   <AnimatedSection
-                    key={index}
                     delay={index * 0.1}
                     direction={isRight ? "right" : "left"}
                     className="relative mb-8 md:mb-12"
@@ -706,10 +718,10 @@ const MetodoEFO = () => {
                       className={`flex items-start gap-4 md:gap-0 ${
                         isRight ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
-                      onClick={() => setActiveLevel(index)}
+                      onClick={() => scrollToLevel(index)}
                       role="button"
                       tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && setActiveLevel(index)}
+                      onKeyDown={(e) => e.key === "Enter" && scrollToLevel(index)}
                       aria-label={`Livello ${level.level}: ${level.title}`}
                     >
                       {/* Timeline node */}
@@ -791,6 +803,7 @@ const MetodoEFO = () => {
                       </div>
                     </div>
                   </AnimatedSection>
+                  </div>
                 );
               })}
 
@@ -832,8 +845,8 @@ const MetodoEFO = () => {
                   : "bg-gradient-to-br from-maestria-deep/30 to-card/40 border border-border/30";
 
                 return (
+                  <div key={`maestria-${index}`} ref={(el) => { levelRefs.current[globalIndex] = el; }}>
                   <AnimatedSection
-                    key={`maestria-${index}`}
                     delay={globalIndex * 0.1}
                     direction={isRight ? "right" : "left"}
                     className="relative mb-8 md:mb-12"
@@ -842,10 +855,10 @@ const MetodoEFO = () => {
                       className={`flex items-start gap-4 md:gap-0 ${
                         isRight ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
-                      onClick={() => setActiveLevel(globalIndex)}
+                      onClick={() => scrollToLevel(globalIndex)}
                       role="button"
                       tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && setActiveLevel(globalIndex)}
+                      onKeyDown={(e) => e.key === "Enter" && scrollToLevel(globalIndex)}
                       aria-label={`Livello Maestria ${5 + index}: ${level.title}`}
                     >
                       {/* Timeline node */}
@@ -905,6 +918,7 @@ const MetodoEFO = () => {
                       </div>
                     </div>
                   </AnimatedSection>
+                  </div>
                 );
               })}
             </div>
