@@ -202,6 +202,18 @@ const testimonials = [{
 const MetodoEFO = () => {
   const [activeLevel, setActiveLevel] = useState(0);
   const totalLevels = roadmapLevels.length + maestriaLevels.length;
+  const levelRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const scrollToLevel = useCallback((index: number) => {
+    setActiveLevel(index);
+    // Small delay to let state update and animations start
+    setTimeout(() => {
+      const el = levelRefs.current[index];
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 100);
+  }, []);
   
   return <>
       <Helmet>
