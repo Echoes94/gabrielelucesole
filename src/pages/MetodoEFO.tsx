@@ -721,7 +721,7 @@ const MetodoEFO = () => {
                       onClick={() => scrollToLevel(index)}
                       role="button"
                       tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && setActiveLevel(index)}
+                      onKeyDown={(e) => e.key === "Enter" && scrollToLevel(index)}
                       aria-label={`Livello ${level.level}: ${level.title}`}
                     >
                       {/* Timeline node */}
@@ -858,7 +858,7 @@ const MetodoEFO = () => {
                       onClick={() => scrollToLevel(globalIndex)}
                       role="button"
                       tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && setActiveLevel(globalIndex)}
+                      onKeyDown={(e) => e.key === "Enter" && scrollToLevel(globalIndex)}
                       aria-label={`Livello Maestria ${5 + index}: ${level.title}`}
                     >
                       {/* Timeline node */}
