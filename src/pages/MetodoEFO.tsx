@@ -857,7 +857,7 @@ const MetodoEFO = () => {
                           }`}
                         >
                           <Sparkles className={`h-3.5 w-3.5 md:h-4 md:w-4 ${
-                            isActive ? "text-background" : isPast ? `text-${colorToken}` : "text-muted-foreground"
+                            isActive ? "text-background" : isPast ? (isAmber ? "text-amber" : "text-maestria") : "text-muted-foreground"
                           }`} />
                         </div>
                       </div>
