@@ -845,8 +845,8 @@ const MetodoEFO = () => {
                   : "bg-gradient-to-br from-maestria-deep/30 to-card/40 border border-border/30";
 
                 return (
+                  <div key={`maestria-${index}`} ref={(el) => { levelRefs.current[globalIndex] = el; }}>
                   <AnimatedSection
-                    key={`maestria-${index}`}
                     delay={globalIndex * 0.1}
                     direction={isRight ? "right" : "left"}
                     className="relative mb-8 md:mb-12"
@@ -918,6 +918,7 @@ const MetodoEFO = () => {
                       </div>
                     </div>
                   </AnimatedSection>
+                  </div>
                 );
               })}
             </div>
