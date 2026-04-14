@@ -663,7 +663,7 @@ const MetodoEFO = () => {
                     return (
                       <button
                         key={i}
-                        onClick={() => setActiveLevel(i)}
+                        onClick={() => scrollToLevel(i)}
                         className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
                           i <= activeLevel
                             ? isLv6
@@ -718,7 +718,7 @@ const MetodoEFO = () => {
                       className={`flex items-start gap-4 md:gap-0 ${
                         isRight ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
-                      onClick={() => setActiveLevel(index)}
+                      onClick={() => scrollToLevel(index)}
                       role="button"
                       tabIndex={0}
                       onKeyDown={(e) => e.key === "Enter" && setActiveLevel(index)}
@@ -854,7 +854,7 @@ const MetodoEFO = () => {
                       className={`flex items-start gap-4 md:gap-0 ${
                         isRight ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
-                      onClick={() => setActiveLevel(globalIndex)}
+                      onClick={() => scrollToLevel(globalIndex)}
                       role="button"
                       tabIndex={0}
                       onKeyDown={(e) => e.key === "Enter" && setActiveLevel(globalIndex)}
