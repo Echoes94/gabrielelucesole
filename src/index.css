@@ -37,6 +37,11 @@
     --maestria-light: 275 55% 72%;
     --maestria-deep: 268 65% 20%;
 
+    /* Amber/Gold for LV6 */
+    --amber: 38 92% 50%;
+    --amber-light: 45 93% 67%;
+    --amber-deep: 30 80% 18%;
+
     --muted: 250 20% 15%;
     /* Improved contrast for muted text - WCAG AA compliant (4.5:1 minimum) */
     --muted-foreground: 220 15% 65%;
