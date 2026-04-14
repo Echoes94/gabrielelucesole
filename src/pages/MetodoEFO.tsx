@@ -833,8 +833,11 @@ const MetodoEFO = () => {
                 const isRight = globalIndex % 2 === 0;
 
                 return (
-                  <AnimatedSection
+                  <div
+                    ref={(el) => { levelRefs.current[globalIndex] = el; }}
                     key={`maestria-${index}`}
+                  >
+                  <AnimatedSection
                     delay={globalIndex * 0.1}
                     direction={isRight ? "right" : "left"}
                     className="relative mb-8 md:mb-12"
@@ -843,10 +846,10 @@ const MetodoEFO = () => {
                       className={`flex items-start gap-4 md:gap-0 ${
                         isRight ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
-                      onClick={() => setActiveLevel(globalIndex)}
+                      onClick={() => handleLevelChange(globalIndex)}
                       role="button"
                       tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && setActiveLevel(globalIndex)}
+                      onKeyDown={(e) => e.key === "Enter" && handleLevelChange(globalIndex)}
                       aria-label={`Livello Maestria ${5 + index}: ${level.title}`}
                     >
                       {/* Timeline node */}
