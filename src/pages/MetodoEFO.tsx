@@ -795,7 +795,7 @@ const MetodoEFO = () => {
                                 <span className="text-xs text-emerald-400">💪🏻 "{level.skill}"</span>
                               )}
                               {level.achievement && (
-                                <span className="text-xs text-maestria-light">🎖️ "{level.achievement}"</span>
+                                <span className="text-xs text-amber-400">🎖️ "{level.achievement}"</span>
                               )}
                             </div>
                           </div>
