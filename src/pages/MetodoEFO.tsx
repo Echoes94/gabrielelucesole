@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -202,6 +202,17 @@ const testimonials = [{
 const MetodoEFO = () => {
   const [activeLevel, setActiveLevel] = useState(0);
   const totalLevels = roadmapLevels.length + maestriaLevels.length;
+  const levelRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleLevelChange = useCallback((index: number) => {
+    setActiveLevel(index);
+    const el = levelRefs.current[index];
+    if (el) {
+      const offset = 140; // account for sticky progress bar
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  }, []);
   
   return <>
       <Helmet>
@@ -647,27 +658,37 @@ const MetodoEFO = () => {
                   {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => (
                     <button
                       key={i}
-                      onClick={() => setActiveLevel(i)}
-                      className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
+                      onClick={() => handleLevelChange(i)}
+                      className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer relative group ${
                         i <= activeLevel 
                           ? i >= roadmapLevels.length 
-                            ? "bg-gradient-to-r from-amber-500 to-amber-400" 
-                            : "bg-gradient-to-r from-cyan to-accent"
+                            ? "bg-gradient-to-r from-amber-500 to-amber-400 shadow-[0_0_8px_hsl(38_92%_50%/0.3)]" 
+                            : "bg-gradient-to-r from-cyan to-accent shadow-[0_0_8px_hsl(190_80%_65%/0.2)]"
                           : "bg-muted/30 hover:bg-muted/50"
                       }`}
                       aria-label={`Vai al livello ${level.level}`}
-                    />
+                    >
+                      <span className="absolute -top-7 left-1/2 -translate-x-1/2 text-[10px] font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none text-muted-foreground">
+                        LV {i}
+                      </span>
+                    </button>
                   ))}
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  {activeLevel === 0 && "Punto di Partenza → Sessione Gratuita"}
-                  {activeLevel === 1 && "Fondamenta → Installazione Mindfulness"}
-                  {activeLevel === 2 && "Cura → Training Bambino Interiore"}
-                  {activeLevel === 3 && "Sovranità → Training Personalità Adulta"}
-                  {activeLevel === 4 && "Visione → Apertura al Futuro"}
-                  {activeLevel === 5 && "Maestria → Presenza Radicale"}
-                  {activeLevel === 6 && "Maestria → Attrazione Consapevole"}
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-muted-foreground">
+                    {activeLevel === 0 && "Punto di Partenza → Sessione Gratuita"}
+                    {activeLevel === 1 && "Fondamenta → Installazione Mindfulness"}
+                    {activeLevel === 2 && "Cura → Training Bambino Interiore"}
+                    {activeLevel === 3 && "Sovranità → Training Personalità Adulta"}
+                    {activeLevel === 4 && "Visione → Apertura al Futuro"}
+                    {activeLevel === 5 && "Maestria → Presenza Radicale"}
+                    {activeLevel === 6 && "Maestria → Attrazione Consapevole"}
+                  </p>
+                  <div className="flex items-center gap-1.5">
+                    <div className={`w-2 h-2 rounded-full ${activeLevel > 0 ? "bg-cyan animate-pulse" : "bg-muted/50"}`} />
+                    <span className="text-[10px] text-muted-foreground">{Math.round(((activeLevel + 1) / totalLevels) * 100)}%</span>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
 
@@ -689,8 +710,11 @@ const MetodoEFO = () => {
                 const isRight = index % 2 === 0;
 
                 return (
-                  <AnimatedSection
+                  <div
+                    ref={(el) => { levelRefs.current[index] = el; }}
                     key={index}
+                  >
+                  <AnimatedSection
                     delay={index * 0.1}
                     direction={isRight ? "right" : "left"}
                     className="relative mb-8 md:mb-12"
@@ -699,10 +723,10 @@ const MetodoEFO = () => {
                       className={`flex items-start gap-4 md:gap-0 ${
                         isRight ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
-                      onClick={() => setActiveLevel(index)}
+                      onClick={() => handleLevelChange(index)}
                       role="button"
                       tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && setActiveLevel(index)}
+                      onKeyDown={(e) => e.key === "Enter" && handleLevelChange(index)}
                       aria-label={`Livello ${level.level}: ${level.title}`}
                     >
                       {/* Timeline node */}
@@ -784,6 +808,7 @@ const MetodoEFO = () => {
                       </div>
                     </div>
                   </AnimatedSection>
+                  </div>
                 );
               })}
 
@@ -808,8 +833,11 @@ const MetodoEFO = () => {
                 const isRight = globalIndex % 2 === 0;
 
                 return (
-                  <AnimatedSection
+                  <div
+                    ref={(el) => { levelRefs.current[globalIndex] = el; }}
                     key={`maestria-${index}`}
+                  >
+                  <AnimatedSection
                     delay={globalIndex * 0.1}
                     direction={isRight ? "right" : "left"}
                     className="relative mb-8 md:mb-12"
@@ -818,10 +846,10 @@ const MetodoEFO = () => {
                       className={`flex items-start gap-4 md:gap-0 ${
                         isRight ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
-                      onClick={() => setActiveLevel(globalIndex)}
+                      onClick={() => handleLevelChange(globalIndex)}
                       role="button"
                       tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && setActiveLevel(globalIndex)}
+                      onKeyDown={(e) => e.key === "Enter" && handleLevelChange(globalIndex)}
                       aria-label={`Livello Maestria ${5 + index}: ${level.title}`}
                     >
                       {/* Timeline node */}
@@ -885,6 +913,7 @@ const MetodoEFO = () => {
                       </div>
                     </div>
                   </AnimatedSection>
+                  </div>
                 );
               })}
             </div>
