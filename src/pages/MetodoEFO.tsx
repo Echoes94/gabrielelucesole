@@ -663,7 +663,6 @@ const MetodoEFO = () => {
                         }`}
                         aria-label={`Vai al livello ${level.level}`}
                       />
-                      />
                     );
                   })}
                 </div>
