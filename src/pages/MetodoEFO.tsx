@@ -815,7 +815,6 @@ const MetodoEFO = () => {
                 const isRight = globalIndex % 2 === 0;
                 const isAmber = index === 1; // LV 6 = amber
                 
-                const colorToken = isAmber ? "amber" : "maestria";
                 const activeNodeClass = isAmber
                   ? "bg-amber border-amber-light scale-110 shadow-[0_0_20px_hsl(38_92%_50%/0.4)]"
                   : "bg-maestria border-maestria-light scale-110 shadow-[0_0_20px_hsl(270_60%_58%/0.4)]";
