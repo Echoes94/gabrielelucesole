@@ -815,7 +815,7 @@ const MetodoEFO = () => {
                   </div>
                 </div>
                 <div className="ml-16 md:ml-0 md:text-center">
-                  <p className="font-display text-lg md:text-xl text-maestria">LIVELLI MAESTRIA</p>
+                  <p className="font-display text-lg md:text-xl text-amber-400">LIVELLI MAESTRIA</p>
                   <p className="text-xs text-muted-foreground mt-1">Trasformazione avanzata</p>
                 </div>
               </AnimatedSection>
