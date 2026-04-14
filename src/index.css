@@ -32,6 +32,11 @@
     --cyan: 190 85% 55%;
     --cyan-light: 185 80% 75%;
 
+    /* Regal purple for Maestria */
+    --maestria: 270 60% 58%;
+    --maestria-light: 275 55% 72%;
+    --maestria-deep: 268 65% 20%;
+
     --muted: 250 20% 15%;
     /* Improved contrast for muted text - WCAG AA compliant (4.5:1 minimum) */
     --muted-foreground: 220 15% 65%;
