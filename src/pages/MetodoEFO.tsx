@@ -707,6 +707,7 @@ const MetodoEFO = () => {
                 const isPast = index < activeLevel;
                 const isRight = index % 2 === 0;
 
+                return (
                   <div key={index} ref={(el) => { levelRefs.current[index] = el; }}>
                   <AnimatedSection
                     delay={index * 0.1}
