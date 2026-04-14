@@ -639,25 +639,29 @@ const MetodoEFO = () => {
               <div className="glass rounded-xl p-4 md:p-5 border border-cyan/20">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs md:text-sm text-muted-foreground font-medium">IL TUO PROGRESSO</p>
-                  <p className="text-xs text-cyan font-medium">
-                    LV {activeLevel} / {totalLevels - 1}
+                  <p className="text-xs font-medium">
+                    <span className={activeLevel >= roadmapLevels.length ? "text-maestria" : "text-cyan"}>LV {activeLevel}</span>
+                    <span className="text-muted-foreground"> / {totalLevels - 1}</span>
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5 md:gap-2 mb-2">
-                  {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveLevel(i)}
-                      className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
-                        i <= activeLevel 
-                          ? i >= roadmapLevels.length 
-                            ? "bg-gradient-to-r from-amber-500 to-amber-400" 
-                            : "bg-gradient-to-r from-cyan to-accent"
-                          : "bg-muted/30 hover:bg-muted/50"
-                      }`}
-                      aria-label={`Vai al livello ${level.level}`}
-                    />
-                  ))}
+                  {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => {
+                    const isMaestria = i >= roadmapLevels.length;
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => setActiveLevel(i)}
+                        className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
+                          i <= activeLevel
+                            ? isMaestria
+                              ? "bg-gradient-to-r from-maestria to-maestria-light"
+                              : "bg-gradient-to-r from-cyan to-accent"
+                            : "bg-muted/30 hover:bg-muted/50"
+                        }`}
+                        aria-label={`Vai al livello ${level.level}`}
+                      />
+                    );
+                  })}
                 </div>
                 <p className="text-xs text-muted-foreground">
                   {activeLevel === 0 && "Punto di Partenza → Sessione Gratuita"}
