@@ -707,9 +707,8 @@ const MetodoEFO = () => {
                 const isPast = index < activeLevel;
                 const isRight = index % 2 === 0;
 
-                return (
+                  <div key={index} ref={(el) => { levelRefs.current[index] = el; }}>
                   <AnimatedSection
-                    key={index}
                     delay={index * 0.1}
                     direction={isRight ? "right" : "left"}
                     className="relative mb-8 md:mb-12"
