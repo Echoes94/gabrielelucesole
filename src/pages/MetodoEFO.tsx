@@ -226,32 +226,32 @@ const MetodoEFO = () => {
         {/* Hero - No lazy load, critical content */}
         <section className="relative min-h-[100svh] flex items-center justify-center section-padding bg-gradient-hero overflow-hidden" aria-labelledby="metodo-efo-heading">
           <div className="absolute inset-0" aria-hidden="true">
-            <div className="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
+            <div className="absolute top-1/4 -left-20 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 -right-20 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
 
           <div className="container-narrow relative z-10 text-center w-full">
             <AnimatedSectionLite blur>
-              <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
+              <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-4 sm:mb-5 md:mb-6">
                 METODO EFO®
               </span>
 
-              <h1 id="metodo-efo-heading" className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6">
+              <h1 id="metodo-efo-heading" className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 md:mb-6">
                 Hai Fatto Tutto.
                 <br />
                 <span className="text-gradient">Ma Manca Ancora Qualcosa.</span>
               </h1>
 
-              <p className="font-serif text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-3 leading-relaxed">
+              <p className="font-serif text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-2 sm:mb-3 leading-relaxed">
                 Forse hai successo sulla carta, ma senti un vuoto che non riesci a colmare. La carriera avanza. Il conto
                 in banca cresce. Ma la sensazione di vivere davvero... quella no.
               </p>
 
-              <p className="font-serif text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-3">
+              <p className="font-serif text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-2 sm:mb-3">
                 Tra scadenze e meeting, ti stai perdendo per strada.
               </p>
 
-              <p className="font-serif text-sm md:text-base text-foreground max-w-2xl mx-auto mb-6 md:mb-8">
+              <p className="font-serif text-xs sm:text-sm md:text-base text-foreground max-w-2xl mx-auto mb-5 sm:mb-6 md:mb-8">
                 Il Metodo EFO® non ti promette "work-life balance" con frasi fatte. Ti offre un{" "}
                 <span className="text-cyan">sistema integrato per ritrovare te stesso</span> — senza sacrificare il
                 successo.
@@ -264,7 +264,7 @@ const MetodoEFO = () => {
                 </a>
               </Button>
 
-              <p className="text-cyan mt-6 md:mt-8 flex items-center justify-center gap-2" aria-hidden="true">
+              <p className="text-cyan mt-5 sm:mt-6 md:mt-8 flex items-center justify-center gap-2 text-sm" aria-hidden="true">
                 <ArrowDown className="h-4 w-4" />
                 Scopri se è il momento giusto per te
               </p>
@@ -275,24 +275,24 @@ const MetodoEFO = () => {
         {/* For You If */}
         <section className="section-padding bg-card">
           <div className="container-wide">
-            <AnimatedSection className="text-center mb-8 md:mb-12" blur>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3">
+            <AnimatedSection className="text-center mb-6 sm:mb-8 md:mb-12" blur>
+              <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 sm:mb-3">
                 🫵🏻 Questo percorso è <span className="text-cyan">per te</span> se...
               </h2>
             </AnimatedSection>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-16">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-10 md:mb-16">
               {forYouIf.map((item, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
-                  <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full transition-transform duration-300 hover:-translate-y-1">
-                    <div className="flex items-start gap-3 md:gap-4">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-                        <item.icon className="h-5 w-5 md:h-6 md:w-6 text-emerald-400" />
+                  <div className="gradient-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 bg-gradient-card h-full transition-transform duration-300 hover:-translate-y-1">
+                    <div className="flex items-start gap-2.5 sm:gap-3 md:gap-4">
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                        <item.icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-emerald-400" />
                       </div>
                       <div>
-                        <h3 className="font-display text-base md:text-lg mb-1.5 text-foreground">
+                        <h3 className="font-display text-sm sm:text-base md:text-lg mb-1 sm:mb-1.5 text-foreground">
                           Sei un {item.title}
                         </h3>
-                        <p className="font-serif text-xs md:text-sm text-muted-foreground leading-relaxed">
+                        <p className="font-serif text-[11px] sm:text-xs md:text-sm text-muted-foreground leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -1493,9 +1493,9 @@ const MetodoEFO = () => {
 
             <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
               <AnimatedSection direction="left" scale>
-                <div className="relative aspect-square max-w-sm md:max-w-md mx-auto">
-                  <div className="absolute -inset-3 border border-cyan/20 rounded-2xl md:rounded-3xl" />
-                  <div className="relative h-full rounded-xl md:rounded-2xl overflow-hidden">
+                <div className="relative aspect-square max-w-xs sm:max-w-sm md:max-w-md mx-auto">
+                  <div className="absolute -inset-2 sm:-inset-3 border border-cyan/20 rounded-xl sm:rounded-2xl md:rounded-3xl" />
+                  <div className="relative h-full rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden">
                     <BlurImage src={gabrielePhoto} alt="Gabriele Lucesole" placeholder={gabrielePhotoPlaceholder} className="w-full h-full" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
