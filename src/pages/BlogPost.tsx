@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useParams, Link, Navigate } from "react-router-dom";
-import { motion } from "framer-motion";
+
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
@@ -268,9 +268,8 @@ const BlogPost = () => {
               {prevPost && (
                 <AnimatedSection direction="left">
                   <Link to={`/blog/${prevPost.slug}`} className="block group">
-                    <motion.div 
-                      className="gradient-border rounded-xl p-6 bg-gradient-card h-full"
-                      whileHover={{ x: -5 }}
+                    <div 
+                      className="gradient-border rounded-xl p-6 bg-gradient-card h-full transition-transform duration-300 hover:-translate-x-1"
                     >
                       <span className="text-xs text-muted-foreground flex items-center gap-2 mb-3">
                         <ArrowLeft className="h-3 w-3" />
@@ -279,16 +278,15 @@ const BlogPost = () => {
                       <h4 className="font-display text-lg text-foreground group-hover:text-cyan transition-colors">
                         {prevPost.title}
                       </h4>
-                    </motion.div>
+                    </div>
                   </Link>
                 </AnimatedSection>
               )}
               {nextPost && (
                 <AnimatedSection direction="right" className={!prevPost ? 'md:col-start-2' : ''}>
                   <Link to={`/blog/${nextPost.slug}`} className="block group">
-                    <motion.div 
-                      className="gradient-border rounded-xl p-6 bg-gradient-card h-full text-right"
-                      whileHover={{ x: 5 }}
+                    <div 
+                      className="gradient-border rounded-xl p-6 bg-gradient-card h-full text-right transition-transform duration-300 hover:translate-x-1"
                     >
                       <span className="text-xs text-muted-foreground flex items-center justify-end gap-2 mb-3">
                         Articolo successivo
@@ -297,7 +295,7 @@ const BlogPost = () => {
                       <h4 className="font-display text-lg text-foreground group-hover:text-cyan transition-colors">
                         {nextPost.title}
                       </h4>
-                    </motion.div>
+                    </div>
                   </Link>
                 </AnimatedSection>
               )}

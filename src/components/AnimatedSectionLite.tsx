@@ -1,5 +1,4 @@
-import { motion, Variants, useReducedMotion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useRef, useEffect, useState, CSSProperties } from "react";
 
 interface AnimatedSectionLiteProps {
   children: ReactNode;
@@ -18,54 +17,64 @@ const AnimatedSectionLite = ({
   direction = "up",
   scale = false,
   blur = false,
-  staggerChildren,
 }: AnimatedSectionLiteProps) => {
-  const prefersReducedMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  const getInitialPosition = () => {
-    if (prefersReducedMotion) return { x: 0, y: 0 };
-    switch (direction) {
-      case "up": return { y: 30, x: 0 };
-      case "down": return { y: -30, x: 0 };
-      case "left": return { x: -40, y: 0 };
-      case "right": return { x: 40, y: 0 };
-      case "none": return { x: 0, y: 0 };
-      default: return { y: 30, x: 0 };
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
     }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { rootMargin: "-60px", threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const getTransform = () => {
+    const transforms: string[] = [];
+    if (!isVisible) {
+      switch (direction) {
+        case "up": transforms.push("translateY(30px)"); break;
+        case "down": transforms.push("translateY(-30px)"); break;
+        case "left": transforms.push("translateX(-40px)"); break;
+        case "right": transforms.push("translateX(40px)"); break;
+      }
+      if (scale) transforms.push("scale(0.95)");
+    } else {
+      transforms.push("translate(0, 0)");
+      if (scale) transforms.push("scale(1)");
+    }
+    return transforms.join(" ") || "none";
   };
 
-  const variants: Variants = {
-    hidden: { 
-      opacity: 0, 
-      ...getInitialPosition(),
-      ...(scale && !prefersReducedMotion ? { scale: 0.95 } : {}),
-      ...(blur && !prefersReducedMotion ? { filter: "blur(6px)" } : {}),
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      x: 0,
-      ...(scale && !prefersReducedMotion ? { scale: 1 } : {}),
-      ...(blur && !prefersReducedMotion ? { filter: "blur(0px)" } : {}),
-      transition: {
-        duration: prefersReducedMotion ? 0.01 : 0.7,
-        delay: prefersReducedMotion ? 0 : delay,
-        ease: [0.22, 1, 0.36, 1],
-        ...(staggerChildren ? { staggerChildren } : {}),
-      }
-    }
+  const style: CSSProperties = {
+    opacity: isVisible ? 1 : 0,
+    transform: getTransform(),
+    filter: blur && !isVisible ? "blur(6px)" : "blur(0px)",
+    transition: `opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, filter 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+    willChange: isVisible ? "auto" : "opacity, transform",
   };
 
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
-      variants={variants}
-      className={className}
-    >
+    <div ref={ref} className={className} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 };
 

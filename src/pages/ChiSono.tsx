@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -71,15 +70,34 @@ const LazyImage = ({
   alt: string;
   placeholder?: string;
 }) => {
+  const imgRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = imgRef.current;
+    if (!el) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) { setIsVisible(true); return; }
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.unobserve(el); } },
+      { rootMargin: "-60px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.div
+    <div
+      ref={imgRef}
       className="relative h-[35vh] sm:h-[40vh] md:h-[50vh] overflow-hidden rounded-lg sm:rounded-xl my-6 sm:my-8 md:my-10"
       role="img"
       aria-label={alt}
-      initial={{ opacity: 0, scale: 1.05, filter: "blur(8px)" }}
-      whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "scale(1)" : "scale(1.05)",
+        filter: isVisible ? "blur(0px)" : "blur(8px)",
+        transition: "opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s cubic-bezier(0.22, 1, 0.36, 1)",
+      }}
     >
       <BlurImage
         src={src}
@@ -88,19 +106,24 @@ const LazyImage = ({
         className="absolute inset-0"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent pointer-events-none" aria-hidden="true" />
-    </motion.div>
+    </div>
   );
 };
 const ChiSono = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const {
-    scrollYProgress
-  } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const [heroOpacity, setHeroOpacity] = useState(1);
+
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    const handleScroll = () => {
+      const rect = el.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, -rect.top / rect.height));
+      setHeroOpacity(1 - progress * 1.25); // fade out by 80% scroll
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return <>
       <Helmet>
         <title>Chi Sono | Gabriele Lucesole - Coach Professionista</title>
@@ -116,8 +139,8 @@ const ChiSono = () => {
             <div className="absolute bottom-1/4 -right-20 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
 
-          <motion.div className="container-wide relative z-10" style={{
-          opacity: heroOpacity
+          <div className="container-wide relative z-10" style={{
+          opacity: Math.max(0, heroOpacity)
         }}>
             <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
               {/* Content */}
@@ -163,7 +186,7 @@ const ChiSono = () => {
                 </div>
               </AnimatedSection>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* Section 1: Il Mondo Incompreso */}

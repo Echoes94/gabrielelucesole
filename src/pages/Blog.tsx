@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
@@ -109,13 +108,8 @@ const Blog = () => {
           <div className="container-wide">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {regularPosts.map((post, index) => <AnimatedSection key={post.id} delay={index * 0.1}>
-                  <Link to={`/blog/${post.slug}`} className="block group h-full">
-                    <motion.article className="gradient-border rounded-2xl p-6 bg-gradient-card h-full flex flex-col" whileHover={{
-                  y: -5,
-                  scale: 1.02
-                }} transition={{
-                  duration: 0.3
-                }}>
+                <Link to={`/blog/${post.slug}`} className="block group h-full">
+                    <article className="gradient-border rounded-2xl p-6 bg-gradient-card h-full flex flex-col transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]">
                       {/* Category */}
                       <span className="inline-block px-3 py-1 text-xs font-sans uppercase tracking-wider text-cyan/70 bg-cyan/10 rounded-full mb-4 self-start">
                         {post.category}
@@ -142,7 +136,7 @@ const Blog = () => {
                           {post.readTime} min
                         </span>
                       </div>
-                    </motion.article>
+                    </article>
                   </Link>
                 </AnimatedSection>)}
             </div>

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+
 import { useState, useCallback, useRef } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -538,10 +538,9 @@ const MetodoEFO = () => {
             <div className="relative max-w-4xl mx-auto">
               {/* Timeline line */}
               <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border/50 md:-translate-x-px" aria-hidden="true">
-                <motion.div
-                  className="w-full bg-gradient-to-b from-cyan via-amber to-maestria rounded-full origin-top"
+                <div
+                  className="w-full bg-gradient-to-b from-cyan via-amber to-maestria rounded-full origin-top transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{ height: `${((activeLevel + 1) / totalLevels) * 100}%` }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
 
