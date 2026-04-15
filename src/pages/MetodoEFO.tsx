@@ -739,10 +739,10 @@ const MetodoEFO = () => {
                   : "bg-amber/20 border-amber/50";
                 const cardActiveClass = isCyanLevel
                   ? "bg-gradient-card border border-cyan/40 shadow-[0_0_30px_hsl(190_85%_55%/0.1)]"
-                  : "bg-gradient-card border border-amber/40 shadow-[0_0_30px_hsl(38_92%_50%/0.1)]";
+                  : "bg-gradient-to-br from-amber-deep to-card border border-amber/50 shadow-[0_0_30px_hsl(38_92%_50%/0.12)]";
                 const cardPastClass = isCyanLevel
                   ? "bg-gradient-card border border-cyan/20 opacity-80"
-                  : "bg-gradient-card border border-amber/20 opacity-80";
+                  : "bg-gradient-to-br from-amber-deep/60 to-card border border-amber/20 opacity-80";
 
                 return (
                   <div key={index} ref={(el) => { levelRefs.current[index] = el; }}>
@@ -780,7 +780,7 @@ const MetodoEFO = () => {
                       <div className={`ml-12 md:ml-0 flex-1 ${isRight ? "md:pr-12 md:mr-[50%]" : "md:pl-12 md:ml-[50%]"}`}>
                         <div
                           className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
-                            isActive ? cardActiveClass : isPast ? cardPastClass : "bg-card/40 border border-border/30"
+                            isActive ? cardActiveClass : isPast ? cardPastClass : (isCyanLevel ? "bg-card/40 border border-border/30" : "bg-gradient-to-br from-amber-deep/30 to-card/40 border border-border/30")
                           }`}
                         >
                           {/* Header */}
@@ -866,13 +866,13 @@ const MetodoEFO = () => {
                   : "bg-cyan/20 border-cyan/50";
                 const activeCardClass = isPurple
                   ? "bg-gradient-to-br from-maestria-deep to-card border border-maestria/50 shadow-[0_0_30px_hsl(270_60%_58%/0.12)]"
-                  : "bg-gradient-card border border-cyan/40 shadow-[0_0_30px_hsl(190_85%_55%/0.12)]";
+                  : "bg-gradient-to-br from-cyan-deep to-card border border-cyan/50 shadow-[0_0_30px_hsl(190_85%_55%/0.12)]";
                 const pastCardClass = isPurple
                   ? "bg-gradient-to-br from-maestria-deep/60 to-card border border-maestria/20 opacity-80"
-                  : "bg-gradient-card border border-cyan/20 opacity-80";
+                  : "bg-gradient-to-br from-cyan-deep/60 to-card border border-cyan/20 opacity-80";
                 const lockedCardClass = isPurple
                   ? "bg-gradient-to-br from-maestria-deep/30 to-card/40 border border-border/30"
-                  : "bg-card/40 border border-border/30";
+                  : "bg-gradient-to-br from-cyan-deep/30 to-card/40 border border-border/30";
 
                 return (
                   <div key={`maestria-${index}`} ref={(el) => { levelRefs.current[globalIndex] = el; }}>

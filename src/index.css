@@ -31,6 +31,7 @@
     /* Cyan glow - more vibrant, WCAG AA compliant */
     --cyan: 190 85% 55%;
     --cyan-light: 185 80% 75%;
+    --cyan-deep: 195 70% 18%;
 
     /* Regal purple for Maestria */
     --maestria: 270 60% 58%;
