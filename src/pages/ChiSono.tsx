@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { useRef, useState, useEffect } from "react";
-import { useRef, useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight, BookOpen, Award, Heart, Sparkles, Quote, History, Clock, Target } from "lucide-react";
@@ -112,14 +111,19 @@ const LazyImage = ({
 };
 const ChiSono = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const {
-    scrollYProgress
-  } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const [heroOpacity, setHeroOpacity] = useState(1);
+
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    const handleScroll = () => {
+      const rect = el.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, -rect.top / rect.height));
+      setHeroOpacity(1 - progress * 1.25); // fade out by 80% scroll
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return <>
       <Helmet>
         <title>Chi Sono | Gabriele Lucesole - Coach Professionista</title>
@@ -135,8 +139,8 @@ const ChiSono = () => {
             <div className="absolute bottom-1/4 -right-20 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
 
-          <motion.div className="container-wide relative z-10" style={{
-          opacity: heroOpacity
+          <div className="container-wide relative z-10" style={{
+          opacity: Math.max(0, heroOpacity)
         }}>
             <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
               {/* Content */}
@@ -182,7 +186,7 @@ const ChiSono = () => {
                 </div>
               </AnimatedSection>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* Section 1: Il Mondo Incompreso */}
