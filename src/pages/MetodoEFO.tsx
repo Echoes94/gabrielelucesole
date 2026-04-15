@@ -730,6 +730,21 @@ const MetodoEFO = () => {
                 const isActive = index === activeLevel;
                 const isPast = index < activeLevel;
                 const isRight = index % 2 === 0;
+                const isCyanLevel = index <= 1; // LV0-1 = Cyan (1D Passato)
+                // Color tokens based on level
+                const colorAccent = isCyanLevel ? "cyan" : "amber";
+                const nodeActiveClass = isCyanLevel
+                  ? "bg-cyan border-cyan scale-110 shadow-[0_0_20px_hsl(190_85%_55%/0.4)]"
+                  : "bg-amber border-amber scale-110 shadow-[0_0_20px_hsl(38_92%_50%/0.4)]";
+                const nodePastClass = isCyanLevel
+                  ? "bg-cyan/20 border-cyan/50"
+                  : "bg-amber/20 border-amber/50";
+                const cardActiveClass = isCyanLevel
+                  ? "bg-gradient-card border border-cyan/40 shadow-[0_0_30px_hsl(190_85%_55%/0.1)]"
+                  : "bg-gradient-card border border-amber/40 shadow-[0_0_30px_hsl(38_92%_50%/0.1)]";
+                const cardPastClass = isCyanLevel
+                  ? "bg-gradient-card border border-cyan/20 opacity-80"
+                  : "bg-gradient-card border border-amber/20 opacity-80";
 
                 return (
                   <div key={index} ref={(el) => { levelRefs.current[index] = el; }}>
@@ -752,15 +767,11 @@ const MetodoEFO = () => {
                       <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
                         <div
                           className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 cursor-pointer ${
-                            isActive
-                              ? "bg-amber border-amber scale-110 shadow-[0_0_20px_hsl(38_92%_50%/0.4)]"
-                              : isPast
-                              ? "bg-amber/20 border-amber/50"
-                              : "bg-card border-border"
+                            isActive ? nodeActiveClass : isPast ? nodePastClass : "bg-card border-border"
                           }`}
                         >
                           {isPast || isActive ? (
-                            <Unlock className={`h-3.5 w-3.5 md:h-4 md:w-4 ${isActive ? "text-background" : "text-amber"}`} />
+                            <Unlock className={`h-3.5 w-3.5 md:h-4 md:w-4 ${isActive ? "text-background" : `text-${colorAccent}`}`} />
                           ) : (
                             <Lock className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
                           )}
@@ -771,21 +782,17 @@ const MetodoEFO = () => {
                       <div className={`ml-12 md:ml-0 flex-1 ${isRight ? "md:pr-12 md:mr-[50%]" : "md:pl-12 md:ml-[50%]"}`}>
                         <div
                           className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
-                            isActive
-                              ? "bg-gradient-card border border-amber/40 shadow-[0_0_30px_hsl(38_92%_50%/0.1)]"
-                              : isPast
-                              ? "bg-gradient-card border border-amber/20 opacity-80"
-                              : "bg-card/40 border border-border/30"
+                            isActive ? cardActiveClass : isPast ? cardPastClass : "bg-card/40 border border-border/30"
                           }`}
                         >
                           {/* Header */}
                           <div className="mb-3 space-y-2">
                             <div className="flex items-center gap-3">
-                              <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? "text-amber" : "text-muted-foreground/50"}`}>
+                              <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? `text-${colorAccent}` : "text-muted-foreground/50"}`}>
                                 LV {level.level}
                               </span>
                               {level.dimension && (
-                                <span className="px-2 py-0.5 rounded-full bg-amber/10 border border-amber/20 text-[10px] md:text-xs text-amber font-medium">
+                                <span className={`px-2 py-0.5 rounded-full bg-${colorAccent}/10 border border-${colorAccent}/20 text-[10px] md:text-xs text-${colorAccent} font-medium`}>
                                   {level.dimension}
                                 </span>
                               )}
@@ -796,14 +803,14 @@ const MetodoEFO = () => {
                           </div>
 
                           <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
-                          <p className="text-xs md:text-sm text-amber mb-4">{level.subtitle}</p>
+                          <p className={`text-xs md:text-sm text-${colorAccent} mb-4`}>{level.subtitle}</p>
 
                           {/* Content */}
                           <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mb-2">Cosa succede/faremo:</p>
                           <ul className="space-y-2 mb-4">
                             {level.content.map((item, i) => (
                               <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
-                                <span className="w-1.5 h-1.5 rounded-full bg-amber mt-1.5 shrink-0" />
+                                <span className={`w-1.5 h-1.5 rounded-full bg-${colorAccent} mt-1.5 shrink-0`} />
                                 {item}
                               </li>
                             ))}
@@ -812,16 +819,16 @@ const MetodoEFO = () => {
                           {/* Footer */}
                           <div className="space-y-2 pt-4 border-t border-border/50">
                             <div className="flex items-start gap-2">
-                              <Gift className="h-3.5 w-3.5 md:h-4 md:w-4 text-amber shrink-0 mt-0.5" />
+                              <Gift className={`h-3.5 w-3.5 md:h-4 md:w-4 text-${colorAccent} shrink-0 mt-0.5`} />
                               <span className="text-xs text-muted-foreground">{level.badge}</span>
                             </div>
                             <div className="flex flex-wrap items-center gap-3">
-                              <span className="text-xs text-amber font-medium">{level.time}</span>
+                              <span className={`text-xs text-${colorAccent} font-medium`}>{level.time}</span>
                               {level.skill && (
                                 <span className="text-xs text-emerald-400">💪🏻 "{level.skill}"</span>
                               )}
                               {level.achievement && (
-                                <span className="text-xs text-amber-light">🎖️ "{level.achievement}"</span>
+                                <span className={`text-xs ${isCyanLevel ? "text-cyan-light" : "text-amber-light"}`}>🎖️ "{level.achievement}"</span>
                               )}
                             </div>
                           </div>
