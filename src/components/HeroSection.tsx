@@ -115,13 +115,13 @@ const HeroSection = () => {
         ease: [0.22, 1, 0.36, 1]
       }}>
           <Button variant="hero" size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-10" asChild>
-            <a href="mailto:gabriele.lucesole@gmail.com" aria-label="Fissa una sessione gratuita - invia email">
+            <a href="mailto:gabriele.lucesole@gmail.com" aria-label="Fissa Sessione GRATIS - invia email">
               <Mail className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
               Fissa Sessione GRATIS
             </a>
           </Button>
           <Button variant="heroOutline" size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-10" asChild>
-            <a href="#problema" aria-label="Scopri come riempire il vuoto interiore">
+            <a href="#problema" aria-label="Riempi il Vuoto - scopri di più">
               Riempi il Vuoto
               <ArrowDown className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
             </a>

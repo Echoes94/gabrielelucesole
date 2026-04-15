@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
           {/* Brand */}
           <div className="space-y-3 sm:space-y-4 sm:col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 sm:gap-3 rounded-md w-fit" aria-label="Vai alla homepage">
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 rounded-md w-fit" aria-label="L.G. - Vai alla homepage">
               <img src={logo} alt="" aria-hidden="true" className="h-8 w-8 sm:h-10 sm:w-10" />
               <div>
                 <span className="font-display text-base sm:text-lg text-foreground block">L.G.</span>
@@ -21,7 +21,7 @@ const Footer = () => {
 
           {/* Navigation */}
           <div className="space-y-3 sm:space-y-4">
-            <h4 className="font-sans text-xs sm:text-sm font-medium text-foreground uppercase tracking-wider" id="footer-nav-heading">Navigazione</h4>
+            <p className="font-sans text-xs sm:text-sm font-medium text-foreground uppercase tracking-wider" id="footer-nav-heading">Navigazione</p>
             <nav className="flex flex-col gap-2 sm:gap-3" aria-labelledby="footer-nav-heading">
               <Link to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit">
                 Home
@@ -37,7 +37,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="space-y-3 sm:space-y-4">
-            <h4 className="font-sans text-xs sm:text-sm font-medium text-foreground uppercase tracking-wider" id="footer-contact-heading">Contatti</h4>
+            <p className="font-sans text-xs sm:text-sm font-medium text-foreground uppercase tracking-wider" id="footer-contact-heading">Contatti</p>
             <address className="flex flex-col gap-2 sm:gap-3 not-italic" aria-labelledby="footer-contact-heading">
               <a href="mailto:gabriele.lucesole@gmail.com" className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-sm w-fit" aria-label="Invia email a gabriele.lucesole@gmail.com">
                 <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
