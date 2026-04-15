@@ -669,7 +669,7 @@ const MetodoEFO = () => {
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs md:text-sm text-muted-foreground font-medium">IL TUO PROGRESSO</p>
                   <p className="text-xs font-medium">
-                    <span className={activeLevel >= roadmapLevels.length + 1 ? "text-maestria" : activeLevel >= roadmapLevels.length ? "text-cyan" : "text-amber"}>LV {activeLevel}</span>
+                    <span className={activeLevel >= roadmapLevels.length + 1 ? "text-maestria" : activeLevel >= roadmapLevels.length ? "text-cyan" : activeLevel <= 1 ? "text-cyan" : "text-amber"}>LV {activeLevel}</span>
                     <span className="text-muted-foreground"> / {totalLevels - 1}</span>
                   </p>
                 </div>
@@ -677,8 +677,11 @@ const MetodoEFO = () => {
                   {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => {
                     const isLv6 = i === roadmapLevels.length + 1;
                     const isMaestria = i >= roadmapLevels.length;
-                    // Progressive amber opacity for base levels
-                    const amberOpacities = ["from-amber/40 to-amber/60", "from-amber/55 to-amber/75", "from-amber/70 to-amber/90", "from-amber/85 to-amber"];
+                    const isCyanBase = i <= 1; // LV0-1 = Cyan (1D Passato)
+                    // Progressive amber opacity for LV2-4
+                    const amberOpacities = ["from-amber/50 to-amber/70", "from-amber/70 to-amber/90", "from-amber/85 to-amber"];
+                    // Progressive cyan opacity for LV0-1
+                    const cyanOpacities = ["from-cyan/50 to-cyan/70", "from-cyan/75 to-cyan"];
                     return (
                       <button
                         key={i}
@@ -689,7 +692,9 @@ const MetodoEFO = () => {
                               ? "bg-gradient-to-r from-maestria to-maestria-light"
                               : isMaestria
                               ? "bg-gradient-to-r from-cyan to-accent"
-                              : `bg-gradient-to-r ${amberOpacities[i] || amberOpacities[3]}`
+                              : isCyanBase
+                              ? `bg-gradient-to-r ${cyanOpacities[i] || cyanOpacities[1]}`
+                              : `bg-gradient-to-r ${amberOpacities[i - 2] || amberOpacities[2]}`
                             : "bg-muted/30 hover:bg-muted/50"
                         }`}
                         aria-label={`Vai al livello ${level.level}`}
@@ -714,7 +719,7 @@ const MetodoEFO = () => {
               {/* Timeline line */}
               <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border/50 md:-translate-x-px" aria-hidden="true">
                 <motion.div
-                  className="w-full bg-gradient-to-b from-amber via-cyan to-maestria rounded-full origin-top"
+                  className="w-full bg-gradient-to-b from-cyan via-amber to-maestria rounded-full origin-top"
                   style={{ height: `${((activeLevel + 1) / totalLevels) * 100}%` }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 />
