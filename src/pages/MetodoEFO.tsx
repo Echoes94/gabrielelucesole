@@ -351,13 +351,20 @@ const MetodoEFO = () => {
             <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
               {problems.map((problem, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className="p-4 md:p-6 rounded-xl bg-card border border-border/50 transition-colors duration-300 hover:border-cyan/50">
-                    <div className="flex items-center gap-2 mb-3 md:mb-4">
-                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-cyan shrink-0" />
-                      <h3 className="font-display text-base md:text-lg text-foreground">{problem.title}</h3>
+                    <div className="flex items-start gap-3 md:gap-4">
+                      <span className="font-display text-3xl md:text-4xl text-cyan/15 leading-none shrink-0 select-none" aria-hidden="true">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <div>
+                        <div className="flex items-center gap-2 mb-2 md:mb-3">
+                          <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-cyan shrink-0" />
+                          <h3 className="font-display text-base md:text-lg text-foreground">{problem.title}</h3>
+                        </div>
+                        <p className="font-serif text-xs md:text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+                          {problem.desc}
+                        </p>
+                      </div>
                     </div>
-                    <p className="font-serif text-xs md:text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-                      {problem.desc}
-                    </p>
                   </div>
                 </AnimatedSection>)}
             </div>
@@ -594,39 +601,49 @@ const MetodoEFO = () => {
               intro: 'Non "legge di attrazione" magica. Ma visione chiara + valori autentici + azioni coerenti.',
               benefits: ["Ridefinire le priorità oltre la carriera (affetti, spiritualità, mission)", "Allineamento tra chi sei e cosa fai (no dissonanza cognitiva)", 'Piano d\'azione per trasformare la vita che "dovresti" vivere nella vita che vuoi vivere'],
               result: "Non rincorri più obiettivi altrui. Crei il tuo destino."
-            }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.12} scale>
-                  <div className="gradient-border rounded-xl p-4 md:p-8 bg-gradient-card">
-                    <div className="grid lg:grid-cols-3 gap-4 md:gap-8 items-start">
-                      <div>
-                        <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-cyan/10 flex items-center justify-center">
-                            <dim.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan" />
+}].map((dim, index) => {
+                const dimColors = [
+                  { text: "text-amber", bg: "bg-amber/10", border: "border-amber/20", glow: "shadow-[0_0_40px_hsl(38_92%_50%/0.08)]" },
+                  { text: "text-cyan", bg: "bg-cyan/10", border: "border-cyan/20", glow: "shadow-[0_0_40px_hsl(190_85%_55%/0.08)]" },
+                  { text: "text-maestria-light", bg: "bg-maestria/10", border: "border-maestria/20", glow: "shadow-[0_0_40px_hsl(270_60%_58%/0.08)]" },
+                ];
+                const c = dimColors[index];
+                return (
+                  <AnimatedSection key={index} delay={index * 0.12} scale>
+                    <div className={`gradient-border rounded-xl p-4 md:p-8 bg-gradient-card ${c.glow} hover:${c.glow}`}>
+                      <div className="grid lg:grid-cols-3 gap-4 md:gap-8 items-start">
+                        <div>
+                          <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                            <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl ${c.bg} flex items-center justify-center`}>
+                              <dim.icon className={`h-6 w-6 md:h-8 md:w-8 ${c.text}`} />
+                            </div>
                           </div>
+                          <h3 className="font-display text-lg md:text-2xl mb-1.5 md:mb-2">{dim.title}</h3>
+                          <p className={`${c.text} text-xs md:text-sm mb-3 md:mb-4`}>{dim.sub}</p>
+                          <p className="text-muted-foreground text-xs md:text-sm italic">{dim.intro}</p>
                         </div>
-                        <h3 className="font-display text-lg md:text-2xl mb-1.5 md:mb-2">{dim.title}</h3>
-                        <p className="text-cyan text-xs md:text-sm mb-3 md:mb-4">{dim.sub}</p>
-                        <p className="text-muted-foreground text-xs md:text-sm italic">{dim.intro}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 font-medium">
-                          Per te significa:
-                        </p>
-                        <ul className="space-y-2 md:space-y-3">
-                          {dim.benefits.map((b, i) => <li key={i} className="flex items-start gap-2 md:gap-3">
-                              <Zap className="h-3 w-3 md:h-4 md:w-4 text-cyan mt-0.5 shrink-0" />
-                              <span className="text-xs md:text-sm text-muted-foreground">{b}</span>
-                            </li>)}
-                        </ul>
-                      </div>
-                      <div className="flex items-center h-full">
-                        <div className="p-3 md:p-4 rounded-xl bg-cyan/10 border border-cyan/20 w-full">
-                          <p className="text-xs md:text-sm text-foreground font-medium mb-1">Risultato:</p>
-                          <p className="text-xs md:text-sm text-cyan">{dim.result}</p>
+                        <div>
+                          <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 font-medium">
+                            Per te significa:
+                          </p>
+                          <ul className="space-y-2 md:space-y-3">
+                            {dim.benefits.map((b, i) => <li key={i} className="flex items-start gap-2 md:gap-3">
+                                <Zap className={`h-3 w-3 md:h-4 md:w-4 ${c.text} mt-0.5 shrink-0`} />
+                                <span className="text-xs md:text-sm text-muted-foreground">{b}</span>
+                              </li>)}
+                          </ul>
+                        </div>
+                        <div className="flex items-center h-full">
+                          <div className={`p-3 md:p-4 rounded-xl ${c.bg} ${c.border} border w-full`}>
+                            <p className="text-xs md:text-sm text-foreground font-medium mb-1">Risultato:</p>
+                            <p className={`text-xs md:text-sm ${c.text}`}>{dim.result}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </AnimatedSection>)}
+                  </AnimatedSection>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -1090,10 +1107,10 @@ const MetodoEFO = () => {
                   </p>
                   <p className="text-xs md:text-sm text-muted-foreground">5 cifre? No! 4 cifre?! Nemmeno!</p>
                   <p className="text-xs md:text-sm text-muted-foreground mt-3 md:mt-4 mb-2">Prezzo Early Bird</p>
-                  <p className="font-display text-4xl md:text-5xl text-foreground mb-2">
-                    <span className="text-muted-foreground line-through text-2xl md:text-3xl mr-2 md:mr-3">987€</span>
-                    789€
-                  </p>
+                  <div className="mb-3">
+                    <span className="text-muted-foreground line-through text-lg md:text-xl block mb-1">987€</span>
+                    <span className="font-display text-5xl md:text-7xl text-cyan drop-shadow-[0_0_30px_hsl(190_85%_55%/0.25)]">789€</span>
+                  </div>
                   <p className="text-cyan text-xs md:text-sm">Con sconto doppio riservato a te!</p>
                   <p className="text-xs text-muted-foreground mt-2">BONUS assurdi inclusi nel prezzo!</p>
                 </div>
@@ -1256,7 +1273,7 @@ const MetodoEFO = () => {
             <div className="space-y-4 md:space-y-8">
               {/* VS Psicoterapia */}
               <AnimatedSection scale>
-                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50 border-l-2 border-l-accent/40">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">
                     VS Psicoterapia Tradizionale
                   </h3>
@@ -1318,7 +1335,7 @@ const MetodoEFO = () => {
 
               {/* VS Altri Coach */}
               <AnimatedSection delay={0.1} scale>
-                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50 border-l-2 border-l-amber/40">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">VS Altri "Coach"</h3>
                   <div className="grid md:grid-cols-2 gap-3 md:gap-6">
                     <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-muted/20">
@@ -1376,7 +1393,7 @@ const MetodoEFO = () => {
 
               {/* VS App/Libri */}
               <AnimatedSection delay={0.15} scale>
-                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50 border-l-2 border-l-cyan/40">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">
                     VS App di Meditazione & Libri Self-Help
                   </h3>
