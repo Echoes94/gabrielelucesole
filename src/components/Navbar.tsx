@@ -24,7 +24,7 @@ const Navbar = () => {
         <Link 
           to="/" 
           className="flex items-center gap-2 sm:gap-3 group rounded-md"
-          aria-label="Vai alla homepage - Gabriele Lucesole Coach"
+          aria-label="L.G. - Vai alla homepage"
         >
           <img
             src={logo}
@@ -38,7 +38,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-10" role="navigation">
+        <nav className="hidden md:flex items-center gap-8 lg:gap-10" aria-label="Menu principale">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -61,7 +61,7 @@ const Navbar = () => {
               )}
             </Link>
           ))}
-        </div>
+        </nav>
 
         {/* CTA Button Desktop */}
         <div className="hidden md:flex items-center gap-4 lg:gap-5">
