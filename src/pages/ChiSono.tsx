@@ -49,13 +49,13 @@ const GlassQuote = ({
 }: {
   quote: string;
   author?: string;
-}) => <AnimatedSection className="my-8 md:my-12" scale blur>
-    <blockquote className="glass rounded-2xl p-6 md:p-8 relative overflow-hidden">
-      <Quote className="absolute top-4 left-4 h-6 w-6 text-cyan/20" aria-hidden="true" />
-      <p className="font-serif text-base md:text-lg text-foreground italic leading-relaxed text-center relative z-10">
+}) => <AnimatedSection className="my-6 sm:my-8 md:my-12" scale blur>
+    <blockquote className="glass rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 relative overflow-hidden">
+      <Quote className="absolute top-3 left-3 sm:top-4 sm:left-4 h-5 w-5 sm:h-6 sm:w-6 text-cyan/20" aria-hidden="true" />
+      <p className="font-serif text-sm sm:text-base md:text-lg text-foreground italic leading-relaxed text-center relative z-10">
         "{quote}"
       </p>
-      {author && <cite className="block text-center mt-3 text-cyan font-sans text-xs uppercase tracking-wider not-italic">
+      {author && <cite className="block text-center mt-2 sm:mt-3 text-cyan font-sans text-[10px] sm:text-xs uppercase tracking-wider not-italic">
           — {author}
         </cite>}
     </blockquote>
@@ -73,7 +73,7 @@ const LazyImage = ({
 }) => {
   return (
     <motion.div
-      className="relative h-[40vh] md:h-[50vh] overflow-hidden rounded-xl my-8 md:my-10"
+      className="relative h-[35vh] sm:h-[40vh] md:h-[50vh] overflow-hidden rounded-lg sm:rounded-xl my-6 sm:my-8 md:my-10"
       role="img"
       aria-label={alt}
       initial={{ opacity: 0, scale: 1.05, filter: "blur(8px)" }}
@@ -112,53 +112,53 @@ const ChiSono = () => {
         {/* Hero */}
         <section ref={heroRef} className="min-h-screen flex items-center section-padding bg-gradient-hero relative overflow-hidden" aria-labelledby="chi-sono-heading">
           <div className="absolute inset-0" aria-hidden="true">
-            <div className="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 -right-20 w-48 md:w-80 h-48 md:h-80 bg-accent/5 rounded-full blur-3xl" />
+            <div className="absolute top-1/4 -left-20 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 -right-20 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 bg-accent/5 rounded-full blur-3xl" />
           </div>
 
           <motion.div className="container-wide relative z-10" style={{
           opacity: heroOpacity
         }}>
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
               {/* Content */}
               <AnimatedSection direction="left" blur>
-                <span className="inline-block px-3 py-1.5 text-xs font-sans uppercase tracking-[0.15em] text-cyan/70 border border-cyan/20 rounded-full mb-4 md:mb-6">
+                <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan/70 border border-cyan/20 rounded-full mb-4 sm:mb-5 md:mb-6">
                   Il viaggio più importante?
                 </span>
 
-                <h1 id="chi-sono-heading" className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6">
+                <h1 id="chi-sono-heading" className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 md:mb-6">
                   La mia <span className="text-gradient">storia</span>
                 </h1>
 
-                <p className="font-serif text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
+                <p className="font-serif text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mb-3 sm:mb-4">
                   Nella vita, c'è un tempo in cui tutto ciò che hai costruito — titolo di studio, lavoro, aspettative realizzate — improvvisamente non basta più…
                 </p>
                 
-                <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-3">
+                <p className="font-serif text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed mb-2 sm:mb-3">
                   Guardi il tuo percorso e ti chiedi: "È davvero tutto qui?"
                 </p>
 
-                <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-3">
+                <p className="font-serif text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed mb-2 sm:mb-3">
                   Una presenza assente, un vuoto interiore che nessun successo esterno sembra riuscire a colmare. Una sottile solitudine che continua a crescere, nonostante tu sia circondato da persone.
                 </p>
 
-                <p className="font-display text-lg md:text-xl text-cyan">
+                <p className="font-display text-base sm:text-lg md:text-xl text-cyan">
                   Fu questo il punto di partenza del mio viaggio…
                 </p>
               </AnimatedSection>
 
               {/* Image */}
               <AnimatedSection direction="right" scale className="relative">
-                <div className="relative aspect-[4/5] max-w-sm md:max-w-md mx-auto">
-                  <div className="absolute -inset-3 border border-cyan/20 rounded-2xl" />
-                  <div className="relative h-full rounded-xl overflow-hidden">
+                <div className="relative aspect-[4/5] max-w-xs sm:max-w-sm md:max-w-md mx-auto">
+                  <div className="absolute -inset-2 sm:-inset-3 border border-cyan/20 rounded-xl sm:rounded-2xl" />
+                  <div className="relative h-full rounded-lg sm:rounded-xl overflow-hidden">
                     <BlurImage src={gabrielePhoto} alt="Gabriele Lucesole" placeholder={chiSonoGabrielePlaceholder} className="w-full h-full" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                   
-                  <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
-                    <h2 className="font-display text-xl md:text-2xl text-foreground mb-1">Gabriele Lucesole</h2>
-                    <p className="text-cyan text-sm">ICF Professional Coaching</p>
+                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 md:bottom-6 md:left-6 md:right-6">
+                    <h2 className="font-display text-lg sm:text-xl md:text-2xl text-foreground mb-0.5 sm:mb-1">Gabriele Lucesole</h2>
+                    <p className="text-cyan text-xs sm:text-sm">ICF Professional Coaching</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -170,7 +170,7 @@ const ChiSono = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection blur>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-center">
                 Il Mondo <span className="text-gradient">Incompreso</span>
               </h2>
             </AnimatedSection>
@@ -203,7 +203,7 @@ const ChiSono = () => {
         <section className="section-padding bg-background">
           <div className="container-narrow">
             <AnimatedSection blur>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
+              <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4 sm:mb-6 text-center">
                 Il Bivio: <span className="text-gradient">Terra Bruciata e Nella Fine l'Inizio</span>
               </h2>
             </AnimatedSection>
@@ -248,7 +248,7 @@ const ChiSono = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection blur>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
+              <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4 sm:mb-6 text-center">
                 L'Errore: <span className="text-gradient">Il Super-Ego e la Sua Prigione</span>
               </h2>
             </AnimatedSection>
@@ -310,7 +310,7 @@ const ChiSono = () => {
         <section className="section-padding bg-background">
           <div className="container-narrow">
             <AnimatedSection blur>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-center">
                 La Svolta: <span className="text-gradient">Arrenditi e Ritrovati</span>
               </h2>
             </AnimatedSection>
@@ -364,7 +364,7 @@ const ChiSono = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection blur>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-center">
                 L'Epifania: <span className="text-gradient">Nasce il Metodo EFO</span>
               </h2>
             </AnimatedSection>
@@ -390,7 +390,7 @@ const ChiSono = () => {
               <p>
                 Contemporaneamente:
               </p>
-              <ul className="list-disc list-inside space-y-2 ml-4">
+              <ul className="list-disc list-inside space-y-2 sm:space-y-3 ml-2 sm:ml-4 text-xs sm:text-sm md:text-base">
                 <li>Conseguì un Master Universitario di 1° Livello in coaching umanistico e PNL</li>
                 <li>Un altro master internazionale — certificato ICF — in professional coaching</li>
                 <li>Mi specializzai in Psicologia Positiva presso la Penn University dell'Ivy League</li>
@@ -401,18 +401,18 @@ const ChiSono = () => {
 
             {/* Credentials Section */}
             <AnimatedSection delay={0.1} scale>
-              <div className="glass rounded-xl p-5 md:p-8 my-8 md:my-10">
-                <h3 className="font-display text-xl md:text-2xl text-center mb-6">La mia Formazione</h3>
+              <div className="glass rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-8 my-6 sm:my-8 md:my-10">
+                <h3 className="font-display text-lg sm:text-xl md:text-2xl text-center mb-4 sm:mb-6">La mia Formazione</h3>
                 
-                <div className="grid md:grid-cols-2 gap-2 md:gap-3 max-w-3xl mx-auto mb-8">
+                <div className="grid sm:grid-cols-2 gap-2 sm:gap-2.5 md:gap-3 max-w-3xl mx-auto mb-6 sm:mb-8">
                   {credentialsList.map((credential, index) => <div key={index} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan shrink-0" />
-                      <span className="font-serif text-xs md:text-sm text-muted-foreground">{credential}</span>
+                      <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan shrink-0" />
+                      <span className="font-serif text-[11px] sm:text-xs md:text-sm text-muted-foreground">{credential}</span>
                     </div>)}
                 </div>
 
-                <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
-                  {credentials.map((cred, index) => <div key={index} className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-white/90 rounded-lg p-1.5 transition-transform duration-300 hover:scale-105">
+                <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-8">
+                  {credentials.map((cred, index) => <div key={index} className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center bg-white/90 rounded-lg p-1 sm:p-1.5 transition-transform duration-300 hover:scale-105">
                       <img src={cred.logo} alt={cred.name} className="w-full h-full object-contain" loading="lazy" />
                     </div>)}
                 </div>
@@ -426,7 +426,7 @@ const ChiSono = () => {
               <p>
                 … e anche grazie ai 9 mesi — e oltre — di gestazione in monastero:
               </p>
-              <p className="text-2xl font-display text-center my-8">
+              <p className="text-xl sm:text-2xl font-display text-center my-6 sm:my-8">
                 🧩 Nacque il <span className="text-gradient">Metodo EFO: Essere Felici Ora</span>
               </p>
               <p>
@@ -435,7 +435,7 @@ const ChiSono = () => {
             </AnimatedSection>
 
             {/* 3 Dimensions */}
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 my-8 md:my-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 my-6 sm:my-8 md:my-10">
               {[{
               icon: History,
               title: "Trasforma il Tuo Passato",
@@ -449,10 +449,10 @@ const ChiSono = () => {
               title: "Attrai il Futuro Desiderato",
               desc: "Senza la fuffa della legge d'attrazione, ma con strumenti scientificamente provati"
             }].map((dim, index) => <AnimatedSection key={index} delay={index * 0.15} scale>
-                  <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full text-center transition-transform duration-300 hover:-translate-y-1">
-                    <dim.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan mx-auto mb-3" />
-                    <h4 className="font-display text-base md:text-lg mb-2">{dim.title}</h4>
-                    <p className="font-serif text-xs md:text-sm text-muted-foreground">{dim.desc}</p>
+                  <div className="gradient-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 bg-gradient-card h-full text-center transition-transform duration-300 hover:-translate-y-1">
+                    <dim.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-cyan mx-auto mb-2 sm:mb-3" />
+                    <h4 className="font-display text-sm sm:text-base md:text-lg mb-1.5 sm:mb-2">{dim.title}</h4>
+                    <p className="font-serif text-[11px] sm:text-xs md:text-sm text-muted-foreground">{dim.desc}</p>
                   </div>
                 </AnimatedSection>)}
             </div>
@@ -464,7 +464,7 @@ const ChiSono = () => {
               <p>
                 Fenomenologia, Jung, Maslow, Peterson, psicologia positiva, bioenergetica, mindfulness, ipnosi: tutto trova posto in questo sistema innovativo integrato.
               </p>
-              <p className="text-cyan font-medium text-lg text-center my-6">
+              <p className="text-cyan font-medium text-sm sm:text-base md:text-lg text-center my-4 sm:my-6">
                 Vuoi avere a disposizione tutti gli strumenti migliori per realizzarti anche tu? Senza nemmeno alzarti dalla sedia di casa tua… Risparmieresti 13 anni di vita vissuta e tutti i soldi che ho investito in formazione ed esperienze (decine di migliaia di euro) — al posto tuo.
               </p>
             </AnimatedSection>
@@ -475,7 +475,7 @@ const ChiSono = () => {
         <section className="section-padding bg-background">
           <div className="container-narrow">
             <AnimatedSection blur>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-center">
                 Dall'Interno <span className="text-gradient">all'Esterno</span>
               </h2>
             </AnimatedSection>
@@ -496,7 +496,7 @@ const ChiSono = () => {
               <p className="italic text-muted-foreground">
                 Ho cercato solo di riflettere la luce che avevano sempre avuto dentro, ma che non riuscivano — ancora — a vedere.
               </p>
-              <p className="font-display text-lg text-center my-6">
+              <p className="font-display text-base sm:text-lg text-center my-4 sm:my-6">
                 Questo è il potere socratico del professional coaching: <span className="text-cyan">partorire se stessi</span>.
               </p>
               <p>
@@ -518,7 +518,7 @@ const ChiSono = () => {
         <section className="section-padding bg-card">
           <div className="container-narrow">
             <AnimatedSection blur>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6 text-center">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-center">
                 Il Mondo <span className="text-gradient">Nuovo</span>
               </h2>
             </AnimatedSection>
@@ -550,7 +550,7 @@ const ChiSono = () => {
               <p>
                 Presenza, e dialoghi autentici tra cercatori di senso, per esplorare insieme da dove vieni, chi sei e dove vuoi andare: verso l'infinito e oltre…
               </p>
-              <p className="font-display text-xl text-center my-8">
+              <p className="font-display text-lg sm:text-xl text-center my-6 sm:my-8">
                 Il <span className="text-gradient">Metodo EFO</span> non è una teoria da leggere: sintetizza esperienze da vivere.<br />
                 E tutto comincia con una conversazione…
               </p>
@@ -564,7 +564,7 @@ const ChiSono = () => {
         {/* Stats Section */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
               {[{
               icon: BookOpen,
               value: "526",
@@ -582,12 +582,12 @@ const ChiSono = () => {
               value: "∞",
               label: "Passione"
             }].map((stat, index) => <AnimatedSection key={index} delay={index * 0.12} scale>
-                  <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card text-center transition-transform duration-300 hover:-translate-y-1">
-                    <stat.icon className="h-6 w-6 md:h-8 md:w-8 text-cyan mx-auto mb-2 md:mb-3" />
-                    <p className="font-display text-2xl md:text-3xl text-foreground mb-1">
+                  <div className="gradient-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 bg-gradient-card text-center transition-transform duration-300 hover:-translate-y-1">
+                    <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-cyan mx-auto mb-1.5 sm:mb-2 md:mb-3" />
+                    <p className="font-display text-xl sm:text-2xl md:text-3xl text-foreground mb-0.5 sm:mb-1">
                       {stat.value}
                     </p>
-                    <p className="text-xs md:text-sm text-muted-foreground">{stat.label}</p>
+                    <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">{stat.label}</p>
                   </div>
                 </AnimatedSection>)}
             </div>
@@ -603,7 +603,7 @@ const ChiSono = () => {
 
           <div className="container-narrow text-center relative z-10">
             <AnimatedSection blur scale>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-6">
+              <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4 sm:mb-6">
                 Fissa una Sessione Gratuita:<br />
                 <span className="text-gradient">Inizia la Tua Trasformazione!</span>
               </h2>
