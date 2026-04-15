@@ -669,7 +669,7 @@ const MetodoEFO = () => {
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs md:text-sm text-muted-foreground font-medium">IL TUO PROGRESSO</p>
                   <p className="text-xs font-medium">
-                    <span className={activeLevel >= roadmapLevels.length + 1 ? "text-maestria" : activeLevel >= roadmapLevels.length ? "text-cyan" : "text-amber"}>LV {activeLevel}</span>
+                    <span className={activeLevel >= roadmapLevels.length + 1 ? "text-maestria" : activeLevel >= roadmapLevels.length ? "text-cyan" : activeLevel <= 1 ? "text-cyan" : "text-amber"}>LV {activeLevel}</span>
                     <span className="text-muted-foreground"> / {totalLevels - 1}</span>
                   </p>
                 </div>
@@ -677,8 +677,11 @@ const MetodoEFO = () => {
                   {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => {
                     const isLv6 = i === roadmapLevels.length + 1;
                     const isMaestria = i >= roadmapLevels.length;
-                    // Progressive amber opacity for base levels
-                    const amberOpacities = ["from-amber/40 to-amber/60", "from-amber/55 to-amber/75", "from-amber/70 to-amber/90", "from-amber/85 to-amber"];
+                    const isCyanBase = i <= 1; // LV0-1 = Cyan (1D Passato)
+                    // Progressive amber opacity for LV2-4
+                    const amberOpacities = ["from-amber/50 to-amber/70", "from-amber/70 to-amber/90", "from-amber/85 to-amber"];
+                    // Progressive cyan opacity for LV0-1
+                    const cyanOpacities = ["from-cyan/50 to-cyan/70", "from-cyan/75 to-cyan"];
                     return (
                       <button
                         key={i}
@@ -689,7 +692,9 @@ const MetodoEFO = () => {
                               ? "bg-gradient-to-r from-maestria to-maestria-light"
                               : isMaestria
                               ? "bg-gradient-to-r from-cyan to-accent"
-                              : `bg-gradient-to-r ${amberOpacities[i] || amberOpacities[3]}`
+                              : isCyanBase
+                              ? `bg-gradient-to-r ${cyanOpacities[i] || cyanOpacities[1]}`
+                              : `bg-gradient-to-r ${amberOpacities[i - 2] || amberOpacities[2]}`
                             : "bg-muted/30 hover:bg-muted/50"
                         }`}
                         aria-label={`Vai al livello ${level.level}`}
@@ -714,7 +719,7 @@ const MetodoEFO = () => {
               {/* Timeline line */}
               <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border/50 md:-translate-x-px" aria-hidden="true">
                 <motion.div
-                  className="w-full bg-gradient-to-b from-amber via-cyan to-maestria rounded-full origin-top"
+                  className="w-full bg-gradient-to-b from-cyan via-amber to-maestria rounded-full origin-top"
                   style={{ height: `${((activeLevel + 1) / totalLevels) * 100}%` }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 />
@@ -725,6 +730,19 @@ const MetodoEFO = () => {
                 const isActive = index === activeLevel;
                 const isPast = index < activeLevel;
                 const isRight = index % 2 === 0;
+                const isCyanLevel = index <= 1; // LV0-1 = Cyan (1D Passato)
+                const nodeActiveClass = isCyanLevel
+                  ? "bg-cyan border-cyan scale-110 shadow-[0_0_20px_hsl(190_85%_55%/0.4)]"
+                  : "bg-amber border-amber scale-110 shadow-[0_0_20px_hsl(38_92%_50%/0.4)]";
+                const nodePastClass = isCyanLevel
+                  ? "bg-cyan/20 border-cyan/50"
+                  : "bg-amber/20 border-amber/50";
+                const cardActiveClass = isCyanLevel
+                  ? "bg-gradient-card border border-cyan/40 shadow-[0_0_30px_hsl(190_85%_55%/0.1)]"
+                  : "bg-gradient-card border border-amber/40 shadow-[0_0_30px_hsl(38_92%_50%/0.1)]";
+                const cardPastClass = isCyanLevel
+                  ? "bg-gradient-card border border-cyan/20 opacity-80"
+                  : "bg-gradient-card border border-amber/20 opacity-80";
 
                 return (
                   <div key={index} ref={(el) => { levelRefs.current[index] = el; }}>
@@ -747,15 +765,11 @@ const MetodoEFO = () => {
                       <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
                         <div
                           className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 cursor-pointer ${
-                            isActive
-                              ? "bg-amber border-amber scale-110 shadow-[0_0_20px_hsl(38_92%_50%/0.4)]"
-                              : isPast
-                              ? "bg-amber/20 border-amber/50"
-                              : "bg-card border-border"
+                            isActive ? nodeActiveClass : isPast ? nodePastClass : "bg-card border-border"
                           }`}
                         >
                           {isPast || isActive ? (
-                            <Unlock className={`h-3.5 w-3.5 md:h-4 md:w-4 ${isActive ? "text-background" : "text-amber"}`} />
+                            <Unlock className={`h-3.5 w-3.5 md:h-4 md:w-4 ${isActive ? "text-background" : isCyanLevel ? "text-cyan" : "text-amber"}`} />
                           ) : (
                             <Lock className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
                           )}
@@ -766,21 +780,21 @@ const MetodoEFO = () => {
                       <div className={`ml-12 md:ml-0 flex-1 ${isRight ? "md:pr-12 md:mr-[50%]" : "md:pl-12 md:ml-[50%]"}`}>
                         <div
                           className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
-                            isActive
-                              ? "bg-gradient-card border border-amber/40 shadow-[0_0_30px_hsl(38_92%_50%/0.1)]"
-                              : isPast
-                              ? "bg-gradient-card border border-amber/20 opacity-80"
-                              : "bg-card/40 border border-border/30"
+                            isActive ? cardActiveClass : isPast ? cardPastClass : "bg-card/40 border border-border/30"
                           }`}
                         >
                           {/* Header */}
                           <div className="mb-3 space-y-2">
                             <div className="flex items-center gap-3">
-                              <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? "text-amber" : "text-muted-foreground/50"}`}>
+                              <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? (isCyanLevel ? "text-cyan" : "text-amber") : "text-muted-foreground/50"}`}>
                                 LV {level.level}
                               </span>
                               {level.dimension && (
-                                <span className="px-2 py-0.5 rounded-full bg-amber/10 border border-amber/20 text-[10px] md:text-xs text-amber font-medium">
+                                <span className={`px-2 py-0.5 rounded-full text-[10px] md:text-xs font-medium ${
+                                  isCyanLevel 
+                                    ? "bg-cyan/10 border border-cyan/20 text-cyan" 
+                                    : "bg-amber/10 border border-amber/20 text-amber"
+                                }`}>
                                   {level.dimension}
                                 </span>
                               )}
@@ -791,14 +805,14 @@ const MetodoEFO = () => {
                           </div>
 
                           <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
-                          <p className="text-xs md:text-sm text-amber mb-4">{level.subtitle}</p>
+                          <p className={`text-xs md:text-sm mb-4 ${isCyanLevel ? "text-cyan" : "text-amber"}`}>{level.subtitle}</p>
 
                           {/* Content */}
                           <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mb-2">Cosa succede/faremo:</p>
                           <ul className="space-y-2 mb-4">
                             {level.content.map((item, i) => (
                               <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
-                                <span className="w-1.5 h-1.5 rounded-full bg-amber mt-1.5 shrink-0" />
+                                <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isCyanLevel ? "bg-cyan" : "bg-amber"}`} />
                                 {item}
                               </li>
                             ))}
@@ -807,16 +821,16 @@ const MetodoEFO = () => {
                           {/* Footer */}
                           <div className="space-y-2 pt-4 border-t border-border/50">
                             <div className="flex items-start gap-2">
-                              <Gift className="h-3.5 w-3.5 md:h-4 md:w-4 text-amber shrink-0 mt-0.5" />
+                              <Gift className={`h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 mt-0.5 ${isCyanLevel ? "text-cyan" : "text-amber"}`} />
                               <span className="text-xs text-muted-foreground">{level.badge}</span>
                             </div>
                             <div className="flex flex-wrap items-center gap-3">
-                              <span className="text-xs text-amber font-medium">{level.time}</span>
+                              <span className={`text-xs font-medium ${isCyanLevel ? "text-cyan" : "text-amber"}`}>{level.time}</span>
                               {level.skill && (
                                 <span className="text-xs text-emerald-400">💪🏻 "{level.skill}"</span>
                               )}
                               {level.achievement && (
-                                <span className="text-xs text-amber-light">🎖️ "{level.achievement}"</span>
+                                <span className={`text-xs ${isCyanLevel ? "text-cyan-light" : "text-amber-light"}`}>🎖️ "{level.achievement}"</span>
                               )}
                             </div>
                           </div>
