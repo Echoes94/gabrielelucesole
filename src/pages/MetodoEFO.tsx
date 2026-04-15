@@ -731,8 +731,6 @@ const MetodoEFO = () => {
                 const isPast = index < activeLevel;
                 const isRight = index % 2 === 0;
                 const isCyanLevel = index <= 1; // LV0-1 = Cyan (1D Passato)
-                // Color tokens based on level
-                const colorAccent = isCyanLevel ? "cyan" : "amber";
                 const nodeActiveClass = isCyanLevel
                   ? "bg-cyan border-cyan scale-110 shadow-[0_0_20px_hsl(190_85%_55%/0.4)]"
                   : "bg-amber border-amber scale-110 shadow-[0_0_20px_hsl(38_92%_50%/0.4)]";
@@ -771,7 +769,7 @@ const MetodoEFO = () => {
                           }`}
                         >
                           {isPast || isActive ? (
-                            <Unlock className={`h-3.5 w-3.5 md:h-4 md:w-4 ${isActive ? "text-background" : `text-${colorAccent}`}`} />
+                            <Unlock className={`h-3.5 w-3.5 md:h-4 md:w-4 ${isActive ? "text-background" : isCyanLevel ? "text-cyan" : "text-amber"}`} />
                           ) : (
                             <Lock className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
                           )}
@@ -788,11 +786,15 @@ const MetodoEFO = () => {
                           {/* Header */}
                           <div className="mb-3 space-y-2">
                             <div className="flex items-center gap-3">
-                              <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? `text-${colorAccent}` : "text-muted-foreground/50"}`}>
+                              <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? (isCyanLevel ? "text-cyan" : "text-amber") : "text-muted-foreground/50"}`}>
                                 LV {level.level}
                               </span>
                               {level.dimension && (
-                                <span className={`px-2 py-0.5 rounded-full bg-${colorAccent}/10 border border-${colorAccent}/20 text-[10px] md:text-xs text-${colorAccent} font-medium`}>
+                                <span className={`px-2 py-0.5 rounded-full text-[10px] md:text-xs font-medium ${
+                                  isCyanLevel 
+                                    ? "bg-cyan/10 border border-cyan/20 text-cyan" 
+                                    : "bg-amber/10 border border-amber/20 text-amber"
+                                }`}>
                                   {level.dimension}
                                 </span>
                               )}
@@ -803,14 +805,14 @@ const MetodoEFO = () => {
                           </div>
 
                           <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
-                          <p className={`text-xs md:text-sm text-${colorAccent} mb-4`}>{level.subtitle}</p>
+                          <p className={`text-xs md:text-sm mb-4 ${isCyanLevel ? "text-cyan" : "text-amber"}`}>{level.subtitle}</p>
 
                           {/* Content */}
                           <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mb-2">Cosa succede/faremo:</p>
                           <ul className="space-y-2 mb-4">
                             {level.content.map((item, i) => (
                               <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
-                                <span className={`w-1.5 h-1.5 rounded-full bg-${colorAccent} mt-1.5 shrink-0`} />
+                                <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isCyanLevel ? "bg-cyan" : "bg-amber"}`} />
                                 {item}
                               </li>
                             ))}
@@ -819,11 +821,11 @@ const MetodoEFO = () => {
                           {/* Footer */}
                           <div className="space-y-2 pt-4 border-t border-border/50">
                             <div className="flex items-start gap-2">
-                              <Gift className={`h-3.5 w-3.5 md:h-4 md:w-4 text-${colorAccent} shrink-0 mt-0.5`} />
+                              <Gift className={`h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 mt-0.5 ${isCyanLevel ? "text-cyan" : "text-amber"}`} />
                               <span className="text-xs text-muted-foreground">{level.badge}</span>
                             </div>
                             <div className="flex flex-wrap items-center gap-3">
-                              <span className={`text-xs text-${colorAccent} font-medium`}>{level.time}</span>
+                              <span className={`text-xs font-medium ${isCyanLevel ? "text-cyan" : "text-amber"}`}>{level.time}</span>
                               {level.skill && (
                                 <span className="text-xs text-emerald-400">💪🏻 "{level.skill}"</span>
                               )}
