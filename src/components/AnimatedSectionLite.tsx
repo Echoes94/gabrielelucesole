@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface AnimatedSectionLiteProps {
@@ -20,7 +20,10 @@ const AnimatedSectionLite = ({
   blur = false,
   staggerChildren,
 }: AnimatedSectionLiteProps) => {
+  const prefersReducedMotion = useReducedMotion();
+
   const getInitialPosition = () => {
+    if (prefersReducedMotion) return { x: 0, y: 0 };
     switch (direction) {
       case "up": return { y: 30, x: 0 };
       case "down": return { y: -30, x: 0 };
@@ -35,18 +38,18 @@ const AnimatedSectionLite = ({
     hidden: { 
       opacity: 0, 
       ...getInitialPosition(),
-      ...(scale ? { scale: 0.95 } : {}),
-      ...(blur ? { filter: "blur(6px)" } : {}),
+      ...(scale && !prefersReducedMotion ? { scale: 0.95 } : {}),
+      ...(blur && !prefersReducedMotion ? { filter: "blur(6px)" } : {}),
     },
     visible: { 
       opacity: 1, 
       y: 0,
       x: 0,
-      ...(scale ? { scale: 1 } : {}),
-      ...(blur ? { filter: "blur(0px)" } : {}),
+      ...(scale && !prefersReducedMotion ? { scale: 1 } : {}),
+      ...(blur && !prefersReducedMotion ? { filter: "blur(0px)" } : {}),
       transition: {
-        duration: 0.7,
-        delay,
+        duration: prefersReducedMotion ? 0.01 : 0.7,
+        delay: prefersReducedMotion ? 0 : delay,
         ease: [0.22, 1, 0.36, 1],
         ...(staggerChildren ? { staggerChildren } : {}),
       }
