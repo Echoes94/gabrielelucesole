@@ -23,6 +23,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link 
           to="/" 
+          className="flex items-center gap-2 sm:gap-3 group rounded-md"
           aria-label="L.G. - Vai alla homepage"
         >
           <img
