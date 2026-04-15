@@ -780,7 +780,7 @@ const MetodoEFO = () => {
                       <div className={`ml-12 md:ml-0 flex-1 ${isRight ? "md:pr-12 md:mr-[50%]" : "md:pl-12 md:ml-[50%]"}`}>
                         <div
                           className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
-                            isActive ? cardActiveClass : isPast ? cardPastClass : "bg-card/40 border border-border/30"
+                            isActive ? cardActiveClass : isPast ? cardPastClass : (isCyanLevel ? "bg-card/40 border border-border/30" : "bg-gradient-to-br from-amber-deep/30 to-card/40 border border-border/30")
                           }`}
                         >
                           {/* Header */}
