@@ -55,6 +55,7 @@ export default {
         cyan: {
           DEFAULT: "hsl(var(--cyan))",
           light: "hsl(var(--cyan-light))",
+          deep: "hsl(var(--cyan-deep))",
         },
         maestria: {
           DEFAULT: "hsl(var(--maestria))",
