@@ -4,7 +4,7 @@ import { useState, useCallback, useRef } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Mail, ArrowRight, CheckCircle, Sparkles, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Heart, Play, Instagram, Linkedin, Check, Briefcase, Quote } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle, Sparkles, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Heart, Play, Instagram, Linkedin, Check, Briefcase, GraduationCap, Quote } from "lucide-react";
 import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 const AnimatedSection = AnimatedSectionLite;
 import { Link } from "react-router-dom";
