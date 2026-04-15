@@ -4,21 +4,19 @@ import { useState, useCallback, useRef } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Mail, ArrowRight, CheckCircle, Sparkles, Users, Star, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Search, Heart, Compass, Flame, Play, Instagram, Linkedin, Check, Briefcase, GraduationCap, Quote } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle, Sparkles, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Heart, Play, Instagram, Linkedin, Check, Briefcase, Quote } from "lucide-react";
 import AnimatedSectionLite from "@/components/AnimatedSectionLite";
-// Alias for backward compatibility - using lite version for performance
 const AnimatedSection = AnimatedSectionLite;
-import LazySection from "@/components/LazySection";
 import { Link } from "react-router-dom";
 import gabrielePhoto from "@/assets/gabriele-photo.webp";
 import BlurImage from "@/components/BlurImage";
 import { gabrielePhotoPlaceholder } from "@/lib/image-placeholders";
 
-// Credential logos
-import logoPul from "@/assets/logo-pul.png";
-import logoIcf from "@/assets/logo-icf.webp";
-import logoPenn from "@/assets/logo-penn.webp";
-import logoMinistero from "@/assets/logo-ministero.webp";
+import {
+  forYouIf, notForYouIf, problems, roadmapLevels, maestriaLevels,
+  inclusions, bonuses, comingSoon, faqs, credentials, credentialsList,
+  testimonials
+} from "@/data/metodoEfoData";
 const forYouIf = [{
   icon: Search,
   title: "Ricercatore Autentico",
