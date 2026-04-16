@@ -484,8 +484,8 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             {/* Interactive Progress Bar - Sticky */}
-            <AnimatedSection className="max-w-3xl mx-auto mb-10 md:mb-14 sticky top-20 md:top-24 z-20" scale>
-              <div className="glass rounded-xl p-4 md:p-5 border border-amber/20">
+            <AnimatedSection className="max-w-3xl mx-auto mb-10 md:mb-14 sticky top-16 sm:top-18 md:top-20 z-20" scale>
+              <div className="rounded-xl p-4 md:p-5 border border-amber/20 bg-background shadow-[0_8px_32px_hsl(var(--background)/0.9),0_2px_8px_hsl(var(--background)/0.6)]">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs md:text-sm text-muted-foreground font-medium">IL TUO PROGRESSO</p>
                   <p className="text-xs font-medium">
