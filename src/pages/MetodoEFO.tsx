@@ -30,7 +30,7 @@ const MetodoEFO = () => {
     setTimeout(() => {
       const el = levelRefs.current[index];
       if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }, 100);
   }, []);
@@ -564,7 +564,7 @@ const MetodoEFO = () => {
                   : "bg-gradient-to-br from-amber-deep/60 to-card border border-amber/20 opacity-80";
 
                 return (
-                  <div key={index} ref={(el) => { levelRefs.current[index] = el; }}>
+                  <div key={index} ref={(el) => { levelRefs.current[index] = el; }} style={{ scrollMarginTop: "140px" }}>
                   <AnimatedSection
                     delay={index * 0.1}
                     direction={isRight ? "right" : "left"}
@@ -694,7 +694,7 @@ const MetodoEFO = () => {
                   : "bg-gradient-to-br from-cyan-deep/30 to-card/40 border border-border/30";
 
                 return (
-                  <div key={`maestria-${index}`} ref={(el) => { levelRefs.current[globalIndex] = el; }}>
+                  <div key={`maestria-${index}`} ref={(el) => { levelRefs.current[globalIndex] = el; }} style={{ scrollMarginTop: "140px" }}>
                   <AnimatedSection
                     delay={globalIndex * 0.1}
                     direction={isRight ? "right" : "left"}
