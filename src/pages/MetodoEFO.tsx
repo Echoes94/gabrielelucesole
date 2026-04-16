@@ -23,15 +23,44 @@ const MetodoEFO = () => {
   const [activeLevel, setActiveLevel] = useState(0);
   const totalLevels = roadmapLevels.length + maestriaLevels.length;
   const levelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isScrollingRef = useRef(false);
+
+  // Auto-update activeLevel based on scroll position
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isScrollingRef.current) return;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = levelRefs.current.indexOf(entry.target as HTMLDivElement);
+            if (index !== -1) setActiveLevel(index);
+          }
+        });
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+    );
+
+    // Observe after a small delay to let refs populate
+    const timer = setTimeout(() => {
+      levelRefs.current.forEach((el) => el && observer.observe(el));
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, []);
 
   const scrollToLevel = useCallback((index: number) => {
+    isScrollingRef.current = true;
     setActiveLevel(index);
-    // Small delay to let state update and animations start
     setTimeout(() => {
       const el = levelRefs.current[index];
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+      // Re-enable scroll observation after animation completes
+      setTimeout(() => { isScrollingRef.current = false; }, 800);
     }, 100);
   }, []);
   
