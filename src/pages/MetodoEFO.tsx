@@ -1031,7 +1031,7 @@ const MetodoEFO = () => {
                   <span className="text-amber-400 font-medium">30 aprile 2026</span>.
                 </p>
                 <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">
-                  <span className="font-medium">Perché aumenterà:</span> Da marzo introdurrò nuovi contenuti…
+                  <span className="font-medium">Perché aumenterà:</span> Da maggio introdurrò nuovi contenuti…
                 </p>
                 <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">
                   Chi inizia ORA riceverà tutti gli aggiornamenti GRATIS (valore totale 1.085€).
