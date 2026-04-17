@@ -1014,7 +1014,7 @@ const MetodoEFO = () => {
 
                 <p className="text-xs md:text-sm text-muted-foreground text-center">
                   Prossima disponibilità se questo posto viene occupato:{" "}
-                  <span className="text-red-400 font-medium">Aprile 2026</span>
+                  <span className="text-red-400 font-medium">Maggio 2026</span>
                 </p>
               </div>
             </AnimatedSection>
