@@ -4,7 +4,32 @@ import { useState, useCallback, useRef } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Mail, ArrowRight, CheckCircle, Sparkles, XCircle, Lock, Unlock, Clock, Target, Zap, Shield, TrendingUp, History, AlertTriangle, ArrowDown, Gift, Heart, Play, Instagram, Linkedin, Check, Briefcase, GraduationCap, Quote } from "lucide-react";
+import {
+  Mail,
+  ArrowRight,
+  CheckCircle,
+  Sparkles,
+  XCircle,
+  Lock,
+  Unlock,
+  Clock,
+  Target,
+  Zap,
+  Shield,
+  TrendingUp,
+  History,
+  AlertTriangle,
+  ArrowDown,
+  Gift,
+  Heart,
+  Play,
+  Instagram,
+  Linkedin,
+  Check,
+  Briefcase,
+  GraduationCap,
+  Quote,
+} from "lucide-react";
 import AnimatedSectionLite from "@/components/AnimatedSectionLite";
 const AnimatedSection = AnimatedSectionLite;
 import { Link } from "react-router-dom";
@@ -13,11 +38,19 @@ import BlurImage from "@/components/BlurImage";
 import { gabrielePhotoPlaceholder } from "@/lib/image-placeholders";
 
 import {
-  forYouIf, notForYouIf, problems, roadmapLevels, maestriaLevels,
-  inclusions, bonuses, comingSoon, faqs, credentials, credentialsList,
-  testimonials
+  forYouIf,
+  notForYouIf,
+  problems,
+  roadmapLevels,
+  maestriaLevels,
+  inclusions,
+  bonuses,
+  comingSoon,
+  faqs,
+  credentials,
+  credentialsList,
+  testimonials,
 } from "@/data/metodoEfoData";
-
 
 const MetodoEFO = () => {
   const [activeLevel, setActiveLevel] = useState(0);
@@ -34,17 +67,24 @@ const MetodoEFO = () => {
       }
     }, 100);
   }, []);
-  
-  return <>
+
+  return (
+    <>
       <Helmet>
         <title>Metodo EFO® | Essere Felici Ora - Gabriele Lucesole</title>
-        <meta name="description" content="Il Metodo EFO®: sistema integrato per trasformare il passato, vivere il presente e attrarre il futuro. 13+ settimane di coaching professionale." />
+        <meta
+          name="description"
+          content="Il Metodo EFO®: sistema integrato per trasformare il passato, vivere il presente e attrarre il futuro. 13+ settimane di coaching professionale."
+        />
         <link rel="canonical" href="https://gabrielelucesole.com/metodo-efo" />
       </Helmet>
 
       <Layout>
         {/* Hero - No lazy load, critical content */}
-        <section className="relative min-h-[100svh] flex items-center justify-center section-padding bg-gradient-hero overflow-hidden" aria-labelledby="metodo-efo-heading">
+        <section
+          className="relative min-h-[100svh] flex items-center justify-center section-padding bg-gradient-hero overflow-hidden"
+          aria-labelledby="metodo-efo-heading"
+        >
           <div className="absolute inset-0" aria-hidden="true">
             <div className="absolute top-1/4 -left-20 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-cyan/5 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 -right-20 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 bg-accent/5 rounded-full blur-3xl" />
@@ -56,7 +96,10 @@ const MetodoEFO = () => {
                 METODO EFO®
               </span>
 
-              <h1 id="metodo-efo-heading" className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 md:mb-6">
+              <h1
+                id="metodo-efo-heading"
+                className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 md:mb-6"
+              >
                 Hai Fatto Tutto.
                 <br />
                 <span className="text-gradient">Ma Manca Ancora Qualcosa.</span>
@@ -77,14 +120,22 @@ const MetodoEFO = () => {
                 successo.
               </p>
 
-              <Button variant="hero" size="xl" className="w-full sm:w-auto transition-transform hover:scale-105" asChild>
+              <Button
+                variant="hero"
+                size="xl"
+                className="w-full sm:w-auto transition-transform hover:scale-105"
+                asChild
+              >
                 <a href="mailto:gabriele.lucesole@gmail.com" aria-label="Fissa una sessione gratuita - invia email">
                   <Mail className="h-5 w-5" aria-hidden="true" />
                   Fissa Sessione GRATIS
                 </a>
               </Button>
 
-              <p className="text-cyan mt-5 sm:mt-6 md:mt-8 flex items-center justify-center gap-2 text-sm" aria-hidden="true">
+              <p
+                className="text-cyan mt-5 sm:mt-6 md:mt-8 flex items-center justify-center gap-2 text-sm"
+                aria-hidden="true"
+              >
                 <ArrowDown className="h-4 w-4" />
                 Scopri se è il momento giusto per te
               </p>
@@ -102,7 +153,8 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-10 md:mb-16">
-              {forYouIf.map((item, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
+              {forYouIf.map((item, index) => (
+                <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className="gradient-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 bg-gradient-card h-full transition-transform duration-300 hover:-translate-y-1">
                     <div className="flex items-start gap-2.5 sm:gap-3 md:gap-4">
                       <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
@@ -118,7 +170,8 @@ const MetodoEFO = () => {
                       </div>
                     </div>
                   </div>
-                </AnimatedSection>)}
+                </AnimatedSection>
+              ))}
             </div>
 
             {/* Not for you */}
@@ -131,10 +184,12 @@ const MetodoEFO = () => {
                     <span>Questo percorso NON è per te se...</span>
                   </h3>
                   <div className="grid md:grid-cols-2 gap-3 md:gap-4">
-                    {notForYouIf.map((item, index) => <div key={index} className="flex items-start gap-2">
+                    {notForYouIf.map((item, index) => (
+                      <div key={index} className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0" aria-hidden="true" />
                         <span className="text-xs md:text-sm text-muted-foreground">{item}</span>
-                      </div>)}
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -169,11 +224,15 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
-              {problems.map((problem, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
+              {problems.map((problem, index) => (
+                <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className="p-4 md:p-6 rounded-xl bg-card border border-border/50 transition-colors duration-300 hover:border-cyan/50">
                     <div className="flex items-start gap-3 md:gap-4">
-                      <span className="font-display text-3xl md:text-4xl text-cyan/15 leading-none shrink-0 select-none" aria-hidden="true">
-                        {String(index + 1).padStart(2, '0')}
+                      <span
+                        className="font-display text-3xl md:text-4xl text-cyan/15 leading-none shrink-0 select-none"
+                        aria-hidden="true"
+                      >
+                        {String(index + 1).padStart(2, "0")}
                       </span>
                       <div>
                         <div className="flex items-center gap-2 mb-2 md:mb-3">
@@ -186,7 +245,8 @@ const MetodoEFO = () => {
                       </div>
                     </div>
                   </div>
-                </AnimatedSection>)}
+                </AnimatedSection>
+              ))}
             </div>
 
             {/* Good news */}
@@ -397,35 +457,68 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             <div className="space-y-4 md:space-y-8">
-              {[{
-              icon: History,
-              num: "1️⃣",
-              title: "1️⃣ TRASFORMA IL TUO PASSATO",
-              sub: "Da peso a trampolino di lancio",
-              intro: "Le tue ferite interiori, i condizionamenti ricevuti, le aspettative altrui interiorizzate... Possono smettere di governarti.",
-              benefits: ["Liberarti da schemi inconsci che sabotano la tua felicità", 'Riscrivere narrazioni limitanti ("Non basta mai", "Devo apparire perfetto", "Devo dimostrare di essere qualcuno")', "Riconnetterti con parti di te sacrificate sull'altare del lavoro fine a se stesso"],
-              result: "Il passato diventa risorsa, energia, non prigione. Le catene vengono spezzate…"
-            }, {
-              icon: Clock,
-              num: "2️⃣",
-              title: "2️⃣ VIVI PIENAMENTE IL PRESENTE",
-              sub: "Dal pilota automatico della frenesia contemporanea a una presenza radicale",
-              intro: 'Quante volte ti senti "presente" solo fisicamente e con la testa da un\'altra parte? Quanti momenti con i tuoi cari hai passato pensando alle scadenze del giorno dopo?',
-              benefits: ["Accesso allo stato di flow anche nella quotidianità lavorativa (deep work)", "Gestione dello stress attraverso mindfulness applicata (non solo teoria)", "Capacità di essere qui e ora, senza ansia per il futuro o rimpianti per il passato"],
-              result: "Lavori meglio, senza consumarti. Vivi davvero, invece di essere perseguitato dallo stress."
-            }, {
-              icon: Target,
-              num: "3️⃣",
-              title: "3️⃣ ATTRAI IL FUTURO DESIDERATO",
-              sub: "Dalla confusione alla chiarezza di chi vuoi essere davvero",
-              intro: 'Non "legge di attrazione" magica. Ma visione chiara + valori autentici + azioni coerenti.',
-              benefits: ["Ridefinire le priorità oltre la carriera (affetti, spiritualità, mission)", "Allineamento tra chi sei e cosa fai (no dissonanza cognitiva)", 'Piano d\'azione per trasformare la vita che "dovresti" vivere nella vita che vuoi vivere'],
-              result: "Non rincorri più obiettivi altrui. Crei il tuo destino."
-}].map((dim, index) => {
+              {[
+                {
+                  icon: History,
+                  num: "1️⃣",
+                  title: "1️⃣ TRASFORMA IL TUO PASSATO",
+                  sub: "Da peso a trampolino di lancio",
+                  intro:
+                    "Le tue ferite interiori, i condizionamenti ricevuti, le aspettative altrui interiorizzate... Possono smettere di governarti.",
+                  benefits: [
+                    "Liberarti da schemi inconsci che sabotano la tua felicità",
+                    'Riscrivere narrazioni limitanti ("Non basta mai", "Devo apparire perfetto", "Devo dimostrare di essere qualcuno")',
+                    "Riconnetterti con parti di te sacrificate sull'altare del lavoro fine a se stesso",
+                  ],
+                  result: "Il passato diventa risorsa, energia, non prigione. Le catene vengono spezzate…",
+                },
+                {
+                  icon: Clock,
+                  num: "2️⃣",
+                  title: "2️⃣ VIVI PIENAMENTE IL PRESENTE",
+                  sub: "Dal pilota automatico della frenesia contemporanea a una presenza radicale",
+                  intro:
+                    'Quante volte ti senti "presente" solo fisicamente e con la testa da un\'altra parte? Quanti momenti con i tuoi cari hai passato pensando alle scadenze del giorno dopo?',
+                  benefits: [
+                    "Accesso allo stato di flow anche nella quotidianità lavorativa (deep work)",
+                    "Gestione dello stress attraverso mindfulness applicata (non solo teoria)",
+                    "Capacità di essere qui e ora, senza ansia per il futuro o rimpianti per il passato",
+                  ],
+                  result: "Lavori meglio, senza consumarti. Vivi davvero, invece di essere perseguitato dallo stress.",
+                },
+                {
+                  icon: Target,
+                  num: "3️⃣",
+                  title: "3️⃣ ATTRAI IL FUTURO DESIDERATO",
+                  sub: "Dalla confusione alla chiarezza di chi vuoi essere davvero",
+                  intro: 'Non "legge di attrazione" magica. Ma visione chiara + valori autentici + azioni coerenti.',
+                  benefits: [
+                    "Ridefinire le priorità oltre la carriera (affetti, spiritualità, mission)",
+                    "Allineamento tra chi sei e cosa fai (no dissonanza cognitiva)",
+                    'Piano d\'azione per trasformare la vita che "dovresti" vivere nella vita che vuoi vivere',
+                  ],
+                  result: "Non rincorri più obiettivi altrui. Crei il tuo destino.",
+                },
+              ].map((dim, index) => {
                 const dimColors = [
-                  { text: "text-amber", bg: "bg-amber/10", border: "border-amber/20", glow: "shadow-[0_0_40px_hsl(38_92%_50%/0.08)]" },
-                  { text: "text-cyan", bg: "bg-cyan/10", border: "border-cyan/20", glow: "shadow-[0_0_40px_hsl(190_85%_55%/0.08)]" },
-                  { text: "text-maestria-light", bg: "bg-maestria/10", border: "border-maestria/20", glow: "shadow-[0_0_40px_hsl(270_60%_58%/0.08)]" },
+                  {
+                    text: "text-amber",
+                    bg: "bg-amber/10",
+                    border: "border-amber/20",
+                    glow: "shadow-[0_0_40px_hsl(38_92%_50%/0.08)]",
+                  },
+                  {
+                    text: "text-cyan",
+                    bg: "bg-cyan/10",
+                    border: "border-cyan/20",
+                    glow: "shadow-[0_0_40px_hsl(190_85%_55%/0.08)]",
+                  },
+                  {
+                    text: "text-maestria-light",
+                    bg: "bg-maestria/10",
+                    border: "border-maestria/20",
+                    glow: "shadow-[0_0_40px_hsl(270_60%_58%/0.08)]",
+                  },
                 ];
                 const c = dimColors[index];
                 return (
@@ -434,7 +527,9 @@ const MetodoEFO = () => {
                       <div className="grid lg:grid-cols-3 gap-4 md:gap-8 items-start">
                         <div>
                           <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                            <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl ${c.bg} flex items-center justify-center`}>
+                            <div
+                              className={`w-12 h-12 md:w-16 md:h-16 rounded-xl ${c.bg} flex items-center justify-center`}
+                            >
                               <dim.icon className={`h-6 w-6 md:h-8 md:w-8 ${c.text}`} />
                             </div>
                           </div>
@@ -447,10 +542,12 @@ const MetodoEFO = () => {
                             Per te significa:
                           </p>
                           <ul className="space-y-2 md:space-y-3">
-                            {dim.benefits.map((b, i) => <li key={i} className="flex items-start gap-2 md:gap-3">
+                            {dim.benefits.map((b, i) => (
+                              <li key={i} className="flex items-start gap-2 md:gap-3">
                                 <Zap className={`h-3 w-3 md:h-4 md:w-4 ${c.text} mt-0.5 shrink-0`} />
                                 <span className="text-xs md:text-sm text-muted-foreground">{b}</span>
-                              </li>)}
+                              </li>
+                            ))}
                           </ul>
                         </div>
                         <div className="flex items-center h-full">
@@ -489,38 +586,56 @@ const MetodoEFO = () => {
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs md:text-sm text-muted-foreground font-medium">IL TUO PROGRESSO</p>
                   <p className="text-xs font-medium">
-                    <span className={activeLevel >= roadmapLevels.length + 1 ? "text-maestria" : activeLevel >= roadmapLevels.length ? "text-cyan" : activeLevel <= 1 ? "text-cyan" : "text-amber"}>LV {activeLevel}</span>
+                    <span
+                      className={
+                        activeLevel >= roadmapLevels.length + 1
+                          ? "text-maestria"
+                          : activeLevel >= roadmapLevels.length
+                            ? "text-cyan"
+                            : activeLevel <= 1
+                              ? "text-cyan"
+                              : "text-amber"
+                      }
+                    >
+                      LV {activeLevel}
+                    </span>
                     <span className="text-muted-foreground"> / {totalLevels - 1}</span>
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5 md:gap-2 mb-2">
-                  {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map((level, i) => {
-                    const isLv6 = i === roadmapLevels.length + 1;
-                    const isMaestria = i >= roadmapLevels.length;
-                    const isCyanBase = i <= 1; // LV0-1 = Cyan (1D Passato)
-                    // Progressive amber opacity for LV2-4
-                    const amberOpacities = ["from-amber/50 to-amber/70", "from-amber/70 to-amber/90", "from-amber/85 to-amber"];
-                    // Progressive cyan opacity for LV0-1
-                    const cyanOpacities = ["from-cyan/50 to-cyan/70", "from-cyan/75 to-cyan"];
-                    return (
-                      <button
-                        key={i}
-                        onClick={() => scrollToLevel(i)}
-                        className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
-                          i <= activeLevel
-                            ? isLv6
-                              ? "bg-gradient-to-r from-maestria to-maestria-light"
-                              : isMaestria
-                              ? "bg-gradient-to-r from-cyan to-accent"
-                              : isCyanBase
-                              ? `bg-gradient-to-r ${cyanOpacities[i] || cyanOpacities[1]}`
-                              : `bg-gradient-to-r ${amberOpacities[i - 2] || amberOpacities[2]}`
-                            : "bg-muted/30 hover:bg-muted/50"
-                        }`}
-                        aria-label={`Vai al livello ${level.level}`}
-                      />
-                    );
-                  })}
+                  {[...roadmapLevels, ...maestriaLevels.map((m, i) => ({ ...m, level: String(5 + i) }))].map(
+                    (level, i) => {
+                      const isLv6 = i === roadmapLevels.length + 1;
+                      const isMaestria = i >= roadmapLevels.length;
+                      const isCyanBase = i <= 1; // LV0-1 = Cyan (1D Passato)
+                      // Progressive amber opacity for LV2-4
+                      const amberOpacities = [
+                        "from-amber/50 to-amber/70",
+                        "from-amber/70 to-amber/90",
+                        "from-amber/85 to-amber",
+                      ];
+                      // Progressive cyan opacity for LV0-1
+                      const cyanOpacities = ["from-cyan/50 to-cyan/70", "from-cyan/75 to-cyan"];
+                      return (
+                        <button
+                          key={i}
+                          onClick={() => scrollToLevel(i)}
+                          className={`flex-1 h-2.5 md:h-3 rounded-full transition-all duration-500 cursor-pointer ${
+                            i <= activeLevel
+                              ? isLv6
+                                ? "bg-gradient-to-r from-maestria to-maestria-light"
+                                : isMaestria
+                                  ? "bg-gradient-to-r from-cyan to-accent"
+                                  : isCyanBase
+                                    ? `bg-gradient-to-r ${cyanOpacities[i] || cyanOpacities[1]}`
+                                    : `bg-gradient-to-r ${amberOpacities[i - 2] || amberOpacities[2]}`
+                              : "bg-muted/30 hover:bg-muted/50"
+                          }`}
+                          aria-label={`Vai al livello ${level.level}`}
+                        />
+                      );
+                    },
+                  )}
                 </div>
                 <p className="text-xs text-muted-foreground">
                   {activeLevel === 0 && "Punto di Partenza → Sessione Gratuita"}
@@ -537,7 +652,10 @@ const MetodoEFO = () => {
             {/* Vertical Timeline */}
             <div className="relative max-w-4xl mx-auto">
               {/* Timeline line */}
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border/50 md:-translate-x-px" aria-hidden="true">
+              <div
+                className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border/50 md:-translate-x-px"
+                aria-hidden="true"
+              >
                 <div
                   className="w-full bg-gradient-to-b from-cyan via-amber to-maestria rounded-full origin-top transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{ height: `${((activeLevel + 1) / totalLevels) * 100}%` }}
@@ -553,9 +671,7 @@ const MetodoEFO = () => {
                 const nodeActiveClass = isCyanLevel
                   ? "bg-cyan border-cyan scale-110 shadow-[0_0_20px_hsl(190_85%_55%/0.4)]"
                   : "bg-amber border-amber scale-110 shadow-[0_0_20px_hsl(38_92%_50%/0.4)]";
-                const nodePastClass = isCyanLevel
-                  ? "bg-cyan/20 border-cyan/50"
-                  : "bg-amber/20 border-amber/50";
+                const nodePastClass = isCyanLevel ? "bg-cyan/20 border-cyan/50" : "bg-amber/20 border-amber/50";
                 const cardActiveClass = isCyanLevel
                   ? "bg-gradient-card border border-cyan/40 shadow-[0_0_30px_hsl(190_85%_55%/0.1)]"
                   : "bg-gradient-to-br from-amber-deep to-card border border-amber/50 shadow-[0_0_30px_hsl(38_92%_50%/0.12)]";
@@ -564,99 +680,126 @@ const MetodoEFO = () => {
                   : "bg-gradient-to-br from-amber-deep/60 to-card border border-amber/20 opacity-80";
 
                 return (
-                  <div key={index} ref={(el) => { levelRefs.current[index] = el; }}>
-                  <AnimatedSection
-                    delay={index * 0.1}
-                    direction={isRight ? "right" : "left"}
-                    className="relative mb-8 md:mb-12"
+                  <div
+                    key={index}
+                    ref={(el) => {
+                      levelRefs.current[index] = el;
+                    }}
                   >
-                    <div
-                      className={`flex items-start gap-4 md:gap-0 ${
-                        isRight ? "md:flex-row" : "md:flex-row-reverse"
-                      }`}
-                      onClick={() => scrollToLevel(index)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && scrollToLevel(index)}
-                      aria-label={`Livello ${level.level}: ${level.title}`}
+                    <AnimatedSection
+                      delay={index * 0.1}
+                      direction={isRight ? "right" : "left"}
+                      className="relative mb-8 md:mb-12"
                     >
-                      {/* Timeline node */}
-                      <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
-                        <div
-                          className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 cursor-pointer ${
-                            isActive ? nodeActiveClass : isPast ? nodePastClass : "bg-card border-border"
-                          }`}
-                        >
-                          {isPast || isActive ? (
-                            <Unlock className={`h-3.5 w-3.5 md:h-4 md:w-4 ${isActive ? "text-background" : isCyanLevel ? "text-cyan" : "text-amber"}`} />
-                          ) : (
-                            <Lock className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
-                          )}
+                      <div
+                        className={`flex items-start gap-4 md:gap-0 ${isRight ? "md:flex-row" : "md:flex-row-reverse"}`}
+                        onClick={() => scrollToLevel(index)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === "Enter" && scrollToLevel(index)}
+                        aria-label={`Livello ${level.level}: ${level.title}`}
+                      >
+                        {/* Timeline node */}
+                        <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
+                          <div
+                            className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 cursor-pointer ${
+                              isActive ? nodeActiveClass : isPast ? nodePastClass : "bg-card border-border"
+                            }`}
+                          >
+                            {isPast || isActive ? (
+                              <Unlock
+                                className={`h-3.5 w-3.5 md:h-4 md:w-4 ${isActive ? "text-background" : isCyanLevel ? "text-cyan" : "text-amber"}`}
+                              />
+                            ) : (
+                              <Lock className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
+                            )}
+                          </div>
                         </div>
-                      </div>
 
-                      {/* Card */}
-                      <div className={`ml-12 md:ml-0 flex-1 ${isRight ? "md:pr-12 md:mr-[50%]" : "md:pl-12 md:ml-[50%]"}`}>
+                        {/* Card */}
                         <div
-                          className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
-                            isActive ? cardActiveClass : isPast ? cardPastClass : (isCyanLevel ? "bg-card/40 border border-border/30" : "bg-gradient-to-br from-amber-deep/30 to-card/40 border border-border/30")
-                          }`}
+                          className={`ml-12 md:ml-0 flex-1 ${isRight ? "md:pr-12 md:mr-[50%]" : "md:pl-12 md:ml-[50%]"}`}
                         >
-                          {/* Header */}
-                          <div className="mb-3 space-y-2">
-                            <div className="flex items-center gap-3">
-                              <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? (isCyanLevel ? "text-cyan" : "text-amber") : "text-muted-foreground/50"}`}>
-                                LV {level.level}
-                              </span>
-                              {level.dimension && (
-                                <span className={`px-2 py-0.5 rounded-full text-[10px] md:text-xs font-medium ${
-                                  isCyanLevel 
-                                    ? "bg-cyan/10 border border-cyan/20 text-cyan" 
-                                    : "bg-amber/10 border border-amber/20 text-amber"
-                                }`}>
-                                  {level.dimension}
+                          <div
+                            className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
+                              isActive
+                                ? cardActiveClass
+                                : isPast
+                                  ? cardPastClass
+                                  : isCyanLevel
+                                    ? "bg-card/40 border border-border/30"
+                                    : "bg-gradient-to-br from-amber-deep/30 to-card/40 border border-border/30"
+                            }`}
+                          >
+                            {/* Header */}
+                            <div className="mb-3 space-y-2">
+                              <div className="flex items-center gap-3">
+                                <span
+                                  className={`font-display text-2xl md:text-3xl ${isActive || isPast ? (isCyanLevel ? "text-cyan" : "text-amber") : "text-muted-foreground/50"}`}
+                                >
+                                  LV {level.level}
                                 </span>
-                              )}
+                                {level.dimension && (
+                                  <span
+                                    className={`px-2 py-0.5 rounded-full text-[10px] md:text-xs font-medium ${
+                                      isCyanLevel
+                                        ? "bg-cyan/10 border border-cyan/20 text-cyan"
+                                        : "bg-amber/10 border border-amber/20 text-amber"
+                                    }`}
+                                  >
+                                    {level.dimension}
+                                  </span>
+                                )}
+                              </div>
+                              <span className="font-sans text-[11px] md:text-xs tracking-wide uppercase text-muted-foreground">
+                                {level.week}
+                              </span>
                             </div>
-                            <span className="font-sans text-[11px] md:text-xs tracking-wide uppercase text-muted-foreground">
-                              {level.week}
-                            </span>
-                          </div>
 
-                          <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
-                          <p className={`text-xs md:text-sm mb-4 ${isCyanLevel ? "text-cyan" : "text-amber"}`}>{level.subtitle}</p>
+                            <h3 className="font-display text-lg md:text-xl mb-1">{level.title}</h3>
+                            <p className={`text-xs md:text-sm mb-4 ${isCyanLevel ? "text-cyan" : "text-amber"}`}>
+                              {level.subtitle}
+                            </p>
 
-                          {/* Content */}
-                          <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mb-2">Cosa succede/faremo:</p>
-                          <ul className="space-y-2 mb-4">
-                            {level.content.map((item, i) => (
-                              <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
-                                <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isCyanLevel ? "bg-cyan" : "bg-amber"}`} />
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
+                            {/* Content */}
+                            <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mb-2">
+                              Cosa succede/faremo:
+                            </p>
+                            <ul className="space-y-2 mb-4">
+                              {level.content.map((item, i) => (
+                                <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
+                                  <span
+                                    className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isCyanLevel ? "bg-cyan" : "bg-amber"}`}
+                                  />
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
 
-                          {/* Footer */}
-                          <div className="space-y-2 pt-4 border-t border-border/50">
-                            <div className="flex items-start gap-2">
-                              <Gift className={`h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 mt-0.5 ${isCyanLevel ? "text-cyan" : "text-amber"}`} />
-                              <span className="text-xs text-muted-foreground">{level.badge}</span>
-                            </div>
-                            <div className="flex flex-wrap items-center gap-3">
-                              <span className={`text-xs font-medium ${isCyanLevel ? "text-cyan" : "text-amber"}`}>{level.time}</span>
-                              {level.skill && (
-                                <span className="text-xs text-emerald-400">💪🏻 "{level.skill}"</span>
-                              )}
-                              {level.achievement && (
-                                <span className={`text-xs ${isCyanLevel ? "text-cyan-light" : "text-amber-light"}`}>🎖️ "{level.achievement}"</span>
-                              )}
+                            {/* Footer */}
+                            <div className="space-y-2 pt-4 border-t border-border/50">
+                              <div className="flex items-start gap-2">
+                                <Gift
+                                  className={`h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 mt-0.5 ${isCyanLevel ? "text-cyan" : "text-amber"}`}
+                                />
+                                <span className="text-xs text-muted-foreground">{level.badge}</span>
+                              </div>
+                              <div className="flex flex-wrap items-center gap-3">
+                                <span className={`text-xs font-medium ${isCyanLevel ? "text-cyan" : "text-amber"}`}>
+                                  {level.time}
+                                </span>
+                                {level.skill && <span className="text-xs text-emerald-400">💪🏻 "{level.skill}"</span>}
+                                {level.achievement && (
+                                  <span className={`text-xs ${isCyanLevel ? "text-cyan-light" : "text-amber-light"}`}>
+                                    🎖️ "{level.achievement}"
+                                  </span>
+                                )}
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </AnimatedSection>
+                    </AnimatedSection>
                   </div>
                 );
               })}
@@ -680,9 +823,7 @@ const MetodoEFO = () => {
                 const activeNodeClass = isPurple
                   ? "bg-maestria border-maestria-light scale-110 shadow-[0_0_20px_hsl(270_60%_58%/0.4)]"
                   : "bg-cyan border-cyan scale-110 shadow-[0_0_20px_hsl(190_85%_55%/0.4)]";
-                const pastNodeClass = isPurple
-                  ? "bg-maestria/20 border-maestria/50"
-                  : "bg-cyan/20 border-cyan/50";
+                const pastNodeClass = isPurple ? "bg-maestria/20 border-maestria/50" : "bg-cyan/20 border-cyan/50";
                 const activeCardClass = isPurple
                   ? "bg-gradient-to-br from-maestria-deep to-card border border-maestria/50 shadow-[0_0_30px_hsl(270_60%_58%/0.12)]"
                   : "bg-gradient-to-br from-cyan-deep to-card border border-cyan/50 shadow-[0_0_30px_hsl(190_85%_55%/0.12)]";
@@ -694,79 +835,104 @@ const MetodoEFO = () => {
                   : "bg-gradient-to-br from-cyan-deep/30 to-card/40 border border-border/30";
 
                 return (
-                  <div key={`maestria-${index}`} ref={(el) => { levelRefs.current[globalIndex] = el; }}>
-                  <AnimatedSection
-                    delay={globalIndex * 0.1}
-                    direction={isRight ? "right" : "left"}
-                    className="relative mb-8 md:mb-12"
+                  <div
+                    key={`maestria-${index}`}
+                    ref={(el) => {
+                      levelRefs.current[globalIndex] = el;
+                    }}
                   >
-                    <div
-                      className={`flex items-start gap-4 md:gap-0 ${
-                        isRight ? "md:flex-row" : "md:flex-row-reverse"
-                      }`}
-                      onClick={() => scrollToLevel(globalIndex)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && scrollToLevel(globalIndex)}
-                      aria-label={`Livello Maestria ${5 + index}: ${level.title}`}
+                    <AnimatedSection
+                      delay={globalIndex * 0.1}
+                      direction={isRight ? "right" : "left"}
+                      className="relative mb-8 md:mb-12"
                     >
-                      {/* Timeline node */}
-                      <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
-                        <div
-                          className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 cursor-pointer ${
-                            isActive ? activeNodeClass : isPast ? pastNodeClass : "bg-card border-border"
-                          }`}
-                        >
-                          <Sparkles className={`h-3.5 w-3.5 md:h-4 md:w-4 ${
-                            isActive ? "text-background" : isPast ? (isPurple ? "text-maestria" : "text-cyan") : "text-muted-foreground"
-                          }`} />
-                        </div>
-                      </div>
-
-                      {/* Card */}
-                      <div className={`ml-12 md:ml-0 flex-1 ${isRight ? "md:pr-12 md:mr-[50%]" : "md:pl-12 md:ml-[50%]"}`}>
-                        <div
-                          className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
-                            isActive ? activeCardClass : isPast ? pastCardClass : lockedCardClass
-                          }`}
-                        >
-                          {/* Header */}
-                          <div className="flex items-center gap-3 mb-3">
-                            <span className={`font-display text-2xl md:text-3xl ${isActive || isPast ? (isPurple ? "text-maestria" : "text-cyan") : "text-muted-foreground/50"}`}>
-                              LV {5 + index}
-                            </span>
-                            <span className={`px-2 py-0.5 rounded-full border text-[10px] md:text-xs font-medium ${
-                              isPurple 
-                                ? "bg-maestria/10 border-maestria/20 text-maestria-light" 
-                                : "bg-cyan/10 border-cyan/20 text-cyan"
-                            }`}>
-                              {level.dimension}
-                            </span>
+                      <div
+                        className={`flex items-start gap-4 md:gap-0 ${isRight ? "md:flex-row" : "md:flex-row-reverse"}`}
+                        onClick={() => scrollToLevel(globalIndex)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === "Enter" && scrollToLevel(globalIndex)}
+                        aria-label={`Livello Maestria ${5 + index}: ${level.title}`}
+                      >
+                        {/* Timeline node */}
+                        <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
+                          <div
+                            className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 cursor-pointer ${
+                              isActive ? activeNodeClass : isPast ? pastNodeClass : "bg-card border-border"
+                            }`}
+                          >
+                            <Sparkles
+                              className={`h-3.5 w-3.5 md:h-4 md:w-4 ${
+                                isActive
+                                  ? "text-background"
+                                  : isPast
+                                    ? isPurple
+                                      ? "text-maestria"
+                                      : "text-cyan"
+                                    : "text-muted-foreground"
+                              }`}
+                            />
                           </div>
+                        </div>
 
-                          <h3 className={`font-display text-lg md:text-xl mb-1 ${isPurple ? "text-maestria-light" : "text-cyan"}`}>MAESTRIA</h3>
-                          <p className="text-xs md:text-sm text-foreground mb-1">{level.title}</p>
-                          <p className="text-xs text-muted-foreground italic mb-4">{level.subtitle}</p>
+                        {/* Card */}
+                        <div
+                          className={`ml-12 md:ml-0 flex-1 ${isRight ? "md:pr-12 md:mr-[50%]" : "md:pl-12 md:ml-[50%]"}`}
+                        >
+                          <div
+                            className={`rounded-xl p-5 md:p-6 transition-all duration-500 ${
+                              isActive ? activeCardClass : isPast ? pastCardClass : lockedCardClass
+                            }`}
+                          >
+                            {/* Header */}
+                            <div className="flex items-center gap-3 mb-3">
+                              <span
+                                className={`font-display text-2xl md:text-3xl ${isActive || isPast ? (isPurple ? "text-maestria" : "text-cyan") : "text-muted-foreground/50"}`}
+                              >
+                                LV {5 + index}
+                              </span>
+                              <span
+                                className={`px-2 py-0.5 rounded-full border text-[10px] md:text-xs font-medium ${
+                                  isPurple
+                                    ? "bg-maestria/10 border-maestria/20 text-maestria-light"
+                                    : "bg-cyan/10 border-cyan/20 text-cyan"
+                                }`}
+                              >
+                                {level.dimension}
+                              </span>
+                            </div>
 
-                          <ul className="space-y-2 mb-4">
-                            {level.content.map((item, i) => (
-                              <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
-                                <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isPurple ? "bg-maestria" : "bg-cyan"}`} />
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
+                            <h3
+                              className={`font-display text-lg md:text-xl mb-1 ${isPurple ? "text-maestria-light" : "text-cyan"}`}
+                            >
+                              MAESTRIA
+                            </h3>
+                            <p className="text-xs md:text-sm text-foreground mb-1">{level.title}</p>
+                            <p className="text-xs text-muted-foreground italic mb-4">{level.subtitle}</p>
 
-                          <div className={`pt-4 border-t ${isPurple ? "border-maestria/30" : "border-cyan/30"}`}>
-                            <div className="flex items-start gap-2">
-                              <Gift className={`h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 mt-0.5 ${isPurple ? "text-maestria" : "text-cyan"}`} />
-                              <span className="text-xs text-muted-foreground">{level.badge}</span>
+                            <ul className="space-y-2 mb-4">
+                              {level.content.map((item, i) => (
+                                <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
+                                  <span
+                                    className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isPurple ? "bg-maestria" : "bg-cyan"}`}
+                                  />
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+
+                            <div className={`pt-4 border-t ${isPurple ? "border-maestria/30" : "border-cyan/30"}`}>
+                              <div className="flex items-start gap-2">
+                                <Gift
+                                  className={`h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 mt-0.5 ${isPurple ? "text-maestria" : "text-cyan"}`}
+                                />
+                                <span className="text-xs text-muted-foreground">{level.badge}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </AnimatedSection>
+                    </AnimatedSection>
                   </div>
                 );
               })}
@@ -854,10 +1020,15 @@ const MetodoEFO = () => {
                     Il Percorso Include:
                   </h3>
                   <ul className="space-y-2 md:space-y-3">
-                    {inclusions.map((item, index) => <li key={index} className="flex items-start gap-2 md:gap-3 text-xs md:text-sm text-muted-foreground">
+                    {inclusions.map((item, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-2 md:gap-3 text-xs md:text-sm text-muted-foreground"
+                      >
                         <Check className="h-3 w-3 md:h-4 md:w-4 text-emerald-400 mt-0.5 shrink-0" />
                         {item}
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </AnimatedSection>
@@ -869,10 +1040,15 @@ const MetodoEFO = () => {
                     Bonus Inclusi:
                   </h3>
                   <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6">
-                    {bonuses.map((item, index) => <li key={index} className="flex items-start gap-2 md:gap-3 text-xs md:text-sm text-muted-foreground">
+                    {bonuses.map((item, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-2 md:gap-3 text-xs md:text-sm text-muted-foreground"
+                      >
                         <Check className="h-3 w-3 md:h-4 md:w-4 text-amber-400 mt-0.5 shrink-0" />
                         {item}
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
 
                   <div className="border-t border-amber-500/20 pt-4 md:pt-6">
@@ -880,12 +1056,14 @@ const MetodoEFO = () => {
                       COMING SOON (GRATIS solo per chi inizia ora):
                     </p>
                     <ul className="space-y-1.5 md:space-y-2">
-                      {comingSoon.map((item, index) => <li key={index} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
+                      {comingSoon.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
                           <span className="text-amber-400">​✨</span>
                           <span>
                             {item.name} <span className="text-amber-400">(valore {item.value})</span>
                           </span>
-                        </li>)}
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -944,7 +1122,9 @@ const MetodoEFO = () => {
                   <p className="text-xs md:text-sm text-muted-foreground mt-3 md:mt-4 mb-2">Prezzo Early Bird</p>
                   <div className="mb-3">
                     <span className="text-muted-foreground line-through text-lg md:text-xl block mb-1">987€</span>
-                    <span className="font-display text-5xl md:text-7xl text-cyan drop-shadow-[0_0_30px_hsl(190_85%_55%/0.25)]">789€</span>
+                    <span className="font-display text-5xl md:text-7xl text-cyan drop-shadow-[0_0_30px_hsl(190_85%_55%/0.25)]">
+                      789€
+                    </span>
                   </div>
                   <p className="text-cyan text-xs md:text-sm">Con sconto doppio riservato a te!</p>
                   <p className="text-xs text-muted-foreground mt-2">BONUS assurdi inclusi nel prezzo!</p>
@@ -1031,7 +1211,7 @@ const MetodoEFO = () => {
                   <span className="text-amber-400 font-medium">30 aprile 2026</span>.
                 </p>
                 <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">
-                  <span className="font-medium">Perché aumenterà:</span> Da maggio introdurrò nuovi contenuti…
+                  <span className="font-medium">Perché aumenterà:</span> Da aprile introdurrò nuovi contenuti…
                 </p>
                 <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2">
                   Chi inizia ORA riceverà tutti gli aggiornamenti GRATIS (valore totale 1.085€).
@@ -1348,7 +1528,12 @@ const MetodoEFO = () => {
                 <div className="relative aspect-square max-w-xs sm:max-w-sm md:max-w-md mx-auto">
                   <div className="absolute -inset-2 sm:-inset-3 border border-cyan/20 rounded-xl sm:rounded-2xl md:rounded-3xl" />
                   <div className="relative h-full rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden">
-                    <BlurImage src={gabrielePhoto} alt="Gabriele Lucesole" placeholder={gabrielePhotoPlaceholder} className="w-full h-full" />
+                    <BlurImage
+                      src={gabrielePhoto}
+                      alt="Gabriele Lucesole"
+                      placeholder={gabrielePhotoPlaceholder}
+                      className="w-full h-full"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                 </div>
@@ -1379,8 +1564,8 @@ const MetodoEFO = () => {
                     pezzi del puzzle.
                   </p>
                   <p className="font-serif text-xs md:text-sm text-foreground">
-                    <span className="text-cyan">Risultato:</span> Il Metodo EFO® — la sintesi di 13 anni di ricerca,
-                    526 libri letti, decine di migliaia di euro investiti in formazione.
+                    <span className="text-cyan">Risultato:</span> Il Metodo EFO® — la sintesi di 13 anni di ricerca, 526
+                    libri letti, decine di migliaia di euro investiti in formazione.
                   </p>
                   <p className="font-serif text-xs md:text-sm text-cyan font-medium">
                     Non vendo teoria. Offro ciò che ha salvato me.
@@ -1407,15 +1592,25 @@ const MetodoEFO = () => {
                   13 anni di ricerca + Formazione accademica + Certificazioni internazionali
                 </p>
                 <div className="grid md:grid-cols-2 gap-2 md:gap-4 mb-6 md:mb-8">
-                  {credentialsList.map((cred, index) => <div key={index} className="flex items-start gap-1.5 md:gap-2 text-xs md:text-sm text-muted-foreground">
+                  {credentialsList.map((cred, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-1.5 md:gap-2 text-xs md:text-sm text-muted-foreground"
+                    >
                       <span className="shrink-0">{cred.split(" ")[0]}</span>
                       <span>{cred.split(" ").slice(1).join(" ")}</span>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
                 <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                  {credentials.map((cred, i) => <div key={i} className="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-lg p-1.5 md:p-2 flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                  {credentials.map((cred, i) => (
+                    <div
+                      key={i}
+                      className="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-lg p-1.5 md:p-2 flex items-center justify-center transition-transform duration-300 hover:scale-105"
+                    >
                       <img src={cred.logo} alt={cred.name} className="w-full h-full object-contain" loading="lazy" />
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
                 <p className="text-center text-xs md:text-sm text-muted-foreground mt-4 md:mt-6 italic">
                   Non sono un teorico da scrivania. Sono un praticante che ha trasformato il proprio dolore in un metodo
@@ -1437,7 +1632,8 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-              {testimonials.map((testimonial, index) => <AnimatedSection key={index} delay={index * 0.08} scale>
+              {testimonials.map((testimonial, index) => (
+                <AnimatedSection key={index} delay={index * 0.08} scale>
                   <div className="gradient-border rounded-xl p-4 md:p-6 bg-gradient-card h-full flex flex-col transition-transform duration-300 hover:-translate-y-1">
                     <div className="mb-3 md:mb-4">
                       <h3 className="font-display text-base md:text-lg text-cyan">{testimonial.name}</h3>
@@ -1454,26 +1650,41 @@ const MetodoEFO = () => {
                     <div className="border-t border-border/50 pt-3 md:pt-4">
                       <p className="text-xs text-muted-foreground mb-1.5 md:mb-2">Risultati misurabili:</p>
                       <ul className="space-y-0.5 md:space-y-1">
-                        {testimonial.results.map((result, i) => <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-emerald-400">
+                        {testimonial.results.map((result, i) => (
+                          <li key={i} className="flex items-start gap-1.5 md:gap-2 text-xs text-emerald-400">
                             <Check className="h-3 w-3 mt-0.5 shrink-0" />
                             {result}
-                          </li>)}
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
-                    {testimonial.videoId && <div className="mt-3 md:mt-4">
+                    {testimonial.videoId && (
+                      <div className="mt-3 md:mt-4">
                         <div className="aspect-video rounded-lg overflow-hidden bg-muted/30">
-                          <iframe src={`https://drive.google.com/file/d/${testimonial.videoId}/preview`} className="w-full h-full" allow="autoplay" title={`Testimonianza di ${testimonial.name}`} loading="lazy" />
+                          <iframe
+                            src={`https://drive.google.com/file/d/${testimonial.videoId}/preview`}
+                            className="w-full h-full"
+                            allow="autoplay"
+                            title={`Testimonianza di ${testimonial.name}`}
+                            loading="lazy"
+                          />
                         </div>
                         <Button variant="ghost" size="sm" className="mt-1.5 md:mt-2 text-cyan text-xs" asChild>
-                          <a href={`https://drive.google.com/file/d/${testimonial.videoId}/view`} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={`https://drive.google.com/file/d/${testimonial.videoId}/view`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Play className="h-3 w-3 md:h-4 md:w-4" />
                             Guarda Video Testimonianza
                           </a>
                         </Button>
-                      </div>}
+                      </div>
+                    )}
                   </div>
-                </AnimatedSection>)}
+                </AnimatedSection>
+              ))}
             </div>
           </div>
         </section>
@@ -1489,14 +1700,20 @@ const MetodoEFO = () => {
 
             <AnimatedSection scale>
               <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
-                {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="gradient-border rounded-lg md:rounded-xl bg-gradient-card px-4 md:px-6 border-0">
+                {faqs.map((faq, index) => (
+                  <AccordionItem
+                    key={index}
+                    value={`item-${index}`}
+                    className="gradient-border rounded-lg md:rounded-xl bg-gradient-card px-4 md:px-6 border-0"
+                  >
                     <AccordionTrigger className="text-left font-display text-sm md:text-lg hover:no-underline py-4 md:py-6">
                       {faq.q}
                     </AccordionTrigger>
                     <AccordionContent className="font-serif text-xs md:text-sm text-muted-foreground pb-4 md:pb-6 whitespace-pre-line">
                       {faq.a}
                     </AccordionContent>
-                  </AccordionItem>)}
+                  </AccordionItem>
+                ))}
               </Accordion>
             </AnimatedSection>
           </div>
@@ -1760,10 +1977,10 @@ const MetodoEFO = () => {
                   un servizio di emergenza o intervento psicologico.
                 </p>
                 <p className="mt-2">
-                  Le informazioni contenute nel presente sito e nei materiali del Metodo EFO® hanno finalità
-                  divulgative e formative. Non costituiscono in alcun modo consulenza medica o psicologica. Prezzi,
-                  disponibilità e contenuti possono variare senza preavviso. EFO® è marchio registrato; ogni uso non
-                  autorizzato è vietato.
+                  Le informazioni contenute nel presente sito e nei materiali del Metodo EFO® hanno finalità divulgative
+                  e formative. Non costituiscono in alcun modo consulenza medica o psicologica. Prezzi, disponibilità e
+                  contenuti possono variare senza preavviso. EFO® è marchio registrato; ogni uso non autorizzato è
+                  vietato.
                 </p>
               </div>
               <p className="italic mt-4">"Solo la verità che edifica è verità per te." — Søren Kierkegaard</p>
@@ -1771,6 +1988,7 @@ const MetodoEFO = () => {
           </div>
         </section>
       </Layout>
-    </>;
+    </>
+  );
 };
 export default MetodoEFO;
