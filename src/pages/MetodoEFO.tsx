@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -23,15 +23,44 @@ const MetodoEFO = () => {
   const [activeLevel, setActiveLevel] = useState(0);
   const totalLevels = roadmapLevels.length + maestriaLevels.length;
   const levelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isScrollingRef = useRef(false);
+
+  // Auto-update activeLevel based on scroll position
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isScrollingRef.current) return;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = levelRefs.current.indexOf(entry.target as HTMLDivElement);
+            if (index !== -1) setActiveLevel(index);
+          }
+        });
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+    );
+
+    // Observe after a small delay to let refs populate
+    const timer = setTimeout(() => {
+      levelRefs.current.forEach((el) => el && observer.observe(el));
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, []);
 
   const scrollToLevel = useCallback((index: number) => {
+    isScrollingRef.current = true;
     setActiveLevel(index);
-    // Small delay to let state update and animations start
     setTimeout(() => {
       const el = levelRefs.current[index];
       if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+      // Re-enable scroll observation after animation completes
+      setTimeout(() => { isScrollingRef.current = false; }, 800);
     }, 100);
   }, []);
   
@@ -484,8 +513,8 @@ const MetodoEFO = () => {
             </AnimatedSection>
 
             {/* Interactive Progress Bar - Sticky */}
-            <AnimatedSection className="max-w-3xl mx-auto mb-10 md:mb-14 sticky top-20 md:top-24 z-20" scale>
-              <div className="glass rounded-xl p-4 md:p-5 border border-amber/20">
+            <AnimatedSection className="max-w-3xl mx-auto mb-10 md:mb-14 sticky top-16 sm:top-18 md:top-20 z-20" scale>
+              <div className="rounded-xl p-4 md:p-5 border border-amber/20 bg-background shadow-[0_8px_32px_hsl(var(--background)/0.9),0_2px_8px_hsl(var(--background)/0.6)]">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs md:text-sm text-muted-foreground font-medium">IL TUO PROGRESSO</p>
                   <p className="text-xs font-medium">
@@ -564,7 +593,7 @@ const MetodoEFO = () => {
                   : "bg-gradient-to-br from-amber-deep/60 to-card border border-amber/20 opacity-80";
 
                 return (
-                  <div key={index} ref={(el) => { levelRefs.current[index] = el; }}>
+                  <div key={index} ref={(el) => { levelRefs.current[index] = el; }} style={{ scrollMarginTop: "160px" }}>
                   <AnimatedSection
                     delay={index * 0.1}
                     direction={isRight ? "right" : "left"}
@@ -694,7 +723,7 @@ const MetodoEFO = () => {
                   : "bg-gradient-to-br from-cyan-deep/30 to-card/40 border border-border/30";
 
                 return (
-                  <div key={`maestria-${index}`} ref={(el) => { levelRefs.current[globalIndex] = el; }}>
+                  <div key={`maestria-${index}`} ref={(el) => { levelRefs.current[globalIndex] = el; }} style={{ scrollMarginTop: "160px" }}>
                   <AnimatedSection
                     delay={globalIndex * 0.1}
                     direction={isRight ? "right" : "left"}
