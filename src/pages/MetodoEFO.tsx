@@ -1288,7 +1288,7 @@ const MetodoEFO = () => {
             <div className="space-y-4 md:space-y-8">
               {/* VS Psicoterapia */}
               <AnimatedSection scale>
-                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50 border-l-[3px] border-l-cyan shadow-[-8px_0_24px_-12px_hsl(var(--cyan)/0.45)]">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">
                     VS Psicoterapia Tradizionale
                   </h3>
@@ -1350,7 +1350,7 @@ const MetodoEFO = () => {
 
               {/* VS Altri Coach */}
               <AnimatedSection delay={0.1} scale>
-                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50 border-l-[3px] border-l-cyan shadow-[-8px_0_24px_-12px_hsl(var(--cyan)/0.45)]">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">VS Altri "Coach"</h3>
                   <div className="grid md:grid-cols-2 gap-3 md:gap-6">
                     <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-muted/20">
@@ -1408,7 +1408,7 @@ const MetodoEFO = () => {
 
               {/* VS App/Libri */}
               <AnimatedSection delay={0.15} scale>
-                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50 border-l-[3px] border-l-cyan shadow-[-8px_0_24px_-12px_hsl(var(--cyan)/0.45)]">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">
                     VS App di Meditazione & Libri Self-Help
                   </h3>
