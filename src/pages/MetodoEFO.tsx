@@ -1288,7 +1288,7 @@ const MetodoEFO = () => {
             <div className="space-y-4 md:space-y-8">
               {/* VS Psicoterapia */}
               <AnimatedSection scale>
-                <div className="glass rounded-xl p-4 md:p-6 border border-border/50 border-l-2 border-l-accent/40">
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">
                     VS Psicoterapia Tradizionale
                   </h3>
