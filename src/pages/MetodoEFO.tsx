@@ -1408,7 +1408,7 @@ const MetodoEFO = () => {
 
               {/* VS App/Libri */}
               <AnimatedSection delay={0.15} scale>
-                <div className="glass rounded-xl p-4 md:p-6 border border-border/50 border-l-2 border-l-cyan/40">
+                <div className="glass rounded-xl p-4 md:p-6 border border-border/50">
                   <h3 className="font-display text-lg md:text-xl mb-4 md:mb-6 text-center">
                     VS App di Meditazione & Libri Self-Help
                   </h3>
