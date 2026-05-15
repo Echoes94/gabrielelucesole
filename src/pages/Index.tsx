@@ -12,7 +12,7 @@ const jsonLd = {
   "@type": "ProfessionalService",
   "name": "Gabriele Lucesole - Coach Professionista",
   "description": "Professional coaching con il Metodo EFO®: antica saggezza e neuroscienze per trasformare la tua vita.",
-  "url": "https://gabrielelucesole.com",
+  "url": "https://gabrielelucesole.lovable.app",
   "email": "gabriele.lucesole@gmail.com",
   "sameAs": [
     "https://instagram.com/gabrielelucesole",
@@ -33,7 +33,7 @@ const Index = () => {
           content="Dalla crisi esistenziale all'autorealizzazione. Professional coaching con il Metodo EFO®: antica saggezza e neuroscienze per trasformare la tua vita." 
         />
         <meta name="keywords" content="life coaching, professional coaching, metodo EFO, autorealizzazione, mindfulness, Gabriele Lucesole" />
-        <link rel="canonical" href="https://gabrielelucesole.com" />
+        <link rel="canonical" href="https://gabrielelucesole.lovable.app" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
       

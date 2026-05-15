@@ -128,7 +128,7 @@ const ChiSono = () => {
       <Helmet>
         <title>Chi Sono | Gabriele Lucesole - Coach Professionista</title>
         <meta name="description" content="La mia storia: da giovane inquieto alla scoperta del Metodo EFO. 13 anni di ricerca, 526 libri, formazione certificata per aiutarti a trovare il tuo senso." />
-        <link rel="canonical" href="https://gabrielelucesole.com/chi-sono" />
+        <link rel="canonical" href="https://gabrielelucesole.lovable.app/chi-sono" />
       </Helmet>
 
       <Layout>
