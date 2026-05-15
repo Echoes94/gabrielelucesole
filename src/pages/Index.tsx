@@ -35,7 +35,7 @@ const Index = () => {
         />
         <meta name="keywords" content="life coaching, professional coaching, metodo EFO, autorealizzazione, mindfulness, Gabriele Lucesole" />
         <link rel="canonical" href="https://gabrielelucesole.lovable.app" />
-        <link rel="preload" as="image" href={heroBg} fetchpriority="high" />
+        <link rel="preload" as="image" href={heroBg} fetchPriority="high" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
       
