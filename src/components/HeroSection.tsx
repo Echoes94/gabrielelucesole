@@ -54,18 +54,16 @@ const HeroSection = () => {
           </span>
         </motion.div>
 
-        {/* Main headline - simplified animation */}
+        {/* Main headline - render visible immediately for fast LCP */}
         <motion.h1 id="hero-heading" className="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-5 sm:mb-8" initial={{
-        opacity: 0,
         y: 20,
         filter: "blur(8px)"
       }} animate={{
-        opacity: 1,
         y: 0,
         filter: "blur(0px)"
       }} transition={{
         duration: 0.6,
-        delay: 0.2,
+        delay: 0.05,
         ease: [0.22, 1, 0.36, 1]
       }}>
           <span className="block">Dalla crisi esistenziale</span>
