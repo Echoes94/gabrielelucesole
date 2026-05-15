@@ -1,12 +1,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Mail } from "lucide-react";
 import heroBg from "@/assets/hero-bg.webp";
 import { heroBgPlaceholder } from "@/lib/image-placeholders";
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
   const {
     scrollYProgress
   } = useScroll({
@@ -14,21 +13,11 @@ const HeroSection = () => {
     offset: ["start start", "end start"]
   });
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
-  // Preload hero image
-  useEffect(() => {
-    const img = new Image();
-    img.src = heroBg;
-    img.onload = () => setImageLoaded(true);
-  }, []);
   return <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16" aria-labelledby="hero-heading">
-      {/* Static Background image with lazy fade-in */}
-      <div className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${imageLoaded ? "opacity-100" : "opacity-0"}`} style={{
-      backgroundImage: `url(${heroBg})`
+      {/* Static Background image — render immediately for fast LCP */}
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${heroBg}), url(${heroBgPlaceholder})`
     }}>
-        {!imageLoaded && (
-          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-lg scale-110" style={{ backgroundImage: `url(${heroBgPlaceholder})` }} />
-        )}
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
 
