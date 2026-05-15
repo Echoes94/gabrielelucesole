@@ -6,6 +6,7 @@ import AboutPreview from "@/components/AboutPreview";
 import MethodPreview from "@/components/MethodPreview";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
+import heroBg from "@/assets/hero-bg.webp";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -34,6 +35,7 @@ const Index = () => {
         />
         <meta name="keywords" content="life coaching, professional coaching, metodo EFO, autorealizzazione, mindfulness, Gabriele Lucesole" />
         <link rel="canonical" href="https://gabrielelucesole.lovable.app" />
+        <link rel="preload" as="image" href={heroBg} fetchpriority="high" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
       
