@@ -76,7 +76,16 @@ const MetodoEFO = () => {
           name="description"
           content="Il Metodo EFO®: sistema integrato per trasformare il passato, vivere il presente e attrarre il futuro. 13+ settimane di coaching professionale."
         />
-        <link rel="canonical" href="https://gabrielelucesole.com/metodo-efo" />
+        <link rel="canonical" href="https://gabrielelucesole.lovable.app/metodo-efo" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        })}</script>
       </Helmet>
 
       <Layout>
